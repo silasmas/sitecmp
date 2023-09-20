@@ -4,6 +4,10 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * @author Xanders
+ * @see https://www.linkedin.com/in/xanders-samoth-b2770737/
+ */
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -19,6 +23,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        view()->composer('*', function ($view) {
+            $view->with('current_locale', app()->getLocale());
+            $view->with('available_locales', config('app.available_locales'));
+        });
     }
 }
