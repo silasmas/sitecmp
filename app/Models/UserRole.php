@@ -18,7 +18,7 @@ class UserRole extends Model
      *
      * @var array<int, string>
      */
-    protected $guarded = [];
+    protected $fillable = ['role_id', 'user_id'];
 
     /**
      * ONE-TO-MANY
