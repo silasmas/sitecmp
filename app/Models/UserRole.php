@@ -37,4 +37,13 @@ class UserRole extends Model
     {
         return $this->belongsTo(Role::class);
     }
+
+    protected function setKeysForSaveQuery(Builder $query)
+    {
+        $query
+            ->where('user_id', '=', $this->getAttribute('user_id'))
+            ->where('role_id', '=', $this->getAttribute('role_id'));
+
+        return $query;
+    }
 }
