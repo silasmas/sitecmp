@@ -89,6 +89,7 @@ class RoleController extends BaseController
     {
         // Get inputs
         $inputs = [
+            'id' => $request->id,
             'name' => $request->name,
             'display_name' => $request->display_name
         ];

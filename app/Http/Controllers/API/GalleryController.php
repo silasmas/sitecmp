@@ -74,6 +74,7 @@ class GalleryController extends BaseController
     {
         // Get inputs
         $inputs = [
+            'id' => $request->id,
             'image_url' => $request->image_url,
             'description' => $request->description,
             'is_active' => $request->is_active,

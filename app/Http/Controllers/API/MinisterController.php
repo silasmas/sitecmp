@@ -82,6 +82,7 @@ class MinisterController extends BaseController
     {
         // Get inputs
         $inputs = [
+            'id' => $request->id,
             'fullname' => $request->fullname,
             'image_url' => $request->image_url,
             'bio' => $request->bio,

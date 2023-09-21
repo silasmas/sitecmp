@@ -85,6 +85,7 @@ class PostController extends BaseController
     {
         // Get inputs
         $inputs = [
+            'id' => $request->id,
             'title' => $request->title,
             'type' => $request->type,
             'link_url' => $request->link_url,

@@ -78,6 +78,7 @@ class FaithfulController extends BaseController
     {
         // Get inputs
         $inputs = [
+            'id' => $request->id,
             'fullname' => $request->fullname,
             'email' => $request->email,
             'phone' => $request->phone,

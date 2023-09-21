@@ -76,6 +76,7 @@ class ProgramController extends BaseController
     {
         // Get inputs
         $inputs = [
+            'id' => $request->id,
             'designation' => $request->designation,
             'description' => $request->description,
             'entity_id' => $request->entity_id,

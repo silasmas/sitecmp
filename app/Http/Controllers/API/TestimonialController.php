@@ -75,6 +75,7 @@ class TestimonialController extends BaseController
     {
         // Get inputs
         $inputs = [
+            'id' => $request->id,
             'fullname' => $request->fullname,
             'body' => $request->body,
             'image_url' => $request->image_url,

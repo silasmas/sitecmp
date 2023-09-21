@@ -77,6 +77,7 @@ class GoodController extends BaseController
     {
         // Get inputs
         $inputs = [
+            'id' => $request->id,
             'designation' => $request->designation,
             'image_url' => $request->image_url,
             'price' => $request->price,

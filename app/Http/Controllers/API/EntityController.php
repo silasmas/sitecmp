@@ -83,6 +83,7 @@ class EntityController extends BaseController
     {
         // Get inputs
         $inputs = [
+            'id' => $request->id,
             'designation' => $request->designation,
             'type' => $request->type,
             'titulaire' => $request->titulaire,

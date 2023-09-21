@@ -83,6 +83,7 @@ class EventController extends BaseController
     {
         // Get inputs
         $inputs = [
+            'id' => $request->id,
             'designation' => $request->designation,
             'type' => $request->type,
             'lieu' => $request->lieu,

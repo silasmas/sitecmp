@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Models\Role;
 use App\Models\User;
+use App\Models\UserRole;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -74,7 +76,16 @@ class UserController extends BaseController
         $user = User::create($inputs);
 
         if ($request->role_id != null) {
-            $user->roles->attach([$request->role_id]);
+            $role = Role::find($request->role_id);
+
+            if (is_null($role)) {
+                return $this->handleError(__('notifications.find_role_404'));
+            }
+
+            UserRole::create([
+                'user_id' => $user->id,
+                'role_id' => $role->id
+            ]);
         }
 
         return $this->handleResponse($user, __('notifications.create_user_success'));
@@ -108,6 +119,7 @@ class UserController extends BaseController
     {
         // Get inputs
         $inputs = [
+            'id' => $request->id,
             'name' => $request->name,
             'email' => $request->email,
             'avatar' => $request->avatar,
@@ -187,7 +199,20 @@ class UserController extends BaseController
         }
 
         if ($request->role_id != null) {
-            $user->roles->sync([$request->role_id]);
+            $role = Role::find($request->role_id);
+
+            if (is_null($role)) {
+                return $this->handleError(__('notifications.find_role_404'));
+            }
+
+            $user_role = UserRole::where([['user_id', $current_user->id], ['role_id', $role->id]])->first();
+
+            if ($user_role == null) {
+                UserRole::create([
+                    'user_id' => $current_user->id,
+                    'role_id' => $role->id
+                ]);
+            }
         }
 
         return $this->handleResponse(new ResourcesUser($user), __('notifications.update_user_success'));
@@ -287,6 +312,34 @@ class UserController extends BaseController
 
             return $this->handleResponse(new ResourcesUser($user), __('notifications.find_user_success'));
         }
+    }
+
+    /**
+     * Update user role in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function withdrawRole(Request $request, $id)
+    {
+        $user = User::find($id);
+
+        if (is_null($user)) {
+            return $this->handleError(__('notifications.find_user_404'));
+        }
+
+        $role = Role::find($request->role_id);
+
+        if (is_null($role)) {
+            return $this->handleError(__('notifications.find_role_404'));
+        }
+
+        $user_role = UserRole::where([['user_id', $user->id], ['role_id', $role->id]])->first();
+
+        $user_role->delete();
+
+        return $this->handleResponse(new ResourcesUser($user), __('notifications.update_user_success'));
     }
 
     /**
