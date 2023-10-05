@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\Translatable\HasTranslations;
 
 /**
  * @author Xanders
@@ -11,6 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class Testimonial extends Model
 {
+    use HasTranslations;
     use HasFactory;
 
     /**
@@ -19,4 +21,5 @@ class Testimonial extends Model
      * @var array<int, string>
      */
     protected $guarded = [];
+    public $translatable = [];
 }

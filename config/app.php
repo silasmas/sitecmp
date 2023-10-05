@@ -99,7 +99,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'fr',
 
     /*
     |--------------------------------------------------------------------------
@@ -112,7 +112,7 @@ return [
     |
     */
 
-    'faker_locale' => 'en_US',
+    'faker_locale' => 'fr_FR',
 
     /*
     |--------------------------------------------------------------------------
@@ -125,7 +125,7 @@ return [
     'available_locales' => [
         'English' => 'en',
         'Français' => 'fr',
-        'Lingala' => 'ln'
+        // 'Lingala' => 'ln'
     ],
 
     /*

@@ -17,8 +17,11 @@
     <body class="font-sans text-gray-900 antialiased">
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
             <div>
-                <a href="/">
+                {{-- <a href="/">
                     <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                </a> --}}
+                <a href="/">
+                    <img src="{{ asset('assets/images/logo.png') }}" height="100" width="100"/>
                 </a>
             </div>
 

@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 /**
  * @author Xanders
@@ -11,6 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class Entity extends Model
 {
+    use HasTranslations;
     use HasFactory;
 
     /**
@@ -19,6 +21,7 @@ class Entity extends Model
      * @var array<int, string>
      */
     protected $guarded = [];
+    public $translatable = ["designation","titulaire","adresse","image_url","contact"];
 
     /**
      * ONE-TO-MANY

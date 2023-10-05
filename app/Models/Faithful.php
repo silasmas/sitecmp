@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
@@ -11,6 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class Faithful extends Model
 {
+    use HasTranslations;
     use HasFactory;
 
     /**
@@ -19,4 +21,5 @@ class Faithful extends Model
      * @var array<int, string>
      */
     protected $guarded = [];
+    public $translatable = [""];
 }

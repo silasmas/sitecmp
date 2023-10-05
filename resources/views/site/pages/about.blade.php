@@ -1,0 +1,479 @@
+@extends('site.layout.template')
+
+@section("content")
+
+    <section class="page-title bg-overlay-black-60 jarallax" data-speed="0.6" data-img-src="{{ asset('assets/site/images/bg/02.jpg') }}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="page-title-name">
+                        <h1>Qui sommes-nous ?</h1>
+                        <p>Nous connaître</p>
+
+                    </div>
+                </div>
+            </div>
+    </section>
+
+
+    <section class="our-history white-bg page-section-ptb">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="section-title text-center">
+                        <h2 class="title-effect">Pour la petite histoire</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="timeline-dots"></div>
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-badge"></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h5 class="timeline-title text-muted">Centre Missionnaire Philadelphie </h5>
+
+                                </div>
+                                <div class="timeline-body">
+                                    <p>Le Centre Missionnaire Philadelphie est une église locale de la 37ème Communauté
+                                        des Assemblées de Dieu au Congo</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge"></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h5 class="timeline-title text-muted">Depuis le 30 octobre 2016</h5>
+                                </div>
+                                <div class="timeline-body">
+                                    <p>suivant l’orientation divine, l’apôtre Roland DALO a cédé la direction de
+                                        l’église au pasteur Ken LUAMBA pour se consacrer à Daloministries, un ministère
+                                        d’encadrement des serviteurs de Dieu.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="timeline-arrow"><i class="fa fa-chevron-down"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="who-we-are-left">
+                        <div class="owl-carousel" data-nav-dots="true" data-items="1" data-md-items="1"
+                            data-sm-items="1" data-xs-items="1" data-xx-items="1">
+                            <div class="item"><img class="img-fluid full-width" src="{{ asset('assets/site/images/about/01.jpg') }}" alt="">
+                            </div>
+                            <div class="item"><img class="img-fluid full-width" src="{{ asset('assets/site/images/about/02.jpg') }}" alt="">
+                            </div>
+                            <div class="item"><img class="img-fluid full-width" src="{{ asset('assets/site/images/about/03.jpg') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 sm-mt-30">
+
+                    <div class="accordion plus-icon shadow">
+                        <div class="acd-group acd-active">
+                            <a href="#" class="acd-heading acd-active">01. Histoire</a>
+                            <div class="acd-des">Enim expedita sed quia nesciunt dolor sit amet, consectetur adipisicing
+                                elit. Vero quod conseqt quibusdam, incidunt accusamus necessitatibus modi adipisci
+                                officiaDolor sit amet, consectetur adipisicing elit. Vero quod conseqt quibusdam, enim
+                                expedita sed quia nesciunt incidunt accus</div>
+                        </div>
+                        <div class="acd-group">
+                            <a href="#" class="acd-heading">02. Vision</a>
+                            <div class="acd-des">Adipisicing elit lorem ipsum dolor sit amet quibusdam similique quam
+                                corporis sequi, consectetur. Tempora, ab officiis ducimus commodi, id, voluptates
+                                suscipit quasi nisi. Qui, explicabo quod laborum alias vero aliquid.</div>
+                        </div>
+                        <div class="acd-group">
+                            <a href="#" class="acd-heading">03. Mission</a>
+                            <div class="acd-des">Tempora, ab officiis ducimus commodi quibusdam similique quam corporis
+                                sequi adipisicing elit lorem ipsum dolor sit amet, consectetur. id, voluptates suscipit
+                                quasi nisi. Qui, explicabo quod laborum alias vero aliquid.</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="split-section black-bg page-section-ptb" style="margin-top: 50px;">
+        <div class="side-background">
+            <div class="col-lg-6 img-side img-left">
+                <div class="img-holder img-cover jarallax" data-speed="0.6" data-img-src="{{ asset('assets/site/images/bg/09.jpg') }}">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-lg-5">
+                    <div class="section-title">
+                        <h6 class="text-white">Pasteur Titulaire</h6>
+                        <h2 class="text-white title-effect">Pasteur Ken Luamba </h2>
+                        <p class="text-white">Shalom bien-aimé(e) dans le Seigneur,</p>
+                    </div>
+                    <div class="tab">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item"><a class="nav-link active" href="#research-07" data-bs-toggle="tab">Nou
+                                    sommes dans la joie de vous compter parmi nous en ce jour. Notre désir est que vous
+                                    passiez des moments bénis dans la présence du Seigneur.
+
+                                    <br><br>Notre prière pour vous est que le Seigneur fortifie votre foi et raffermisse
+                                    vos pas afin de remporter le prix de la vocation céleste de Dieu en Jésus-Christ,
+                                    notre Seigneur, qui revient très bientôt.
+
+                                    <br><br>Ainsi, nous prions que Dieu vous accorde d'accomplir votre destinée en
+                                    établissant clairement vos priorités; mais surtout en faisant de Lui la priorité des
+                                    priorités.
+                                    En effet, que sert-il à un homme de gagner le monde entier s'il perd son âme ?
+
+                                    <br><br> Puissiez-vous être rassuré(e), de notre part, qu'une main de soutien vous
+                                    est tenue.</a></li>
+
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="research-07">
+                                <p class="text-white">
+                                    Votre Frère, <br>
+                                    Ken Luamba <br>
+                                    Pasteur
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="meet-team white-bg page-section-ptb">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title text-center">
+                        <h6>Collège pastoral</h6>
+                        <h2 class="title-effect">Collège pastoral</h2>
+                        <p>Découvrir tous les ministres de notre église</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="isotope-filters">
+                        <button data-filter="" class="active">Tous</button>
+                        <button data-filter=".leadership">Associés</button>
+                        <button data-filter=".development">Stagiaires</button>
+                    </div>
+                    <div class="isotope full-screen columns-4">
+                        <div class="grid-item leadership  ">
+                            <div class="team team-hover">
+                                <div class="team-photo">
+                                    <img class="img-fluid mx-auto" src="{{ asset('assets/site/images/team/01.jpg') }}" alt="">
+                                </div>
+                                <div class="team-description">
+                                    <div class="team-info">
+                                        <h5><a href="team-single.html"> Martin Smith</a></h5>
+                                    </div>
+                                    <div class="team-contact">
+                                        <span class="call"> +(704) 279-1249</span>
+                                        <span class="email"> <i class="fa fa-envelope-o"></i>
+                                            letstalk@webster.com</span>
+                                    </div>
+                                    <div class="social-icons color clearfix">
+                                        <ul>
+                                            <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a>
+                                            </li>
+                                            <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a>
+                                            </li>
+                                            <li class="social-instagram"><a href="#"><i class="fa fa-instagram"></i></a>
+                                            </li>
+                                            <li class="social-linkedin"><a href="#"><i class="fa fa-linkedin"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-item leadership  ">
+                            <div class="team team-hover">
+                                <div class="team-photo">
+                                    <img class="img-fluid mx-auto" src="{{ asset('assets/site/images/team/01.jpg') }}" alt="">
+                                </div>
+                                <div class="team-description">
+                                    <div class="team-info">
+                                        <h5><a href="team-single.html"> Martin Smith</a></h5>
+                                    </div>
+                                    <div class="team-contact">
+                                        <span class="call"> +(704) 279-1249</span>
+                                        <span class="email"> <i class="fa fa-envelope-o"></i>
+                                            letstalk@webster.com</span>
+                                    </div>
+                                    <div class="social-icons color clearfix">
+                                        <ul>
+                                            <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a>
+                                            </li>
+                                            <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a>
+                                            </li>
+                                            <li class="social-instagram"><a href="#"><i class="fa fa-instagram"></i></a>
+                                            </li>
+                                            <li class="social-linkedin"><a href="#"><i class="fa fa-linkedin"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid-item  development">
+                            <div class="team team-hover">
+                                <div class="team-photo">
+                                    <img class="img-fluid mx-auto" src="{{ asset('assets/site/images/team/01.jpg') }}" alt="">
+                                </div>
+                                <div class="team-description">
+                                    <div class="team-info">
+                                        <h5><a href="team-single.html"> Martin Smith</a></h5>
+                                    </div>
+                                    <div class="team-contact">
+                                        <span class="call"> +(704) 279-1249</span>
+                                        <span class="email"> <i class="fa fa-envelope-o"></i>
+                                            letstalk@webster.com</span>
+                                    </div>
+                                    <div class="social-icons color clearfix">
+                                        <ul>
+                                            <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a>
+                                            </li>
+                                            <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a>
+                                            </li>
+                                            <li class="social-instagram"><a href="#"><i class="fa fa-instagram"></i></a>
+                                            </li>
+                                            <li class="social-linkedin"><a href="#"><i class="fa fa-linkedin"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</section>
+
+<section class="page-section-pt">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="section-title text-center">
+                    <h6>Rejoignez-nous et participez à nos célébrations dont voici le programme</h6>
+                    <h2 class="title-effect">Nos programmes</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-sm-6 sm-mb-30">
+                <div class="team team-round">
+                    <div class="team-photo">
+                        <img class="img-fluid mx-auto" src="{{ asset('assets/site/images/team/05.jpg') }}" alt="">
+                    </div>
+                    <div class="team-description">
+                        <div class="team-info">
+                            <h5> <a href="#"> Lundi </a></h5>
+                            <span>Prières dans les cellules de l'Eglise</span>
+                        </div>
+                        <div class="team-contact">
+                            <span class="call"> 18h00 - 19h00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 sm-mb-30">
+                <div class="team team-round">
+                    <div class="team-photo">
+                        <img class="img-fluid mx-auto" src="{{ asset('assets/site/images/team/05.jpg') }}" alt="">
+                    </div>
+                    <div class="team-description">
+                        <div class="team-info">
+                            <h5> <a href="#"> Mercredi </a></h5>
+                            <span>Culte d'enseignement biblique</span>
+                        </div>
+                        <div class="team-contact">
+                            <span class="call"> 17h30 - 19h30</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 xs-mb-30">
+                <div class="team team-round">
+                    <div class="team-photo">
+                        <img class="img-fluid mx-auto" src="{{ asset('assets/site/images/team/05.jpg') }}" alt="">
+                    </div>
+                    <div class="team-description">
+                        <div class="team-info">
+                            <h5> <a href="#"> Jeudi </a></h5>
+                            <span>Culte d'intercession (Jeudi Etoko)</span>
+                        </div>
+                        <div class="team-contact">
+                            <span class="call"> 17h30 - 19h30</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="team team-round">
+                    <div class="team-photo">
+                        <img class="img-fluid mx-auto" src="{{ asset('assets/site/images/team/05.jpg') }}" alt="">
+                    </div>
+                    <div class="team-description">
+                        <div class="team-info">
+                            <h5> <a href="#"> Dimanche </a></h5>
+                            <span>Culte dominical</span>
+                        </div>
+                        <div class="team-contact">
+                            <span class="call"> 07h00-8h30; <br> 09h30 -11h00; <br> 12h00-13h30 </span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="gray-bg page-section-pt happy-clients">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 align-self-end">
+                <img class="d-xs-block d-lg-block d-none img-fluid" src="{{ asset('assets/site/images/objects/testimonial.jpg') }}" alt="">
+            </div>
+            <div class="col-lg-6 mt-60">
+                <div class="section-title">
+                    <h6>Ce que Dieu a fait</h6>
+                    <h2 class="title-effect">Nos fidèles parlent</h2>
+                </div>
+                <div class="tab">
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="testi-01">
+                            <span class="quoter-icon">“</span>
+                            <p>I had a few things I needed help with on this template... Their customer service was
+                                amazing and helped me out many times. All fits and works well and good!! Top marks. One
+                                of the complete template with different requirements. Thanks a lot for such great
+                                features, pages, shortcodes and home variations. Incredible Job.</p>
+                            <div class="testimonial-avatar">
+                                <h5>Acapella </h5>
+                                <span>ThemeForest user</span>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="testi-02">
+                            <span class="quoter-icon">“</span>
+                            <p>Really like the cleanliness of the design, the documentation and the content-blocks.
+                                Obviously it is still a relatively new template (version 1.0.3), so it lacks some
+                                features that you'll find in more mature templates. But their support is swift and very
+                                co-operative. Kudos!</p>
+                            <div class="testimonial-avatar">
+                                <h5>Tenfore </h5>
+                                <span>ThemeForest user</span>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="testi-03">
+                            <span class="quoter-icon">“</span>
+                            <p> One of the complete template with different requirements. Thanks a lot for such great
+                                features, pages, shortcodes and home variations. Incredible Job. I had a few things I
+                                needed help with on this template... Their customer service was amazing and helped me
+                                out many times. All fits and works well and good!! Top marks.</p>
+                            <div class="testimonial-avatar">
+                                <h5>Acapella </h5>
+                                <span>ThemeForest user</span>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="testi-04">
+                            <span class="quoter-icon">“</span>
+                            <p>The quality of design is very good and make sense to the real world requirement. yes its
+                                multipurpose template and i found what i wanted from this theme. perfectly suitable for
+                                my business and design is flexible with multiple layout provided. good work keep it up.
+                            </p>
+                            <div class="testimonial-avatar">
+                                <h5>Shopperbox </h5>
+                                <span>ThemeForest user</span>
+                            </div>
+                        </div>
+                        <ul class="nav nav-tabs mt-60" id="myTab" role="tablist">
+                            <li><a class="nav-item active" href="#testi-01" data-bs-toggle="tab"><img class="img-fluid"
+                                        src="{{ asset('assets/site/images/team/01.jpg') }}" alt=""> </a></li>
+                            <li><a class="nav-item" href="#testi-02" data-bs-toggle="tab"><img class="img-fluid"
+                                        src="{{ asset('assets/site/images/team/02.jpg') }}" alt=""> </a></li>
+                            <li><a class="nav-item" href="#testi-03" data-bs-toggle="tab"><img class="img-fluid"
+                                        src="{{ asset('assets/site/images/team/03.jpg') }}" alt=""> </a></li>
+                            <li><a class="nav-item" href="#testi-04" data-bs-toggle="tab"><img class="img-fluid"
+                                        src="{{ asset('assets/site/images/team/04.jpg') }}" alt=""> </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact-box contact-box-top theme-bg" style="margin-top: 50px;">
+    <div class="container">
+        <div class="row pt-20 pb-40">
+            <div class="col-md-4 sm-mb-30">
+                <div class="contact-box">
+                    <div class="contact-icon">
+                        <i class="ti-map text-white"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h5 class="text-white"> Adresse</h5>
+                        <span class="text-white">Details</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 sm-mb-30">
+                <div class="contact-box">
+                    <div class="contact-icon">
+                        <i class="ti-headphone text-white"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h5 class="text-white">Téléphone</h5>
+                        <span class="text-white">Heure de rdv</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="contact-box">
+                    <div class="contact-icon">
+                        <i class="ti-email text-white"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h5 class="text-white">Email</h5>
+                        <span class="text-white">Fax</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@endsection
+
+
+
+
