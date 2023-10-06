@@ -184,6 +184,7 @@ NOTE: This is main stylesheet of template, This file contains the styling for th
 .dropdown-menu a:hover{
   background: var(--primaryColor);
   color: #fff;
+  text-align: center;
 }
 
 .mega-menu .menu-logo { padding: 0; }
