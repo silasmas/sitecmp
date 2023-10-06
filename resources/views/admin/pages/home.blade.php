@@ -3,14 +3,6 @@
 
 @section("content")
 
-<!-- .app-main -->
-<main class="app-main">
-    <!-- .wrapper -->
-    <div class="wrapper">
-      <!-- .page -->
-      <div class="page">
-        <!-- .page-inner -->
-        <div class="page-inner">
           <!-- .page-title-bar -->
           <header class="page-title-bar">
             <div class="d-flex flex-column flex-md-row">
@@ -495,28 +487,12 @@
               </div><!-- /.card -->
             </div><!-- /card-deck-xl -->
           </div><!-- /.page-section -->
-        </div><!-- /.page-inner -->
-      </div><!-- /.page -->
-    </div><!-- .app-footer -->
-    <footer class="app-footer">
-      <ul class="list-inline">
-        <li class="list-inline-item">
-          <a class="text-muted" href="#">Support</a>
-        </li>
-        <li class="list-inline-item">
-          <a class="text-muted" href="#">Help Center</a>
-        </li>
-        <li class="list-inline-item">
-          <a class="text-muted" href="#">Privacy</a>
-        </li>
-        <li class="list-inline-item">
-          <a class="text-muted" href="#">Terms of Service</a>
-        </li>
-      </ul>
-      <div class="copyright"> Copyright © 2018. All right reserved. </div>
-    </footer><!-- /.app-footer -->
-    <!-- /.wrapper -->
-  </main>
-  <!-- /.app-main -->
+        
 
+@endsection
+
+@section('autres-script')
+<script src="{{ asset('assets/vendor/flatpickr/flatpickr.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/easy-pie-chart/jquery.easypiechart.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/chart.js/Chart.min.js') }}"></script> 
 @endsection

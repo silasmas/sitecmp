@@ -161,264 +161,202 @@
 
     <section class="meet-team white-bg page-section-ptb">
         <div class="container">
-            <ul class="nav  mb-5 nav-tabs nav-tab-page justify-content-center align-items-center" id="pills-tab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
-                        data-bs-target="#collegePastoral" type="button" role="tab" aria-controls="pills-home"
-                        aria-selected="true">Collège pastoral</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pills-arrivage-tab" data-bs-toggle="pill"
-                        data-bs-target="#programmes" type="button" role="tab" aria-controls="pills-profile"
-                        aria-selected="false">Nos programmes</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pills-categorie-tab" data-bs-toggle="pill"
-                        data-bs-target="#extensions" type="button" role="tab"
-                        aria-controls="pills-profile" aria-selected="false">Nos extensions</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pills-fournisseur-tab" data-bs-toggle="pill"
-                        data-bs-target="#cellule" type="button" role="tab"
-                        aria-controls="pills-contact" aria-selected="false">Nos cellules</button>
-                </li>
-            </ul>
-            <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="collegePastoral" role="tabpanel"
-                    aria-labelledby="pills-home-tab" tabindex="0">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="section-title text-center">
-                                <h6>Collège pastoral</h6>
-                                <h2 class="title-effect">Collège pastoral</h2>
-                                <p>Découvrir tous les ministres de notre église</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="isotope-filters">
-                                <button data-filter="" class="active">Tous</button>
-                                <button data-filter=".leadership">Associés</button>
-                                <button data-filter=".development">Stagiaires</button>
-                            </div>
-                            <div class="isotope full-screen columns-4">
-                                <div class="grid-item leadership  ">
-                                    <div class="team team-hover">
-                                        <div class="team-photo">
-                                            <img class="img-fluid mx-auto" src="{{ asset('assets/site/images/team/01.jpg') }}" alt="">
-                                        </div>
-                                        <div class="team-description">
-                                            <div class="team-info">
-                                                <h5><a href="team-single.html"> Martin Smith</a></h5>
-                                            </div>
-                                            <div class="team-contact">
-                                                <span class="call"> +(704) 279-1249</span>
-                                                <span class="email"> <i class="fa fa-envelope-o"></i>
-                                                    letstalk@webster.com</span>
-                                            </div>
-                                            <div class="social-icons color clearfix">
-                                                <ul>
-                                                    <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a>
-                                                    </li>
-                                                    <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a>
-                                                    </li>
-                                                    <li class="social-instagram"><a href="#"><i class="fa fa-instagram"></i></a>
-                                                    </li>
-                                                    <li class="social-linkedin"><a href="#"><i class="fa fa-linkedin"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="grid-item leadership  ">
-                                    <div class="team team-hover">
-                                        <div class="team-photo">
-                                            <img class="img-fluid mx-auto" src="{{ asset('assets/site/images/team/01.jpg') }}" alt="">
-                                        </div>
-                                        <div class="team-description">
-                                            <div class="team-info">
-                                                <h5><a href="team-single.html"> Martin Smith</a></h5>
-                                            </div>
-                                            <div class="team-contact">
-                                                <span class="call"> +(704) 279-1249</span>
-                                                <span class="email"> <i class="fa fa-envelope-o"></i>
-                                                    letstalk@webster.com</span>
-                                            </div>
-                                            <div class="social-icons color clearfix">
-                                                <ul>
-                                                    <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a>
-                                                    </li>
-                                                    <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a>
-                                                    </li>
-                                                    <li class="social-instagram"><a href="#"><i class="fa fa-instagram"></i></a>
-                                                    </li>
-                                                    <li class="social-linkedin"><a href="#"><i class="fa fa-linkedin"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-        
-                                <div class="grid-item  development">
-                                    <div class="team team-hover">
-                                        <div class="team-photo">
-                                            <img class="img-fluid mx-auto" src="{{ asset('assets/site/images/team/01.jpg') }}" alt="">
-                                        </div>
-                                        <div class="team-description">
-                                            <div class="team-info">
-                                                <h5><a href="team-single.html"> Martin Smith</a></h5>
-                                            </div>
-                                            <div class="team-contact">
-                                                <span class="call"> +(704) 279-1249</span>
-                                                <span class="email"> <i class="fa fa-envelope-o"></i>
-                                                    letstalk@webster.com</span>
-                                            </div>
-                                            <div class="social-icons color clearfix">
-                                                <ul>
-                                                    <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a>
-                                                    </li>
-                                                    <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a>
-                                                    </li>
-                                                    <li class="social-instagram"><a href="#"><i class="fa fa-instagram"></i></a>
-                                                    </li>
-                                                    <li class="social-linkedin"><a href="#"><i class="fa fa-linkedin"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-        
-                            </div>
-                        </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title text-center">
+                        <h6>Collège pastoral</h6>
+                        <h2 class="title-effect">Collège pastoral</h2>
+                        <p>Découvrir tous les ministres de notre église</p>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="programmes" role="tabpanel"
-                    aria-labelledby="pills-profile-tab" tabindex="0">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="section-title text-center mb-80">
-                                <h6>Rejoignez-nous et participez à nos célébrations dont voici les horaires</h6>
-                                <h2 class="title-effect">NOS PROGRAMMES</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-md-3 ">
-                            <div class="pricing-table h-100">
-                                <div class="pricing-top h-100">
-                                    <div class="pricing-title">
-                                        <div class="mb-15 badge-day">Mercredi</div>
-                                        <h3 class="title-card">Culte d'enseignement biblique</h3>
-                                    </div>
-                                    <div class="time-line-prog d-flex flex-column">
-                                        <div class="item-line">
-                                            <div class="icon">
-                                                <i class="fa fa-clock-o"></i>
-                                            </div>
-                                            17h30 - 19h30
-                                        </div>
-                                    </div>
-                                </div>
-        
-                            </div>
-                        </div>
-        
-                        <div class="col-md-3 ">
-                            <div class="pricing-table h-100">
-                                <div class="pricing-top h-100">
-                                    <div class="pricing-title">
-                                        <div class="mb-15 badge-day">Jeudi</div>
-                                        <h3 class="title-card">Culte d'intercession (Jeudi Etoko)</h3>
-                                    </div>
-                                    <div class="time-line-prog d-flex flex-column">
-                                        <div class="item-line">
-                                            <div class="icon">
-                                                <i class="fa fa-clock-o"></i>
-                                            </div>
-                                            17h30 - 19h30
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-        
-                        <div class="col-md-3 ">
-                            <div class="pricing-table h-100">
-                                <div class="pricing-top h-100">
-                                    <div class="pricing-title">
-                                        <div class="mb-15 badge-day">Samedi</div>
-                                        <h3 class="title-card">Réunion de la jeunesse</h3>
-                                    </div>
-                                    <div class="time-line-prog d-flex flex-column">
-                                        <div class="item-line">
-                                            <div class="icon">
-                                                <i class="fa fa-clock-o"></i>
-                                            </div>
-                                            16h30 - 18h30
-                                        </div>
-                                    </div>
-                                </div>
-        
-                            </div>
-                        </div>
-        
-                        <div class="col-md-3 ">
-                            <div class="pricing-table h-100">
-                                <div class="pricing-top h-100">
-                                    <div class="pricing-title">
-                                        <div class="mb-15 badge-day">Dimanche</div>
-                                        <h3 class="title-card">Culte dominical</h3>
-                                    </div>
-                                    
-                                    <div class="time-line-prog d-flex flex-column">
-                                        <div class="item-line">
-                                            <div class="icon">
-                                                <i class="fa fa-clock-o"></i>
-                                            </div>
-                                            07h00-8h30
-                                        </div>
-                                        <div class="item-line">
-                                            <div class="icon">
-                                                <i class="fa fa-clock-o"></i>
-                                            </div>
-                                            12h00-13h30
-                                        </div>
-                                        <div class="item-line">
-                                            <div class="icon">
-                                                <i class="fa fa-clock-o"></i>
-                                            </div>
-                                            09h30 -11h00
-                                        </div>
-                                    </div>
-                                </div>
-        
-                            </div>
-                        </div>
-        
-        
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="extensions" role="tabpanel"
-                    aria-labelledby="pills-profile-tab" tabindex="0">
-                </div>
-                <div class="tab-pane fade" id="cellules" role="tabpanel"
-                    aria-labelledby="pills-profile-tab" tabindex="0">
-                </div>
-                <div class="tab-pane fade" id="pills-lot" role="tabpanel" aria-labelledby="pills-profile-tab"
-                    tabindex="0">
-                </div>
-
             </div>
-            
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="isotope-filters">
+                        <button data-filter="" class="active">Tous</button>
+                        <button data-filter=".leadership">Associés</button>
+                        <button data-filter=".development">Stagiaires</button>
+                    </div>
+                    <div class="isotope full-screen columns-4">
+                        <div class="grid-item leadership  ">
+                            <div class="team team-hover">
+                                <div class="team-photo">
+                                    <img class="img-fluid mx-auto" src="{{ asset('assets/site/images/team/01.jpg') }}" alt="">
+                                </div>
+                                <div class="team-description">
+                                    <div class="team-info">
+                                        <h5><a href="team-single.html"> Martin Smith</a></h5>
+                                    </div>
+                                    <div class="team-contact">
+                                        <span class="call"> +(704) 279-1249</span>
+                                        <span class="email"> <i class="fa fa-envelope-o"></i>
+                                            letstalk@webster.com</span>
+                                    </div>
+                                    <div class="social-icons color clearfix">
+                                        <ul>
+                                            <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a>
+                                            </li>
+                                            <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a>
+                                            </li>
+                                            <li class="social-instagram"><a href="#"><i class="fa fa-instagram"></i></a>
+                                            </li>
+                                            <li class="social-linkedin"><a href="#"><i class="fa fa-linkedin"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-item leadership  ">
+                            <div class="team team-hover">
+                                <div class="team-photo">
+                                    <img class="img-fluid mx-auto" src="{{ asset('assets/site/images/team/01.jpg') }}" alt="">
+                                </div>
+                                <div class="team-description">
+                                    <div class="team-info">
+                                        <h5><a href="team-single.html"> Martin Smith</a></h5>
+                                    </div>
+                                    <div class="team-contact">
+                                        <span class="call"> +(704) 279-1249</span>
+                                        <span class="email"> <i class="fa fa-envelope-o"></i>
+                                            letstalk@webster.com</span>
+                                    </div>
+                                    <div class="social-icons color clearfix">
+                                        <ul>
+                                            <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a>
+                                            </li>
+                                            <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a>
+                                            </li>
+                                            <li class="social-instagram"><a href="#"><i class="fa fa-instagram"></i></a>
+                                            </li>
+                                            <li class="social-linkedin"><a href="#"><i class="fa fa-linkedin"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid-item  development">
+                            <div class="team team-hover">
+                                <div class="team-photo">
+                                    <img class="img-fluid mx-auto" src="{{ asset('assets/site/images/team/01.jpg') }}" alt="">
+                                </div>
+                                <div class="team-description">
+                                    <div class="team-info">
+                                        <h5><a href="team-single.html"> Martin Smith</a></h5>
+                                    </div>
+                                    <div class="team-contact">
+                                        <span class="call"> +(704) 279-1249</span>
+                                        <span class="email"> <i class="fa fa-envelope-o"></i>
+                                            letstalk@webster.com</span>
+                                    </div>
+                                    <div class="social-icons color clearfix">
+                                        <ul>
+                                            <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a>
+                                            </li>
+                                            <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a>
+                                            </li>
+                                            <li class="social-instagram"><a href="#"><i class="fa fa-instagram"></i></a>
+                                            </li>
+                                            <li class="social-linkedin"><a href="#"><i class="fa fa-linkedin"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
+</div>
+</section>
 
-    </section>
+<section class="page-section-pt">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="section-title text-center">
+                    <h6>Rejoignez-nous et participez à nos célébrations dont voici le programme</h6>
+                    <h2 class="title-effect">Nos programmes</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-sm-6 sm-mb-30">
+                <div class="team team-round">
+                    <div class="team-photo">
+                        <img class="img-fluid mx-auto" src="{{ asset('assets/site/images/team/05.jpg') }}" alt="">
+                    </div>
+                    <div class="team-description">
+                        <div class="team-info">
+                            <h5> <a href="#"> Lundi </a></h5>
+                            <span>Prières dans les cellules de l'Eglise</span>
+                        </div>
+                        <div class="team-contact">
+                            <span class="call"> 18h00 - 19h00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <div class="col-lg-3 col-sm-6 sm-mb-30">
+                <div class="team team-round">
+                    <div class="team-photo">
+                        <img class="img-fluid mx-auto" src="{{ asset('assets/site/images/team/05.jpg') }}" alt="">
+                    </div>
+                    <div class="team-description">
+                        <div class="team-info">
+                            <h5> <a href="#"> Mercredi </a></h5>
+                            <span>Culte d'enseignement biblique</span>
+                        </div>
+                        <div class="team-contact">
+                            <span class="call"> 17h30 - 19h30</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 xs-mb-30">
+                <div class="team team-round">
+                    <div class="team-photo">
+                        <img class="img-fluid mx-auto" src="{{ asset('assets/site/images/team/05.jpg') }}" alt="">
+                    </div>
+                    <div class="team-description">
+                        <div class="team-info">
+                            <h5> <a href="#"> Jeudi </a></h5>
+                            <span>Culte d'intercession (Jeudi Etoko)</span>
+                        </div>
+                        <div class="team-contact">
+                            <span class="call"> 17h30 - 19h30</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="team team-round">
+                    <div class="team-photo">
+                        <img class="img-fluid mx-auto" src="{{ asset('assets/site/images/team/05.jpg') }}" alt="">
+                    </div>
+                    <div class="team-description">
+                        <div class="team-info">
+                            <h5> <a href="#"> Dimanche </a></h5>
+                            <span>Culte dominical</span>
+                        </div>
+                        <div class="team-contact">
+                            <span class="call"> 07h00-8h30; <br> 09h30 -11h00; <br> 12h00-13h30 </span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 <section class="gray-bg page-section-pt happy-clients">

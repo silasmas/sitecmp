@@ -328,65 +328,72 @@
             </li><!-- /.menu-item -->
             <!-- .menu-item -->
             <ul class="menu">
-                <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">                    
-                  <a href="" class="menu-link ">
-                    <span class="menu-icon far fa-file"></span><span class="menu-text">Dashboard</span><span class="badge badge-success">Gestion</span></a>
+                <li class="menu-item {{ Route::current()->getName() == 'dashboard'? 'has-active' : '' }}">                    
+                  <a href="{{ route('dashboard') }}" class="menu-link ">
+                    <span class="menu-icon far fa-file"></span><span class="menu-text">Dashboard</span>
+                    <span class="badge badge-success" {{ Route::current()->getName() == "dashboard"  ? '' : 'hidden' }}>Active</span>
+                </a>
+                </li>
+                <li class="menu-item {{ Route::current()->getName() == 'event' || "addEvent"  ? 'has-active' : '' }}">                    
+                  <a href="{{ route('event') }}" class="menu-link">
+                    <span class="menu-icon far fa-file"></span><span class="menu-text">Evénéments</span>
+
+                    <span class="badge badge-success" {{ Route::current()->getName() == 'event' || "addEvent"  ? '' : 'hidden' }}>Active</span>
+                </a>
                 </li>
                 <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">                    
                   <a href="" class="menu-link">
-                    <span class="menu-icon far fa-file"></span><span class="menu-text">Evénéments</span><span class="badge badge-success">Gestion</span></a>
+                    <span class="menu-icon far fa-file"></span><span class="menu-text">Publications</span>
+                    <span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span>
+                </a>
+                </li>
+                <li class="menu-item {{ Route::current()->getName() == 'galerie' ? 'has-active' : '' }}">                    
+                  <a href="{{ route('galerie') }}" class="menu-link">
+                    <span class="menu-icon far fa-file"></span><span class="menu-text">Galerie</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
+                </li>
+                <li class="menu-item {{ Route::current()->getName() == 'testimonial' ? 'has-active' : '' }}">                    
+                  <a href="{{ route('testimonial') }}" class="menu-link">
+                    <span class="menu-icon far fa-file"></span><span class="menu-text">Témoignages</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
                 </li>
                 <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">                    
                   <a href="" class="menu-link">
-                    <span class="menu-icon far fa-file"></span><span class="menu-text">Publications</span><span class="badge badge-success">Gestion</span></a>
+                    <span class="menu-icon far fa-file"></span><span class="menu-text">Commentaires</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
                 </li>
                 <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">                    
                   <a href="" class="menu-link">
-                    <span class="menu-icon far fa-file"></span><span class="menu-text">Galerie</span><span class="badge badge-success">Gestion</span></a>
+                    <span class="menu-icon far fa-file"></span><span class="menu-text">Evangelisation</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
                 </li>
                 <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">                    
                   <a href="" class="menu-link">
-                    <span class="menu-icon far fa-file"></span><span class="menu-text">Témoignages</span><span class="badge badge-success">Gestion</span></a>
+                    <span class="menu-icon far fa-file"></span><span class="menu-text">Projets</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
                 </li>
                 <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">                    
                   <a href="" class="menu-link">
-                    <span class="menu-icon far fa-file"></span><span class="menu-text">Commentaires</span><span class="badge badge-success">Gestion</span></a>
+                    <span class="menu-icon far fa-file"></span><span class="menu-text">Goods</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
                 </li>
                 <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">                    
                   <a href="" class="menu-link">
-                    <span class="menu-icon far fa-file"></span><span class="menu-text">Evangelisation</span><span class="badge badge-success">Gestion</span></a>
+                    <span class="menu-icon far fa-file"></span><span class="menu-text">Entités</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
                 </li>
                 <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">                    
                   <a href="" class="menu-link">
-                    <span class="menu-icon far fa-file"></span><span class="menu-text">Projets</span><span class="badge badge-success">Gestion</span></a>
+                    <span class="menu-icon far fa-file"></span><span class="menu-text">Ministre</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
                 </li>
                 <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">                    
                   <a href="" class="menu-link">
-                    <span class="menu-icon far fa-file"></span><span class="menu-text">Goods</span><span class="badge badge-success">Gestion</span></a>
+                    <span class="menu-icon far fa-file"></span><span class="menu-text">Requetes</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
                 </li>
                 <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">                    
                   <a href="" class="menu-link">
-                    <span class="menu-icon far fa-file"></span><span class="menu-text">Entités</span><span class="badge badge-success">Gestion</span></a>
+                    <span class="menu-icon far fa-file"></span><span class="menu-text">Newsletters</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
                 </li>
                 <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">                    
                   <a href="" class="menu-link">
-                    <span class="menu-icon far fa-file"></span><span class="menu-text">Ministre</span><span class="badge badge-success">Gestion</span></a>
+                    <span class="menu-icon far fa-file"></span><span class="menu-text">Fidèles</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
                 </li>
                 <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">                    
                   <a href="" class="menu-link">
-                    <span class="menu-icon far fa-file"></span><span class="menu-text">Requetes</span><span class="badge badge-success">Gestion</span></a>
-                </li>
-                <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">                    
-                  <a href="" class="menu-link">
-                    <span class="menu-icon far fa-file"></span><span class="menu-text">Newsletters</span><span class="badge badge-success">Gestion</span></a>
-                </li>
-                <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">                    
-                  <a href="" class="menu-link">
-                    <span class="menu-icon far fa-file"></span><span class="menu-text">Fidèles</span><span class="badge badge-success">Gestion</span></a>
-                </li>
-                <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">                    
-                  <a href="" class="menu-link">
-                    <span class="menu-icon far fa-file"></span><span class="menu-text">Demande de conception</span><span class="badge badge-success">Gestion</span></a>
+                    <span class="menu-icon far fa-file"></span><span class="menu-text">Demande de conception</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
                 </li>
             <!-- .menu-header -->
             <li class="menu-header">Publications </li><!-- /.menu-header -->
