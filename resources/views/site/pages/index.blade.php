@@ -1,4 +1,4 @@
-@extends('site.layout.template',['titre' => @lang("miscellaneous.main_menu.home")])
+@extends('site.layout.template')
 
 @section('content')
     <div class="banner" id="home">
