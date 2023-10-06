@@ -1,7 +1,7 @@
 <header id="header" class="header default">
     <div class="topbar">
         <div class="container">
-            <div class="row">
+            <div class="row align-items-center">
                 <div class="col-lg-6 col-md-6 xs-mb-10">
                     <div class="topbar-call text-center text-md-start">
                         <ul>
@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="topbar-social text-center text-md-end">
-                        <ul>
+                        <ul class="d-flex align-items-center justify-content-end">
                             <li><a href="#"><span class="ti-facebook"></span></a></li>
                             <li><a href="#"><span class="ti-instagram"></span></a></li>
                             <li><a href="#"><span class="ti-twitter"></span></a></li>
@@ -33,20 +33,23 @@
             <section class="menu-list-items">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-12 col-md-12 position-relative">
-                            <!-- menu logo -->
-                            <ul class="menu-logo">
+                        <div class="col-lg-2">
+                             <!-- menu logo -->
+                             <ul class="menu-logo">
                                 <li>
                                     <a href="index.html"><img id="logo_img"
                                             src="{{ asset('assets/site/images/logo.png') }}" alt="logo"> </a>
                                 </li>
                             </ul>
+                        </div>
+                        <div class="col-lg-10">
+                           
                             <!-- menu links -->
-                            <div class="menu-bar">
+                            <div class="menu-bar d-flex align-items-center">
                                 <ul class="menu-links">
                                     <li
                                         class="{{ Route::current()->getName() == 'home' ? 'active' : '' }}">
-                                        <a href="index.html">@lang('miscellaneous.main_menu.home') </a></li>
+                                        <a href="{{ route('home') }}">@lang('miscellaneous.main_menu.home') </a></li>
 
                                     <li class="hoverTrigger {{ Route::current()->getName() == 'about' ? 'active' : '' }}">
                                         <a href="javascript:void(0)">@lang('miscellaneous.main_menu.who_are_we.about')
