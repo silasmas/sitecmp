@@ -172,7 +172,7 @@ NOTE: This file contains responsive Media Queries of the Template. You can edit/
 }
 
 @media (min-width: 1200px) {
-.container { max-width: 1140px; }
+.container { max-width: 1170px; }
 }
 
 @media (max-width: 1200px) {
