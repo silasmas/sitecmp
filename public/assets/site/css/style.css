@@ -223,6 +223,7 @@ NOTE: This is main stylesheet of template, This file contains the styling for th
   text-transform: uppercase;
   font-weight: 500;
 }
+
 .mega-menu .link-drop:hover{
   color: var(--primaryColor);
 }
