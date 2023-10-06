@@ -28,6 +28,8 @@ Route::get('/projects', [ProfileController::class, 'projects'])->name('projects'
 Route::get('/contributions', [ProfileController::class, 'contributions'])->name('contributions');
 Route::get('/galerie', [ProfileController::class, 'galerie'])->name('galerie');
 Route::get('/contact', [ProfileController::class, 'contact'])->name('contact');
+Route::get('/bunda', [ProfileController::class, 'bunda'])->name('bunda');
+Route::get('/videos', [ProfileController::class, 'videos'])->name('videos');
 Route::get('admin', function () {
     return view('auth.login');
 })->name('admin');

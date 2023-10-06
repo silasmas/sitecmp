@@ -337,7 +337,6 @@
                 <li class="menu-item {{ Route::current()->getName() == 'event' || "addEvent"  ? 'has-active' : '' }}">                    
                   <a href="{{ route('event') }}" class="menu-link">
                     <span class="menu-icon far fa-file"></span><span class="menu-text">Evénéments</span>
-
                     <span class="badge badge-success" {{ Route::current()->getName() == 'event' || "addEvent"  ? '' : 'hidden' }}>Active</span>
                 </a>
                 </li>

@@ -93,7 +93,7 @@
                                             <ul class="dropdown-menu">
                                                 <li><a class="dropdown-item" href="{{ route('articles') }}">@lang('miscellaneous.main_menu.news')</a></li>
                                                 <li>
-                                                    <a class="dropdown-item" href="#">
+                                                    <a class="dropdown-item" href="{{ route('videos') }}">
                                                         Vidéos
 
                                                     </a>
@@ -113,8 +113,8 @@
                                     {{-- <li class=" {{ Route::current()->getName() == 'contributions' ? 'active' : '' }}"><a
                                             href="{{ route('contributions') }}">@lang('miscellaneous.main_menu.contribution')
                                         </a></li> --}}
-                                    <li class=" {{ Route::current()->getName() == 'galerie' ? 'active' : '' }} link"><a
-                                            href="#">
+                                    <li class=" {{ Route::current()->getName() == 'bunda' ? 'active' : '' }} link"><a
+                                            href="{{ route('bunda') }}">
                                             Bunda 21
                                         </a>
                                     </li>

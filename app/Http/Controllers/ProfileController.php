@@ -62,6 +62,12 @@ class ProfileController extends Controller
     public function contributions(){
         return view('site.pages.contributions');
     }
+    public function bunda(){
+        return view('site.pages.bunda');
+    }
+    public function videos(){
+        return view('site.pages.videos');
+    }
     
     /**
      * Display the user's profile form.
