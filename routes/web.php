@@ -30,6 +30,7 @@ Route::get('/galerie', [ProfileController::class, 'galerie'])->name('galerie');
 Route::get('/contact', [ProfileController::class, 'contact'])->name('contact');
 Route::get('/bunda', [ProfileController::class, 'bunda'])->name('bunda');
 Route::get('/videos', [ProfileController::class, 'videos'])->name('videos');
+Route::get('/show_article', [PostController::class, 'show'])->name('show_article');
 Route::get('admin', function () {
     return view('auth.login');
 })->name('admin');

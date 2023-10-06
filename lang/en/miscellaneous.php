@@ -174,6 +174,9 @@ return [
         'events' => 'Events',
         'contribution' => 'contributions',
         'gallery' => 'Media',
+        'video' => 'Vidéos',
+        'media' => 'Media',
+        'meditation' => 'Meditation',
     ],
 
     // ===== FOOTER CONTENT

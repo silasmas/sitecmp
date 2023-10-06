@@ -26,7 +26,7 @@
           </div>
           <div class="blog-detail">
               <div class="entry-title mb-10">
-                  <a href="article-details.html">Titre de l'article 1</a>
+                  <a href="{{ route('show_article') }}">Titre de l'article 1</a>
               </div>
               <div class="entry-meta mb-10">
                   <ul>

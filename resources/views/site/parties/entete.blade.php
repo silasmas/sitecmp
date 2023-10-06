@@ -8,7 +8,45 @@
 <meta name="author" content="potenzaglobalsolutions.com" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<title>{{ config('app.name') }} | {{ isset($titre) ? $titre : '' }}</title>
+<title>{{ config('app.name') }} |
+    @if (Route::current()->getName() == 'home')
+    {{ __('miscellaneous.main_menu.home') }}
+@endif
+
+@if (Route::current()->getName() == 'about')
+    {{ __('miscellaneous.main_menu.who_are_we.about') }}
+@endif
+
+@if (Route::current()->getName() == 'articles')
+@lang('miscellaneous.main_menu.news')
+@endif
+
+@if (Route::current()->getName() == 'events')
+@lang('miscellaneous.main_menu.events')
+@endif
+
+@if (Route::current()->getName() == 'news')
+    {{ __('miscellaneous.main_menu.news') }}
+@endif
+
+@if (Route::current()->getName() == 'news_details')
+    {{ __('miscellaneous.inner_page.news.details.title') }}
+@endif
+
+@if (Route::current()->getName() == 'contact')
+@lang('miscellaneous.main_menu.who_are_we.contact')
+@endif
+
+@if (Route::current()->getName() == 'bunda')
+@lang('miscellaneous.main_menu.bunda')
+@endif
+
+@if (Route::current()->getName() == 'projects')
+    {{ __('miscellaneous.main_menu.projects') }}
+@endif
+
+    
+    {{ isset($titre) ? $titre : '' }}</title>
 <link rel="shortcut icon" href="{{ asset('assets/site/img/favicon.png') }}" />
 
 <link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,500,500i,600,700,800,900|Poppins:200,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900">

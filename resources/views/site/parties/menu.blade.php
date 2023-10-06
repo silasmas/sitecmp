@@ -57,7 +57,7 @@
                                                 <a href="javascript:void(0)" class="link-drop" type="button" data-bs-toggle="dropdown" aria-expanded="false">@lang('miscellaneous.main_menu.who_are_we.about')
                                                     <i class="fa fa-angle-down fa-indicator"></i> </a>
                                                 <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item" href="{{ route('about') }}">Qui sommes-nous</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('about') }}">@lang("miscellaneous.main_menu.who_are_we.title")</a></li>
                                                     <li>
                                                         <a class="dropdown-item" href="{{ route('galerie') }}" >
                                                             @lang('miscellaneous.main_menu.gallery') 
@@ -88,14 +88,13 @@
                                         
                                         <div class="dropdown">
                                             <a href="javascript:void(0)" class="link-drop" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Méditation
+                                                @lang('miscellaneous.main_menu.meditation')
                                                 <i class="fa fa-angle-down fa-indicator"></i> </a>
                                             <ul class="dropdown-menu">
                                                 <li><a class="dropdown-item" href="{{ route('articles') }}">@lang('miscellaneous.main_menu.news')</a></li>
                                                 <li>
                                                     <a class="dropdown-item" href="{{ route('videos') }}">
-                                                        Vidéos
-
+                                                        @lang("miscellaneous.main_menu.video")
                                                     </a>
                                                 </li>
                                             </ul>
