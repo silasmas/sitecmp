@@ -184,7 +184,6 @@ NOTE: This is main stylesheet of template, This file contains the styling for th
 .dropdown-menu a:hover{
   background: var(--primaryColor);
   color: #fff;
-  text-align: center;
 }
 
 .mega-menu .menu-logo { padding: 0; }
@@ -223,7 +222,6 @@ NOTE: This is main stylesheet of template, This file contains the styling for th
   text-transform: uppercase;
   font-weight: 500;
 }
-
 .mega-menu .link-drop:hover{
   color: var(--primaryColor);
 }
@@ -318,6 +316,8 @@ NOTE: This is main stylesheet of template, This file contains the styling for th
   color: #fff;
   line-height: 120%;
 }
+
+
 .banner p{
   width: 420px;
   color: #fff;
