@@ -311,6 +311,13 @@
                         {{-- <span class="feature-border"></span> --}}
                     </div>
                 </div>
+                <div class="col-12">
+                    <div class="text-center">
+                        <a type="button" class="button icon mb-10 mr-10 mt-lg-5 mt-3" href="{{ route('articles') }}">
+                            Plus d'articles
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

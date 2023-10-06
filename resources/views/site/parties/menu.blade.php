@@ -127,14 +127,14 @@
                                 </a>
                                 <div class="search-cart">
                                     <div class="shpping-cart">
-                                        <a class="cart-btn" href="#"> <i class="fa fa-language icon"
+                                        <div class="dropdown">
+                                            <a class="cart-btn" href="#" type="button" data-bs-toggle="dropdown" aria-expanded="false"> <i class="fa fa-language icon"
                                                 style="color: #650f1c;"></i></a>
-                                        <div class="cart">
-                                            <div class="cart-total">
+                                            <ul class="dropdown-menu">
                                                 @foreach ($available_locales as $locale_name => $available_locale)
                                                 @if ($available_locale === $current_locale)
                                                 <li>
-                                                    <a class="dropdown-item disabled" href="#">
+                                                    <a class="dropdown-item disabled d-flex align-items-center" href="#">
                                                         @switch($available_locale)
                                                         @case('en')
                                                         <span class="fi fi-us me-2 align-middle"></span>
@@ -153,7 +153,7 @@
                                                 </li>
                                                 @else
                                                 <li>
-                                                    <a class="dropdown-item"
+                                                    <a class="dropdown-item d-flex align-items-center"
                                                         href="{{ route('change_language', ['locale' => $available_locale]) }}">
                                                         @switch($available_locale)
                                                         @case('en')
@@ -176,10 +176,68 @@
                                                 </li>
                                                 @endif
                                                 @endforeach
-                                                {{-- <a class="button" href="login.html">Connexion</a> <br> <br>
-                                                <a class="button black" href="signup.html">S'inscrire</a> --}}
-                                            </div>
+                                                {{-- <li>
+                                                    <a class="dropdown-item" href="{{ route('articles') }}">@lang('miscellaneous.main_menu.news')</a></li>
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+                                                        Vidéos
+
+                                                    </a>
+                                                </li> --}}
+                                            </ul>
                                         </div>
+                                        
+                                        {{-- <div class="cart">
+                                            <div class="cart-total">
+                                                @foreach ($available_locales as $locale_name => $available_locale)
+                                                @if ($available_locale === $current_locale)
+                                                <li>
+                                                    <a class="dropdown-item disabled" href="#">
+                                                        @switch($available_locale)
+                                                        @case('en')
+                                                        <span class="fi fi-us me-2 align-middle"></span>
+                                                        @break
+                                                        @case('ln')
+                                                        <span class="fi fi-cd me-2 align-middle"></span>
+                                                        @break
+                                                        @default
+                                                        <span class="fi fi-be me-2 align-middle"></span>
+                                                        <span
+                                                            class="fi fi-{{ $available_locale }} me-2 align-middle"></span>
+                                                       
+                                                        @endswitch
+                                                        {{ $locale_name }}
+                                                    </a>
+                                                </li>
+                                                @else
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('change_language', ['locale' => $available_locale]) }}">
+                                                        @switch($available_locale)
+                                                        @case('en')
+                                                        <span class="fi fi-us me-2 align-middle"></span>
+                                                        @break
+
+                                                        @case('ln')
+                                                        <span class="fi fi-cd me-2 align-middle"></span>
+                                                        @break
+
+                                                        @default
+                                                        <span class="fi fi-be me-2 align-middle"></span>
+                                                        <span
+                                                            class="fi fi-{{ $available_locale }} me-2 align-middle"></span>
+                                                       
+                                                        @endswitch
+
+                                                        {{ $locale_name }}
+                                                    </a>
+                                                </li>
+                                                @endif
+                                                @endforeach
+                                                <a class="button" href="login.html">Connexion</a> <br> <br>
+                                                <a class="button black" href="signup.html">S'inscrire</a>
+                                            </div>
+                                        </div> --}}
                                     </div>
 
                                 </div>
