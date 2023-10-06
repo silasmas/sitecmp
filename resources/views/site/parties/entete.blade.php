@@ -37,10 +37,6 @@
 @lang('miscellaneous.main_menu.who_are_we.contact')
 @endif
 
-@if (Route::current()->getName() == 'bunda')
-@lang('miscellaneous.main_menu.bunda')
-@endif
-
 @if (Route::current()->getName() == 'projects')
     {{ __('miscellaneous.main_menu.projects') }}
 @endif
