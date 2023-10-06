@@ -44,11 +44,11 @@
                             <!-- menu links -->
                             <div class="menu-bar">
                                 <ul class="menu-links">
-                                    <li
-                                        class="{{ Route::current()->getName() == 'home' ? 'active' : '' }}">
-                                        <a href="index.html">@lang('miscellaneous.main_menu.home') </a></li>
+                                    <li>
+                                        <a href="index.html">@lang('miscellaneous.main_menu.home') </a>
+                                    </li>
 
-                                    <li class="hoverTrigger {{ Route::current()->getName() == 'about' ? 'active' : '' }}">
+                                    <li>
                                         <a href="javascript:void(0)">@lang('miscellaneous.main_menu.who_are_we.about')
                                             <i class="fa fa-angle-down fa-indicator"></i> </a>
                                     </li>

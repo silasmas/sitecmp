@@ -9,7 +9,21 @@
       <div class="page-message" role="alert">You are using an <strong>outdated</strong> browser. Please <a class="alert-link" href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</div>
       <![endif]-->
         @include('admin.parties.menu')
-        @yield("content")
+        <!-- .app-main -->
+        <main class="app-main">
+
+            <!-- .wrapper -->
+            <div class="wrapper">
+                <!-- .page -->
+                <div class="page">
+                    <!-- .page-inner -->
+                    <div class="page-inner">
+                        @yield("content")
+                    </div><!-- /.page-inner -->
+                </div><!-- /.page -->
+            </div>
+        </main>
+        <!-- /.app-main -->
     </div>
     <!-- /.app -->
     @include('admin.parties.pied')

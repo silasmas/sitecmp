@@ -1,7 +1,11 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TestimialController;
+use App\Http\Resources\Gallery;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,14 +32,27 @@ Route::get('admin', function () {
     return view('auth.login');
 })->name('admin');
 
-Route::get('/dashboard', function () {
-    return view('admin.pages.home');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    // Route::get('/dashboard', function () {
+    //     return view('admin.pages.home');
+    // })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::prefix("admin")->middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [EventController::class, 'dashboard'])->name('dashboard');
+    Route::get('/event', [EventController::class, 'index'])->name('event');
+    Route::get('/addEvent', [EventController::class, 'create'])->name('addEvent');
+    Route::get('/post', [PostController::class, 'index'])->name('post');
+    Route::get('/galerie', [Gallery::class, 'index'])->name('galerie');
+    Route::get('/testimonial', [TestimialController::class, 'index'])->name('testimonial');
+    // Route::get('/admin_event', [EventController::class, 'index'])->name('admin_event');
+    // Route::get('/admin_event', [EventController::class, 'index'])->name('admin_event');
+
+
 });
 
 require __DIR__.'/auth.php';

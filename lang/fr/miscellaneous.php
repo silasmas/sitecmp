@@ -179,8 +179,8 @@ return [
     // ===== FOOTER CONTENT
     'footer' => [
         'contact_us' => 'Nous contacter',
-        'address1' => 'Avenue Pierre Mulele,',
-        'address2' => '162 Kinshasa-Gombe',
+        'address1' => '4935 Av. De la Science - Gombe - Kinshasa 00243 Kinshasa, République démocratique du Congo,',
+        'address2' => 'Kinshasa-Gombe',
         'quick_links' => [
             'title' => 'Liens rapides',
             'about' => 'A propos',

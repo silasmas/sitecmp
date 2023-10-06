@@ -54,4 +54,5 @@
       if (isCompact == true) document.querySelector('html').classList.add('preparing-compact-menu');
     </script>
     <!-- END THEME STYLES -->
+    @yield("autres_style")
   </head>
