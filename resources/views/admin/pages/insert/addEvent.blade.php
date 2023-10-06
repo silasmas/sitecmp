@@ -94,6 +94,7 @@
                                 <div class="btn btn-secondary fileinput-button">
                                   <i class="fa fa-plus fa-fw"></i> <span>Trouvé l'image...</span> <!-- The file input field used as target for the file upload widget -->
                                   <input id="fileupload-btn" type="file" name="files[]" multiple>
+                                  
                                 </div>
                             </div>
                         </div>
@@ -104,7 +105,7 @@
     </div>
 </div>
 
-@endsection
+@endsection 
 
 @section('autres-script')
 <script src="{{ asset('assets/vendor/flatpickr/flatpickr.min.js') }}"></script>
