@@ -59,7 +59,7 @@
                                                 <ul class="dropdown-menu">
                                                     <li><a class="dropdown-item" href="{{ route('about') }}">@lang("miscellaneous.main_menu.who_are_we.title")</a></li>
                                                     <li>
-                                                        <a class="dropdown-item" href="{{ route('galerie') }}" >
+                                                        <a class="dropdown-item" href="{{ route('media') }}" >
                                                             @lang('miscellaneous.main_menu.gallery') 
                                                         </a>
                                                     </li>
