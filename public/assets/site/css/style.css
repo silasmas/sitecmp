@@ -182,8 +182,8 @@ NOTE: This is main stylesheet of template, This file contains the styling for th
   border-radius: 5px;
 }
 .dropdown-menu a:hover{
-  background: #e9ecef;
-  color: var(--colorText);
+  background: var(--primaryColor);
+  color: #fff;
 }
 
 .mega-menu .menu-logo { padding: 0; }
