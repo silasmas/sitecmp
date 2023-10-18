@@ -543,7 +543,7 @@
                         <span>Webster has powerful options & tools, unlimited designs, responsive framework and
                             amazing support. We are dedicated to providing you with the best experience possible.
                             Purchase webster to find out why the sky's the limit when using Webster.</span>
-                        <a class="button mt-30" href="galerie.html">Voir toutes les images</a>
+                        <a class="button mt-30" href="galerie.html">@lang('miscellaneous.inner_page.news.see_more')</a>
                     </div>
                     <div>
                     </div>
@@ -660,7 +660,7 @@
                     <div class="pricing-table h-100">
                         <div class="pricing-top h-100">
                             <div class="pricing-title">
-                                <div class="mb-15 badge-day">Mercredi</div>
+                                <div class="mb-15 badge-day">@lang('miscellaneous.day.complete.wednesday')</div>
                                 <h3 class="title-card">Culte d'enseignement biblique</h3>
                             </div>
                             <div class="time-line-prog d-flex flex-column">
@@ -680,7 +680,7 @@
                     <div class="pricing-table h-100">
                         <div class="pricing-top h-100">
                             <div class="pricing-title">
-                                <div class="mb-15 badge-day">Jeudi</div>
+                                <div class="mb-15 badge-day">@lang('miscellaneous.day.complete.thursday')</div>
                                 <h3 class="title-card">Culte d'intercession (Jeudi Etoko)</h3>
                             </div>
                             <div class="time-line-prog d-flex flex-column">
@@ -699,7 +699,7 @@
                     <div class="pricing-table h-100">
                         <div class="pricing-top h-100">
                             <div class="pricing-title">
-                                <div class="mb-15 badge-day">Samedi</div>
+                                <div class="mb-15 badge-day">@lang('miscellaneous.day.complete.saturday')</div>
                                 <h3 class="title-card">Réunion de la jeunesse</h3>
                             </div>
                             <div class="time-line-prog d-flex flex-column">
@@ -719,28 +719,31 @@
                     <div class="pricing-table h-100">
                         <div class="pricing-top h-100">
                             <div class="pricing-title">
-                                <div class="mb-15 badge-day">Dimanche</div>
+                                <div class="mb-15 badge-day">@lang('miscellaneous.day.complete.sunday')</div>
                                 <h3 class="title-card">Culte dominical</h3>
                             </div>
-                            
+
                             <div class="time-line-prog d-flex flex-column">
                                 <div class="item-line">
                                     <div class="icon">
                                         <i class="fa fa-clock-o"></i>
                                     </div>
-                                    07h00-8h30
+                                    07h00-09h00 (FR)
                                 </div>
                                 <div class="item-line">
                                     <div class="icon">
                                         <i class="fa fa-clock-o"></i>
                                     </div>
-                                    12h00-13h30
+                                    09h30-11h30 (FR-EN)<br>
+                                    <a href="http://"> <i class="fa fa-facebook-square"></i></a>
+                                    <a href="http://"> <i class="fa fa-youtube-play"></i></a>
+                                    <a href="http://"> <i class="fa fa-twitter-square"></i></a>
                                 </div>
                                 <div class="item-line">
                                     <div class="icon">
                                         <i class="fa fa-clock-o"></i>
                                     </div>
-                                    09h30 -11h00
+                                    12h00 -14h00 (LN)
                                 </div>
                             </div>
                         </div>

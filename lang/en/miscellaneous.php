@@ -169,7 +169,7 @@ return [
             'video_testimonials' => 'Video testimonials',
             'sensibilization' => 'Sensibilization',
         ],
-        'projects' => 'Projects',
+        'projects' => 'builders',
         'donate' => 'Donate now',
         'events' => 'Events',
         'contribution' => 'contributions',
@@ -182,8 +182,8 @@ return [
     // ===== FOOTER CONTENT
     'footer' => [
         'contact_us' => 'Contact us',
-        'address1' => 'Pierre Mulele street,',
-        'address2' => '162 Kinshasa-Gombe',
+        'address1' => '4935 Av. De la Science - Gombe - Kinshasa +243 Kinshasa, République démocratique du Congo.',
+        'address2' => 'Kinshasa-Gombe',
         'quick_links' => [
             'title' => 'Quick links',
             'about' => 'About',
@@ -195,6 +195,7 @@ return [
         ],
         'newsletter' => [
             'title' => 'Newsletter',
+            'btn' => 'Subscribe',
             'description' => 'Subscribe to the newsletter to receive our regular information',
         ],
     ],

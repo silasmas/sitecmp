@@ -7,11 +7,13 @@ use App\Models\Post;
 use App\Models\Event;
 use Illuminate\View\View;
 use App\Beans\enteteState;
+use App\Models\newsletter;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\ProfileUpdateRequest;
 
 class ProfileController extends Controller
@@ -68,7 +70,7 @@ class ProfileController extends Controller
     public function videos(){
         return view('site.pages.videos');
     }
-    
+
     /**
      * Display the user's profile form.
      */

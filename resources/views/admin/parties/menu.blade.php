@@ -6,9 +6,9 @@
       <div class="top-bar-brand">
         <!-- toggle aside menu -->
         <button class="hamburger hamburger-squeeze mr-2" type="button" data-toggle="aside-menu" aria-label="toggle aside menu"><span class="hamburger-box"><span class="hamburger-inner"></span></span></button> <!-- /toggle aside menu -->
-        <a href="index.html">
+        <a href="{{ route('dashboard') }}">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="28" viewbox="0 0 351 100">
-            
+
                 <img src="{{ asset('assets/images/logo.png') }}" height="50" width="50"/>
           </svg>
         </a>
@@ -25,7 +25,7 @@
           <!-- .top-bar-search -->
           <form class="top-bar-search">
             <!-- .input-group -->
-            <div class="input-group input-group-search dropdown">
+            {{-- <div class="input-group input-group-search dropdown">
               <div class="input-group-prepend">
                 <span class="input-group-text"><span class="oi oi-magnifying-glass"></span></span>
               </div><input type="text" class="form-control" data-toggle="dropdown" aria-label="Search" placeholder="Search"> <!-- .dropdown-menu -->
@@ -89,13 +89,14 @@
                 </div><!-- /.dropdown-scroll -->
                 <a href="#" class="dropdown-footer">Show all results</a>
               </div><!-- /.dropdown-menu -->
-            </div><!-- /.input-group -->
+            </div> --}}
+            <!-- /.input-group -->
           </form><!-- /.top-bar-search -->
         </div><!-- /.top-bar-item -->
         <!-- .top-bar-item -->
         <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
           <!-- .nav -->
-          <ul class="header-nav nav">
+          {{-- <ul class="header-nav nav">
             <!-- .nav-item -->
             <li class="nav-item dropdown header-nav-dropdown has-notified">
               <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="oi oi-pulse"></span></a> <!-- .dropdown-menu -->
@@ -268,12 +269,13 @@
                 </div><!-- .dropdown-sheets -->
               </div><!-- .dropdown-menu -->
             </li><!-- /.nav-item -->
-          </ul><!-- /.nav -->
+          </ul> --}}
+          <!-- /.nav -->
           <!-- .btn-account -->
           <div class="dropdown d-none d-md-flex">
             <button class="btn-account" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="user-avatar user-avatar-md">
-                <img src="{{ asset('assets/images/'.Auth::user()->avatar) }}" alt=""></span> 
-                <span class="account-summary pr-lg-4 d-none d-lg-block"><span class="account-name">{{ Auth::user()->name }}</span> 
+                <img src="{{ asset('assets/images/'.Auth::user()->avatar) }}" alt=""></span>
+                <span class="account-summary pr-lg-4 d-none d-lg-block"><span class="account-name">{{ Auth::user()->name }}</span>
                 <span class="account-description">admin</span></span></button> <!-- .dropdown-menu -->
             <div class="dropdown-menu">
               <div class="dropdown-arrow d-lg-none" x-arrow=""></div>
@@ -287,7 +289,7 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
-              <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Help Center</a> 
+              <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Help Center</a>
               <a class="dropdown-item" href="#">Ask Forum</a> <a class="dropdown-item" href="#">Keyboard Shortcuts</a>
             </div><!-- /.dropdown-menu -->
           </div><!-- /.btn-account -->
@@ -304,8 +306,8 @@
       <header class="aside-header d-block d-md-none">
         <!-- .btn-account -->
         <button class="btn-account" type="button" data-toggle="collapse" data-target="#dropdown-aside">
-            <span class="user-avatar user-avatar-lg"><img src="assets/images/avatars/profile.jpg" alt="">
-            </span> <span class="account-icon"><span class="fa fa-caret-down fa-lg"></span></span> 
+            <span class="user-avatar user-avatar-lg"><img src="{{ asset('assets/images/avatar/profile.jpg') }}" alt="">
+            </span> <span class="account-icon"><span class="fa fa-caret-down fa-lg"></span></span>
             <span class="account-summary"><span class="account-name">Beni Arisandi</span> <span class="account-description">Marketing Manager</span></span></button> <!-- /.btn-account -->
         <!-- .dropdown-aside -->
         <div id="dropdown-aside" class="dropdown-aside collapse">
@@ -328,69 +330,69 @@
             </li><!-- /.menu-item -->
             <!-- .menu-item -->
             <ul class="menu">
-                <li class="menu-item {{ Route::current()->getName() == 'dashboard'? 'has-active' : '' }}">                    
+                <li class="menu-item {{ Route::current()->getName() == 'dashboard'? 'has-active' : '' }}">
                   <a href="{{ route('dashboard') }}" class="menu-link ">
                     <span class="menu-icon far fa-file"></span><span class="menu-text">Dashboard</span>
                     <span class="badge badge-success" {{ Route::current()->getName() == "dashboard"  ? '' : 'hidden' }}>Active</span>
                 </a>
                 </li>
-                <li class="menu-item {{ Route::current()->getName() == 'event' || "addEvent"  ? 'has-active' : '' }}">                    
+                <li class="menu-item {{ Route::current()->getName() == 'event' || "addEvent"  ? 'has-active' : '' }}">
                   <a href="{{ route('event') }}" class="menu-link">
                     <span class="menu-icon far fa-file"></span><span class="menu-text">Evénéments</span>
                     <span class="badge badge-success" {{ Route::current()->getName() == 'event' || "addEvent"  ? '' : 'hidden' }}>Active</span>
                 </a>
                 </li>
-                <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">                    
-                  <a href="" class="menu-link">
-                    <span class="menu-icon far fa-file"></span><span class="menu-text">Publications</span>
-                    <span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span>
+                <li class="menu-item {{ Route::current()->getName() == 'posts' ? 'has-active' : '' }}">
+                  <a href="{{ route('posts') }}" class="menu-link">
+                    <span class="menu-icon far fa-company"></span><span class="menu-text">Publications</span>
+                    <span class="badge badge-success" {{ Route::current()->getName() == "posts"  ? '' : 'hidden' }}>Active</span>
                 </a>
                 </li>
-                <li class="menu-item {{ Route::current()->getName() == 'galerie' ? 'has-active' : '' }}">                    
+                <li class="menu-item {{ Route::current()->getName() == 'galerie' ? 'has-active' : '' }}">
                   <a href="{{ route('galerie') }}" class="menu-link">
                     <span class="menu-icon far fa-file"></span><span class="menu-text">Galerie</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
                 </li>
-                <li class="menu-item {{ Route::current()->getName() == 'testimonial' ? 'has-active' : '' }}">                    
+                <li class="menu-item {{ Route::current()->getName() == 'testimonial' ? 'has-active' : '' }}">
                   <a href="{{ route('testimonial') }}" class="menu-link">
                     <span class="menu-icon far fa-file"></span><span class="menu-text">Témoignages</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
                 </li>
-                <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">                    
+                <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">
                   <a href="" class="menu-link">
                     <span class="menu-icon far fa-file"></span><span class="menu-text">Commentaires</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
                 </li>
-                <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">                    
+                <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">
                   <a href="" class="menu-link">
                     <span class="menu-icon far fa-file"></span><span class="menu-text">Evangelisation</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
                 </li>
-                <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">                    
+                <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">
                   <a href="" class="menu-link">
                     <span class="menu-icon far fa-file"></span><span class="menu-text">Projets</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
                 </li>
-                <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">                    
+                <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">
                   <a href="" class="menu-link">
                     <span class="menu-icon far fa-file"></span><span class="menu-text">Goods</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
                 </li>
-                <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">                    
+                <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">
                   <a href="" class="menu-link">
                     <span class="menu-icon far fa-file"></span><span class="menu-text">Entités</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
                 </li>
-                <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">                    
-                  <a href="" class="menu-link">
-                    <span class="menu-icon far fa-file"></span><span class="menu-text">Ministre</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
+                <li class="menu-item {{ Route::current()->getName() == 'ministres' ? 'has-active' : '' }}">
+                  <a href="{{ route('ministres') }}" class="menu-link">
+                    <span class="menu-icon far fa-file"></span><span class="menu-text">Ministre</span><span class="badge badge-success" {{ Route::current()->getName() == "ministres"  ? '' : 'hidden' }}>Active</span></a>
                 </li>
-                <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">                    
+                <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">
                   <a href="" class="menu-link">
                     <span class="menu-icon far fa-file"></span><span class="menu-text">Requetes</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
                 </li>
-                <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">                    
+                <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">
                   <a href="" class="menu-link">
                     <span class="menu-icon far fa-file"></span><span class="menu-text">Newsletters</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
                 </li>
-                <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">                    
+                <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">
                   <a href="" class="menu-link">
                     <span class="menu-icon far fa-file"></span><span class="menu-text">Fidèles</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
                 </li>
-                <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">                    
+                <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">
                   <a href="" class="menu-link">
                     <span class="menu-icon far fa-file"></span><span class="menu-text">Demande de conception</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
                 </li>

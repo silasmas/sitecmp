@@ -169,7 +169,7 @@ return [
             'video_testimonials' => 'Témoignages en vidéo',
             'sensibilization' => 'Sensibilisation',
         ],
-        'projects' => 'Projets',
+        'projects' => 'Batisseurs',
         'donate' => 'Faire un don',
         'events' => 'Evènement',
         'contribution' => 'contributions',
@@ -182,7 +182,7 @@ return [
     // ===== FOOTER CONTENT
     'footer' => [
         'contact_us' => 'Nous contacter',
-        'address1' => '4935 Av. De la Science - Gombe - Kinshasa 00243 Kinshasa, République démocratique du Congo,',
+        'address1' => '4935 Av. De la Science - Gombe - Kinshasa 00243 Kinshasa, République démocratique du Congo.',
         'address2' => 'Kinshasa-Gombe',
         'quick_links' => [
             'title' => 'Liens rapides',
@@ -195,7 +195,8 @@ return [
         ],
         'newsletter' => [
             'title' => 'Newsletter',
-            'description' => 'Souscrire à la newsletter pour recevoir régulièrement les infos concernant Action Damien',
+            'btn' => 'Souscrire',
+            'description' => 'Souscrire à la newsletter pour recevoir régulièrement les informations relatives à notre eglise',
         ],
     ],
 

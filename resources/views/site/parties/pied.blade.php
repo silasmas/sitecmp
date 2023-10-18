@@ -22,6 +22,12 @@
 <script src="{{ asset('assets/site/revolution/js/revolution-custom.js') }}"></script>
 <script src="{{ asset('assets/site/js/custom.js') }}"></script>
 
+<script src="{{ asset('assets/site/js/contact.form.js') }}"></script>
+
+<script src="{{ asset('assets/site/js/parsley/js/parsley.js') }}"></script>
+<script src="{{ asset('assets/site/js/parsley/i18n/fr.js') }}"></script>
+<script src="{{ asset('assets/site/js/sweetalert/sweetalert.min.js') }}"></script>
+
 </body>
 
 </html>
