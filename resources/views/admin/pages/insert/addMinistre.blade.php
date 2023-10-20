@@ -6,6 +6,7 @@
 <link href="{{ asset('assets/vendor/photoswipe/photoswipe.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/vendor/photoswipe/default-skin/default-skin.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/vendor/summernote/summernote-bs4.min.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/vendor/simplemde/simplemde.min.css') }}" rel="stylesheet">
 
 @endsection
 @section("content")
@@ -36,8 +37,7 @@
             <!-- .card-body -->
             <div class="card-body">
                 <h4 class="card-title"> {{ !isset($dataMinister) ? "Ajouter un Ministre": 'Modifier un Ministre' }}
-                    <span class="badge badge-warning">{{ !isset($dataMinister) ? "Enregistrement": 'Modification'
-                        }}</span>
+                    <span class="badge badge-warning">{{ !isset($dataMinister) ? "Enregistrement": 'Modification'}}</span>
                 </h4>
                 <h6 class="card-subtitle mb-4">{{ !isset($dataMinister) ? "Ce formulaire vous permet d'enregistrer un
                     Ministre":"Ce formulaire vous permet de modifier un Ministre" }}</h6><!-- form -->
@@ -51,9 +51,9 @@
                     </div>
                 </div>
                 @endif
-                <form method="POST" enctype="multipart/form-data" id="{{ isset($dataMinister)?"eventUpdate-form":'event-form'}}"
-                 action="{{ route( isset($dataMinister)?"UpdatMinistre":'storeMinistre')
-                    }}" data-parsley-validate>
+                <form method="POST" enctype="multipart/form-data" id="{{isset($dataMinister)?"eventUpdate-form":'event-form'}}" 
+                action="{{ route( isset($dataMinister)?"UpdatMinistres":'storeMinistre') }}"
+                     data-parsley-validate>
                     @csrf
                     <fieldset>
                         <legend>Formulaire</legend> <!-- .form-group -->
@@ -113,14 +113,10 @@
                             <div class="col-lg-4">
                                 <label for="sel1">Type</label>
                                 <select name="type" class="custom-select type" id="type" required="">
-                                    <option value="Pasteur" {{ isset($dataMinister)&& $dataMinister->
-                                        type=="Pasteur"?"selected":""}}>Pasteur</option>
-                                    <option value="Prophète" {{ isset($dataMinister)&& $dataMinister->
-                                        type=="Prophète"?"selected":"" }}>Prophète </option>
-                                    <option value="Berger" {{ isset($dataMinister)&& $dataMinister->
-                                        type=="Berger"?"selected":""}}>Berger </option>
-                                    <option value="Pasteur stagiaire" {{ isset($dataMinister)&& $dataMinister->
-                                        type=="Pasteur stagiaire"?"selected":"" }}>Pasteur stagiaire </option>
+                                    <option value="Pasteur" {{ isset($dataMinister)&& $dataMinister->type=="Pasteur"?"selected":""}}>Pasteur</option>
+                                    <option value="Prophète" {{ isset($dataMinister)&& $dataMinister->type=="Prophète"?"selected":"" }}>Prophète </option>
+                                    <option value="Berger" {{ isset($dataMinister)&& $dataMinister->type=="Berger"?"selected":""}}>Berger </option>
+                                    <option value="Pasteur stagiaire" {{ isset($dataMinister)&& $dataMinister->type=="Pasteur stagiaire"?"selected":"" }}>Pasteur stagiaire </option>
                                 </select>
                             </div>
 
@@ -141,10 +137,9 @@
                                 <label for="sel1">Est active<abbr title="Required">*</abbr></label>
                                 <select class="custom-select is_active" name="is_active" id="is_active" required="">
                                     <option value="">Choisissez</option>
-                                    <option value="1" {{ isset($dataMinister)&& $dataMinister->is_active==1?"selected":""
-                                        }}> OUI</option>
-                                    <option value="0" {{ isset($dataMinister)&& $dataMinister->is_active==0?"selected":""
-                                        }}>NON</option>
+                                    <option value="1" {{ isset($dataMinister)&& $dataMinister->
+                                        is_active==1?"selected":""}}> OUI</option>
+                                    <option value="0" {{ isset($dataMinister)&& $dataMinister->is_active==0?"selected":""}}>NON</option>
                                 </select>
                             </div>
                         </div>
@@ -153,22 +148,22 @@
                                 <label for="lbl1">Biographie </label>
                                 <!-- .card -->
                                 <div class="card card-fluid">
-                                    <!-- #summernote-basic -->
-                                    <div data-toggle="summernote" name="bio" data-placeholder="Write here..." data-height="200">
-                                    </div>
-                                    <!-- /#summernote-basic -->
+                                    <textarea data-toggle="simplemde" name="bio" data-spellchecker="false"
+                                        data-autosave='{ "enabled": true, "unique_id": "SimpleMDEDemo" }'>
+                                        {{ isset($dataMinister)?$dataMinister->bio:""}}
+                                    </textarea>
+                                   
+
                                 </div><!-- /.card -->
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-lg-12">
-                                <label class="mr-2">Image profil{{
-                                    isset($dataMinister)?$dataMinister->image_url:""
-                                    }}</label>
+                                <label class="mr-2">Image profil</label>
                                 <div class="custom-file">
-                                    <input type="file" name="image_url" class="custom-file-input image_url" id="image_url" {{
-                                        isset($dataMinister)?"":"required" }}
-                                        value="{{ isset($dataMinister)?$dataMinister->image_url:""}}">
+                                    <input type="file" name="image_url" class="custom-file-input image_url"
+                                        id="image_url" {{ isset($dataMinister)?"":"required" }}
+                                        value="{{isset($dataMinister)?$dataMinister->image_url:""}}">
                                     <label class="custom-file-label" for="fileupload-customInput">Choose
                                         files</label>
                                 </div>
@@ -184,7 +179,7 @@
                                         <div class="figure-img">
                                             <img class="img-fluid"
                                                 src="{{ asset(isset($dataMinister)?'storage/'.$dataMinister->image_url:"") }}"
-                                                alt="Card image cap" c>
+                                                alt="Card image cap" width="200">
                                             <a href="{{ asset(isset($dataMinister)?'storage/'.$dataMinister->image_url:"") }}"
                                                 class="img-link" data-size="600x450">
                                                 <span class="tile tile-circle bg-danger"><span
@@ -246,5 +241,6 @@
 
 <script src="{{ asset('assets/vendor/summernote/summernote-bs4.min.js') }}"></script>
 <script src="{{ asset('assets/javascript/pages/summernote-demo.js') }}"></script>
+<script src="{{ asset('assets/vendor/simplemde/simplemde.min.js') }}"></script>
 
 @endsection

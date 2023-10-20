@@ -332,14 +332,14 @@
             <ul class="menu">
                 <li class="menu-item {{ Route::current()->getName() == 'dashboard'? 'has-active' : '' }}">
                   <a href="{{ route('dashboard') }}" class="menu-link ">
-                    <span class="menu-icon far fa-file"></span><span class="menu-text">Dashboard</span>
+                    <span class="menu-icon far fa-file"></span><span class="menu-text">Dashboard </span>
                     <span class="badge badge-success" {{ Route::current()->getName() == "dashboard"  ? '' : 'hidden' }}>Active</span>
                 </a>
                 </li>
-                <li class="menu-item {{ Route::current()->getName() == 'event' || "addEvent"  ? 'has-active' : '' }}">
+                <li class="menu-item {{ Route::current()->getName() == 'event' ? 'has-active' : '' }}">
                   <a href="{{ route('event') }}" class="menu-link">
                     <span class="menu-icon far fa-file"></span><span class="menu-text">Evénéments</span>
-                    <span class="badge badge-success" {{ Route::current()->getName() == 'event' || "addEvent"  ? '' : 'hidden' }}>Active</span>
+                    <span class="badge badge-success" {{ Route::current()->getName() == 'event'? '' : 'hidden' }}>Active</span>
                 </a>
                 </li>
                 <li class="menu-item {{ Route::current()->getName() == 'posts' ? 'has-active' : '' }}">

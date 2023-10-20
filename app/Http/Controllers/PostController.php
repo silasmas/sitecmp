@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
+use App\Models\Minister;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -23,7 +25,9 @@ class PostController extends Controller
     public function create()
     {
         $posts=Post::all();
-        return view("admin.pages.insert.addPublication",compact("posts"));
+        $events=Event::all();
+        $pasteurs=Minister::all();
+        return view("admin.pages.insert.addPublication",compact("posts","events","pasteurs"));
     }
 
     /**
