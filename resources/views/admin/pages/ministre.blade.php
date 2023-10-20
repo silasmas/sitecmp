@@ -68,7 +68,7 @@
                                             <figure class="figure">
                                               <!-- .figure-img -->
                                               <div class="figure-img">
-                                                <img class="img-fluid" src="{{ asset('storage/'.$i->image_url) }}" width="200" alt="Card image cap">
+                                                <img class="img-fluid" src="{{ asset('storage/'.$i->image_url) }}" width="100" alt="Card image cap">
                                                 <a href="{{ asset('storage/'.$i->image_url) }}" class="img-link" data-size="100x100">
                                                     <span class="tile tile-circle bg-danger"><span class="oi oi-eye"></span></span>
                                                     <span class="img-caption d-none">Image caption goes here</span></a>
@@ -93,7 +93,7 @@
                                     <td>{{ $i->is_titular }}</td>
                                     <td>{{ $i->is_active }}</td>
                                     <td>{{ $i->contact }}</td>
-                                    <td>type</td>
+                                    <td>{{ $i->type }}</td>
                                     <td>{{ \Carbon\Carbon::parse($i->created_at)->isoFormat('LLL') }}</td>
                                     <td class="center align-middle text-right">
                                         <a href="{{ $i->id }}" class="btn btn-sm btn-icon btn-secondary">
@@ -106,7 +106,7 @@
                                             <span class="sr-only">Modifier</span>
                                         </a>
                                         <a href="{{ $i->id }}" class="btn btn-sm btn-icon btn-secondary"
-                                            onclick="event.preventDefault();deletEvent({{ $i->id }},'delEvent')">
+                                            onclick="event.preventDefault();deletEvent({{ $i->id }},'delMinistre')">
                                             <i class="fa fa-trash-alt"></i>
                                             <span class="sr-only">Supprimer</span>
                                         </a>

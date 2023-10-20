@@ -7,8 +7,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="page-title-name">
-                        <h1>Qui sommes-nous ?</h1>
-                        <p>Nous connaître</p>
+                        <h1> @lang("miscellaneous.main_menu.who_are_we.title") ?</h1>
+                        <p>@lang("miscellaneous.about.banner_title1")</p>
 
                     </div>
                 </div>

@@ -73,7 +73,7 @@ Route::prefix("admin")->middleware(['auth'])->group(function () {
         Route::post('storeMinistre', 'store')->name('storeMinistre');
 
         Route::get('editMinistre/{id}', 'edit')->name('editMinistre')->where(["id" => $idRegex]);
-        Route::post('UpdatMinistre', 'update')->name('UpdatMinistre');
+        Route::post('UpdatMinistres', 'update')->name('UpdatMinistres');
         Route::get('delMinistre/{id}', 'destroy')->name('delMinistre')->where(["id" => $idRegex]);
     });
 

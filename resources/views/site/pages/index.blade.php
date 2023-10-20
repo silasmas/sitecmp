@@ -314,7 +314,7 @@
                 <div class="col-12">
                     <div class="text-center">
                         <a type="button" class="button icon mb-10 mr-10 mt-lg-5 mt-3" href="{{ route('articles') }}">
-                            Plus d'articles
+                            @lang('miscellaneous.see_more')
                         </a>
                     </div>
                 </div>
@@ -345,7 +345,7 @@
                 <div class="col-lg-6">
                     <div class="section-title">
                         <h6 class="text-intro mb-lg-3">Le couple</h6>
-                        <h2 class="title-effect mb-lg-3">KEN & NATHALIE LUAMBA</h2>
+                        <h2 class="title-effect mb-lg-3">NATHALIE & KEN LUAMBA</h2>
                         <p>À la porte de 2023, toute notre gratitude à Dieu pour son soutien durant l'année 2022 qui
                             s’est clôturée.</p>
                     </div>
@@ -357,12 +357,13 @@
                         consommateur de votre foi.</p>
                     <div class="mt-30">
                         <p>Bonne et Heureuse année 2023 à tous, en Jésus-Christ !</p>
-                        <button type="button" class="button icon mb-10 mr-10">
+                        <button type="button" class="button icon mb-10 mr-10" >
                             Message de bienvenu
                         </button>
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-toggle="modal"
+                            data-bs-target=".bd-example-modal-lg">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header align-items-start">

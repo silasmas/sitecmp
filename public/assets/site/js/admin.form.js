@@ -99,7 +99,7 @@
 		btn.innerHTML ="En cour d'envoi";
 		// Serialize the form data.
 		//var formData = new FormData(this);//.serialize();
-
+        
 		// Submit the form using AJAX.
 		$.ajax({
 			type: 'POST',
@@ -123,16 +123,21 @@
 					$(formMessages).text(response.msg);
 					// Clear the form.
 					$(form)[0].reset();
+                    actualiser();
 					// $('#nom, #email, #phone_number, #message').val('');
 				} else {
                     // const err=Object.entries(response.datas);
+                    swal({
+						title: response.msg,
+						icon: 'error'
+					});
                     console.log(err);
                     for (const [key, value] of err) {
                         console.log(key, value[0]);
                         document.getElementById(key).insertAdjacentHTML('afterend',`<div style="color:red;">${value[0]}</div>`)
 
                       }
-
+                      
 				}
 			})
 			.fail(function(data) {
@@ -141,7 +146,10 @@
 				// Make sure that the formMessages div has the 'error' class.
 				$(formMessages).removeClass('success');
 				$(formMessages).addClass('error');
-
+                swal({
+                    title: response.msg,
+                    icon: 'error'
+                });
 				// Set the message text.
 				if (data.responseText !== '') {
                     // console.log(data.datas)
