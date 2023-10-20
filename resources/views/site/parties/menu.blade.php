@@ -2,9 +2,9 @@
     <div class="topbar">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 col-md-6 xs-mb-10">
+                <div class="col-lg-6 col-md-6 xs-mb-10 d-none d-lg-block">
                     <div class="topbar-call text-center text-md-start">
-                        <ul>
+                        <ul class="d-flex align-items-center">
                             <li><i class="fa fa-envelope-o" style="color: #fff;"></i><a href="">eglisecmp@gmail.com</a> </li>
                             <li><i class="fa fa-phone" style="color: #fff;"></i> <a href="tel:+243897000227">
                                     <span>+(243)897000227 </span> </a> </li>
@@ -13,12 +13,12 @@
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="topbar-social text-center text-md-end">
-                        <ul class="d-flex align-items-center justify-content-end">
+                        <ul class="d-flex align-items-center justify-content-center justify-content-lg-end">
                             <li><a href="https://www.facebook.com/Eglisecmp?mibextid=LQQJ4d" target="blank"><span class="ti-facebook"></span></a></li>
                             <li><a href="https://instagram.com/eglisecmp?igshid=OGQ5ZDc2ODk2ZA==" target="blank"><span class="ti-instagram"></span></a></li>
                             <li><a href="#"><span class="ti-twitter"></span></a></li>
                             <li><a href="#"><span class="ti-youtube"></span></a></li>
-                            <li><a href="#"><span class="fa fa-tiktok"></span></a></li>
+                            <li><a href="#"><span class="fab fa-tiktok"></span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
             <section class="menu-list-items">
                 <div class="container">
                     <div class="row align-items-center">
-                        <div class="col-lg-2 col-md-12 position-relative">
+                        <div class="col-lg-2 col-3 position-relative">
                             <!-- menu logo -->
                             <ul class="menu-logo">
                                 <li>
@@ -43,14 +43,13 @@
                             </ul>
 
                         </div>
-                        <div class="col-lg-10">
+                        <div class="col-lg-10 col-9">
                             <!-- menu links -->
-                            <div class="menu-bar d-flex align-items-center">
-                                <ul class="menu-links d-lg-flex align-items-center">
-                                    <li class="{{ Route::current()->getName() == 'home' ? 'active' : ''}}">
+                            <div class="menu-bar d-flex align-items-center w-100">
+                                <ul class="menu-links d-lg-flex align-items-center mx-auto">
+                                    {{-- <li class="{{ Route::current()->getName() == 'home' ? 'active' : ''}}">
                                         <a href="{{ route('home') }}">@lang('miscellaneous.main_menu.home') </a>
-                                    </li>
-
+                                    </li> --}}
                                     <li
                                         class="hoverTrigger {{ Route::current()->getName() == 'about' ? 'active' : ''}}">
 
@@ -137,10 +136,11 @@
                                             href="{{ route('contact') }}">@lang('miscellaneous.main_menu.who_are_we.contact')
                                         </a></li> --}}
                                 </ul>
-                                <a href="{{ route('contributions') }}" class="btn btn-primary btn-uppertext">
+                                
+                                <a href="{{ route('contributions') }}" class="btn btn-primary btn-uppertext d-none d-lg-inline-block">
                                     @lang('miscellaneous.main_menu.contribution')
                                 </a>
-                                <div class="search-cart">
+                                <div class="search-cart d-none d-lg-inline-block">
                                     <div class="shpping-cart">
                                         <div class="dropdown">
                                             <a class="cart-btn" href="#" type="button" data-bs-toggle="dropdown"
@@ -200,6 +200,10 @@
                                         <a class="cart-btn" href="{{ route('contact') }}"> <i
                                                 class="fa fa-envelope" style="color: #650f1c;"></i></a>
                                     </div>
+                                </div>
+                                <div class="menu-toggle d-flex flex-column d-lg-none ms-auto align-items-end">
+                                    <span></span>
+                                    <span></span>
                                 </div>
                             </div>
                         </div>

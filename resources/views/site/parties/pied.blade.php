@@ -2,7 +2,7 @@
 </div>
 <!-- wrapper End -->
 <div id="back-to-top"><a class="top arrow" href="#top"><i class="fa fa-angle-up"></i> <span>TOP</span></a></div>
-
+<div class="revel-block"></div>
 <script src="{{ asset('assets/site/js/jquery-3.6.0.min.js') }}"></script>
 <script src="{{ asset('assets/site/js/plugins-jquery.js') }}"></script>
 <script>
@@ -27,7 +27,21 @@
 <script src="{{ asset('assets/site/js/parsley/js/parsley.js') }}"></script>
 <script src="{{ asset('assets/site/js/parsley/i18n/fr.js') }}"></script>
 <script src="{{ asset('assets/site/js/sweetalert/sweetalert.min.js') }}"></script>
+<script>
+    $('.menu-toggle').click(function () {
+        $('.menu-responsive').addClass('show')
+        $('.revel-block').addClass('show')
+      })
+      $('.close-menu').click(function () {
+        $('.menu-responsive').removeClass('show')
+        $('.revel-block').removeClass('show')
+      })
+      $('.revel-block').click(function () {
+        $(this).removeClass('show')
+        $('.menu-responsive').removeClass('show')
 
+      })
+</script>
 </body>
 
 </html>

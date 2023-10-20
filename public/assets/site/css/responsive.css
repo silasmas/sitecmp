@@ -556,7 +556,7 @@ h5 {font-size: 15px;}
 /*header*/
 .default { position: relative; background: #323232; }
 /*menu*/
-.mega-menu { min-height: 60px; }
+/* .mega-menu { min-height: 60px; } */
 .mega-menu .menu-logo > li > a { padding: 0; }
 .mega-menu .menu-logo { padding: 10px 0; }
 .search-cart span.icon, .search-cart i.icon { line-height: 50px; }

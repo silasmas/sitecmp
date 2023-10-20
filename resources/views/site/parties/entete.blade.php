@@ -59,8 +59,10 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/site/css/shortcodes/shortcodes.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/site/css/style.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/site/css/responsive.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/site/css/responsive.min.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/site/js/parsley/parsley.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/site/js/sweetalert/sweetalert.css') }}" >
+    
 </head>
 
 <body>

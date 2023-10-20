@@ -3,6 +3,12 @@
 @section('content')
     <div class="banner" id="home">
         <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-indicators d-lg-none">
+                <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="content-banner">
@@ -62,12 +68,12 @@
                     </div>
                 </div>
             </div>
-            <button class="carousel-control-prev btn-carousel" type="button" data-bs-target="#carouselExampleSlidesOnly"
+            <button class="carousel-control-prev btn-carousel d-none d-lg-flex" type="button" data-bs-target="#carouselExampleSlidesOnly"
                 data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next btn-carousel" type="button" data-bs-target="#carouselExampleSlidesOnly"
+            <button class="carousel-control-next btn-carousel d-none d-lg-flex" type="button" data-bs-target="#carouselExampleSlidesOnly"
                 data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
@@ -659,6 +665,7 @@
                 <div class="col-md-3 ">
                     <div class="pricing-table h-100">
                         <div class="pricing-top h-100">
+                            <img src="{{asset('assets/images/mercredi.png')}}" alt="" class="img-icon">
                             <div class="pricing-title">
                                 <div class="mb-15 badge-day">@lang('miscellaneous.day.complete.wednesday')</div>
                                 <h3 class="title-card">Culte d'enseignement biblique</h3>
@@ -679,6 +686,7 @@
                 <div class="col-md-3 ">
                     <div class="pricing-table h-100">
                         <div class="pricing-top h-100">
+                            <img src="{{asset('assets/images/jeudi.png')}}" alt="" class="img-icon">
                             <div class="pricing-title">
                                 <div class="mb-15 badge-day">@lang('miscellaneous.day.complete.thursday')</div>
                                 <h3 class="title-card">Culte d'intercession (Jeudi Etoko)</h3>
@@ -698,6 +706,7 @@
                 <div class="col-md-3 ">
                     <div class="pricing-table h-100">
                         <div class="pricing-top h-100">
+                            <img src="{{asset('assets/images/samedi.png')}}" alt="" class="img-icon">
                             <div class="pricing-title">
                                 <div class="mb-15 badge-day">@lang('miscellaneous.day.complete.saturday')</div>
                                 <h3 class="title-card">Réunion de la jeunesse</h3>
@@ -718,6 +727,7 @@
                 <div class="col-md-3 ">
                     <div class="pricing-table h-100">
                         <div class="pricing-top h-100">
+                            <img src="{{asset('assets/images/dimanche.png')}}" alt="" class="img-icon">
                             <div class="pricing-title">
                                 <div class="mb-15 badge-day">@lang('miscellaneous.day.complete.sunday')</div>
                                 <h3 class="title-card">Culte dominical</h3>
