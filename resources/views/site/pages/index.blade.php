@@ -352,7 +352,7 @@
                     <div class="section-title">
                         <h6 class="text-intro mb-lg-3">Le couple</h6>
                         <h2 class="title-effect mb-lg-3">NATHALIE & KEN LUAMBA</h2>
-                        <p>À la porte de 2023, toute notre gratitude à Dieu pour son soutien durant l'année 2022 qui
+                        <p style="font-size: 14px">À la porte de 2023, toute notre gratitude à Dieu pour son soutien durant l'année 2022 qui
                             s’est clôturée.</p>
                     </div>
                     <p> <span class="dropcap gray square">E</span> n cette année nouvelle, puissent les portes

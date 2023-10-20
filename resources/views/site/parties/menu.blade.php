@@ -111,10 +111,12 @@
                                             </ul>
                                         </div>
                                     </li>
-                                    {{-- <li class=" {{ Route::current()->getName() == 'articles' ? 'active' : '' }}"><a
-                                            href="{{ route('articles') }}">@lang('miscellaneous.main_menu.news') </a>
-                                    </li> --}}
-                                    <li class=" {{ Route::current()->getName() == 'events' ? 'active' : '' }}">
+                                    <li class=" {{ Route::current()->getName() == 'bunda' ? 'active' : '' }}"><a
+                                            href="{{ route('bunda') }}">
+                                            Bunda 21
+                                        </a>
+                                    </li>
+                                    {{-- <li class=" {{ Route::current()->getName() == 'events' ? 'active' : '' }}">
                                         <div class="dropdown">
                                             <a href="javascript:void(0)" class="link-drop" type="button"
                                                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -129,7 +131,7 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                    </li>
+                                    </li> --}}
                                     <li class=" {{ Route::current()->getName() == 'projects' ? 'active' : '' }}"><a
                                             href="{{ route('projects') }}">@lang('miscellaneous.main_menu.projects')
                                         </a></li>
