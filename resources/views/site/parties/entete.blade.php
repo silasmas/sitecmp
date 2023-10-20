@@ -52,6 +52,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700,800">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/site/css/plugins-css.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/site/revolution/css/settings.css') }}" media="screen">

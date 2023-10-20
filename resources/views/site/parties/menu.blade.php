@@ -16,9 +16,11 @@
                         <ul class="d-flex align-items-center justify-content-center justify-content-lg-end">
                             <li><a href="https://www.facebook.com/Eglisecmp?mibextid=LQQJ4d" target="blank"><span class="ti-facebook"></span></a></li>
                             <li><a href="https://instagram.com/eglisecmp?igshid=OGQ5ZDc2ODk2ZA==" target="blank"><span class="ti-instagram"></span></a></li>
-                            <li><a href="#"><span class="ti-twitter"></span></a></li>
+                            <li><a href="#">
+                                <i class="fa-brands fa-x-twitter"></i></a></li>
                             <li><a href="#"><span class="ti-youtube"></span></a></li>
-                            <li><a href="#"><span class="fab fa-tiktok"></span></a></li>
+                            <li><a href="#">
+                                <i class="fa-brands fa-tiktok"></i></a></li>
                         </ul>
                     </div>
                 </div>

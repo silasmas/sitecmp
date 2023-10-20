@@ -86,7 +86,8 @@
                             <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
                             <li class="social-linkedin"><a href="#"><i class="fa fa-youtube-play"></i></a></li>
                             <li class="social-dribbble"><a href="#"><i class="fa fa-instagram"></i> </a></li>
-                            <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i> </a></li>
+                            <li class="social-twitter"><a href="#">
+                                <i class="fa-brands fa-x-twitter"></i></a></li>
                             <li class="social-twitter"><a href="#"><i class="fa fa-tiktok"></i> </a></li>
                         </ul>
                     </div>
