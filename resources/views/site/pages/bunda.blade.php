@@ -40,8 +40,8 @@
             <div class="col-lg-6">
                 <div class="section-title">
                     <h6 class="text-intro mb-lg-3">Grande célébration Bunda 21</h6>
-                    <h2 class="title-effect mb-lg-3" style="font-size: 28px">Temps de consécration à la recherche de la face de Dieu</h2>
-                    <p style="font-size: 14px">
+                    <h2 class="title-effect mb-lg-3">Temps de consécration à la recherche de la face de Dieu</h2>
+                    <p>
                         La grande célébration Bunda 21 est un programme de 21 jours de jeûne et prière pendant lesquels  nous cherchons la face de Dieu pour nous-mêmes, pour nos ministères, nos mariages, pour nos business, nos Églises, notre pays.
 
                         Il y a bien de choses que Dieu nous a destinées, qui nous appartiennent, mais que nous devons palper, posséder.
@@ -124,47 +124,7 @@
                     <div class="col-lg-9 col-md-12">
 
                         <div class="table-responsive">
-                            <table class="table table-bordered table-3 text-center table-striped">
-                                <thead>
-                                  <tr>
-                                    <th>Title 1 </th>
-                                    <th>Title 2</th>
-                                    <th>Title 3</th>
-                                    <th>Title 4</th>
-                                    <th>Title 5</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                  </tr>
-                                   <tr>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                  </tr>
-                                </tbody>
-                              </table>
+                              @include('site.pages.bunda.weeks.week1')
                          </div>
                     </div>
                     <div class="col-lg-3">

@@ -358,8 +358,7 @@ return [
             'banner_title2' => 'Pour la petite histoire',
             'name_church' => 'Centre Missionnaire Philadelphie ',
             'histoire' => 'Le Centre Missionnaire Philadelphie est une église locale de la 37ème Communauté des Assemblées de Dieu au Congo',
-            
-            
+
             'description' => [
                 'title1' => 'Le papillon en forme de cœur',
                 'text1' => 'Dans le logo, on peut reconnaître un papillon tout autant qu\'un cœur. Ce choix n\'est pas un hasard. Le cœur est un symbole pour chaque personne qui a aidé à écrire l\'histoire d\'Action Damien. Et le papillon représente les nombreuses personnes atteintes de la lèpre et de la tuberculose : fragiles et en même temps pleines d\'espoir et belles.',

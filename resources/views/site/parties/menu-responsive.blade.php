@@ -8,7 +8,7 @@
       <h5>Menu</h5>
       <ul class="mt-4">
         <li>
-          <a class="active" href="#home">
+          <a class="{{ Route::current()->getName() == 'home' ? 'active' : ''}}" href="#home">
             Accueil
           </a>
         </li>
@@ -18,17 +18,17 @@
           </a>
         </li>
         <li>
-          <a href="#services">
+          <a href="#services" class="{{ Route::current()->getName() == 'about' ? 'active' : ''}}">
             @lang('miscellaneous.main_menu.meditation')
           </a>
         </li>
         <li>
-          <a class="" href="#secteurs">
+          <a class="" href="#secteurs" class="{{ Route::current()->getName() == 'events' ? 'active' : ''}}">
             @lang('miscellaneous.main_menu.events')
           </a>
         </li>
         <li>
-          <a class="scrollTop" href="#contact">
+          <a class="scrollTop" href="#contact" class="{{ Route::current()->getName() == 'contact' ? 'active' : ''}}">
             @lang('miscellaneous.main_menu.projects')
           </a>
         </li>

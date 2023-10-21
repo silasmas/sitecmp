@@ -1,13 +1,14 @@
 <?php
 
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\Minister;
+use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjetController;
+use App\Http\Controllers\TestimialController;
 use App\Http\Resources\Gallery;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\EventController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\TestimialController;
-use App\Http\Controllers\NewsletterController;
-use App\Http\Controllers\Minister;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,7 @@ Route::get('/contact', [ProfileController::class, 'contact'])->name('contact');
 Route::get('/bunda', [ProfileController::class, 'bunda'])->name('bunda');
 Route::get('/videos', [ProfileController::class, 'videos'])->name('videos');
 Route::get('/show_article', [PostController::class, 'show'])->name('show_article');
+Route::get('detailProjet/{id}', [ProjetController::class, 'show'])->name('detailProjet');
 
 Route::post('/newsletter', [NewsletterController::class, 'store'])->name('newsletter');
 Route::post('/storEvent', [EventController::class, 'store'])->name('storEvent');

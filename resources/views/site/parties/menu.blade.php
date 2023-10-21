@@ -140,7 +140,7 @@
                                             href="{{ route('contact') }}">@lang('miscellaneous.main_menu.who_are_we.contact')
                                         </a></li> --}}
                                 </ul>
-                                
+
                                 <a href="{{ route('contributions') }}" class="btn btn-primary btn-uppertext d-none d-lg-inline-block">
                                     @lang('miscellaneous.main_menu.contribution')
                                 </a>
