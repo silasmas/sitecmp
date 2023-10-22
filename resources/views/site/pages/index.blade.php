@@ -331,7 +331,7 @@
     <section class="page-section-ptb">
         <div class="container">
             <div class="row g-lg-5">
-                <div class="col-lg-6 sm-mb-30">
+                <div class="col-lg-6 sm-mb-30 col-md-6">
                     <div class="owl-carousel bottom-center-dots" data-nav-dots="ture" data-smartspeed="1200"
                         data-items="1" data-md-items="1" data-sm-items="1" data-xs-items="1" data-xx-items="1">
                         <div class="item">
@@ -348,7 +348,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 col-md-6">
                     <div class="section-title">
                         <h6 class="text-intro mb-lg-3">Le couple</h6>
                         <h2 class="title-effect mb-lg-3">NATHALIE & KEN LUAMBA</h2>
@@ -661,9 +661,9 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row g-3 g-lg-4">
 
-                <div class="col-md-3 ">
+                <div class="col-lg-3 col-sm-6">
                     <div class="pricing-table h-100">
                         <div class="pricing-top h-100">
                             <img src="{{asset('assets/images/mercredi.png')}}" alt="" class="img-icon">
@@ -684,7 +684,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-3 ">
+                <div class="col-lg-3 col-sm-6 ">
                     <div class="pricing-table h-100">
                         <div class="pricing-top h-100">
                             <img src="{{asset('assets/images/jeudi.png')}}" alt="" class="img-icon">
@@ -704,8 +704,8 @@
                     </div>
                 </div>
 
-                <div class="col-md-3 ">
-                    <div class="pricing-table h-100">
+                <div class="col-lg-3 col-sm-6 ">
+                    <div class="pricing-table h-100 mt-5 mt-lg-0">
                         <div class="pricing-top h-100">
                             <img src="{{asset('assets/images/samedi.png')}}" alt="" class="img-icon">
                             <div class="pricing-title">
@@ -725,8 +725,8 @@
                     </div>
                 </div>
 
-                <div class="col-md-3 ">
-                    <div class="pricing-table h-100">
+                <div class="col-lg-3 col-sm-6 ">
+                    <div class="pricing-table h-100 mt-5 mt-lg-0">
                         <div class="pricing-top h-100">
                             <img src="{{asset('assets/images/dimanche.png')}}" alt="" class="img-icon">
                             <div class="pricing-title">

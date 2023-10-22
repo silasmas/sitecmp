@@ -2,18 +2,18 @@
     <div class="topbar">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 col-md-6 xs-mb-10 d-none d-lg-block">
+                <div class="col-lg-6 col-md-6 xs-mb-10 d-none d-sm-block">
                     <div class="topbar-call text-center text-md-start">
                         <ul class="d-flex align-items-center">
-                            <li><i class="fa fa-envelope-o" style="color: #fff;"></i><a href="">eglisecmp@gmail.com</a> </li>
-                            <li><i class="fa fa-phone" style="color: #fff;"></i> <a href="tel:+243897000227">
+                            <li class="d-flex align-items-center"><i class="fa fa-envelope-o me-1" style="color: #fff;"></i><a href="">eglisecmp@gmail.com</a> </li>
+                            <li class="d-flex align-items-center"><i class="fa fa-phone me-1" style="color: #fff;"></i> <a href="tel:+243897000227">
                                     <span>+(243)897000227 </span> </a> </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="topbar-social text-center text-md-end">
-                        <ul class="d-flex align-items-center justify-content-center justify-content-lg-end">
+                        <ul class="d-flex align-items-center justify-content-center justify-content-sm-end">
                             <li><a href="https://www.facebook.com/Eglisecmp?mibextid=LQQJ4d" target="blank"><span class="ti-facebook"></span></a></li>
                             <li><a href="https://instagram.com/eglisecmp?igshid=OGQ5ZDc2ODk2ZA==" target="blank"><span class="ti-instagram"></span></a></li>
                             <li><a href="#">
