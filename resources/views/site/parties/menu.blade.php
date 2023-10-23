@@ -40,7 +40,7 @@
                             <ul class="menu-logo">
                                 <li>
                                     <a href="{{ route('home') }}"><img id="logo_img"
-                                            src="{{ asset('assets/site/images/logo.png') }}" alt="logo"> </a>
+                                            src="{{ asset('assets/images/Logo-CMP-2023-red.png') }}" alt="logo"> </a>
                                 </li>
                             </ul>
 

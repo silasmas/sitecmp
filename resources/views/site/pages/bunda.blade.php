@@ -133,47 +133,7 @@
                     <div class="col-lg-9 col-md-12">
 
                         <div class="table-responsive">
-                            <table class="table table-bordered table-3 text-center table-striped">
-                                <thead>
-                                  <tr>
-                                    <th>Title 1 </th>
-                                    <th>Title 2</th>
-                                    <th>Title 3</th>
-                                    <th>Title 4</th>
-                                    <th>Title 5</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                  </tr>
-                                   <tr>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                  </tr>
-                                </tbody>
-                              </table>
+                            @include('site.pages.bunda.weeks.week2')
                          </div>
                     </div>
                     <div class="col-lg-3">
@@ -182,52 +142,13 @@
                     <div class="col-lg-9 col-md-12">
 
                         <div class="table-responsive">
-                            <table class="table table-bordered table-3 text-center table-striped">
-                                <thead>
-                                  <tr>
-                                    <th>Title 1 </th>
-                                    <th>Title 2</th>
-                                    <th>Title 3</th>
-                                    <th>Title 4</th>
-                                    <th>Title 5</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                  </tr>
-                                   <tr>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                  </tr>
-                                </tbody>
-                              </table>
+                            @include('site.pages.bunda.weeks.week3')
                          </div>
                     </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="logement" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+                @include('site.pages.bunda.logement')
             </div>
             <div class="tab-pane fade" id="shop" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
             </div>

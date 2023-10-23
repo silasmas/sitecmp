@@ -46,7 +46,8 @@
                     </div>
                 </div>
                 @endif
-                <form method="POST" enctype="multipart/form-data" id="{{ isset($dataPost)?"eventUpdate-form":'event-form'}}" action="{{ route( isset($dataPost)?"UpdatPost":'StorePost') }}" data-parsley-validate>
+                <form method="POST" enctype="multipart/form-data" id="{{ isset($dataPost)?"eventUpdate-form":'event-form'}}" 
+                action="{{ route( isset($dataPost)?"UpdatPost":'StorePost') }}" data-parsley-validate>
                     @csrf
                     <fieldset>
                         <legend>Formulaire</legend> <!-- .form-group -->
@@ -119,9 +120,9 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-lg-6">
-                                <label for="lbl1">Observation <abbr title="Required">*</abbr></label>
+                                <label for="lbl1">Observation </label>
                                 <input type="text" name="observation" class="form-control observation" id="observation"
-                                    placeholder="Entrer les observations" required=""
+                                    placeholder="Entrer les observations"
                                     value="{{ isset($dataPost) ? $dataPost->observation : '' }}">
                             </div>
                             <div class="col-lg-6">
@@ -133,7 +134,7 @@
                             </div>
                             <div class="col-lg-4">
                                 <label for="sel1">Evénément</label>
-                                <select name="type" class="custom-select type" id="type" required="">
+                                <select name="type" class="custom-select" id="type" >
                                     <option value="">Choisissez</option>
                                     @forelse ($events as $ev)
                                     <option value="1" {{ isset($dataPost)&& $dataPost->getTranslation('theme', 'fr')==$ev->getTranslation('theme', 'fr')?"selected":""}}>{{$ev->getTranslation('theme', 'fr')}}</option>
@@ -145,10 +146,10 @@
                             </div>
                             <div class="col-lg-4">
                                 <label for="sel1">Orateur</label>
-                                <select name="type" class="custom-select type" id="type" required="">
+                                <select name="minister_id" class="custom-select type" id="type">
                                     <option value="">Choisissez</option>
                                     @forelse ($pasteurs as $ev)
-                                    <option value="1" {{ isset($dataPost)&& $dataPost->fullname==$ev->fullname?"selected":""}}>{{$ev->fullname}}</option>
+                                    <option value="{{ $ev->id }}" {{ isset($dataPost)&& $dataPost->fullname==$ev->fullname?"selected":""}}>{{$ev->fullname}}</option>
                                         
                                     @empty
                                         
@@ -166,7 +167,7 @@
                                     </option>
                                 </select>
                             </div>
-                            <div class="col-lg-6">
+                            {{-- <div class="col-lg-6">
                                 <label for="lbl1">References (FR) <abbr title="Required">*</abbr></label>
                                 <input type="text" name="references_fr" class="form-control references_fr"
                                     id="references_fr" placeholder="Entrer la reference" required=""
@@ -177,7 +178,7 @@
                                 <input type="text" name="references_en" class="form-control references_en"
                                     id="references_en" placeholder="Entrer la reference" required=""
                                     value="{{ isset($dataPost) ? $dataPost->getTranslation('references', 'en') : '' }}">
-                            </div>
+                            </div> --}}
            
                         </div>
                         <div class="form-group row">

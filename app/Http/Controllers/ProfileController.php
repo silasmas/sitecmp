@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Post;
 use App\Models\Event;
+use App\Models\Minister;
 use Illuminate\View\View;
 use App\Beans\enteteState;
 use App\Models\newsletter;
@@ -15,6 +16,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\ProfileUpdateRequest;
+use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 
 class ProfileController extends Controller
 {
@@ -44,7 +46,8 @@ class ProfileController extends Controller
         ]);
     }
     public function about(){
-        return view('site.pages.about');
+        $pastors=Minister::all();
+        return view('site.pages.about',compact("pastors"));
     }
     public function articles(){
         return view('site.pages.articles');
@@ -65,7 +68,13 @@ class ProfileController extends Controller
         return view('site.pages.contributions');
     }
     public function bunda(){
-        return view('site.pages.bunda');
+        // title'=>"Bunda 21: Logement", 'EnteteState'=>$tableaudesEtats
+        $state=new enteteState;
+        $tableaudesEtats = $state->EtatDEntete('bunda');
+        return view('site.pages.bunda',[
+            'title'=>"Bunda 21: Logement",
+            'EnteteState'=>$tableaudesEtats,
+        ]);
     }
     public function videos(){
         return view('site.pages.videos');
@@ -76,6 +85,8 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+
+        // $project = Project::findOrFail(2);
         return view('profile.edit', [
             'user' => $request->user(),
         ]);

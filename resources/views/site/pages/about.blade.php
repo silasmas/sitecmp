@@ -84,22 +84,49 @@
                     <div class="accordion plus-icon shadow">
                         <div class="acd-group acd-active">
                             <a href="#" class="acd-heading acd-active">01. Histoire</a>
-                            <div class="acd-des">Enim expedita sed quia nesciunt dolor sit amet, consectetur adipisicing
-                                elit. Vero quod conseqt quibusdam, incidunt accusamus necessitatibus modi adipisci
-                                officiaDolor sit amet, consectetur adipisicing elit. Vero quod conseqt quibusdam, enim
-                                expedita sed quia nesciunt incidunt accus</div>
+                            <div class="acd-des">
+                                Le Centre Missionnaire Philadelphie est une église locale de la 37ème Communauté
+                                            des Assemblées de Dieu au Congo. Sous une tente, cadre inhabituel pour une
+                                            église à Kinshasa, le Centre Missionnaire Philadelphie a vu le jour le dimanche 24
+                                            février 2008 par un culte auquel plus d’un millier de personnes ont pris part. Après
+                                            plus de vingt ans passés au Centre Evangélique Francophone de la Borne, le Dieu
+                                            Tout Puissant qui fait concourir toutes choses pour notre bien selon Romains 8 : 28,
+                                            a permis que le pasteur Roland DALO implante cette église locale.
+                                            <blockquote>
+                                                <p>Le Centre Missionnaire Philadelphie est une église locale de la 37ème Communauté
+                                                des Assemblées de Dieu au Congo</p>
+                                            </blockquote>
+                            </div>
                         </div>
                         <div class="acd-group">
                             <a href="#" class="acd-heading">02. Vision</a>
-                            <div class="acd-des">Adipisicing elit lorem ipsum dolor sit amet quibusdam similique quam
-                                corporis sequi, consectetur. Tempora, ab officiis ducimus commodi, id, voluptates
-                                suscipit quasi nisi. Qui, explicabo quod laborum alias vero aliquid.</div>
+                            <div class="acd-des">
+                                <p>Nous sommes au Centre Missionnaire Philadelphie.</p>
+                                <h2 class="h4">Pourquoi Centre ?</h2>
+
+                                <p>Nous sommes un carrefour, un endroit où des personnes d'arrière plans différents (races, tribus, cultures, niveaux sociaux et intellectuels) se mélangent, sans aucune barrière, à cause de l’expérience profonde de la nouvelle naissance et de la transformation de vie en Jésus Christ.
+                                    La particularité avec laquelle nous allons marcher à ce niveau contient trois volets :
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalLong">
+                                        Voir la suite
+                                      </button>
+                                </p>
+                                
+                            </div>
                         </div>
                         <div class="acd-group">
                             <a href="#" class="acd-heading">03. Mission</a>
-                            <div class="acd-des">Tempora, ab officiis ducimus commodi quibusdam similique quam corporis
-                                sequi adipisicing elit lorem ipsum dolor sit amet, consectetur. id, voluptates suscipit
-                                quasi nisi. Qui, explicabo quod laborum alias vero aliquid.</div>
+                            <div class="acd-des">
+                                <ol>
+                                    <li>Préparer l’épouse à la rencontre de l’Epoux</li>
+                                    <p>Nous savons et nous croyons que nous sommes en train de vivre les dernières heures de la vie de l’Eglise ici bas.</p>
+                                    <li>Ramener les cœurs des fils à leur Père</li>
+                                    <p>Par un message profondément axé sur:
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalLong2">
+                                            Voir la suite
+                                          </button>
+                                    </p>
+                                </ol>
+                            </div>
                         </div>
                     </div>
 
@@ -112,7 +139,7 @@
     <section class="split-section black-bg page-section-ptb" style="margin-top: 50px;">
         <div class="side-background">
             <div class="col-lg-6 img-side img-left">
-                <div class="img-holder img-cover jarallax" data-speed="0.6" data-img-src="{{ asset('assets/site/images/bg/09.jpg') }}">
+                <div class="img-holder img-cover jarallax" data-speed="0.6" data-img-src="{{ asset('assets/images/about-img/pastor.jpg') }}">
                 </div>
             </div>
         </div>
@@ -199,98 +226,46 @@
                         <div class="col-lg-12">
                             <div class="isotope-filters">
                                 <button data-filter="" class="active">Tous</button>
+                                <button data-filter=".visionnaire">Titulaire</button>
                                 <button data-filter=".leadership">Associés</button>
                                 <button data-filter=".development">Stagiaires</button>
                             </div>
                             <div class="isotope full-screen columns-4">
-                                <div class="grid-item leadership  ">
-                                    <div class="team team-hover">
-                                        <div class="team-photo">
-                                            <img class="img-fluid mx-auto" src="{{ asset('assets/site/images/team/01.jpg') }}" alt="">
-                                        </div>
-                                        <div class="team-description">
-                                            <div class="team-info">
-                                                <h5><a href="team-single.html"> Martin Smith</a></h5>
+                                @forelse ($pastors as $ps)
+                                <div class="row">                                
+                                    <div class="grid-item {{ $ps->is_titular==1 && $ps->type=="Pasteur"?"visionnaire":"" }} {{ $ps->is_titular==0&&$ps->type=="Pasteur"?"leadership":"" }}{{ $ps->is_titular==0&&$ps->type=="Pasteur stagiaire"?"development":"" }}">
+                                        <div class="team team-hover">
+                                            <div class="team-photo">
+                                                <img class="img-fluid mx-auto" src="{{ asset('storage/'.$ps->image_url) }}" alt="">
                                             </div>
-                                            <div class="team-contact">
-                                                <span class="call"> +(704) 279-1249</span>
-                                                <span class="email"> <i class="fa fa-envelope-o"></i>
-                                                    letstalk@webster.com</span>
-                                            </div>
-                                            <div class="social-icons color clearfix">
-                                                <ul>
-                                                    <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a>
-                                                    </li>
-                                                    <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a>
-                                                    </li>
-                                                    <li class="social-instagram"><a href="#"><i class="fa fa-instagram"></i></a>
-                                                    </li>
-                                                    <li class="social-linkedin"><a href="#"><i class="fa fa-linkedin"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="grid-item leadership  ">
-                                    <div class="team team-hover">
-                                        <div class="team-photo">
-                                            <img class="img-fluid mx-auto" src="{{ asset('assets/site/images/team/01.jpg') }}" alt="">
-                                        </div>
-                                        <div class="team-description">
-                                            <div class="team-info">
-                                                <h5><a href="team-single.html"> Martin Smith</a></h5>
-                                            </div>
-                                            <div class="team-contact">
-                                                <span class="call"> +(704) 279-1249</span>
-                                                <span class="email"> <i class="fa fa-envelope-o"></i>
-                                                    letstalk@webster.com</span>
-                                            </div>
-                                            <div class="social-icons color clearfix">
-                                                <ul>
-                                                    <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a>
-                                                    </li>
-                                                    <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a>
-                                                    </li>
-                                                    <li class="social-instagram"><a href="#"><i class="fa fa-instagram"></i></a>
-                                                    </li>
-                                                    <li class="social-linkedin"><a href="#"><i class="fa fa-linkedin"></i></a>
-                                                    </li>
-                                                </ul>
+                                            <div class="team-description">
+                                                <div class="team-info">
+                                                    <h5><a href="">{{ $ps->fullname }}</a></h5>
+                                                </div>
+                                                <div class="team-contact">
+                                                    <span class="call"> {{ $ps->contact }}</span>
+                                                    <span class="email"> <i class="fa fa-envelope-o"></i>
+                                                        letstalk@webster.com</span>
+                                                </div>
+                                                <div class="social-icons color clearfix">
+                                                    <ul>
+                                                        <li class="social-facebook" {{$ps->facebook_url==""?"hidden":""}}><a href="{{ $ps->facebook_url }}"><i class="fa fa-facebook"></i></a>
+                                                        </li>
+                                                        <li class="social-twitter" {{$ps->twitter_url==""?"hidden":""}}><a href="{{ $ps->twitter_url }}"><i class="fa fa-twitter"></i></a>
+                                                        </li>
+                                                        <li class="social-instagram" {{$ps->instagram_url==""?"hidden":""}}><a href="{{ $ps->instagram_url }}"><i class="fa fa-instagram"></i></a>
+                                                        </li>
+                                                        <li class="social-youtube" {{$ps->youtube_url==""?"hidden":""}}><a href="{{ $ps->youtube_url }}"><i class="fa fa-youtube"></i></a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-        
-                                <div class="grid-item  development">
-                                    <div class="team team-hover">
-                                        <div class="team-photo">
-                                            <img class="img-fluid mx-auto" src="{{ asset('assets/site/images/team/01.jpg') }}" alt="">
-                                        </div>
-                                        <div class="team-description">
-                                            <div class="team-info">
-                                                <h5><a href="team-single.html"> Martin Smith</a></h5>
-                                            </div>
-                                            <div class="team-contact">
-                                                <span class="call"> +(704) 279-1249</span>
-                                                <span class="email"> <i class="fa fa-envelope-o"></i>
-                                                    letstalk@webster.com</span>
-                                            </div>
-                                            <div class="social-icons color clearfix">
-                                                <ul>
-                                                    <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a>
-                                                    </li>
-                                                    <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a>
-                                                    </li>
-                                                    <li class="social-instagram"><a href="#"><i class="fa fa-instagram"></i></a>
-                                                    </li>
-                                                    <li class="social-linkedin"><a href="#"><i class="fa fa-linkedin"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @empty
+                                    
+                                @endforelse
         
                             </div>
                         </div>
@@ -421,7 +396,7 @@
 
 
 
-<section class="gray-bg page-section-pt happy-clients">
+{{-- <section class="gray-bg page-section-pt happy-clients">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 align-self-end">
@@ -493,7 +468,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 <section class="contact-box contact-box-top theme-bg" style="margin-top: 50px;">
     <div class="container">
@@ -534,6 +509,7 @@
         </div>
     </div>
 </section>
+@include("site.parties.modal")
 @endsection
 
 

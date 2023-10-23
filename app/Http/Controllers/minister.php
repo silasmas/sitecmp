@@ -122,7 +122,6 @@ class minister extends Controller
             $request->all(),
             [
                 'fullname' => ['required', 'string'],
-                'bio' => ['required', 'string'],
                 'is_titular' => ['required', 'string'],
                 'is_active' => ['required', 'string'],
                 'contact' => ['required', 'string'],
