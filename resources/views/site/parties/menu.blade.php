@@ -16,11 +16,9 @@
                         <ul class="d-flex align-items-center justify-content-center justify-content-sm-end">
                             <li><a href="https://www.facebook.com/Eglisecmp?mibextid=LQQJ4d" target="blank"><span class="ti-facebook"></span></a></li>
                             <li><a href="https://instagram.com/eglisecmp?igshid=OGQ5ZDc2ODk2ZA==" target="blank"><span class="ti-instagram"></span></a></li>
-                            <li><a href="#">
-                                <i class="fa-brands fa-x-twitter"></i></a></li>
-                            <li><a href="#"><span class="ti-youtube"></span></a></li>
-                            <li><a href="#">
-                                <i class="fa-brands fa-tiktok"></i></a></li>
+                            <li><a href="https://twitter.com/EgliseCMP" target="blank"><i class="fa-brands fa-x-twitter"></i></a></li>
+                            <li><a href="https://www.youtube.com/channel/UCBIVcaYtQHKDbfvD2sh-AJw"><span class="ti-youtube" target="blank"></span></a></li>
+                            <li><a href="https://vm.tiktok.com/ZML7XqTPn/" target="blank"><i class="fa-brands fa-tiktok"></i></a></li>
                         </ul>
                     </div>
                 </div>

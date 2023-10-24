@@ -2,21 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
-use App\Models\Post;
+use App\Beans\enteteState;
+use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\Event;
 use App\Models\Minister;
-use Illuminate\View\View;
-use App\Beans\enteteState;
-use App\Models\newsletter;
+use App\Models\Post;
 use App\Models\Testimonial;
+use Carbon\Carbon;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Validator;
-use App\Http\Requests\ProfileUpdateRequest;
-use SebastianBergmann\CodeCoverage\Report\Xml\Project;
+use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
@@ -28,55 +25,62 @@ class ProfileController extends Controller
 
         return redirect()->back();
     }
-    public function home(){
-        $state=new enteteState;
+    public function home()
+    {
+        $state = new enteteState;
         $tableaudesEtats = $state->EtatDEntete('accueil');
         $mytime = Carbon::now();
         // $quotes = Quote::where("is_active", "=", 1)->orderBy('est_a_la_une', 'DESC')->orderBy('created_at', 'DESC')->take(3)->get();
-        $events = Event::where("is_active","=", 1)->where("date_fin", '>', $mytime)->orderBy("est_a_la_une", 'DESC')->orderBy('date_debut', 'ASC')->take(3)->get();
+        $events = Event::where("is_active", "=", 1)->where("date_fin", '>', $mytime)->orderBy("est_a_la_une", 'DESC')->orderBy('date_debut', 'ASC')->take(3)->get();
         $posts = Post::where("is_active", "=", 1)->where("type", "=", 3)->orderBy('date_publication', 'DESC')->take(3)->get();
         $testimonials = Testimonial::where("is_active", "=", 1)->orderBy("created_at", "DESC")->get();
-       // $event_popup = Event::where("is_active","=", 1)->where("date_fin", '>', $mytime)->where("est_popup","=", 1)->orderBy('date_debut', 'ASC')->take(1)->get();
+        // $event_popup = Event::where("is_active","=", 1)->where("date_fin", '>', $mytime)->where("est_popup","=", 1)->orderBy('date_debut', 'ASC')->take(1)->get();
         // dd($posts);
-        return view('site.pages.index')->with(['title'=>"Accueil",
-                                    'EnteteState'=>$tableaudesEtats,
-                                    'events' => $events,
-                                    'posts' => $posts,
-                                    'testimonials' => $testimonials,
+        return view('site.pages.index')->with(['title' => "Accueil",
+            'EnteteState' => $tableaudesEtats,
+            'events' => $events,
+            'posts' => $posts,
+            'testimonials' => $testimonials,
         ]);
     }
-    public function about(){
-        $pastors=Minister::all();
-        return view('site.pages.about',compact("pastors"));
+    public function about()
+    {
+        $pastors = Minister::all();
+        return view('site.pages.about', compact("pastors"));
     }
-    public function articles(){
-        return view('site.pages.articles');
-    }
-    public function events(){
+
+    public function events()
+    {
         return view('site.pages.events');
     }
-    public function projects(){
+    public function projects()
+    {
         return view('site.pages.projets');
     }
-    public function contact(){
+    public function contact()
+    {
         return view('site.pages.contact');
     }
-    public function galerie(){
+    public function galerie()
+    {
         return view('site.pages.galerie');
     }
-    public function contributions(){
+    public function contributions()
+    {
         return view('site.pages.contributions');
     }
-    public function bunda(){
+    public function bunda()
+    {
         // title'=>"Bunda 21: Logement", 'EnteteState'=>$tableaudesEtats
-        $state=new enteteState;
+        $state = new enteteState;
         $tableaudesEtats = $state->EtatDEntete('bunda');
-        return view('site.pages.bunda',[
-            'title'=>"Bunda 21: Logement",
-            'EnteteState'=>$tableaudesEtats,
+        return view('site.pages.bunda', [
+            'title' => "Bunda 21: Logement",
+            'EnteteState' => $tableaudesEtats,
         ]);
     }
-    public function videos(){
+    public function videos()
+    {
         return view('site.pages.videos');
     }
 

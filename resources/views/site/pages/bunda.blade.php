@@ -113,7 +113,7 @@
                     <div class="col-12 text-center">
                         <h2 class="title-effect">Plan alimentaire</h2>
                         <br>
-                        <a type="button" class="button icon mb-10 mr-10 mt-lg-5 mt-3" target="blank" href="{{ asset('assets/document/Plan_Alimentaire.pdf') }}">
+                        <a type="button" class="button icon mb-10 mr-10 mt-lg-5 mt-3" target="blank" href="{{ asset('assets/document/Plan-Alimentaire-2023.pdf') }}">
                            Télécharger le plan
                         </a>
                     </div>

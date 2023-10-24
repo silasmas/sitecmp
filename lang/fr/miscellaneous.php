@@ -42,6 +42,7 @@ return [
     'entries' => 'entrées',
     'error_label' => 'Erreur :',
     'message_label' => 'Message :',
+    'share' => 'Partager :',
     'address' => [
         'number' => 'Numéro',
         'street' => 'Avenue',
@@ -448,7 +449,7 @@ return [
             'all_year' => 'Toute',
             'type1' => 'Actualité',
             'type2' => 'Conseils',
-            'link' => 'Lire la suite ... »',
+            'link' => 'Lire la suite ...',
             'see_more' => 'Voir plus ...',
             'details' => [
                 'title' => 'Détails sur l\'info',

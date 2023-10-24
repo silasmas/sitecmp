@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
 use App\Models\Event;
 use App\Models\Minister;
-use Illuminate\View\View;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\View\View;
 
 class PostController extends Controller
 {
@@ -16,19 +16,25 @@ class PostController extends Controller
      */
     public function index(): View
     {
-        $posts=Post::all();
-        return view("admin.pages.publication",compact("posts"));
-    }
+        $posts = Post::all();
 
+        return view("admin.pages.publication", compact("posts"));
+    }
+    public function articles()
+    {
+        $posts = Post::orderBy('date_publication')->paginate(1);
+        // dd($posts);
+        return view('site.pages.articles', compact('posts'));
+    }
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        $posts=Post::all();
-        $events=Event::all();
-        $pasteurs=Minister::all();
-        return view("admin.pages.insert.addPublication",compact("posts","events","pasteurs"));
+        $posts = Post::all();
+        $events = Event::all();
+        $pasteurs = Minister::all();
+        return view("admin.pages.insert.addPublication", compact("posts", "events", "pasteurs"));
     }
 
     /**
@@ -36,17 +42,19 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+
         $re = Validator::make(
             $request->all(),
             [
                 'title_fr' => ['required', 'string'],
                 'title_en' => ['required', 'string'],
+                'type' => ['required', 'string'],
                 'date_debut' => ['required', 'string'],
                 'is_active' => ['required', 'string'],
-                'descriptiom_fr' => ['required', 'string'],
-                'descriptiom_en' => ['required', 'string'],
-                'image_fr' => ['required', 'image','max:2000'],
-                'image_en' => ['required', 'image','max:2000'],
+                'description_fr' => ['required', 'string'],
+                'description_en' => ['required', 'string'],
+                'image_fr' => ['required', 'image', 'max:2000'],
+                'image_en' => ['required', 'image', 'max:2000'],
             ]
         );
 
@@ -63,15 +71,14 @@ class PostController extends Controller
             $rep = Post::create(
                 [
                     "title" => ['fr' => $request->title_fr, 'en' => $request->title_en],
-                    "theme" => ['fr' => $request->theme_fr, 'en' => $request->theme_en],
-                    "date_debut" => $request->date_debut,
-                    "date_fin" => $request->date_fin,
+                    "date_publication" => $request->date_debut,
                     "image_url" => ['fr' => $image_fr, 'en' => $image_en],
-                    "orateur" => $request->orateur,
+                    "author" => $request->orateur,
                     "type" => $request->type,
+                    "event_id" => $request->event,
                     "minister_id" => $request->minister_id,
                     "is_active" => $request->is_active,
-                    "body" => ['fr' => $request->descriptiom_fr, 'en' => $request->descriptiom_en],
+                    "body" => ['fr' => $request->description_fr, 'en' => $request->description_en],
                 ]
             );
 
@@ -105,7 +112,7 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show()
+    public function show($id)
     {
         return view("site.pages.article-details");
     }

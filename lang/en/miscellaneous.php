@@ -42,6 +42,7 @@ return [
     'entries' => 'entries',
     'error_label' => 'Error:',
     'message_label' => 'Message:',
+    'share' => 'Share :',
     'address' => [
         'number' => 'Number',
         'street' => 'Street',

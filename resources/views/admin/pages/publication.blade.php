@@ -96,10 +96,10 @@
                                     </td>
                                     <td>{{ $i->title }}</td>
                                     <td>{{ $i->author }}</td>
-                                    <td>{{ $i->is_event }}</td>
-                                    <td>{{ $i->is_active }}</td>
-                                    <td>Aurateur</td>
+                                    <td>{{ $i->is_event==0?"NON":"OUI"}}</td>
+                                    <td>{{ $i->is_active==0?"NON":"OUI" }}</td>
                                     <td>{{ \Carbon\Carbon::parse($i->date_publication)->isoFormat('LLL') }}</td>
+                                    <td>{{ $i->is_active }}</td>
                                     <td class="center align-middle text-right">
                                         <a href="{{ $i->id }}" class="btn btn-sm btn-icon btn-secondary">
                                             <i class="fa fa-eye"></i>

@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 @endif
-                <form method="POST" enctype="multipart/form-data" id="{{ isset($dataPost)?"eventUpdate-form":'event-form'}}" 
+                <form method="POST" enctype="multipart/form-data" id="{{ isset($dataPost)?"eventUpdate-form":'event-form'}}"
                 action="{{ route( isset($dataPost)?"UpdatPost":'StorePost') }}" data-parsley-validate>
                     @csrf
                     <fieldset>
@@ -78,26 +78,24 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-lg-6">
+                                <label for="sel1">Type</label>
+                                <select name="type" class="custom-select type" id="type" required="">
+                                    <option value="">Choisissez</option>
+                                    <option value="1">Vidéo</option>
+                                    <option value="2">Audio </option>
+                                    <option value="3">Article </option>
+                                </select>
+                            </div>
+                            <div class="col-lg-6">
                                 <label for="lbl1">Auteur<abbr title="Required">*</abbr></label>
                                 <input type="text" name="author" class="form-control author" id="author"
                                     placeholder="Entrer l'auteur"
                                     value="{{ isset($dataPost) ? $dataPost->author: '' }}"
                                     required="">
                             </div>
-                            <div class="col-lg-6">
-                                <label for="sel1">Type</label>
-                                <select name="type" class="custom-select type" id="type" required="">
-                                    <option value="1" {{ isset($dataPost)&& $dataPost->type=="1"?"selected":""
-                                        }}>Vidéo</option>
-                                    <option value="2" {{ isset($dataPost)&& $dataPost->type=="2"?"selected":"" }}>
-                                        Audio </option>
-                                    <option value="3" {{ isset($dataPost)&& $dataPost->type=="3"?"selected":""
-                                        }}>Article </option>
-                                </select>
-                            </div>
+
                         </div>
                         <div class="form-group row">
-
                             <div class="col-lg-6">
                                 <label class="mr-2">Image (FR){{ isset($dataPost)?$dataPost->getTranslation('image_url', 'fr'):"" }}</label>
                                 <div class="custom-file">
@@ -134,13 +132,13 @@
                             </div>
                             <div class="col-lg-4">
                                 <label for="sel1">Evénément</label>
-                                <select name="type" class="custom-select" id="type" >
+                                <select name="event" class="custom-select" id="event" >
                                     <option value="">Choisissez</option>
                                     @forelse ($events as $ev)
                                     <option value="1" {{ isset($dataPost)&& $dataPost->getTranslation('theme', 'fr')==$ev->getTranslation('theme', 'fr')?"selected":""}}>{{$ev->getTranslation('theme', 'fr')}}</option>
-                                        
+
                                     @empty
-                                        
+
                                     @endforelse
                                 </select>
                             </div>
@@ -150,9 +148,9 @@
                                     <option value="">Choisissez</option>
                                     @forelse ($pasteurs as $ev)
                                     <option value="{{ $ev->id }}" {{ isset($dataPost)&& $dataPost->fullname==$ev->fullname?"selected":""}}>{{$ev->fullname}}</option>
-                                        
+
                                     @empty
-                                        
+
                                     @endforelse
                                 </select>
                             </div>
@@ -167,7 +165,7 @@
                                     </option>
                                 </select>
                             </div>
-                            {{-- <div class="col-lg-6">
+                            <div class="col-lg-6">
                                 <label for="lbl1">References (FR) <abbr title="Required">*</abbr></label>
                                 <input type="text" name="references_fr" class="form-control references_fr"
                                     id="references_fr" placeholder="Entrer la reference" required=""
@@ -178,15 +176,15 @@
                                 <input type="text" name="references_en" class="form-control references_en"
                                     id="references_en" placeholder="Entrer la reference" required=""
                                     value="{{ isset($dataPost) ? $dataPost->getTranslation('references', 'en') : '' }}">
-                            </div> --}}
-           
+                            </div>
+
                         </div>
                         <div class="form-group row">
                             <div class="col-lg-6">
                                 <label for="lbl1">Descrition (FR)</label>
                                 <!-- .card -->
                                 <div class="card card-fluid">
-                                    <textarea data-toggle="simplemde" name="descriptiom_fr" data-spellchecker="false"
+                                    <textarea data-toggle="simplemde" name="description_fr" data-spellchecker="false"
                                         data-autosave='{ "enabled": true, "unique_id": "SimpleMDEDemo" }'>
                                         {{ isset($dataMinister)?$dataMinister->descriptiom_fr:""}}
                                     </textarea>
@@ -200,7 +198,7 @@
                                         data-autosave='{ "enabled": true, "unique_id": "SimpleMDEDemo" }'>
                                         {{ isset($dataMinister)?$dataMinister->description_en:""}}
                                     </textarea>
-                                   
+
 
                                 </div><!-- /.card -->
                             </div>

@@ -21,54 +21,46 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-9">
-                <div class="blog-entry mb-50">
-                    <div class="entry-image clearfix">
-                        <img class="img-fluid" src="{{ asset('assets/site/images/blog/01.jpg') }}" alt="">
-                    </div>
-                    <div class="blog-detail">
-                        <div class="entry-title mb-10">
-                            <a href="{{ route('show_article') }}">Titre de l'article 1</a>
-                        </div>
-                        <div class="entry-meta mb-10">
-                            <ul>
-                                <li> <i class="fa fa-folder-open-o"></i> <a href="#"> Design,</a> <a href="#"> HTML5
-                                    </a> </li>
-                                <li><a href="#"><i class="fa fa-comment-o"></i> 5</a></li>
-                                <li><a href="#"><i class="fa fa-calendar-o"></i> 12 Aug 2021</a></li>
-                            </ul>
-                        </div>
-                        <div class="entry-content">
-                            <p>A ea maiores corporis. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. consectetur, assumenda
-                                provident lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae laboriosam sunt
-                                hic perspiciatis, asperiores mollitia excepturi voluptatibus sequi nostrum ipsam veniam
-                                omnis nihil! </p>
-                        </div>
-                        <div class="entry-share clearfix">
-                            <div class="entry-button">
-                                <a class="button arrow" href="#">Read More<i class="fa fa-angle-right"
-                                        aria-hidden="true"></i></a>
-                            </div>
-                            <div class="social list-style-none float-end">
-                                <strong>Share : </strong>
-                                <ul>
-                                    <li>
-                                        <a href="#"> <i class="fa fa-facebook"></i> </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> <i class="fa fa-twitter"></i> </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> <i class="fa fa-pinterest-p"></i> </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> <i class="fa fa-dribbble"></i> </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+@forelse ($posts as $p)
+<div class="blog-entry mb-50">
+    <div class="entry-image clearfix">
+        <img class="img-fluid" src="{{ asset('storage/'.$p->image_url) }}" alt="">
+    </div>
+    <div class="blog-detail">
+        <div class="entry-title mb-10">
+            <a href="{{ route('show_article',['id'=>$p->id]) }}">{{ $p->title }}</a>
+        </div>
+        <div class="entry-meta mb-10">
+            <ul>
+                <li> <i class="fa fa-folder-open-o"></i> <a href="#"> Design,</a> <a href="#"> HTML5
+                    </a> </li>
+                <li><a href="#"><i class="fa fa-comment-o"></i> 5</a></li>
+                <li><a href="#"><i class="fa fa-calendar-o"></i>{{ \Carbon\Carbon::parse($p->date_publication)->isoFormat('LLL') }}</a></li>
+            </ul>
+        </div>
+        <div class="entry-content">
+            <p>{!! Str::limit($p->body, 200, '...') !!}</p>
+        </div>
+        <div class="entry-share clearfix">
+            <div class="entry-button">
+                <a class="button arrow" href="{{ route('show_article',['id'=>$p->id]) }}">@lang('miscellaneous.inner_page.news.link')<i class="fa fa-angle-right"
+                        aria-hidden="true"></i></a>
+            </div>
+            <div class="social list-style-none float-end">
+                <strong>@lang("miscellaneous.share") </strong>
+                <ul>
+                            <li><a href="https://www.facebook.com/Eglisecmp?mibextid=LQQJ4d" target="blank"><span class="ti-facebook"></span></a></li>
+                            <li><a href="https://instagram.com/eglisecmp?igshid=OGQ5ZDc2ODk2ZA==" target="blank"><span class="ti-instagram"></span></a></li>
+                            <li><a href="https://twitter.com/EgliseCMP" target="blank"><i class="fa-brands fa-x-twitter"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+@empty
+
+@endforelse
+
                 <!-- ================================================ -->
                 {{-- <div class="blog-entry mb-50">
                     <div class="entry-image clearfix">
@@ -463,7 +455,9 @@
                 </div> --}}
                 <!-- ================================================ -->
                 <div class="entry-pagination mb-40">
-                    <nav aria-label="Page navigation example text-center">
+                    {{-- {{ $posts->links() }} --}}
+
+                    {{-- <nav aria-label="Page navigation example text-center">
                         <ul class="pagination justify-content-center">
                             <li class="page-item">
                                 <a class="page-link" href="#" aria-label="Previous">
@@ -481,143 +475,15 @@
                                 </a>
                             </li>
                         </ul>
-                    </nav>
+                    </nav> --}}
                 </div>
             </div>
             <!-- ================================================ -->
-            <div class="col-lg-3 ">
-                <div class="sidebar-widget">
-                    <h6 class="mb-20">Recherche</h6>
-                    <div class="widget-search">
-                        <i class="fa fa-search"></i>
-                        <input type="search" class="form-control" placeholder="Tapez un text...." />
-                    </div>
-                </div>
-
-                <div class="sidebar-widget">
-                    <h6 class="mt-40 mb-20">Recents articles </h6>
-                    <div class="recent-post clearfix">
-                        <div class="recent-post-image">
-                            <img class="img-fluid" src="{{ asset('assets/site/images/blog/01.jpg') }}" alt="">
-                        </div>
-                        <div class="recent-post-info">
-                            <a href="#">Nibh vel velit auctor aliquet. sem nibh Aenean</a>
-                            <span><i class="fa fa-calendar-o"></i> September 30, 2021</span>
-                        </div>
-                    </div>
-                    <div class="recent-post clearfix">
-                        <div class="recent-post-image">
-                            <img class="img-fluid" src="{{ asset('assets/site/images/blog/02.jpg') }}" alt="">
-                        </div>
-                        <div class="recent-post-info">
-                            <a href="#">Nibh vel velit auctor aliquet. sem nibh Aenean</a>
-                            <span><i class="fa fa-calendar-o"></i> September 30, 2021</span>
-                        </div>
-                    </div>
-                    <div class="recent-post clearfix">
-                        <div class="recent-post-image">
-                            <img class="img-fluid" src="{{ asset('assets/site/images/blog/03.jpg') }}" alt="">
-                        </div>
-                        <div class="recent-post-info">
-                            <a href="#">Nibh vel velit auctor aliquet. sem nibh Aenean</a>
-                            <span><i class="fa fa-calendar-o"></i> September 30, 2021</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="sidebar-widget clearfix">
-                    <h6 class="mt-40 mb-20">Archives</h6>
-                    <ul class="widget-categories">
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> December 2021</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> November 2021</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> October 2021</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> September 2021</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> August 2021</a></li>
-                    </ul>
-                </div>
-                <div class="sidebar-widget">
-                    <h6 class="mt-40 mb-20">Tags</h6>
-                    <div class="widget-tags">
-                        <ul>
-                            <li><a href="#">Ken Luamba</a></li>
-                            <li><a href="#">Roland Dalo</a></li>
-                            <li><a href="#">CMP</a></li>
-                            <li><a href="#">Evangile</a></li>
-                            <li><a href="#">Dimanche</a></li>
-                            <li><a href="#">Foi</a></li>
-                            <li><a href="#">Sacerdoce</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-
-
-
-                <div class="sidebar-widget">
-                    <h6 class="mt-40 mb-20">Newsletter</h6>
-                    <div class="widget-newsletter">
-                        <div class="newsletter-icon">
-                            <i class="fa fa-envelope-o"></i>
-                        </div>
-                        <div class="newsletter-content">
-                            <i>Restez à jour sur toutes nos parutions</i>
-                        </div>
-                        <div class="newsletter-form mt-20">
-                            <form action="{{ route('newsletter') }}" method="POST" name="mc-embedded-subscribe-form"
-                                class="validate" id="newsletter">
-                                @csrf
-                                <div class="mb-3">
-                                    <input type="email" class="form-control" placeholder="Email" name="email">
-                                </div>
-                                <button class="button d-grid" type="submit" name="submitbtn"
-                                    id="btnNews">Soumettre</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            @include("site.parties.barrLaterale")
             <!-- ================================= -->
         </div>
     </div>
 </section>
 
-<section class="contact-box contact-box-top theme-bg" style="margin-top: 50px;">
-    <div class="container">
-        <div class="row pt-20 pb-40">
-            <div class="col-md-4 sm-mb-30">
-                <div class="contact-box">
-                    <div class="contact-icon">
-                        <i class="ti-map text-white"></i>
-                    </div>
-                    <div class="contact-info">
-                        <h5 class="text-white"> Adresse</h5>
-                        <span class="text-white">Details</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 sm-mb-30">
-                <div class="contact-box">
-                    <div class="contact-icon">
-                        <i class="ti-headphone text-white"></i>
-                    </div>
-                    <div class="contact-info">
-                        <h5 class="text-white">Téléphone</h5>
-                        <span class="text-white">Heure de rdv</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="contact-box">
-                    <div class="contact-icon">
-                        <i class="ti-email text-white"></i>
-                    </div>
-                    <div class="contact-info">
-                        <h5 class="text-white">Email</h5>
-                        <span class="text-white">Fax</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 @endsection
