@@ -42,6 +42,7 @@ return [
     'entries' => 'entrées',
     'error_label' => 'Erreur :',
     'message_label' => 'Message :',
+    'share' => 'Partager :',
     'address' => [
         'number' => 'Numéro',
         'street' => 'Avenue',
@@ -169,7 +170,7 @@ return [
             'video_testimonials' => 'Témoignages en vidéo',
             'sensibilization' => 'Sensibilisation',
         ],
-        'projects' => 'Projets',
+        'projects' => 'Batisseurs',
         'donate' => 'Faire un don',
         'events' => 'Evènement',
         'contribution' => 'contributions',
@@ -182,7 +183,7 @@ return [
     // ===== FOOTER CONTENT
     'footer' => [
         'contact_us' => 'Nous contacter',
-        'address1' => '4935 Av. De la Science - Gombe - Kinshasa 00243 Kinshasa, République démocratique du Congo,',
+        'address1' => '4935 Av. De la Science - Gombe - Kinshasa 00243 Kinshasa, République démocratique du Congo.',
         'address2' => 'Kinshasa-Gombe',
         'quick_links' => [
             'title' => 'Liens rapides',
@@ -195,7 +196,8 @@ return [
         ],
         'newsletter' => [
             'title' => 'Newsletter',
-            'description' => 'Souscrire à la newsletter pour recevoir régulièrement les infos concernant Action Damien',
+            'btn' => 'Souscrire',
+            'description' => 'Souscrire à la newsletter pour recevoir régulièrement les informations relatives à notre eglise',
         ],
     ],
 
@@ -353,17 +355,11 @@ return [
         ],
         // About
         'about' => [
-            'banner_title1' => 'Agir, c\'est contagieux ',
-            'banner_title2' => '!',
-            'butterfly' => [
-                'title' => 'Action Damien et Papillon',
-                'title_exclam' => ' !',
-                'text' => 'Nous luttons contre ces 4 maladies infectieuses, avec l\'objectif de les éliminer à l\'échelle mondiale :',
-                'list1' => 'La Lèpre',
-                'list2' => 'La Tuberculose',
-                'list3' => 'L\'Ulcère de Buruli',
-                'list4' => 'Le Pian',
-            ],
+            'banner_title1' => 'Nous connaitre',
+            'banner_title2' => 'Pour la petite histoire',
+            'name_church' => 'Centre Missionnaire Philadelphie ',
+            'histoire' => 'Le Centre Missionnaire Philadelphie est une église locale de la 37ème Communauté des Assemblées de Dieu au Congo',
+
             'description' => [
                 'title1' => 'Le papillon en forme de cœur',
                 'text1' => 'Dans le logo, on peut reconnaître un papillon tout autant qu\'un cœur. Ce choix n\'est pas un hasard. Le cœur est un symbole pour chaque personne qui a aidé à écrire l\'histoire d\'Action Damien. Et le papillon représente les nombreuses personnes atteintes de la lèpre et de la tuberculose : fragiles et en même temps pleines d\'espoir et belles.',
@@ -453,7 +449,7 @@ return [
             'all_year' => 'Toute',
             'type1' => 'Actualité',
             'type2' => 'Conseils',
-            'link' => 'Lire la suite ... »',
+            'link' => 'Lire la suite ...',
             'see_more' => 'Voir plus ...',
             'details' => [
                 'title' => 'Détails sur l\'info',

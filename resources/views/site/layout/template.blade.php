@@ -1,5 +1,5 @@
 @include('site.parties.entete')
-
+@include('site.parties.menu-responsive')
 @include('site.parties.menu')
 @yield("content")
 

@@ -12,7 +12,7 @@
 <!-- BEGIN THEME JS -->
 <script src="{{ asset('assets/javascript/theme.min.js') }}"></script> <!-- END THEME JS -->
 <!-- BEGIN PAGE LEVEL JS -->
-<script src="{{ asset('assets/javascript/pages/dashboard-demo.js') }}"></script>
+{{-- <script src="{{ asset('assets/javascript/pages/dashboard-demo.js') }}"></script> --}}
 <!-- END PAGE LEVEL JS -->
 
 @yield('autres-script')

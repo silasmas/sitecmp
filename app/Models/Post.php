@@ -21,7 +21,7 @@ class Post extends Model
      * @var array<int, string>
      */
     protected $guarded = [];
-    public $translatable = [];
+    public $translatable = ["title","image_url","body","references","fichier_url","observation"];
 
     /**
      * ONE-TO-MANY

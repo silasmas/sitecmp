@@ -18,9 +18,9 @@
         <div class="row g-lg-5 align-items-center">
             <div class="col-lg-6 sm-mb-30">
                 <div class="owl-carousel bottom-center-dots owl-loaded owl-drag" data-nav-dots="ture" data-smartspeed="1200" data-items="1" data-md-items="1" data-sm-items="1" data-xs-items="1" data-xx-items="1">
-                    
-                    
-                    
+
+
+
                 <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1128px, 0px, 0px); transition: all 1.2s ease 0s; width: 3948px;"><div class="owl-item cloned" style="width: 534px; margin-right: 30px;"><div class="item">
                         <img class="img-fluid" src="{{ asset('assets/site/images/about/couple2.jpg') }}" alt="">
                     </div></div><div class="owl-item cloned" style="width: 534px; margin-right: 30px;"><div class="item">
@@ -39,13 +39,26 @@
             </div>
             <div class="col-lg-6">
                 <div class="section-title">
-                    <h6 class="text-intro mb-lg-3">Déscription</h6>
-                    <h2 class="title-effect mb-lg-3">Bunda 21</h2>
+                    <h6 class="text-intro mb-lg-3">Grande célébration Bunda 21</h6>
+                    <h2 class="title-effect mb-lg-3">Temps de consécration à la recherche de la face de Dieu</h2>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae quibusdam repellat non totam expedita vero iure consequatur quia. Dolorem culpa provident numquam rem eos corporis animi aliquid, libero labore distinctio.
+                        La grande célébration Bunda 21 est un programme de 21 jours de jeûne et prière pendant lesquels  nous cherchons la face de Dieu pour nous-mêmes, pour nos ministères, nos mariages, pour nos business, nos Églises, notre pays.
+
+                        Il y a bien de choses que Dieu nous a destinées, qui nous appartiennent, mais que nous devons palper, posséder.
+                        Le prophète Elie, après avoir reçu une promesse de Dieu, a cherché Dieu à la montagne ; il s’est privé de la nourriture, a consenti des sacrifices,
+                        bien que bénéficiaire de la promesse de Dieu, et ce jusqu’à ce que la pluie soit tombée.
+
+                        Nous n'attendons donc pas l’accomplissement des promesses de Dieu de manière passive,
+                        nous faisons notre part et cette dernière se trouve dans la prière.
+
+                        <br><br>
+
+                        {{-- Dieu cherche un homme qui se tienne à la brèche, ainsi IL nous appelle dans Sa présence --}}
+
+                        Combats, possède et jouis de ton héritage.
                     </p>
                 </div>
-                
+
                 <div class="mt-30">
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -100,7 +113,7 @@
                     <div class="col-12 text-center">
                         <h2 class="title-effect">Plan alimentaire</h2>
                         <br>
-                        <a type="button" class="button icon mb-10 mr-10 mt-lg-5 mt-3" href="#">
+                        <a type="button" class="button icon mb-10 mr-10 mt-lg-5 mt-3" target="blank" href="{{ asset('assets/document/Plan-Alimentaire-2023.pdf') }}">
                            Télécharger le plan
                         </a>
                     </div>
@@ -109,158 +122,39 @@
                         <h3 class="mb-30">Semaine 1</h3>
                     </div>
                     <div class="col-lg-9 col-md-12">
-                        
+
                         <div class="table-responsive">
-                            <table class="table table-bordered table-3 text-center table-striped">
-                                <thead>
-                                  <tr>
-                                    <th>Title 1 </th>
-                                    <th>Title 2</th>
-                                    <th>Title 3</th>
-                                    <th>Title 4</th>
-                                    <th>Title 5</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                  </tr>
-                                   <tr>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                  </tr>
-                                </tbody>
-                              </table>
+                              @include('site.pages.bunda.weeks.week1')
                          </div>
                     </div>
                     <div class="col-lg-3">
                         <h3 class="mb-30">Semaine 2</h3>
                     </div>
                     <div class="col-lg-9 col-md-12">
-                        
+
                         <div class="table-responsive">
-                            <table class="table table-bordered table-3 text-center table-striped">
-                                <thead>
-                                  <tr>
-                                    <th>Title 1 </th>
-                                    <th>Title 2</th>
-                                    <th>Title 3</th>
-                                    <th>Title 4</th>
-                                    <th>Title 5</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                  </tr>
-                                   <tr>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                  </tr>
-                                </tbody>
-                              </table>
+                            @include('site.pages.bunda.weeks.week2')
                          </div>
                     </div>
                     <div class="col-lg-3">
                         <h3 class="mb-30">Semaine 3</h3>
                     </div>
                     <div class="col-lg-9 col-md-12">
-                        
+
                         <div class="table-responsive">
-                            <table class="table table-bordered table-3 text-center table-striped">
-                                <thead>
-                                  <tr>
-                                    <th>Title 1 </th>
-                                    <th>Title 2</th>
-                                    <th>Title 3</th>
-                                    <th>Title 4</th>
-                                    <th>Title 5</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                  </tr>
-                                   <tr>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                  </tr>
-                                </tbody>
-                              </table>
+                            @include('site.pages.bunda.weeks.week3')
                          </div>
                     </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="logement" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+                @include('site.pages.bunda.logement')
             </div>
             <div class="tab-pane fade" id="shop" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
             </div>
 
         </div>
-        
+
     </div>
 
 </section>

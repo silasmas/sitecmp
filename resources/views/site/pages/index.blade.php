@@ -3,6 +3,12 @@
 @section('content')
     <div class="banner" id="home">
         <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-indicators d-lg-none">
+                <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="content-banner">
@@ -62,12 +68,12 @@
                     </div>
                 </div>
             </div>
-            <button class="carousel-control-prev btn-carousel" type="button" data-bs-target="#carouselExampleSlidesOnly"
+            <button class="carousel-control-prev btn-carousel d-none d-lg-flex" type="button" data-bs-target="#carouselExampleSlidesOnly"
                 data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next btn-carousel" type="button" data-bs-target="#carouselExampleSlidesOnly"
+            <button class="carousel-control-next btn-carousel d-none d-lg-flex" type="button" data-bs-target="#carouselExampleSlidesOnly"
                 data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
@@ -314,7 +320,7 @@
                 <div class="col-12">
                     <div class="text-center">
                         <a type="button" class="button icon mb-10 mr-10 mt-lg-5 mt-3" href="{{ route('articles') }}">
-                            Plus d'articles
+                            @lang('miscellaneous.see_more')
                         </a>
                     </div>
                 </div>
@@ -325,7 +331,7 @@
     <section class="page-section-ptb">
         <div class="container">
             <div class="row g-lg-5">
-                <div class="col-lg-6 sm-mb-30">
+                <div class="col-lg-6 sm-mb-30 col-md-6">
                     <div class="owl-carousel bottom-center-dots" data-nav-dots="ture" data-smartspeed="1200"
                         data-items="1" data-md-items="1" data-sm-items="1" data-xs-items="1" data-xx-items="1">
                         <div class="item">
@@ -342,11 +348,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 col-md-6">
                     <div class="section-title">
                         <h6 class="text-intro mb-lg-3">Le couple</h6>
-                        <h2 class="title-effect mb-lg-3">KEN & NATHALIE LUAMBA</h2>
-                        <p>À la porte de 2023, toute notre gratitude à Dieu pour son soutien durant l'année 2022 qui
+                        <h2 class="title-effect mb-lg-3">NATHALIE & KEN LUAMBA</h2>
+                        <p style="font-size: 14px">À la porte de 2023, toute notre gratitude à Dieu pour son soutien durant l'année 2022 qui
                             s’est clôturée.</p>
                     </div>
                     <p> <span class="dropcap gray square">E</span> n cette année nouvelle, puissent les portes
@@ -357,12 +363,13 @@
                         consommateur de votre foi.</p>
                     <div class="mt-30">
                         <p>Bonne et Heureuse année 2023 à tous, en Jésus-Christ !</p>
-                        <button type="button" class="button icon mb-10 mr-10">
+                        <button type="button" class="button icon mb-10 mr-10" >
                             Message de bienvenu
                         </button>
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-toggle="modal"
+                            data-bs-target=".bd-example-modal-lg">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header align-items-start">
@@ -543,7 +550,7 @@
                         <span>Webster has powerful options & tools, unlimited designs, responsive framework and
                             amazing support. We are dedicated to providing you with the best experience possible.
                             Purchase webster to find out why the sky's the limit when using Webster.</span>
-                        <a class="button mt-30" href="galerie.html">Voir toutes les images</a>
+                        <a class="button mt-30" href="galerie.html">@lang('miscellaneous.inner_page.news.see_more')</a>
                     </div>
                     <div>
                     </div>
@@ -654,13 +661,14 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row g-3 g-lg-4">
 
-                <div class="col-md-3 ">
+                <div class="col-lg-3 col-sm-6">
                     <div class="pricing-table h-100">
                         <div class="pricing-top h-100">
+                            <img src="{{asset('assets/images/mercredi.png')}}" alt="" class="img-icon">
                             <div class="pricing-title">
-                                <div class="mb-15 badge-day">Mercredi</div>
+                                <div class="mb-15 badge-day">@lang('miscellaneous.day.complete.wednesday')</div>
                                 <h3 class="title-card">Culte d'enseignement biblique</h3>
                             </div>
                             <div class="time-line-prog d-flex flex-column">
@@ -676,11 +684,12 @@
                     </div>
                 </div>
 
-                <div class="col-md-3 ">
+                <div class="col-lg-3 col-sm-6 ">
                     <div class="pricing-table h-100">
                         <div class="pricing-top h-100">
+                            <img src="{{asset('assets/images/jeudi.png')}}" alt="" class="img-icon">
                             <div class="pricing-title">
-                                <div class="mb-15 badge-day">Jeudi</div>
+                                <div class="mb-15 badge-day">@lang('miscellaneous.day.complete.thursday')</div>
                                 <h3 class="title-card">Culte d'intercession (Jeudi Etoko)</h3>
                             </div>
                             <div class="time-line-prog d-flex flex-column">
@@ -695,11 +704,12 @@
                     </div>
                 </div>
 
-                <div class="col-md-3 ">
-                    <div class="pricing-table h-100">
+                <div class="col-lg-3 col-sm-6 ">
+                    <div class="pricing-table h-100 mt-5 mt-lg-0">
                         <div class="pricing-top h-100">
+                            <img src="{{asset('assets/images/samedi.png')}}" alt="" class="img-icon">
                             <div class="pricing-title">
-                                <div class="mb-15 badge-day">Samedi</div>
+                                <div class="mb-15 badge-day">@lang('miscellaneous.day.complete.saturday')</div>
                                 <h3 class="title-card">Réunion de la jeunesse</h3>
                             </div>
                             <div class="time-line-prog d-flex flex-column">
@@ -715,32 +725,36 @@
                     </div>
                 </div>
 
-                <div class="col-md-3 ">
-                    <div class="pricing-table h-100">
+                <div class="col-lg-3 col-sm-6 ">
+                    <div class="pricing-table h-100 mt-5 mt-lg-0">
                         <div class="pricing-top h-100">
+                            <img src="{{asset('assets/images/dimanche.png')}}" alt="" class="img-icon">
                             <div class="pricing-title">
-                                <div class="mb-15 badge-day">Dimanche</div>
+                                <div class="mb-15 badge-day">@lang('miscellaneous.day.complete.sunday')</div>
                                 <h3 class="title-card">Culte dominical</h3>
                             </div>
-                            
+
                             <div class="time-line-prog d-flex flex-column">
                                 <div class="item-line">
                                     <div class="icon">
                                         <i class="fa fa-clock-o"></i>
                                     </div>
-                                    07h00-8h30
+                                    07h00-09h00 (FR)
                                 </div>
                                 <div class="item-line">
                                     <div class="icon">
                                         <i class="fa fa-clock-o"></i>
                                     </div>
-                                    12h00-13h30
+                                    09h30-11h30 (FR-EN)<br>
+                                    <a href="http://"> <i class="fa fa-facebook-square"></i></a>
+                                    <a href="http://"> <i class="fa fa-youtube-play"></i></a>
+                                    <a href="http://"> <i class="fa fa-twitter-square"></i></a>
                                 </div>
                                 <div class="item-line">
                                     <div class="icon">
                                         <i class="fa fa-clock-o"></i>
                                     </div>
-                                    09h30 -11h00
+                                    12h00 -14h00 (LN)
                                 </div>
                             </div>
                         </div>

@@ -21,7 +21,7 @@ class Event extends Model
      * @var array<int, string>
      */
     protected $guarded = [];
-    public $translatable = ["designation","lieu","theme","reference"];
+    public $translatable = ["designation","lieu","theme","references","image_url"];
 
     /**
      * MANY-TO-ONE

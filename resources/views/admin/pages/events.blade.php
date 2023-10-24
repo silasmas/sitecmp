@@ -1,7 +1,9 @@
 @extends('admin.layouts.template')
 
 @section('autres_style')
-    <link href="{{ asset('assets/stylesheetsd/dataTables/datatables.min.cs') }}" rel="stylesheet">
+    <link href="{{ asset('assets/stylesheets/dataTables/datatables.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/photoswipe/photoswipe.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/photoswipe/assets/vendor/photoswipe/default-skin/default-skin.css') }}" rel="stylesheet">
 @endsection
 @section("content")
 
@@ -11,12 +13,16 @@
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item active">
-                    <a href="#"><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Tables</a>
+                    <a href="{{ route('dashboard') }}"><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Home</a>
                   </li>
                 </ol>
               </nav><!-- /.breadcrumb -->
               <!-- floating action -->
-              <a href="{{ route('addEvent') }}" type="button" class="btn btn-success btn-floated"><span class="fa fa-plus"></span></a> <!-- /floating action -->
+              <a href="{{ route('addEvent') }}">
+              <button type="button" class="btn btn-success btn-floated">
+                    <span class="fa fa-plus"></span>
+                </button> <!-- /floating action -->
+            </a>
               <!-- title and toolbar -->
               <div class="d-md-flex align-items-md-start">
                 <h1 class="page-title mr-sm-auto"> Liste des évènements</h1><!-- .btn-toolbar -->
@@ -44,36 +50,72 @@
                 </div><!-- /.card-header -->
                 <!-- .card-body -->
                 <div class="card-body">
-                 
+
                     <table class="table table-striped table-bordered table-hover dataTables-example">
                         <thead>
                             <tr>
+                                <th>Image</th>
                                 <th>Designation</th>
                                 <th>Theme</th>
-                                <th>Type</th>
-                                <th>Lieu</th>
                                 <th>Orateur</th>
                                 <th>A la une</th>
                                 <th>Debut</th>
                                 <th>Fin</th>
-                                <th>Image</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse ($events as $i)
                                 <tr class="gradeX">
+                                    <td>
+                                        <div class="card card-figure">
+                                            <!-- .card-figure -->
+                                            <figure class="figure">
+                                              <!-- .figure-img -->
+                                              <div class="figure-img">
+                                                <img class="img-fluid" src="{{ asset('storage/'.$i->image_url) }}" width="100" alt="Card image cap">
+                                                <a href="{{ asset('storage/'.$i->image_url) }}" class="img-link" data-size="100x100">
+                                                    <span class="tile tile-circle bg-danger"><span class="oi oi-eye"></span></span>
+                                                    <span class="img-caption d-none">Image caption goes here</span></a>
+                                                <div class="figure-action">
+                                                  <a href="#" class="btn btn-block btn-sm btn-primary">Voir en detail</a>
+                                                </div>
+                                              </div><!-- /.figure-img -->
+                                              <!-- .figure-caption -->
+                                              <figcaption class="figure-caption">
+                                                <ul class="list-inline text-muted mb-0">
+                                                  <li class="list-inline-item">
+                                                    <span class="oi oi-paperclip"></span> 0.62MB </li>
+                                                  <li class="list-inline-item float-right">
+                                                    <span class="oi oi-calendar"></span>
+                                                  </li>
+                                                </ul>
+                                              </figcaption><!-- /.figure-caption -->
+                                            </figure><!-- /.card-figure -->
+                                          </div>
+                                    </td>
                                     <td>{{ $i->designation }}</td>
                                     <td>{{ $i->theme }}</td>
                                     <td>{{ $i->type }}</td>
-                                    <td>{{ $i->lieu }}</td>
                                     <td>{{ $i->orateur }}</td>
                                     <td>{{ $i->est_a_la_une }}</td>
                                     <td>{{ \Carbon\Carbon::parse($i->date_debut)->isoFormat('LLL') }}</td>
                                     <td>{{ \Carbon\Carbon::parse($i->date_fin)->isoFormat('LLL') }}</td>
-                                    <td>{{ $i->image_url }}</td>
-                                    <td class="center">
+                                    <td class="center align-middle text-right">
+                                        <a href="{{ $i->id }}" class="btn btn-sm btn-icon btn-secondary">
+                                            <i class="fa fa-eye"></i>
+                                            <span class="sr-only">Detail</span>
+                                        </a>
 
+                                        <a href="{{ route('editEvent',['id'=>$i->id]) }}" class="btn btn-sm btn-icon btn-secondary">
+                                            <i class="fa fa-pencil-alt"></i>
+                                            <span class="sr-only">Modifier</span>
+                                        </a>
+                                        <a href="{{ $i->id }}" class="btn btn-sm btn-icon btn-secondary"
+                                            onclick="event.preventDefault();deletEvent({{ $i->id }},'delEvent')">
+                                            <i class="fa fa-trash-alt"></i>
+                                            <span class="sr-only">Supprimer</span>
+                                        </a>
                                     </td>
 
                                 @empty
@@ -83,15 +125,13 @@
                         </tbody>
                         <tfoot>
                             <tr>
+                                <th>Image</th>
                                 <th>Designation</th>
                                 <th>Theme</th>
-                                <th>Type</th>
-                                <th>Lieu</th>
                                 <th>Orateur</th>
                                 <th>A la une</th>
                                 <th>Debut</th>
                                 <th>Fin</th>
-                                <th>Image</th>
                                 <th>Actions</th>
                             </tr>
                         </tfoot>
@@ -99,21 +139,28 @@
                 </div><!-- /.card-body -->
               </div><!-- /.card -->
             </div><!-- /.page-section -->
-          
+
 
 @endsection
 @section('autres-script')
 
-<script src="{{ asset('assets/vendor/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+{{-- <script src="{{ asset('assets/vendor/datatables.net/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}"></script> 
+<script src="{{ asset('assets/vendor/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}"></script> --}}
 
   <!-- BEGIN PAGE LEVEL JS -->
-  <script src="{{ asset('assets/javascript/pages/dataTables.bootstrap.js') }}"></script>
-  <script src="{{ asset('assets/javascript/pages/datatables-filters-demo.js') }}"></script> <!-- END PAGE LEVEL JS -->
+  {{-- <script src="{{ asset('assets/javascript/pages/dataTables.bootstrap.js') }}"></script>
+  <script src="{{ asset('assets/javascript/pages/datatables-filters-demo.js') }}"></script> --}}
+   <!-- END PAGE LEVEL JS -->
+
+  <script src="{{ asset('assets/site/js/sweetalert/sweetalert.min.js') }}"></script>
+  <script src="{{ asset('assets/site/js/admin.form.js') }}"></script>
   <script src="{{ asset('assets/javascript/dataTables/datatables.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/photoswipe/photoswipe.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/photoswipe/photoswipe-ui-default.min.js') }}"></script>
+  <script src="{{ asset('assets/javascript/pages/photoswipe-demo.js') }}"></script>
   <script>
       $(document).ready(function() {
           $('.dataTables-example').DataTable({

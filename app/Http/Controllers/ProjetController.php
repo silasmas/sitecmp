@@ -34,9 +34,9 @@ class ProjetController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Projet $projet)
+    public function show($id)
     {
-        //
+        return view("site.pages.project-details");
     }
 
     /**

@@ -30,7 +30,7 @@
             <div class="portfolio-item">
              <img src="{{ asset('assets/site/images/portfolio/color-image-related/01.jpg') }}" alt="">
               <div class="portfolio-overlay">
-                  <h4 class="text-white"> <a href="project-details.html"> Titre du projet </a> </h4>
+                  <h4 class="text-white"> <a href="{{ route('detailProjet',["id"=>1]) }}"> Titre du projet </a> </h4>
                     <span> <a href="#"> Branding </a> | <a href="#"> Web Design </a> </span>
               </div>
             </div>
@@ -39,7 +39,7 @@
             <div class="portfolio-item">
              <img src="{{ asset('assets/site/images/portfolio/color-image-related/02.jpg') }}" alt="">
               <div class="portfolio-overlay">
-                  <h4 class="text-white"> <a href="project-details.html"> Titre du projet </a> </h4>
+                  <h4 class="text-white"> <a href="{{ route('detailProjet',["id"=>1]) }}"> Titre du projet </a> </h4>
                     <span> <a href="#"> Branding </a> | <a href="#"> Web Design </a> </span>
               </div>
             </div>
@@ -48,12 +48,12 @@
             <div class="portfolio-item">
              <img src="{{ asset('assets/site/images/portfolio/color-image-related/03.jpg') }}" alt="">
               <div class="portfolio-overlay">
-                  <h4 class="text-white"> <a href="project-details.html"> Titre du projet </a> </h4>
+                  <h4 class="text-white"> <a href="{{ route('detailProjet',["id"=>1]) }}"> Titre du projet </a> </h4>
                     <span> <a href="#"> Branding </a> | <a href="#"> Web Design </a> </span>
               </div>
             </div>
           </div>
-         
+
        </div>
       </div>
       <div class="col-md-12" style="padding-top: 20px;">
@@ -62,7 +62,7 @@
             <div class="portfolio-item">
              <img src="{{ asset('assets/site/images/portfolio/color-image-related/04.jpg') }}" alt="">
               <div class="portfolio-overlay">
-                  <h4 class="text-white"> <a href="project-details.html"> Titre du projet </a> </h4>
+                  <h4 class="text-white"> <a href="{{ route('detailProjet',["id"=>1]) }}"> Titre du projet </a> </h4>
                     <span> <a href="#"> Branding </a> | <a href="#"> Web Design </a> </span>
               </div>
             </div>
@@ -71,7 +71,7 @@
             <div class="portfolio-item">
              <img src="{{ asset('assets/site/') }}images/portfolio/color-image-related/05.jpg" alt="">
               <div class="portfolio-overlay">
-                  <h4 class="text-white"> <a href="project-details.html"> Titre du projet </a> </h4>
+                  <h4 class="text-white"> <a href="{{ route('detailProjet',["id"=>1]) }}"> Titre du projet </a> </h4>
                     <span> <a href="#"> Branding </a> | <a href="#"> Web Design </a> </span>
               </div>
             </div>
@@ -80,12 +80,12 @@
             <div class="portfolio-item">
              <img src="{{ asset('assets/site/') }}images/portfolio/color-image-related/06.jpg" alt="">
               <div class="portfolio-overlay">
-                  <h4 class="text-white"> <a href="project-details.html"> Titre du projet </a> </h4>
+                  <h4 class="text-white"> <a href="{{ route('detailProjet',["id"=>1]) }}"> Titre du projet </a> </h4>
                     <span> <a href="#"> Branding </a> | <a href="#"> Web Design </a> </span>
               </div>
             </div>
           </div>
-         
+
        </div>
       </div>
     </div>

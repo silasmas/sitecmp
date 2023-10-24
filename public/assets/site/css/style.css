@@ -150,6 +150,31 @@ NOTE: This is main stylesheet of template, This file contains the styling for th
   font-family: Montserrat;
   font-weight: 600;
 }
+.menu-toggle{
+  gap: 5px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+.menu-toggle::before{
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 40px;
+  height: 40px;
+  z-index: -1;
+}
+.menu-toggle span{
+  width: 24px;
+  height: 2px;
+  background: #1e1718;
+  display: flex;
+}
+.menu-toggle span:first-child{
+  width: 16px;
+}
 /* .tp-parallax-wrap{
   width: 100%;
   height: 100%;
@@ -219,7 +244,6 @@ NOTE: This is main stylesheet of template, This file contains the styling for th
   width: 100%;
   color: var(--colorText);
   font-size: 14px;
-  text-transform: uppercase;
   font-weight: 500;
 }
 .mega-menu .link-drop:hover{
@@ -308,6 +332,14 @@ NOTE: This is main stylesheet of template, This file contains the styling for th
 .banner{
   height: 100vh;
   margin-top: 100px;
+}
+.banner .carousel-indicators button{
+  width: 7px;
+  height: 7px;
+  border-radius: 100%;
+}
+.banner .carousel-indicators{
+  gap: 7px;
 }
 .banner .carousel{
   height: 100%;
@@ -2429,3 +2461,5 @@ img.bottom-img { top: 0; }
      .newsletter.fancy button { padding: 14px 20px;  }
     }
 }
+
+
