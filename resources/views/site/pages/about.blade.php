@@ -249,13 +249,13 @@
                                                 </div>
                                                 <div class="social-icons color clearfix">
                                                     <ul>
-                                                        <li class="social-facebook" {{$ps->facebook_url==""?"hidden":""}}><a href="{{ $ps->facebook_url }}"><i class="fa fa-facebook"></i></a>
+                                                        <li class="social-facebook" {{$ps->facebook_url==""?"hidden":""}}><a target="blank" href="{{ $ps->facebook_url }}"><i class="fa fa-facebook"></i></a>
                                                         </li>
-                                                        <li class="social-twitter" {{$ps->twitter_url==""?"hidden":""}}><a href="{{ $ps->twitter_url }}"><i class="fa fa-twitter"></i></a>
+                                                        <li class="social-twitter" {{$ps->twitter_url==""?"hidden":""}}><a target="blank" href="{{ $ps->twitter_url }}"><i class="fa fa-twitter"></i></a>
                                                         </li>
-                                                        <li class="social-instagram" {{$ps->instagram_url==""?"hidden":""}}><a href="{{ $ps->instagram_url }}"><i class="fa fa-instagram"></i></a>
+                                                        <li class="social-instagram" {{$ps->instagram_url==""?"hidden":""}}><a target="blank" href="{{ $ps->instagram_url }}"><i class="fa fa-instagram"></i></a>
                                                         </li>
-                                                        <li class="social-youtube" {{$ps->youtube_url==""?"hidden":""}}><a href="{{ $ps->youtube_url }}"><i class="fa fa-youtube"></i></a>
+                                                        <li class="social-youtube" {{$ps->youtube_url==""?"hidden":""}}><a target="blank" href="{{ $ps->youtube_url }}"><i class="fa fa-youtube"></i></a>
                                                         </li>
                                                     </ul>
                                                 </div>
