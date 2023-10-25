@@ -44,7 +44,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="grid-item mercredi dimanche">
+                    <div class="grid-item mercredi campagne">
                         <div class="portfolio-item ">
                             <div class="portfolio-item">
                                 <img src="{{ asset('assets/site/images/portfolio/small/05.jpg') }}" alt="">
@@ -61,7 +61,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="grid-item jeudi dimanche">
+                    <div class="grid-item campagne">
                         <div class="portfolio-item">
                             <div class="portfolio-item">
                                 <img src="{{ asset('assets/site/images/portfolio/small/05.jpg') }}" alt="">
@@ -78,7 +78,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="grid-item jeudi">
+                    <div class="grid-item campagne">
                         <div class="portfolio-item ">
                             <div class="portfolio-item">
                                 <img src="{{ asset('assets/site/images/portfolio/small/05.jpg') }}" alt="">
@@ -96,7 +96,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="grid-item jeudi">
+                    <div class="grid-item campagne">
                         <div class="portfolio-item ">
                             <div class="portfolio-item">
                                 <img src="{{ asset('assets/site/images/portfolio/small/05.jpg') }}" alt="">
@@ -129,7 +129,7 @@
                                     class="fa fa-play"></i></a>
                         </div>
                     </div>
-                    <div class="grid-item dimanche campagne">
+                    <div class="grid-item dimanche">
                         <div class="portfolio-item ">
 
                             <img src="{{ asset('assets/site/images/portfolio/small/05.jpg') }}" alt="">
@@ -145,7 +145,7 @@
                                     class="fa fa-play"></i></a>
                         </div>
                     </div>
-                    <div class="grid-item dimanche campagne">
+                    <div class="grid-item dimanche">
                         <div class="portfolio-item ">
 
                             <img src="{{ asset('assets/site/images/portfolio/small/05.jpg') }}" alt="">
@@ -161,17 +161,87 @@
                                     class="fa fa-play"></i></a>
                         </div>
                     </div>
-                    <div class="grid-item mercredi">
+                    <div class="grid-item dimanche">
                         <div class="portfolio-item">
                             <img src="{{ asset('assets/site/images/portfolio/small/05.jpg') }}" alt="">
                             <div class="portfolio-overlay">
-                                <h4 class="text-white"> <a href="{{ route('media') }}"> Un si grand salut
+                                <h4 class="text-white"> <a href="{{ route('media') }}">L'impact de la sensibilité spirituel dans la destinée
                                     </a> </h4>
-                                <span class="text-white"> <a href="#"> Dimanche </a>| <a href="#">20/08/2023
+                                <span class="text-white"> <a href="#"> Enseignement </a>| <a href="#">23/08/2023
                                     </a>
                                 </span>
                             </div>
-                            <a class="popup popup-youtube" href="https://www.youtube.com/watch?v=TckN2Py3M7Q"><i
+                            <a class="popup popup-youtube" href="https://www.youtube.com/watch?v=aVWGs9AJIOU"><i
+                                    class="fa fa-play"></i></a>
+                        </div>
+                    </div>
+                    <div class="grid-item dimanche">
+                        <div class="portfolio-item">
+                            <img src="{{ asset('assets/site/images/portfolio/small/05.jpg') }}" alt="">
+                            <div class="portfolio-overlay">
+                                <h4 class="text-white"> <a href="{{ route('media') }}"> La foi en ce qui n'a jamais existé
+                                    </a> </h4>
+                                <span class="text-white"> <a href="#"> Intercession</a>| <a href="#">24/08/2023
+                                    </a>
+                                </span>
+                            </div>
+                            <a class="popup popup-youtube" href="https://www.youtube.com/watch?v=rHpClLrHNzU"><i
+                                    class="fa fa-play"></i></a>
+                        </div>
+                    </div>
+                    <div class="grid-item dimanche">
+                        <div class="portfolio-item">
+                            <img src="{{ asset('assets/site/images/portfolio/small/dim2.jpg') }}" alt="">
+                            <div class="portfolio-overlay">
+                                <h4 class="text-white"> <a href="{{ route('media') }}"> L'Esprit de la prophétie
+                                    </a> </h4>
+                                <span class="text-white"> <a href="#"> Culte dominical </a>| <a href="#">22/08/2023
+                                    </a>
+                                </span>
+                            </div>
+                            <a class="popup popup-youtube" href="https://www.youtube.com/watch?v=ks2w-JxmjTg"><i
+                                    class="fa fa-play"></i></a>
+                        </div>
+                    </div>
+                    <div class="grid-item dimanche">
+                        <div class="portfolio-item">
+                            <img src="{{ asset('assets/site/images/portfolio/small/dim.jpg') }}" alt="">
+                            <div class="portfolio-overlay">
+                                <h4 class="text-white"> <a href="{{ route('media') }}"> Croissance, mettre de côté tout ce qui est enfantin
+                                    </a> </h4>
+                                <span class="text-white"> <a href="#"> Culte dominical </a>| <a href="#">22/10/2023
+                                    </a>
+                                </span>
+                            </div>
+                            <a class="popup popup-youtube" href="https://www.youtube.com/watch?v=5ShExPTWK2M"><i
+                                    class="fa fa-play"></i></a>
+                        </div>
+                    </div>
+                    <div class="grid-item jeudi">
+                        <div class="portfolio-item">
+                            <img src="{{ asset('assets/site/images/portfolio/small/dim.jpg') }}" alt="">
+                            <div class="portfolio-overlay">
+                                <h4 class="text-white"> <a href="{{ route('media') }}">Elargis l'espace de ta tente
+                                    </a> </h4>
+                                <span class="text-white"> <a href="#"> Culte d'intercession </a>| <a href="#">12/10/2023
+                                    </a>
+                                </span>
+                            </div>
+                            <a class="popup popup-youtube" href="https://www.youtube.com/watch?v=SeVQZwGw3AQ"><i
+                                    class="fa fa-play"></i></a>
+                        </div>
+                    </div>
+                    <div class="grid-item jeudi">
+                        <div class="portfolio-item">
+                            <img src="{{ asset('assets/site/images/portfolio/small/jeudi.jpg') }}" alt="">
+                            <div class="portfolio-overlay">
+                                <h4 class="text-white"> <a href="{{ route('media') }}"> La force du témoignage
+                                    </a> </h4>
+                                <span class="text-white"> <a href="#"> Culte d'intercession </a>| <a href="#">05/10/2023
+                                    </a>
+                                </span>
+                            </div>
+                            <a class="popup popup-youtube" href="https://www.youtube.com/watch?v=Is_q_uUvSAk"><i
                                     class="fa fa-play"></i></a>
                         </div>
                     </div>
