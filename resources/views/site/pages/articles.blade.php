@@ -16,7 +16,7 @@
         </div>
     </div>
 </section>
-
+@include("site.parties.info")
 <section class="blog white-bg page-section-ptb">
     <div class="container">
         <div class="row">

@@ -13,7 +13,7 @@
   </div>
 </section>
 
-
+@include("site.parties.info")
 
 <section class="page-section-pb" style="padding-top: 50px;">
   <div class="container">

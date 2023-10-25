@@ -8,24 +8,24 @@
                 <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
-            
+
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="content-banner">
                         <div class="bg-banner">
-                            <img src="{{ asset('assets/site/revolution/assets/slider-01/1a353-01.jpg') }}" alt="image de banière">
+                            <img src="{{ asset('assets/site/revolution/assets/slider-01/slide1.jpg') }}" alt="image de banière">
                         </div>
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8 mx-auto">
                                     <div class="block text-center">
-                                        <h2 class="mb-lg-3">Bienvenue à Philadelphie</h2>
-                                        <p class="mb-lg-4 mx-auto">
+                                        <h2 class="mb-lg-3" style="color: #650F1C">Bienvenue à Philadelphie</h2>
+                                        <p class="mb-lg-4 mx-auto" style="color: #650F1C">
                                             Le Centre Missionnaire Philadelphie est une église locale de la 37ème Communauté des
                                             Assemblées...
                                         </p>
                                         <div class="d-flex align-items-center justify-content-center">
-                                            <a href="#" class="btn btn-primary">Savoir plus</a>
+                                            <a href="{{ route('about') }}" class="btn btn-primary">Savoir plus</a>
                                         </div>
                                     </div>
                                 </div>
@@ -33,7 +33,7 @@
                         </div>
                         <div class="block-card">
                             <div class="card">
-                                <img src="images/1.jpg" alt="">
+                                {{-- <img src="{{ asset('assets/site/revolution/assets/slider-01/01.jpg') }}" alt=""> --}}
                             </div>
                         </div>
                     </div>
@@ -41,14 +41,14 @@
                 <div class="carousel-item">
                     <div class="content-banner">
                         <div class="bg-banner">
-                            <img src="{{ asset('assets/site/revolution/assets/slider-01/02483-02.jpg') }}" alt="image de banière">
+                            <img src="{{ asset('assets/site/revolution/assets/slider-01/slide2.jpg') }}" alt="image de banière">
                         </div>
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-8">
                                     <div class="block">
-                                        <h2 class="mb-lg-3"> Bienvenue à Philadelphie</h2>
-                                        <p class="mb-lg-4">
+                                        <h2 class="mb-lg-3"style="color: #650F1C"> Bienvenue à Philadelphie</h2>
+                                        <p class="mb-lg-4 ">
                                             Le Centre Missionnaire Philadelphie est une église locale de la 37ème Communauté des
                                             Assemblées...
                                         </p>
@@ -259,7 +259,7 @@
             </div>
         </div>
     </section>  --}}
-
+@include("site.parties.info")
     <section class="page-section-ptb position-relative">
         <div class="container">
             <div class="row justify-content-center">
@@ -543,13 +543,13 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="portfolio-title section-title mt-md-5">
-                        <h6>Super creative</h6>
+                        <h6>Média</h6>
                         <h2 class="title-effect">Notre Galerie</h2>
-                        <p class="mb-20">Work on the best projects for the best clients. Our clients are some of the
+                        {{-- <p class="mb-20">Work on the best projects for the best clients. Our clients are some of the
                             most forward-looking companies in the world.</p>
                         <span>Webster has powerful options & tools, unlimited designs, responsive framework and
                             amazing support. We are dedicated to providing you with the best experience possible.
-                            Purchase webster to find out why the sky's the limit when using Webster.</span>
+                            Purchase webster to find out why the sky's the limit when using Webster.</span> --}}
                         <a class="button mt-30" href="galerie.html">@lang('miscellaneous.inner_page.news.see_more')</a>
                     </div>
                     <div>
@@ -561,10 +561,10 @@
                             <div class="portfolio-item">
                                 <img src="{{ asset('assets/site/images/portfolio/small/01.jpg') }}" alt="">
                                 <div class="portfolio-overlay">
-                                    <h4 class="text-white"> <a href="portfolio-single-01.html">Post item image</a>
+                                    <h4 class="text-white"> <a href="{{ route('media') }}">Culte dominicale</a>
                                     </h4>
-                                    <span class="text-white"> <a href="#"> Photography </a>| <a
-                                            href="#">Ecommerce
+                                    <span class="text-white"> <a href="#"> CMP </a>| Dimanche <a
+                                            href="#">
                                         </a> </span>
                                 </div>
                                 <a class="popup portfolio-img"
@@ -576,10 +576,10 @@
                             <div class="portfolio-item">
                                 <img src="{{ asset('assets/site/images/portfolio/small/02.jpg') }}" alt="">
                                 <div class="portfolio-overlay">
-                                    <h4 class="text-white"> <a href="portfolio-single-01.html"> Post item image</a>
+                                    <h4 class="text-white"> <a href="{{ route('media') }}"> Prière pour la nation</a>
                                     </h4>
-                                    <span class="text-white"> <a href="#"> Creative </a>| <a
-                                            href="#">Graphics </a>
+                                    <span class="text-white"> <a href="#">CMP</a>| Jeune et prière<a
+                                            href="#"></a>
                                     </span>
                                 </div>
                                 <a class="popup portfolio-img"
@@ -591,10 +591,10 @@
                             <div class="portfolio-item">
                                 <img src="{{ asset('assets/site/images/portfolio/small/03.jpg') }}" alt="">
                                 <div class="portfolio-overlay">
-                                    <h4 class="text-white"> <a href="portfolio-single-01.html"> Post item image</a>
+                                    <h4 class="text-white"> <a href="{{ route('media') }}"> Jeudi étoko</a>
                                     </h4>
-                                    <span class="text-white"> <a href="#"> Design </a>| <a
-                                            href="#">Illustration
+                                    <span class="text-white"> <a href="#">CMP</a>| Jeudi<a
+                                            href="#">
                                         </a> </span>
                                 </div>
                                 <a class="popup portfolio-img"
@@ -604,11 +604,11 @@
                         </div>
                         <div class="grid-item">
                             <div class="portfolio-item">
-                                <img src="{{ asset('assets/site/images/portfolio/small/04.gif') }}" alt="">
+                                <img src="{{ asset('assets/site/images/portfolio/small/4.jpg') }}" alt="">
                                 <div class="portfolio-overlay">
-                                    <h4 class="text-white"> <a href="portfolio-single-01.html"> Post GIF image</a>
+                                    <h4 class="text-white"> <a href="{{ route('media') }}">Culte d'enseignement</a>
                                     </h4>
-                                    <span class="text-white"> <a href="#"> Animation </a>| <a href="#">GIF
+                                    <span class="text-white"> <a href="#"> CMP </a>| Mercredi<a href="#">
                                         </a>
                                     </span>
                                 </div>
@@ -621,13 +621,13 @@
                             <div class="portfolio-item">
                                 <img src="{{ asset('assets/site/images/portfolio/small/05.jpg') }}" alt="">
                                 <div class="portfolio-overlay">
-                                    <h4 class="text-white"> <a href="portfolio-single-01.html"> Post item
-                                            Youtube</a> </h4>
-                                    <span class="text-white"> <a href="#"> Video </a>| <a href="#">Youtube
+                                    <h4 class="text-white"> <a href="{{ route('media') }}"> Pour notre nation
+                                        </a> </h4>
+                                    <span class="text-white"> <a href="#"> Pourquoi </a>| <a href="#">Prier pour la nation
                                         </a>
                                     </span>
                                 </div>
-                                <a class="popup popup-youtube" href="https://www.youtube.com/watch?v=LgvseYYhqU0"><i
+                                <a class="popup popup-youtube" href="https://www.youtube.com/watch?v=HxeTFrq_14Q"><i
                                         class="fa fa-play"></i></a>
                             </div>
                         </div>
@@ -635,10 +635,10 @@
                             <div class="portfolio-item">
                                 <img src="{{ asset('assets/site/images/portfolio/small/06.jpg') }}" alt="">
                                 <div class="portfolio-overlay">
-                                    <h4 class="text-white"> <a href="portfolio-single-01.html"> Post item image </a>
+                                    <h4 class="text-white"> <a href="{{ route('media') }}"> La prière pour la nation </a>
                                     </h4>
-                                    <span class="text-white"> <a href="#"> Photography </a>| <a
-                                            href="#">Illustration </a> </span>
+                                    <span class="text-white"> <a href="#"> CMP </a>| Séminaire<a
+                                            href="#"></a> </span>
                                 </div>
                                 <a class="popup portfolio-img"
                                     href="{{ asset('assets/site/images/portfolio/small/06.jpg') }}"><i
@@ -779,7 +779,7 @@
                         <h2 class="title-effect">Nos fidèles parlent</h2>
                     </div>
                     <div class="tab">
-                        <div class="tab-content" id="nav-tabContent">
+                        {{-- <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show text-center active" id="testi-01">
                                 <span class="quoter-icon">“</span>
                                 <p>I had a few things I needed help with on this template... Their customer service was
@@ -835,7 +835,7 @@
                                 <li><a class="nav-item" href="#testi-04" data-bs-toggle="tab"><img class="img-fluid"
                                             src="{{ asset('assets/site/images/team/04.jpg') }}" alt=""> </a></li>
                             </ul>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

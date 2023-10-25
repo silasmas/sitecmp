@@ -13,6 +13,7 @@
             </div>
         </div>
 </section>
+@include("site.parties.info")
 <section class="page-section-ptb">
     <div class="container">
         <div class="row g-lg-5 align-items-center">

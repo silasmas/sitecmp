@@ -1,5 +1,6 @@
 
 </div>
+@include("site.parties.modale")
 <!-- wrapper End -->
 <div id="back-to-top"><a class="top arrow" href="#top"><i class="fa fa-angle-up"></i> <span>TOP</span></a></div>
 <div class="revel-block"></div>

@@ -9,13 +9,13 @@
           <h1>Notre gallerie</h1>
           <p>En images et en vidéos</p>
         </div>
-          
+
        </ul>
      </div>
      </div>
   </div>
 </section>
-
+@include("site.parties.info")
 <section class="white-bg page-section-ptb">
   <div class="container">
     <div class="row">
@@ -31,7 +31,7 @@
                   <div class="portfolio-item">
                    <img src="{{ asset('assets/site/images/portfolio/small/01.jpg') }}" alt="">
                      <div class="portfolio-overlay">
-                        
+
                         <span class="text-white"> <a href="#">Courte description</a> </span>
                       </div>
                     <a class="popup portfolio-img" href="{{ asset('assets/site/images/portfolio/small/01.jpg') }}"><i class="fa fa-arrows-alt"></i></a>
@@ -41,7 +41,7 @@
                <div class="portfolio-item">
                    <img src="{{ asset('assets/site/images/portfolio/small/02.jpg') }}" alt="">
                      <div class="portfolio-overlay">
-                        
+
                         <span class="text-white"> <a href="#">Courte description</a> </span>
                       </div>
                     <a class="popup portfolio-img" href="{{ asset('assets/site/images/portfolio/small/02.jpg') }}"><i class="fa fa-arrows-alt"></i></a>
@@ -51,7 +51,7 @@
                <div class="portfolio-item">
                    <img src="{{ asset('assets/site/images/portfolio/small/03.jpg') }}" alt="">
                      <div class="portfolio-overlay">
-                        
+
                         <span class="text-white"> <a href="#">Courte description</a> </span>
                       </div>
                     <a class="popup portfolio-img" href="{{ asset('assets/site/images/portfolio/small/03.jpg') }}"><i class="fa fa-arrows-alt"></i></a>
@@ -61,7 +61,7 @@
             <div class="portfolio-item">
                    <img src="{{ asset('assets/site/images/portfolio/small/04.gif') }}" alt="">
                      <div class="portfolio-overlay">
-                        
+
                         <span class="text-white"> <a href="#">Courte description</a> </span>
                       </div>
                     <a class="popup portfolio-img" href="{{ asset('assets/site/images/portfolio/small/04.gif') }}"><i class="fa fa-arrows-alt"></i></a>
@@ -71,7 +71,7 @@
                 <div class="portfolio-item">
                    <img src="{{ asset('assets/site/images/portfolio/small/05.jpg') }}" alt="">
                      <div class="portfolio-overlay">
-                        
+
                         <span class="text-white"> <a href="#">Courte description</a> </span>
                       </div>
                     <a class="popup portfolio-img" href="{{ asset('assets/site/images/portfolio/small/05.jpg') }}"><i class="fa fa-arrows-alt"></i></a>
@@ -81,7 +81,7 @@
                <div class="portfolio-item">
                    <img src="{{ asset('assets/site/images/portfolio/small/06.jpg') }}" alt="">
                      <div class="portfolio-overlay">
-                        
+
                         <span class="text-white"> <a href="#">Courte description</a> </span>
                       </div>
                     <a class="popup portfolio-img" href="{{ asset('assets/site/images/portfolio/small/06.jpg') }}"><i class="fa fa-arrows-alt"></i></a>
@@ -91,7 +91,7 @@
               <div class="portfolio-item">
                    <img src="{{ asset('assets/site/images/portfolio/small/07.jpg') }}" alt="">
                      <div class="portfolio-overlay">
-                        
+
                         <span class="text-white"> <a href="#">Courte description</a> </span>
                       </div>
                     <a class="popup portfolio-img" href="{{ asset('assets/site/images/portfolio/small/07.jpg') }}"><i class="fa fa-arrows-alt"></i></a>
@@ -101,7 +101,7 @@
                  <div class="portfolio-item">
                    <img src="{{ asset('assets/site/images/portfolio/small/08.gif') }}" alt="">
                      <div class="portfolio-overlay">
-                        
+
                         <span class="text-white"> <a href="#">Courte description</a> </span>
                       </div>
                     <a class="popup portfolio-img" href="{{ asset('assets/site/images/portfolio/small/08.gif') }}"><i class="fa fa-arrows-alt"></i></a>
@@ -111,7 +111,7 @@
                <div class="portfolio-item">
                    <img src="{{ asset('assets/site/images/portfolio/small/09.jpg') }}" alt="">
                      <div class="portfolio-overlay">
-                        
+
                         <span class="text-white"> <a href="#">Courte description</a> </span>
                       </div>
                     <a class="popup portfolio-img" href="{{ asset('assets/site/images/portfolio/small/09.jpg') }}"><i class="fa fa-arrows-alt"></i></a>
@@ -121,7 +121,7 @@
                  <div class="portfolio-item">
                    <img src="{{ asset('assets/site/images/portfolio/small/10.jpg') }}" alt="">
                      <div class="portfolio-overlay">
-                        
+
                         <span class="text-white"> <a href="#">Courte description</a> </span>
                       </div>
                     <a class="popup portfolio-img" href="{{ asset('assets/site/images/portfolio/small/10.jpg') }}"><i class="fa fa-arrows-alt"></i></a>
@@ -131,7 +131,7 @@
                    <div class="portfolio-item">
                    <img src="{{ asset('assets/site/images/portfolio/small/01.jpg') }}" alt="">
                      <div class="portfolio-overlay">
-                        
+
                         <span class="text-white"> <a href="#">Courte description</a> </span>
                       </div>
                     <a class="popup portfolio-img" href="{{ asset('assets/site/images/portfolio/small/01.jpg') }}"><i class="fa fa-arrows-alt"></i></a>
@@ -141,7 +141,7 @@
                 <div class="portfolio-item">
                    <img src="{{ asset('assets/site/images/portfolio/small/02.jpg') }}" alt="">
                      <div class="portfolio-overlay">
-                        
+
                         <span class="text-white"> <a href="#">Courte description</a> </span>
                       </div>
                     <a class="popup portfolio-img" href="{{ asset('assets/site/images/portfolio/small/02.jpg') }}"><i class="fa fa-arrows-alt"></i></a>
@@ -151,7 +151,7 @@
                 <div class="portfolio-item">
                    <img src="{{ asset('assets/site/images/portfolio/small/03.jpg') }}" alt="">
                      <div class="portfolio-overlay">
-                        
+
                         <span class="text-white"> <a href="#">Courte description</a> </span>
                       </div>
                     <a class="popup portfolio-img" href="{{ asset('assets/site/images/portfolio/small/03.jpg') }}"><i class="fa fa-arrows-alt"></i></a>
@@ -161,7 +161,7 @@
                 <div class="portfolio-item">
                    <img src="{{ asset('assets/site/images/portfolio/small/05.jpg') }}" alt="">
                      <div class="portfolio-overlay">
-                        
+
                         <span class="text-white"> <a href="#">Courte description</a> </span>
                       </div>
                     <a class="popup portfolio-img" href="{{ asset('assets/site/images/portfolio/small/05.jpg') }}"><i class="fa fa-arrows-alt"></i></a>
@@ -171,7 +171,7 @@
                 <div class="portfolio-item">
                    <img src="{{ asset('assets/site/images/portfolio/small/06.jpg') }}" alt="">
                      <div class="portfolio-overlay">
-                        
+
                         <span class="text-white"> <a href="#">Courte description</a> </span>
                       </div>
                     <a class="popup portfolio-img" href="{{ asset('assets/site/images/portfolio/small/06.jpg') }}"><i class="fa fa-arrows-alt"></i></a>
@@ -181,7 +181,7 @@
                 <div class="portfolio-item">
                    <img src="{{ asset('assets/site/images/portfolio/small/07.jpg') }}" alt="">
                      <div class="portfolio-overlay">
-                        
+
                         <span class="text-white"> <a href="#">Courte description</a> </span>
                       </div>
                     <a class="popup portfolio-img" href="{{ asset('assets/site/images/portfolio/small/07.jpg') }}"><i class="fa fa-arrows-alt"></i></a>
@@ -191,7 +191,7 @@
                 <div class="portfolio-item">
                    <img src="{{ asset('assets/site/images/portfolio/small/02.jpg') }}" alt="">
                      <div class="portfolio-overlay">
-                        
+
                         <span class="text-white"> <a href="#">Courte description</a> </span>
                       </div>
                     <a class="popup portfolio-img" href="{{ asset('assets/site/images/portfolio/small/02.jpg') }}"><i class="fa fa-arrows-alt"></i></a>
@@ -211,7 +211,7 @@
                <div class="portfolio-item">
                    <img src="{{ asset('assets/site/images/portfolio/small/10.jpg') }}" alt="">
                      <div class="portfolio-overlay">
-                        
+
                         <span class="text-white"> <a href="#">Courte description</a> </span>
                       </div>
                     <a class="popup portfolio-img" href="{{ asset('assets/site/images/portfolio/small/10.jpg') }}"><i class="fa fa-arrows-alt"></i></a>
@@ -221,7 +221,7 @@
                <div class="portfolio-item">
                    <img src="{{ asset('assets/site/images/portfolio/small/03.jpg') }}" alt="">
                      <div class="portfolio-overlay">
-                        
+
                         <span class="text-white"> <a href="#">Courte description</a> </span>
                       </div>
                     <a class="popup portfolio-img" href="{{ asset('assets/site/images/portfolio/small/03.jpg') }}"><i class="fa fa-arrows-alt"></i></a>

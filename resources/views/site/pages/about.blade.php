@@ -15,7 +15,7 @@
             </div>
     </section>
 
-
+    @include("site.parties.info")
     <section class="our-history white-bg page-section-ptb">
         <div class="container">
             <div class="row justify-content-center">
@@ -110,7 +110,7 @@
                                         Voir la suite
                                       </button>
                                 </p>
-                                
+
                             </div>
                         </div>
                         <div class="acd-group">
@@ -232,7 +232,7 @@
                             </div>
                             <div class="isotope full-screen columns-4">
                                 @forelse ($pastors as $ps)
-                                <div class="row">                                
+                                <div class="row">
                                     <div class="grid-item {{ $ps->is_titular==1 && $ps->type=="Pasteur"?"visionnaire":"" }} {{ $ps->is_titular==0&&$ps->type=="Pasteur"?"leadership":"" }}{{ $ps->is_titular==0&&$ps->type=="Pasteur stagiaire"?"development":"" }}">
                                         <div class="team team-hover">
                                             <div class="team-photo">
@@ -245,7 +245,7 @@
                                                 <div class="team-contact">
                                                     <span class="call"> {{ $ps->contact }}</span>
                                                     <span class="email"> <i class="fa fa-envelope-o"></i>
-                                                        letstalk@webster.com</span>
+                                                        eglisecmp@gmail.com</span>
                                                 </div>
                                                 <div class="social-icons color clearfix">
                                                     <ul>
@@ -264,9 +264,9 @@
                                     </div>
                                 </div>
                                 @empty
-                                    
+
                                 @endforelse
-        
+
                             </div>
                         </div>
                     </div>
@@ -299,10 +299,10 @@
                                         </div>
                                     </div>
                                 </div>
-        
+
                             </div>
                         </div>
-        
+
                         <div class="col-md-3 ">
                             <div class="pricing-table h-100">
                                 <div class="pricing-top h-100">
@@ -321,7 +321,7 @@
                                 </div>
                             </div>
                         </div>
-        
+
                         <div class="col-md-3 ">
                             <div class="pricing-table h-100">
                                 <div class="pricing-top h-100">
@@ -338,10 +338,10 @@
                                         </div>
                                     </div>
                                 </div>
-        
+
                             </div>
                         </div>
-        
+
                         <div class="col-md-3 ">
                             <div class="pricing-table h-100">
                                 <div class="pricing-top h-100">
@@ -349,7 +349,7 @@
                                         <div class="mb-15 badge-day">Dimanche</div>
                                         <h3 class="title-card">Culte dominical</h3>
                                     </div>
-                                    
+
                                     <div class="time-line-prog d-flex flex-column">
                                         <div class="item-line">
                                             <div class="icon">
@@ -371,11 +371,11 @@
                                         </div>
                                     </div>
                                 </div>
-        
+
                             </div>
                         </div>
-        
-        
+
+
                     </div>
                 </div>
                 <div class="tab-pane fade" id="extensions" role="tabpanel"
@@ -389,7 +389,7 @@
                 </div>
 
             </div>
-            
+
         </div>
 
     </section>
