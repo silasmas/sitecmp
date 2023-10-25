@@ -22,9 +22,9 @@
     <div class="col-lg-12 col-md-12 col-sm-12 text-center">
          <div class="isotope-filters">
             <button data-filter="" class="active">Tout</button>
-            <button data-filter=".photography">Photos</button>
-            <button data-filter=".illustration">Videos</button>
-            <button data-filter=".branding">Documents</button>
+            <button data-filter=".photography">Dimanche</button>
+            <button data-filter=".illustration">Mercredi</button>
+            <button data-filter=".branding">Jeudi</button>
           </div>
             <div class="isotope columns-5 popup-gallery">
               <div class="grid-item photography branding">

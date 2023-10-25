@@ -1,4 +1,5 @@
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    {{-- <div class="modal-onload" data-bs-target="#myModal1"></div> --}}
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header align-items-start">
@@ -7,7 +8,7 @@
           </button>
         </div>
         <div class="modal-body">
-            <div class="row mt-70">
+            <div class="row mt-0">
                 <div class="col-lg-12 xol-md-12">
                   <div class="owl-carousel" data-nav-dots="true" data-autoheight="true" data-items="1" data-md-items="1" data-sm-items="1" data-xs-items="1" data-xx-items="1" data-space="20">
                     <div class="item">

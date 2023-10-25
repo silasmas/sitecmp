@@ -143,13 +143,13 @@
                                     @lang('miscellaneous.main_menu.contribution')
                                 </a>
                                 <div class="search-cart d-none d-lg-inline-block">
-                                    <div class="shpping-cart">
+                                    {{-- <div class="shpping-cart">
                                         <div class="dropdown">
                                             <a class="cart-btn" href="#" type="button" data-bs-toggle="dropdown"
                                                 aria-expanded="false"> <i class="fa fa-language icon"
                                                     style="color: #650f1c;"></i></a>
                                             <ul class="dropdown-menu">
-                                                @foreach ($available_locales as $locale_name => $available_locale)
+                                                 @foreach ($available_locales as $locale_name => $available_locale)
                                                 @if ($available_locale === $current_locale)
                                                 <li>
                                                     <a class="dropdown-item disabled d-flex align-items-center"
@@ -163,9 +163,7 @@
                                                         @break
                                                         @default
                                                         <span class="fi fi-be me-2 align-middle"></span>
-                                                        {{-- <span
-                                                            class="fi fi-{{ $available_locale }} me-2 align-middle"></span>
-                                                        --}}
+
                                                         @endswitch
                                                         {{ $locale_name }}
                                                     </a>
@@ -185,9 +183,7 @@
 
                                                         @default
                                                         <span class="fi fi-be me-2 align-middle"></span>
-                                                        {{-- <span
-                                                            class="fi fi-{{ $available_locale }} me-2 align-middle"></span>
-                                                        --}}
+
                                                         @endswitch
 
                                                         {{ $locale_name }}
@@ -197,7 +193,7 @@
                                                 @endforeach
                                             </ul>
                                         </div>
-                                    </div>
+                                    </div>--}}
                                     <div class="shpping-cart">
                                         <a class="cart-btn" href="{{ route('contact') }}"> <i
                                                 class="fa fa-envelope" style="color: #650f1c;"></i></a>
