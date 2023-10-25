@@ -9,8 +9,8 @@
     <meta name="author" content="silasmas.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name') }} |
-        @if (Route::current()->getName() == 'home')
+    <title>{{ config('app.name') }} |{{ isset($titre) ? $titre : '' }}</title>
+        {{-- @if (Route::current()->getName() == 'home')
         {{ __('miscellaneous.main_menu.home') }}
         @endif
 
@@ -40,10 +40,10 @@
 
         @if (Route::current()->getName() == 'projects')
         {{ __('miscellaneous.main_menu.projects') }}
-        @endif
+        @endif --}}
 
 
-        {{ isset($titre) ? $titre : '' }}</title>
+
     <link rel="shortcut icon" href="{{ asset('assets/site/img/favicon.png') }}" />
 
     <link rel="stylesheet"
@@ -63,7 +63,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/site/css/responsive.min.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/site/js/parsley/parsley.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/site/js/sweetalert/sweetalert.css') }}" >
-    
+
 </head>
 
 <body>

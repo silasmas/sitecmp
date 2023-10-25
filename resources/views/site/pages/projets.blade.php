@@ -1,4 +1,4 @@
-@extends('site.layout.template')
+@extends('site.layout.template', ['titre' => 'Projets'])
 
 @section("content")
 <section class="page-title center jarallax" data-speed="0.6" data-img-src="{{ asset('assets/site/images/bg/14.jpg') }}">

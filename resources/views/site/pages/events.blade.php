@@ -1,4 +1,4 @@
-@extends('site.layout.template')
+@extends('site.layout.template', ['titre' => 'Events'])
 
 @section("content")
 
@@ -13,7 +13,7 @@
               <h2 class="title-effect">Nos Evenements </h2>
             </div>
          </div>
-         
+
        </div>
          <div class="row" style="margin-bottom: 30px;">
           <div class="col-md-4 xs-mb-30">
@@ -174,7 +174,7 @@
               <h2 class="title-effect">Evenements passés </h2>
             </div>
          </div>
-         
+
        </div>
          <div class="row" style="margin-bottom: 30px;">
           <div class="col-md-4 xs-mb-30">

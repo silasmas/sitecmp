@@ -1,4 +1,4 @@
-@extends('site.layout.template')
+@extends('site.layout.template', ['titre' => 'A propos'])
 
 @section("content")
 

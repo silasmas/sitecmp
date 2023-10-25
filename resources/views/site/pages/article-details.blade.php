@@ -1,4 +1,4 @@
-@extends('site.layout.template')
+@extends('site.layout.template', ['titre' => 'Detail article'])
 
 @section("content")
 <section class="page-title bg-overlay-black-60 jarallax" data-speed="0.6" data-img-src="{{ asset('assets/site/images/bg/02.jpg') }}">
@@ -37,7 +37,7 @@ page-title -->
                   <input type="search" class="form-control" placeholder="Tapez...." />
                 </div>
           </div>
-          
+
         <div class="sidebar-widget">
             <h6 class="mt-40 mb-20">Articles recents </h6>
             <div class="recent-post clearfix">
@@ -92,9 +92,9 @@ page-title -->
          </ul>
        </div>
       </div>
-      
- 
-      
+
+
+
        <div class="sidebar-widget">
         <h6 class="mt-40 mb-20">Photo gallery</h6>
           <div class="widget-gallery popup-gallery clearfix">
@@ -199,8 +199,8 @@ page-title -->
          </div>
        </div>
       </div>
-       
-       
+
+
    </div>
 <!-- ========================== -->
    <div class="col-lg-9">
@@ -253,7 +253,7 @@ page-title -->
              <br/>
              <p>Nisi elit consequat ipsum, nec sagittis sem nibh id elit lorem ipsum dolor sit amet of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem q biben um auctor, . </p>
 
-             
+
           </div>
           <!-- ================================================ -->
           <div class="port-navigation clearfix">

@@ -1,4 +1,4 @@
-@extends('site.layout.template')
+@extends('site.layout.template', ['titre' => 'Contact'])
 
 @section("content")
 
@@ -9,7 +9,7 @@
       <div class="page-title-name">
           <h1>Contact </h1>
         </div>
-          
+
      </div>
      </div>
   </div>

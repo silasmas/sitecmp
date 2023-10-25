@@ -1,4 +1,4 @@
-@extends('site.layout.template')
+@extends('site.layout.template', ['titre' => 'Vidéos'])
 
 @section("content")
 <section class="page-title bg-overlay-black-60 jarallax" data-speed="0.6"
