@@ -348,17 +348,17 @@
                     <span class="badge badge-success" {{ Route::current()->getName() == "posts"  ? '' : 'hidden' }}>Active</span>
                 </a>
                 </li>
-                <li class="menu-item {{ Route::current()->getName() == 'galerie' ? 'has-active' : '' }}">
-                  <a href="{{ route('galerie') }}" class="menu-link">
-                    <span class="menu-icon far fa-file"></span><span class="menu-text">Galerie</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
+                <li class="menu-item {{ Route::current()->getName() == 'video_all' ? 'has-active' : '' }}">
+                  <a href="{{ route('video_all') }}" class="menu-link">
+                    <span class="menu-icon fas fa-image"></span><span class="menu-text">Galerie</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
                 </li>
                 <li class="menu-item {{ Route::current()->getName() == 'testimonial' ? 'has-active' : '' }}">
                   <a href="{{ route('testimonial') }}" class="menu-link">
-                    <span class="menu-icon far fa-file"></span><span class="menu-text">Témoignages</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
+                    <span class="menu-icon far fa-comment"></span><span class="menu-text">Témoignages</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
                 </li>
                 <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">
                   <a href="" class="menu-link">
-                    <span class="menu-icon far fa-file"></span><span class="menu-text">Commentaires</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
+                    <span class="menu-icon fa fa-newspaper"></span><span class="menu-text">Actualités</span><span class="badge badge-success" {{ Route::current()->getName() == ""  ? '' : 'hidden' }}>Active</span></a>
                 </li>
                 <li class="menu-item {{ Route::current()->getName() == 'dashboard' ? 'has-active' : '' }}">
                   <a href="" class="menu-link">

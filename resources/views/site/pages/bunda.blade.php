@@ -98,15 +98,15 @@
 <section class="meet-team gray-bg page-section-ptb">
     <div class="container">
         <ul class="nav  mb-5 nav-tabs nav-tab-page justify-content-center align-items-center" id="pills-tab" role="tablist">
-            <li class="nav-item" role="presentation">
+            {{-- <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="pills-arrivage-tab" data-bs-toggle="pill" data-bs-target="#plan" type="button" role="tab" aria-controls="pills-profile" aria-selected="true">Plan alimentaire</button>
-            </li>
-            <li class="nav-item" role="presentation">
+            </li> --}}
+            {{-- <li class="nav-item" role="presentation">
                 <button class="nav-link" id="pills-categorie-tab" data-bs-toggle="pill" data-bs-target="#logement" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Logément</button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="pills-fournisseur-tab" data-bs-toggle="pill" data-bs-target="#shop" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Boutique</button>
-            </li>
+            </li> --}}
         </ul>
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="plan" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">

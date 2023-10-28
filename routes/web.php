@@ -7,6 +7,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjetController;
 use App\Http\Controllers\TestimialController;
+use App\Http\Controllers\VideoController;
 use App\Http\Resources\Gallery;
 use Illuminate\Support\Facades\Route;
 
@@ -61,6 +62,16 @@ Route::prefix("admin")->middleware(['auth'])->group(function () {
     Route::controller(PostController::class)->group(function () {
         $idRegex = "[0-9]*";
         Route::get('posts', 'index')->name('posts');
+        Route::get('/addPost', 'create')->name('addPost');
+        Route::post('StorePost', 'store')->name('StorePost');
+
+        Route::get('editPost/{id}', 'edit')->name('editPost')->where(["id" => $idRegex]);
+        Route::post('UpdatPost', 'update')->name('UpdatPost');
+        Route::get('delPost/{id}', 'destroy')->name('delPost')->where(["id" => $idRegex]);
+    });
+    Route::controller(VideoController::class)->group(function () {
+        $idRegex = "[0-9]*";
+        Route::get('video_all', 'index')->name('video_all');
         Route::get('/addPost', 'create')->name('addPost');
         Route::post('StorePost', 'store')->name('StorePost');
 
