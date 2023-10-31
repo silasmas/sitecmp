@@ -8,7 +8,6 @@
 <link href="{{ asset('assets/vendor/simplemde/simplemde.min.css') }}" rel="stylesheet">
 @endsection
 @section("content")
-
 <!-- .page-title-bar -->
 <header class="page-title-bar">
     <!-- .breadcrumb -->
@@ -22,7 +21,8 @@
 
     <div class="d-md-flex align-items-md-start">
         <h1 class="page-title mr-sm-auto">  {{ !isset($dataPost) ? "Ajouter une publication": 'Modifier une publication' }}</h1><!-- .btn-toolbar -->
-        <div id="dt-buttons" class="btn-toolbar"></div><!-- /.btn-toolbar -->
+        <div id="dt-buttons" class="btn-toolbar"></div>
+        <!-- /.btn-toolbar -->
     </div><!-- /title and toolbar -->
 </header><!-- /.page-title-bar -->
 
@@ -71,7 +71,7 @@
                             <div class="col-lg-6">
                                 <label for="lbl1">Titre (EN) <abbr title="Required">*</abbr></label>
                                 <input type="text" class="form-control title_en" id="title_en"
-                                    placeholder="Entrer la titre en anglais" required=""
+                                    placeholder="Entrer la titre en anglais"
                                     value="{{ isset($dataPost) ? $dataPost->getTranslation('title', 'en') : '' }}"
                                     name="title_en">
                             </div>
@@ -80,24 +80,23 @@
                             <div class="col-lg-6">
                                 <label for="sel1">Type</label>
                                 <select name="type" class="custom-select type" id="type" required="">
-                                    <option value="">Choisissez</option>
-                                    <option value="1">Vidéo</option>
-                                    <option value="2">Audio </option>
-                                    <option value="3">Article </option>
+                                    <option value="" >Choisissez</option>
+                                    <option value="1" {{ isset($dataPost)&& $dataPost->type==1?"selected":""}}>Vidéo</option>
+                                    <option value="2" {{ isset($dataPost)&& $dataPost->type==2?"selected":""}}>Audio </option>
+                                    <option value="3" {{ isset($dataPost)&& $dataPost->type==3?"selected":""}}>Article </option>
                                 </select>
                             </div>
                             <div class="col-lg-6">
-                                <label for="lbl1">Auteur<abbr title="Required">*</abbr></label>
+                                <label for="lbl1">Auteur</label>
                                 <input type="text" name="author" class="form-control author" id="author"
                                     placeholder="Entrer l'auteur"
-                                    value="{{ isset($dataPost) ? $dataPost->author: '' }}"
-                                    required="">
+                                    value="{{ isset($dataPost) ? $dataPost->author: '' }}">
                             </div>
 
                         </div>
                         <div class="form-group row">
                             <div class="col-lg-6">
-                                <label class="mr-2">Image (FR){{ isset($dataPost)?$dataPost->getTranslation('image_url', 'fr'):"" }}</label>
+                                <label class="mr-2">Image (FR)</label>
                                 <div class="custom-file">
                                     <input type="file" name="image_fr" class="custom-file-input image_fr" id="image_fr"
                                         {{ isset($dataPost)?"":"required" }}
@@ -110,7 +109,7 @@
                                 <label class="mr-2">Image (EN)</label>
                                 <div class="custom-file">
                                     <input type="file" name="image_en" class="custom-file-input image_en" id="image_en"
-                                    {{ isset($dataPost)?"":"required" }}
+
                                         value="{{ isset($dataPost)?$dataPost->getTranslation('image_url', 'en'):"" }}">
                                     <label class="custom-file-label" for="fileupload-customInput">Choose files</label>
                                 </div>
@@ -128,14 +127,14 @@
                                 <input id="flatpickr02" required="" type="text" name="date_debut"
                                     class="form-control date_debut" data-toggle="flatpickr" data-enable-time="true"
                                     data-date-format="Y-m-d H:i"
-                                    value="{{ isset($dataPost) ? $dataPost->date_debut : '' }}">
+                                    value="{{ isset($dataPost) ? $dataPost->date_publication: '' }}">
                             </div>
                             <div class="col-lg-4">
                                 <label for="sel1">Evénément</label>
                                 <select name="event" class="custom-select" id="event" >
                                     <option value="">Choisissez</option>
                                     @forelse ($events as $ev)
-                                    <option value="1" {{ isset($dataPost)&& $dataPost->getTranslation('theme', 'fr')==$ev->getTranslation('theme', 'fr')?"selected":""}}>{{$ev->getTranslation('theme', 'fr')}}</option>
+                                    <option value="1" {{ isset($dataPost)&& $dataPost->theme==$ev->theme?"selected":""}}>{{$ev->getTranslation('theme', 'fr')}}</option>
 
                                     @empty
 
@@ -168,35 +167,35 @@
                             <div class="col-lg-6">
                                 <label for="lbl1">References (FR) <abbr title="Required">*</abbr></label>
                                 <input type="text" name="references_fr" class="form-control references_fr"
-                                    id="references_fr" placeholder="Entrer la reference" required=""
+                                    id="references_fr" placeholder="Entrer la reference"
                                     value="{{ isset($dataPost) ? $dataPost->getTranslation('references', 'fr') : '' }}">
                             </div>
                             <div class="col-lg-6">
                                 <label for="lbl1">References (EN)<abbr title="Required">*</abbr></label>
                                 <input type="text" name="references_en" class="form-control references_en"
-                                    id="references_en" placeholder="Entrer la reference" required=""
+                                    id="references_en" placeholder="Entrer la reference"
                                     value="{{ isset($dataPost) ? $dataPost->getTranslation('references', 'en') : '' }}">
                             </div>
 
                         </div>
                         <div class="form-group row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                                 <label for="lbl1">Descrition (FR)</label>
                                 <!-- .card -->
                                 <div class="card card-fluid">
-                                    <textarea data-toggle="simplemde" name="description_fr" data-spellchecker="false"
+                                    <textarea data-toggle="simplemde"  rows="12" name="description_fr" data-spellchecker="false"
                                         data-autosave='{ "enabled": true, "unique_id": "SimpleMDEDemo" }'>
-                                        {{ isset($dataMinister)?$dataMinister->descriptiom_fr:""}}
+                                        {{ isset($dataPost)?$dataPost->getTranslation('body', 'fr'):""}}
                                     </textarea>
                                 </div><!-- /.card -->
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                                 <label for="lbl1">Descrition (EN) </label>
                                 <!-- .card -->
                                 <div class="card card-fluid">
                                     <textarea data-toggle="simplemde" name="description_en" data-spellchecker="false"
-                                        data-autosave='{ "enabled": true, "unique_id": "SimpleMDEDemo" }'>
-                                        {{ isset($dataMinister)?$dataMinister->description_en:""}}
+                                        data-autosave='{ "enabled": true, "unique_id": "SimpleMDEDemo" }'>silas
+                                        {{ isset($dataPost)?$dataPost->getTranslation('body', 'en'):""}}
                                     </textarea>
 
 

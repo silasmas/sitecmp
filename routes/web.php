@@ -72,12 +72,12 @@ Route::prefix("admin")->middleware(['auth'])->group(function () {
     Route::controller(VideoController::class)->group(function () {
         $idRegex = "[0-9]*";
         Route::get('video_all', 'index')->name('video_all');
-        Route::get('/addPost', 'create')->name('addPost');
-        Route::post('StorePost', 'store')->name('StorePost');
+        Route::get('/addVideo', 'create')->name('addVideo');
+        Route::post('StoreVideo', 'store')->name('StoreVideo');
 
-        Route::get('editPost/{id}', 'edit')->name('editPost')->where(["id" => $idRegex]);
-        Route::post('UpdatPost', 'update')->name('UpdatPost');
-        Route::get('delPost/{id}', 'destroy')->name('delPost')->where(["id" => $idRegex]);
+        Route::get('editVideo/{id}', 'edit')->name('editVideo')->where(["id" => $idRegex]);
+        Route::post('UpdatVideo', 'update')->name('UpdatVideo');
+        Route::get('delVideo/{id}', 'destroy')->name('delVideo')->where(["id" => $idRegex]);
     });
     Route::controller(Minister::class)->group(function () {
         $idRegex = "[0-9]*";

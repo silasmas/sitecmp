@@ -98,15 +98,15 @@
 <section class="meet-team gray-bg page-section-ptb">
     <div class="container">
         <ul class="nav  mb-5 nav-tabs nav-tab-page justify-content-center align-items-center" id="pills-tab" role="tablist">
-            {{-- <li class="nav-item" role="presentation">
+            <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="pills-arrivage-tab" data-bs-toggle="pill" data-bs-target="#plan" type="button" role="tab" aria-controls="pills-profile" aria-selected="true">Plan alimentaire</button>
-            </li> --}}
+            </li>
             {{-- <li class="nav-item" role="presentation">
                 <button class="nav-link" id="pills-categorie-tab" data-bs-toggle="pill" data-bs-target="#logement" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Logément</button>
-            </li>
+            </li>--}}
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-fournisseur-tab" data-bs-toggle="pill" data-bs-target="#shop" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Boutique</button>
-            </li> --}}
+                <button class="nav-link" id="pills-fournisseur-tab" data-bs-toggle="pill" data-bs-target="#shop" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Laissez-nous votre témoignage Bunda 21</button>
+            </li>
         </ul>
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="plan" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
@@ -152,6 +152,27 @@
                 @include('site.pages.bunda.logement')
             </div>
             <div class="tab-pane fade" id="shop" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+                <div class="row mt-70">
+                    <div class="col-sm-12">
+                     <h4 class="mb-40">Remplissez ce formulaire</h4>
+                     <div class="contact-form border-form clearfix">
+                        <div class="section-field">
+                          <input type="text" placeholder="Name*" class="form-control"  name="name">
+                         </div>
+                         <div class="section-field">
+                            <input type="email" placeholder="Email*" class="form-control" name="email">
+                          </div>
+                         <div class="section-field">
+                            <input type="text" placeholder="Phone*" class="form-control" name="phone">
+                          </div>
+                         <div class="section-field textarea">
+                           <textarea class="input-message form-control" placeholder="Comment*"  rows="7" name="message"></textarea>
+                          </div>
+                          <input type="hidden" name="action" value="sendEmail"/>
+                           <button  name="submit" type="submit" value="Send" class="button mt-30"><span> Send message </span> <i class="fa fa-paper-plane"></i></button>
+                          </div>
+                      </div>
+                 </div>
             </div>
 
         </div>

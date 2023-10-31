@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\Post;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * @author Xanders
@@ -22,6 +23,7 @@ class Minister extends Model
      */
     protected $guarded = [];
     public $translatable = [];
+    // protected $with = ['Post'];
     /**
      * MANY-TO-ONE
      * Several posts for a minister

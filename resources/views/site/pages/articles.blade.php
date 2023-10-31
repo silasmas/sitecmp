@@ -22,6 +22,8 @@
         <div class="row">
             <div class="col-lg-9">
 @forelse ($posts as $p)
+{{-- {{ dd($p->minister->fullname) }} --}}
+{{-- @forelse ($p->minister as $ps) --}}
 <div class="blog-entry mb-50">
     <div class="entry-image clearfix">
         <img class="img-fluid" src="{{ asset('storage/'.$p->image_url) }}" alt="">
@@ -32,9 +34,9 @@
         </div>
         <div class="entry-meta mb-10">
             <ul>
-                <li> <i class="fa fa-folder-open-o"></i> <a href="#"> Design,</a> <a href="#"> HTML5
-                    </a> </li>
-                <li><a href="#"><i class="fa fa-comment-o"></i> 5</a></li>
+                <li> <i class="fa fa-user"></i> <a href="#"></a>
+                    <a href="#"> {{ $p->minister->fullname??$p->author}}</a> </li>
+                <li><a href="#"><i class="fa fa-comment-o"></i> 0</a></li>
                 <li><a href="#"><i class="fa fa-calendar-o"></i>{{ \Carbon\Carbon::parse($p->date_publication)->isoFormat('LLL') }}</a></li>
             </ul>
         </div>
@@ -57,6 +59,7 @@
         </div>
     </div>
 </div>
+{{-- @emptys --}}
 @empty
 
 @endforelse

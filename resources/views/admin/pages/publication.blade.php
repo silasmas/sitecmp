@@ -6,7 +6,6 @@
     <link href="{{ asset('assets/vendor/photoswipe/assets/vendor/photoswipe/default-skin/default-skin.css') }}" rel="stylesheet">
 @endsection
 @section("content")
-
             <!-- .page-title-bar -->
             <header class="page-title-bar">
               <!-- .breadcrumb -->
@@ -106,7 +105,7 @@
                                             <span class="sr-only">Detail</span>
                                         </a>
 
-                                        <a href="{{ route('editEvent',['id'=>$i->id]) }}" class="btn btn-sm btn-icon btn-secondary">
+                                        <a href="{{ route('editPost',['id'=>$i->id]) }}" class="btn btn-sm btn-icon btn-secondary">
                                             <i class="fa fa-pencil-alt"></i>
                                             <span class="sr-only">Modifier</span>
                                         </a>

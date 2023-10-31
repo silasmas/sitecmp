@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Event;
+use App\Models\Gallery;
+use App\Models\Minister;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
@@ -21,7 +24,8 @@ class Post extends Model
      * @var array<int, string>
      */
     protected $guarded = [];
-    public $translatable = ["title","image_url","body","references","fichier_url","observation"];
+    public $translatable = ["title", "image_url", "body", "references", "fichier_url", "observation"];
+    // protected $with = ['event', 'minister'];
 
     /**
      * ONE-TO-MANY
