@@ -1,4 +1,4 @@
-<div class="col-lg-3 ">
+<div class="col-lg-3">
     <div class="sidebar-widget">
         <h6 class="mb-20">@lang("miscellaneous.inner_page.our_vision.activities.list5")</h6>
         <div class="widget-search">

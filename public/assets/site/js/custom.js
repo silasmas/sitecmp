@@ -256,7 +256,7 @@ POTENZA.raindrops = function () {
          Isotope
 *************************/
 POTENZA.Isotope = function () {
-   loadScript(plugin_path + 'isotope/isotope.pkgd.min.js', function() {
+   loadScript(plugin_path + 'isotope/isotope.pkgd.min.js', function() {  
       var $isotope = $(".isotope"),
           $itemElement = '.grid-item',
           $filters = $('.isotope-filters');
@@ -318,8 +318,10 @@ POTENZA.masonry = function () {
     Magnific Popup
 *************************/
   POTENZA.mediaPopups = function () {
+
      if ($(".popup-single").exists() || $(".popup-gallery").exists() || $('.modal-onload').exists() || $(".popup-youtube, .popup-vimeo, .popup-gmaps").exists()) {
-      loadScript(plugin_path + 'magnific-popup/jquery.magnific-popup.min.js', function() {
+	  //alert(plugin_path + 'magnific-popup/jquery.magnific-popup.min.js');    
+	loadScript(plugin_path + 'magnific-popup/jquery.magnific-popup.min.js', function() {
         if ($(".popup-single").exists()) {
              $('.popup-single').magnificPopup({type:'image'});
           }

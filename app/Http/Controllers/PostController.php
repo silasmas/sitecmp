@@ -22,8 +22,8 @@ class PostController extends Controller
     }
     public function articles()
     {
-        $posts = Post::with("minister")->orderByDesc('date_publication')->get();
-        // dd($posts);
+        $posts = Post::with("minister")->orderByDesc('date_publication')->where('is_active',1)->get();
+    //   dd($posts);
         return view('site.pages.articles', compact('posts'));
     }
     /**
@@ -43,39 +43,40 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-
+        // dd($request->description_fr);
         $re = Validator::make(
             $request->all(),
             [
                 'title_fr' => ['required', 'string'],
-                'title_en' => ['required', 'string'],
+                // 'title_en' => ['required', 'string'],
                 'type' => ['required', 'string'],
                 'date_debut' => ['required', 'string'],
                 'is_active' => ['required', 'string'],
                 'description_fr' => ['required', 'string'],
-                'description_en' => ['required', 'string'],
+                // 'description_en' => ['required', 'string'],
                 'image_fr' => ['required', 'image', 'max:2000'],
-                'image_en' => ['required', 'image', 'max:2000'],
+                // 'image_en' => ['required', 'image', 'max:2000'],
             ]
         );
 
         if ($re->passes()) {
             $file = $request->file('image_fr');
-            $file2 = $request->file('image_en');
+            // $file2 = $request->file('image_en');
 
             $image_fr = $file == '' ? '' : 'posts/' . time() . '.' . $file->getClientOriginalName();
             $file == '' ? '' : $file->move('storage/posts', $image_fr);
 
-            $image_en = $file2 == '' ? '' : 'posts/' . time() . '.' . $file2->getClientOriginalName();
-            $file2 == '' ? '' : $file2->move('storage/posts', $image_en);
+            // $image_en = $file2 == '' ? '' : 'posts/' . time() . '.' . $file2->getClientOriginalName();
+            // $file2 == '' ? '' : $file2->move('storage/posts', $image_en);
             // dd('ok');
             $rep = Post::create(
                 [
                     "title" => ['fr' => $request->title_fr, 'en' => $request->title_en],
                     "date_publication" => $request->date_debut,
-                    "image_url" => ['fr' => $image_fr, 'en' => $image_en],
+                    "image_url" => ['fr' => $image_fr, 'en' => ""],
                     "author" => $request->orateur,
                     "type" => $request->type,
+                    "link_url" => $request->link_url,
                     "event_id" => $request->event,
                     "minister_id" => $request->minister_id,
                     "is_active" => $request->is_active,
@@ -117,7 +118,8 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         $posts = Post::get();
-        return view("site.pages.article-details",compact('post','posts'));
+        // dd($post->link_url);
+        return view("site.pages.article-details", compact('post', 'posts'));
     }
 
     /**

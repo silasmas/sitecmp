@@ -306,6 +306,7 @@
 <!-- END PAGE LEVEL JS -->
 
 <script src="{{ asset('assets/site/js/sweetalert/sweetalert.min.js') }}"></script>
+<script src="{{ asset('assets/site/js/sweetalert/sweetalert.min.js') }}"></script>
 <script src="{{ asset('assets/site/js/admin.form.js') }}"></script>
 <script src="{{ asset('assets/javascript/dataTables/datatables.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/photoswipe/photoswipe.min.js') }}"></script>

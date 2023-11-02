@@ -6,6 +6,9 @@
 <link href="{{ asset('assets/vendor/photoswipe/photoswipe.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/vendor/photoswipe/default-skin/default-skin.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/vendor/simplemde/simplemde.min.css') }}" rel="stylesheet">
+{{-- <link rel="stylesheet" type="text/css" href="{{asset('assets/site/bootstrap-markdown/bootstrap-markdown.min.css') }}"> --}}
+<link href="{{ asset('assets/vendor/summernote/summernote-bs4.min.css') }}" rel="stylesheet">
+<
 @endsection
 @section("content")
 <!-- .page-title-bar -->
@@ -68,15 +71,15 @@
                                     value="{{ isset($dataPost) ? $dataPost->getTranslation('title', 'fr') : '' }}"
                                     name="title_fr">
                             </div>
-                            <div class="col-lg-6">
+                            {{-- <div class="col-lg-6">
                                 <label for="lbl1">Titre (EN) <abbr title="Required">*</abbr></label>
                                 <input type="text" class="form-control title_en" id="title_en"
                                     placeholder="Entrer la titre en anglais"
                                     value="{{ isset($dataPost) ? $dataPost->getTranslation('title', 'en') : '' }}"
                                     name="title_en">
-                            </div>
-                        </div>
-                        <div class="form-group row">
+                            </div> --}}
+                        {{-- </div>
+                        <div class="form-group row"> --}}
                             <div class="col-lg-6">
                                 <label for="sel1">Type</label>
                                 <select name="type" class="custom-select type" id="type" required="">
@@ -93,8 +96,8 @@
                                     value="{{ isset($dataPost) ? $dataPost->author: '' }}">
                             </div>
 
-                        </div>
-                        <div class="form-group row">
+                        {{-- </div>
+                        <div class="form-group row"> --}}
                             <div class="col-lg-6">
                                 <label class="mr-2">Image (FR)</label>
                                 <div class="custom-file">
@@ -105,7 +108,7 @@
                                 </div>
 
                             </div>
-                            <div class="col-lg-6">
+                            {{-- <div class="col-lg-6">
                                 <label class="mr-2">Image (EN)</label>
                                 <div class="custom-file">
                                     <input type="file" name="image_en" class="custom-file-input image_en" id="image_en"
@@ -113,7 +116,7 @@
                                         value="{{ isset($dataPost)?$dataPost->getTranslation('image_url', 'en'):"" }}">
                                     <label class="custom-file-label" for="fileupload-customInput">Choose files</label>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="form-group row">
                             <div class="col-lg-6">
@@ -170,11 +173,17 @@
                                     id="references_fr" placeholder="Entrer la reference"
                                     value="{{ isset($dataPost) ? $dataPost->getTranslation('references', 'fr') : '' }}">
                             </div>
-                            <div class="col-lg-6">
+                            {{-- <div class="col-lg-6">
                                 <label for="lbl1">References (EN)<abbr title="Required">*</abbr></label>
                                 <input type="text" name="references_en" class="form-control references_en"
                                     id="references_en" placeholder="Entrer la reference"
                                     value="{{ isset($dataPost) ? $dataPost->getTranslation('references', 'en') : '' }}">
+                            </div> --}}
+                            <div class="col-lg-6">
+                                <label for="lbl1">Lien de la video</label>
+                                <input type="text" name="link_url" class="form-control link_url"
+                                    id="references_en" placeholder="Entrer l'url de la video"
+                                    value="{{ isset($dataPost) ? $dataPost->link_url : '' }}">
                             </div>
 
                         </div>
@@ -183,13 +192,18 @@
                                 <label for="lbl1">Descrition (FR)</label>
                                 <!-- .card -->
                                 <div class="card card-fluid">
-                                    <textarea data-toggle="simplemde"  rows="12" name="description_fr" data-spellchecker="false"
-                                        data-autosave='{ "enabled": true, "unique_id": "SimpleMDEDemo" }'>
+                                    <textarea data-toggle="summernote" data-placeholder="Write here..." data-height="200"
+                                    name="description_fr">
+                                    {{-- <textarea class="summernote" name="description_fr"> --}}
                                         {{ isset($dataPost)?$dataPost->getTranslation('body', 'fr'):""}}
                                     </textarea>
+                                    {{-- <textarea data-toggle="simplemde"  rows="12" name="description_fr" data-spellchecker="false"
+                                        data-autosave='{ "enabled": true, "unique_id": "SimpleMDEDemo" }'>
+                                        {{ isset($dataPost)?$dataPost->getTranslation('body', 'fr'):""}}
+                                    </textarea> --}}
                                 </div><!-- /.card -->
                             </div>
-                            <div class="col-lg-12">
+                            {{-- <div class="col-lg-12">
                                 <label for="lbl1">Descrition (EN) </label>
                                 <!-- .card -->
                                 <div class="card card-fluid">
@@ -200,7 +214,7 @@
 
 
                                 </div><!-- /.card -->
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="form-group row" {{ isset($dataPost)?"":"hidden" }}>
                             <div class="col-lg-6">
@@ -276,6 +290,14 @@
 @endsection
 
 @section('autres-script')
+{{-- <script src="{{ asset('assets/site/js/summernote/summernote.min.js') }}"></script>
+<script src="{{ asset('assets/site/bootstrap-markdown/bootstrap-markdown.js') }}"></script>
+<script src="{{ asset('assets/site/bootstrap-markdown/markdown.js') }}"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+      $('.summernote').summernote();
+    });
+</script> --}}
 {{-- <script src="{{ asset('js/app') }}"></script> --}}
 <script src="{{ asset('assets/vendor/flatpickr/flatpickr.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/flatpickr/plugins/monthSelect/index.js') }}"></script>
@@ -287,6 +309,7 @@
 <script src="{{ asset('assets/site/js/sweetalert/sweetalert.min.js') }}"></script>
 
 <script src="{{ asset('assets/vendor/popper.js/umd/popper.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/summernote/summernote-bs4.min.js') }}"></script>
 
 <script src="{{ asset('assets/vendor/photoswipe/photoswipe.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/photoswipe/photoswipe-ui-default.min.js') }}"></script>
