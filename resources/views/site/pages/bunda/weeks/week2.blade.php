@@ -22,13 +22,14 @@
                         </td>
                         <td>
                             <ul>
-                                <li>1 verre de jus de fruit frais</li>
+                                <li>Jus de fruit frais</li>
                             </ul>
                         </td>
                         <td>
                             <ul>
                                 <li>2 patates douces bouillies Ou 1 pain kanga journée</li>
                                 <li>1 assiette des légumes en bouillon</li>
+                                <li>Légumes</li>
                                 <li>Eau</li>
                             </ul>
                         </td>
@@ -70,6 +71,7 @@
                             <ul>
                                 <li>Bouillie de quaker ou de maïs jaune avec 2 c à c de sucre ou miel</li>
                                 <li>Soit 1 tasse de citronnelle + 1 pain kanga journée </li>
+                                <li>Légumes</li>
                                 <li>Eau</li>
                             </ul>
                         </td>
@@ -111,6 +113,7 @@
                             <ul>
                                 <li>2 bananes plantains bouillies</li>
                                 <li>1 assiette de légume en bouillon</li>
+                                <li>Légumes</li>
                                 <li>Eau</li>
                             </ul>
                         </td>
@@ -193,6 +196,7 @@
                             <ul>
                                 <li>1 bol de 250 ml de bouillie de quaker ou maïs</li>
                                 <li>2 c à c de sucre ou 1 pain kanga journée</li>
+                                <li>Légumes</li>
                                 <li>Eau</li>
                             </ul>
                         </td>
@@ -233,6 +237,7 @@
                         <td>
                             <ul>
                                 <li>Soupe de pommes de terre ou patate douce à la tomate</li>
+                                <li>Légumes</li>
                                 <li>Eau</li>
                             </ul>
                         </td>
@@ -274,6 +279,7 @@
                                 <li>1 bol de 250 ml de bouillie de quaker ou maïs jaune</li>
                                 <li>2 c à c de sucre </li>
                                 <li>1 pain kanga journée</li>
+                                <li>Légumes</li>
                                 <li>Eau</li>
                             </ul>
                         </td>

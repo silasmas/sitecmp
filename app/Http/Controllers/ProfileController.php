@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Beans\enteteState;
-use App\Http\Requests\ProfileUpdateRequest;
-use App\Models\Event;
-use App\Models\Minister;
-use App\Models\Post;
-use App\Models\Testimonial;
 use Carbon\Carbon;
-use Illuminate\Http\RedirectResponse;
+use App\Models\Post;
+use App\Models\Event;
+use App\Models\video;
+use App\Models\Minister;
+use Illuminate\View\View;
+use App\Beans\enteteState;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\View\View;
+use App\Http\Requests\ProfileUpdateRequest;
 
 class ProfileController extends Controller
 {
@@ -81,7 +82,9 @@ class ProfileController extends Controller
     }
     public function videos()
     {
-        return view('site.pages.videos');
+        $videos = video::all();
+        // dd($videos);
+        return view('site.pages.videos',compact('videos'));
     }
 
     /**

@@ -21,30 +21,33 @@
             <div class="col-lg-12 col-md-12 col-sm-12 text-center">
                 <div class="isotope-filters">
                     <button data-filter="" class="active">Tout</button>
+                    <button data-filter=".bunda">Bunda 21</button>
                     <button data-filter=".dimanche">Dimanche</button>
                     <button data-filter=".mercredi">Mercredi</button>
                     <button data-filter=".jeudi">Jeudi</button>
                     <button data-filter=".campagne">Campagne d'évangelisation</button>
                 </div>
                 <div class="isotope popup-gallery columns-3 no-padding">
-                    <div class="grid-item dimanche">
+                    @forelse ($videos as $v)
+                    <div class="grid-item {{$v->jour}}">
                         <div class="portfolio-item ">
                             <div class="portfolio-item">
-                                <img src="{{ asset('assets/site/images/videos/01.jpg') }}" alt="">
+                                <img src="{{ asset('storage/'.$v->imag_url) }}" alt="">
                                 <div class="portfolio-overlay">
-                                    <h4 class="text-white"> <a href="{{ route('media') }}"> Appel à la croissance
-                                            spirituelle
-                                        </a> </h4>
-                                    <span class="text-white"> <a href="#"> Dimanche </a>| <a href="#">1 octobre
-                                        </a>
+                                    <h4 class="text-white"> <a href="{{ route('media') }}">{{ $v->titre }}</a> </h4>
+                                    <span class="text-white"> <a href="#"> {{ $v->description }} </a>| <a href="#">{{\Carbon\Carbon::parse($v->dateRealiser)->isoFormat('LLL')  }}</a>
                                     </span>
                                 </div>
-                                <a class="popup popup-youtube" href="https://www.youtube.com/watch?v=fRM_L_ITFCE"><i
+                                <a class="popup popup-youtube" href="{{ $v->video }}"><i
                                         class="fa fa-play"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="grid-item mercredi campagne">
+                    @empty
+
+                    @endforelse
+
+                    {{-- <div class="grid-item mercredi campagne">
                         <div class="portfolio-item ">
                             <div class="portfolio-item">
                                 <img src="{{ asset('assets/site/images/portfolio/small/05.jpg') }}" alt="">
@@ -244,7 +247,7 @@
                             <a class="popup popup-youtube" href="https://www.youtube.com/watch?v=Is_q_uUvSAk"><i
                                     class="fa fa-play"></i></a>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

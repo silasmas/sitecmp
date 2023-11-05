@@ -57,7 +57,7 @@
                         <td>
                             <ul>
                                 <li>1 tasse de tisane à base de menthe, citronnelle ou camomille</li>
-                                <li>2 c à c de sucre ou miel</li>
+                                <li>2 c à c de sucre ou miel ou un pain kanga journée</li>
                                 <li>Eau</li>
                             </ul>
                         </td>
@@ -153,6 +153,7 @@
                         <ul>
                             <li>Soupe de légumes fruit (carotte, courgette, concombre, oignon, tomate, ail)</li>
                             <li>1 pain kanga journée ou 4 tranches de pain blanc</li>
+                            <li>Légume</li>
                             <li>Eau</li>
                         </ul>
                     </td>
@@ -194,6 +195,7 @@
                             <ul>
                                 <li>Bouillie de maïs ou semoule jaune</li>
                                 <li>2 c à c de sucre ou miel</li>
+                                <li>Légume</li>
                                 <li>Eau</li>
                             </ul>
                         </td>
@@ -279,6 +281,7 @@
                                 <li>Tisane citronnelle </li>
                                 <li>1 pain kanga journée </li>
                                 <li>2 c à c de miel ou sucre</li>
+                                <li>Légume</li>
                                 <li>Eau</li>
                             </ul>
                         </td>

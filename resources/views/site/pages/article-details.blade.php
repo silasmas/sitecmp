@@ -25,14 +25,14 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="page-title-name">
-          <h1 class="text-black">About our mission</h1>
-          <p class="text-black">We know the secret of your success</p>
+          <h1 class="text-black">{{ $post->title }}</h1>
+          <p class="text-black">{{ $post->event_id?"événement : ".$post->event->designation:"Culte hebdomadaire"}}</p>
         </div>
         <ul class="page-breadcrumb">
           <li><a href="{{ route('home') }}"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i>
           </li>
           <li><a href="{{ route('articles') }}">Articles</a> <i class="fa fa-angle-double-right"></i></li>
-          <li><span>{{ $post->title }}</span> </li>
+          <li><span></span> </li>
         </ul>
       </div>
     </div>

@@ -56,7 +56,7 @@
                         <div class="entry-meta mb-10">
                             <ul>
                                 <li> <i class="fa fa-user"></i> <a href="#"></a>
-                                    <a href="#"> {{ $p->minister->fullname??$p->author}}</a>
+                                    <a href="#">{{ $p->minister->fullname??$p->author}} </a>
                                 </li>
                                 <li><a href="#"><i class="fa fa-comment-o"></i> 0</a></li>
                                 <li><a href="#"><i class="fa fa-calendar-o"></i>{{
@@ -64,7 +64,7 @@
                             </ul>
                         </div>
                         <div class="entry-content paragraph-ellipsis">
-                            <p class="paragraph">{{ htmlspecialchars($p->body) }}</p>
+                            {{-- <p class="paragraph">{{ htmlspecialchars($p->body) }}</p> --}}
                         </div>
                         <div class="entry-share clearfix">
                             <div class="entry-button">

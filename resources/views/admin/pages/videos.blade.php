@@ -10,67 +10,43 @@
 <div class="container-fluid">
     <div class="row page-section-ptb">
         <div class="col-lg-12 col-md-12">
-            <div class="tab nav-bt nav-center">
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active show" id="home-02-tab" data-bs-toggle="tab" href="#home-02" role="tab"
-                            aria-controls="home-02" aria-selected="true">
-                            <h4 class="mb-0">Vidéos</h4>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="profile-02-tab" data-bs-toggle="tab" href="#profile-02" role="tab"
-                            aria-controls="profile-02" aria-selected="false">
-                            <h4 class="mb-0">Photos</h4>
-                        </a>
-                    </li>
-                </ul>
-                <div class="tab-content px-5" id="myTabContent">
-                    <div class="tab-pane fade active show" id="home-02" role="tabpanel" aria-labelledby="home-02-tab">
-                        <!-- .page-title-bar -->
-                        <header class="page-title-bar">
-                            <!-- floating action -->
-                            <a href="{{ route('addEvent') }}">
-                                <button type="button" class="btn btn-success btn-floated">
-                                    <span class="fa fa-plus"></span>
-                                </button> <!-- /floating action -->
-                            </a>
-                            <!-- title and toolbar -->
-                            <div class="d-md-flex align-items-md-start">
-                                <h1 class="page-title mr-sm-auto"> Liste des évènements</h1><!-- .btn-toolbar -->
-                                <div id="dt-buttons" class="btn-toolbar"></div><!-- /.btn-toolbar -->
-                            </div><!-- /title and toolbar -->
-                        </header><!-- /.page-title-bar -->
-                        <!-- .page-section -->
-                        <div class="page-section">
-                            <!-- .card -->
-                            <div class="card card-fluid">
-                                <!-- .card-header -->
-                                <div class="card-header">
-                                    <!-- .nav-tabs -->
-                                    <ul class="nav nav-tabs card-header-tabs">
-                                        <li class="nav-item">
-                                            <a class="nav-link active show" data-toggle="tab" href="#tab1">All</a>
-                                        </li>
-                                    </ul><!-- /.nav-tabs -->
-                                </div><!-- /.card-header -->
+            <!-- grid column -->
+            <div class="col-lg-12">
+                <!-- .card -->
+                <div class="card">
+                    <!-- .card-header -->
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#card-home">Video</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active show" data-toggle="tab" href="#card-profile">Photo</a>
+                            </li>
+                        </ul>
+                    </div><!-- /.card-header -->
+                    <!-- .card-body -->
+                    <div class="card-body">
+                        <!-- .tab-content -->
+                        <div id="myTabCard" class="tab-content">
+                            <div class="tab-pane fade" id="card-home">
+                                <h5 class="card-title"> Special title treatment </h5>
+                                <a href="{{ route('addVideo') }}" class="btn btn-danger">Ajouter </a>
                                 <!-- .card-body -->
                                 <div class="card-body">
-
                                     <table class="table table-striped table-bordered table-hover dataTables-example">
                                         <thead>
                                             <tr>
                                                 <th>Image</th>
-                                                <th>Designation</th>
+                                                <th>Video</th>
                                                 <th>Theme</th>
-                                                <th>Orateur</th>
-                                                <th>A la une</th>
-                                                <th>Debut</th>
-                                                <th>Fin</th>
+                                                <th>Description</th>
+                                                <th>Jour</th>
+                                                <th>Date</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
-                                        {{-- <tbody>
+                                        <tbody>
                                             @forelse ($videos as $i)
                                             <tr class="gradeX">
                                                 <td>
@@ -80,9 +56,9 @@
                                                             <!-- .figure-img -->
                                                             <div class="figure-img">
                                                                 <img class="img-fluid"
-                                                                    src="{{ asset('storage/'.$i->image_url) }}"
+                                                                    src="{{ asset('storage/'.$i->imag_url) }}"
                                                                     width="100" alt="Card image cap">
-                                                                <a href="{{ asset('storage/'.$i->image_url) }}"
+                                                                <a href="{{ asset('storage/'.$i->imag_url) }}"
                                                                     class="img-link" data-size="100x100">
                                                                     <span class="tile tile-circle bg-danger"><span
                                                                             class="oi oi-eye"></span></span>
@@ -108,13 +84,12 @@
                                                         </figure><!-- /.card-figure -->
                                                     </div>
                                                 </td>
-                                                <td>{{ $i->designation }}</td>
-                                                <td>{{ $i->theme }}</td>
-                                                <td>{{ $i->type }}</td>
-                                                <td>{{ $i->orateur }}</td>
-                                                <td>{{ $i->est_a_la_une }}</td>
-                                                <td>{{ \Carbon\Carbon::parse($i->date_debut)->isoFormat('LLL') }}</td>
-                                                <td>{{ \Carbon\Carbon::parse($i->date_fin)->isoFormat('LLL') }}</td>
+                                                <td>{{ $i->video }}</td>
+                                                <td>{{ $i->titre }}</td>
+                                                <td>{{ $i->description }}</td>
+                                                <td>{{ $i->jour }}</td>
+                                                <td>{{ $i->is_active }}</td>
+                                                <td>{{ \Carbon\Carbon::parse($i->dateRealistion)->isoFormat('LLL') }}</td>
                                                 <td class="center align-middle text-right">
                                                     <a href="{{ $i->id }}" class="btn btn-sm btn-icon btn-secondary">
                                                         <i class="fa fa-eye"></i>
@@ -137,154 +112,36 @@
                                                 @endforelse
 
 
-                                        </tbody> --}}
+                                        </tbody>
                                         <tfoot>
                                             <tr>
                                                 <th>Image</th>
-                                                <th>Designation</th>
+                                                <th>Video</th>
                                                 <th>Theme</th>
-                                                <th>Orateur</th>
-                                                <th>A la une</th>
-                                                <th>Debut</th>
-                                                <th>Fin</th>
+                                                <th>Description</th>
+                                                <th>Jour</th>
+                                                <th>Date</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </tfoot>
                                     </table>
-                                </div><!-- /.card-body -->
-                            </div><!-- /.card -->
-                        </div><!-- /.page-section -->
-                    </div>
-                    <div class="tab-pane fade" id="profile-02" role="tabpanel" aria-labelledby="profile-02-tab">
-                        <header class="page-title-bar">
-                            <!-- floating action -->
-                            <a href="{{ route('addEvent') }}">
-                                <button type="button" class="btn btn-success btn-floated">
-                                    <span class="fa fa-plus"></span>
-                                </button> <!-- /floating action -->
-                            </a>
-                            <!-- title and toolbar -->
-                            <div class="d-md-flex align-items-md-start">
-                                <h1 class="page-title mr-sm-auto"> Liste des évènements</h1><!-- .btn-toolbar -->
-                                <div id="dt-buttons" class="btn-toolbar"></div><!-- /.btn-toolbar -->
-                            </div><!-- /title and toolbar -->
-                        </header><!-- /.page-title-bar -->
-                        <!-- .page-section -->
-                        <div class="page-section">
-                            <!-- .card -->
-                            <div class="card card-fluid">
-                                <!-- .card-header -->
-                                <div class="card-header">
-                                    <!-- .nav-tabs -->
-                                    <ul class="nav nav-tabs card-header-tabs">
-                                        <li class="nav-item">
-                                            <a class="nav-link active show" data-toggle="tab" href="#tab1">All</a>
-                                        </li>
-                                    </ul><!-- /.nav-tabs -->
-                                </div><!-- /.card-header -->
-                                <!-- .card-body -->
-                                <div class="card-body">
+                                </div>
+                                <!-- /.card-body -->
 
-                                    <table class="table table-striped table-bordered table-hover dataTables-example">
-                                        <thead>
-                                            <tr>
-                                                <th>Image</th>
-                                                <th>Designation</th>
-                                                <th>Theme</th>
-                                                <th>Orateur</th>
-                                                <th>A la une</th>
-                                                <th>Debut</th>
-                                                <th>Fin</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        {{-- <tbody>
-                                            @forelse ($videos as $i)
-                                            <tr class="gradeX">
-                                                <td>
-                                                    <div class="card card-figure">
-                                                        <!-- .card-figure -->
-                                                        <figure class="figure">
-                                                            <!-- .figure-img -->
-                                                            <div class="figure-img">
-                                                                <img class="img-fluid"
-                                                                    src="{{ asset('storage/'.$i->image_url) }}"
-                                                                    width="100" alt="Card image cap">
-                                                                <a href="{{ asset('storage/'.$i->image_url) }}"
-                                                                    class="img-link" data-size="100x100">
-                                                                    <span class="tile tile-circle bg-danger"><span
-                                                                            class="oi oi-eye"></span></span>
-                                                                    <span class="img-caption d-none">Image caption goes
-                                                                        here</span></a>
-                                                                <div class="figure-action">
-                                                                    <a href="#"
-                                                                        class="btn btn-block btn-sm btn-primary">Voir en
-                                                                        detail</a>
-                                                                </div>
-                                                            </div><!-- /.figure-img -->
-                                                            <!-- .figure-caption -->
-                                                            <figcaption class="figure-caption">
-                                                                <ul class="list-inline text-muted mb-0">
-                                                                    <li class="list-inline-item">
-                                                                        <span class="oi oi-paperclip"></span> 0.62MB
-                                                                    </li>
-                                                                    <li class="list-inline-item float-right">
-                                                                        <span class="oi oi-calendar"></span>
-                                                                    </li>
-                                                                </ul>
-                                                            </figcaption><!-- /.figure-caption -->
-                                                        </figure><!-- /.card-figure -->
-                                                    </div>
-                                                </td>
-                                                <td>{{ $i->designation }}</td>
-                                                <td>{{ $i->theme }}</td>
-                                                <td>{{ $i->type }}</td>
-                                                <td>{{ $i->orateur }}</td>
-                                                <td>{{ $i->est_a_la_une }}</td>
-                                                <td>{{ \Carbon\Carbon::parse($i->date_debut)->isoFormat('LLL') }}</td>
-                                                <td>{{ \Carbon\Carbon::parse($i->date_fin)->isoFormat('LLL') }}</td>
-                                                <td class="center align-middle text-right">
-                                                    <a href="{{ $i->id }}" class="btn btn-sm btn-icon btn-secondary">
-                                                        <i class="fa fa-eye"></i>
-                                                        <span class="sr-only">Detail</span>
-                                                    </a>
+                            </div>
+                            <div class="tab-pane fade active show" id="card-profile">
+                                <a href="#" class="btn btn-danger">Go somewhere</a>
+                                <h5 class="card-title"> Special title treatment </h5>
+                                <p class="card-text"> With supporting text below as a natural lead-in to additional
+                                    content. </p>
+                            </div>
+                        </div><!-- /.tab-content -->
+                    </div><!-- /.card-body -->
+                </div><!-- /.card -->
 
-                                                    <a href="{{ route('editEvent',['id'=>$i->id]) }}"
-                                                        class="btn btn-sm btn-icon btn-secondary">
-                                                        <i class="fa fa-pencil-alt"></i>
-                                                        <span class="sr-only">Modifier</span>
-                                                    </a>
-                                                    <a href="{{ $i->id }}" class="btn btn-sm btn-icon btn-secondary"
-                                                        onclick="event.preventDefault();deletEvent({{ $i->id }},'delEvent')">
-                                                        <i class="fa fa-trash-alt"></i>
-                                                        <span class="sr-only">Supprimer</span>
-                                                    </a>
-                                                </td>
-
-                                                @empty
-                                                @endforelse
+            </div><!-- /grid column -->
 
 
-                                        </tbody> --}}
-                                        <tfoot>
-                                            <tr>
-                                                <th>Image</th>
-                                                <th>Designation</th>
-                                                <th>Theme</th>
-                                                <th>Orateur</th>
-                                                <th>A la une</th>
-                                                <th>Debut</th>
-                                                <th>Fin</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                </div><!-- /.card-body -->
-                            </div><!-- /.card -->
-                        </div><!-- /.page-section -->
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>

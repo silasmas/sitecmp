@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Validator;
 class TestimialController extends Controller
 {
     /**
@@ -28,7 +28,49 @@ class TestimialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $re = Validator::make(
+            $request->all(),
+            [
+
+                'phone' => ['required'],
+                'fullname' => ['required', 'string'],
+                'message' => ['required', 'string'],
+            ]
+        );
+        if ($re->passes()) {
+            $rep = Testimonial::create(
+                [
+                    "phone" => $request->phone,
+                    "fullname" => $request->fullname,
+                    "body" => $request->message,
+                    "email" => $request->email,
+                    "type" => 'Bunda21',
+                    "is_active" => 1,
+                ]
+            );
+            if ($rep) {
+                return response()->json(
+                    [
+                        'reponse' => true,
+                        'msg' => 'Message envoyé avec succès',
+                    ]
+                );
+            } else {
+                return response()->json(
+                    [
+                        'reponse' => false,
+                        'msg' => 'Erreur',
+                    ]
+                );
+            }
+        } else {
+            return response()->json(
+                [
+                    'reponse' => false,
+                    'msg' => $re->errors()->first(),
+                ]
+            );
+        }
     }
 
     /**

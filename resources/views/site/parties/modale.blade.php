@@ -17,14 +17,23 @@
                     <div class="item">
                       <img class="img-fluid full-width" src="{{ asset('assets/site/images/actus/04.jpg') }}" alt="">
                     </div>
-                    <div class="item">
+                    {{-- <div class="item">
                       <img class="img-fluid full-width" src="{{ asset('assets/site/images/actus/02.jpg') }}" alt="">
-                    </div>
+                    </div> --}}
                     <div class="item">
                       <img class="img-fluid full-width" src="{{ asset('assets/site/images/actus/03.jpg') }}" alt="">
                     </div>
                     <div class="item">
                       <img class="img-fluid full-width" src="{{ asset('assets/site/images/actus/05.jpg') }}" alt="">
+                    </div>
+                    <div class="item">
+                      <img class="img-fluid full-width" src="{{ asset('assets/site/images/actus/06.jpg') }}" alt="">
+                    </div>
+                    <div class="item">
+                      <img class="img-fluid full-width" src="{{ asset('assets/site/images/actus/07.jpg') }}" alt="">
+                    </div>
+                    <div class="item">
+                      <img class="img-fluid full-width" src="{{ asset('assets/site/images/actus/08.jpg') }}" alt="">
                     </div>
                   </div>
                 </div>

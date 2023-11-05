@@ -113,6 +113,8 @@
                             <ul>
                                 <li>Soupe de patate à la tomate </li>
                                 <li>1 c  à c d’huile</li>
+                                <li>Légumes</li>
+                                <li>Eau</li>
                             </ul>
                         </td>
                     </tr>
@@ -194,6 +196,7 @@
                             <ul>
                                 <li>Soupe au chou</li>
                                 <li>1 pain kanga journée</li>
+                                <li>Eau</li>
                             </ul>
                         </td>
                     </tr>

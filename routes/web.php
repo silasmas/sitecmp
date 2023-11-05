@@ -38,6 +38,7 @@ Route::get('/show_article/{id}', [PostController::class, 'show'])->name('show_ar
 Route::get('detailProjet/{id}', [ProjetController::class, 'show'])->name('detailProjet');
 
 Route::post('/newsletter', [NewsletterController::class, 'store'])->name('newsletter');
+Route::post('/temoignage', [TestimialController::class, 'store'])->name('temoignage');
 Route::post('/storEvent', [EventController::class, 'store'])->name('storEvent');
 
 Route::get('admin', function () {
@@ -73,7 +74,7 @@ Route::prefix("admin")->middleware(['auth'])->group(function () {
         $idRegex = "[0-9]*";
         Route::get('video_all', 'index')->name('video_all');
         Route::get('/addVideo', 'create')->name('addVideo');
-        Route::post('StoreVideo', 'store')->name('StoreVideo');
+        Route::post('storVideo', 'store')->name('storVideo');
 
         Route::get('editVideo/{id}', 'edit')->name('editVideo')->where(["id" => $idRegex]);
         Route::post('UpdatVideo', 'update')->name('UpdatVideo');

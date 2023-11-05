@@ -279,51 +279,27 @@
             </div>
         </div>
         <div class="row">
+            @forelse ($posts as $p)
             <div class="col-md-4 xs-mb-40">
                 <div class="feature-box h-100 active">
                     <div class="feature-box-content">
                         <i class="fa fa-arrows"></i>
-                        <h4>Unique & Clean</h4>
-                        <p>Breve description</p>
+                        <h4>{{ $p->title }}</h4>
+                        <p>{{ $p->minister->fullname??$p->author}}</p>
                     </div>
                     <div class="content-link">
-                        <a href="#">Read more</a>
+                        <a href="{{ route('show_article',['id'=>$p->id]) }}">Lire la suite</a>
                     </div>
-                    <div class="feature-box-img" style="background-image: url('assets/site/images/about/01.jpg');">
+                    <div class="feature-box-img" style="background-image: url('storage/{{ $p->image_url }}');">
                     </div>
                     {{-- <span class="feature-border"></span> --}}
                 </div>
             </div>
-            <div class="col-md-4 xs-mb-40">
-                <div class="feature-box h-100 active">
-                    <div class="feature-box-content">
-                        <i class="fa fa-arrows"></i>
-                        <h4>Flexible Layout</h4>
-                        <p>Breve description</p>
-                    </div>
-                    <div class="content-link">
-                        <a href="#">Read more</a>
-                    </div>
-                    <div class="feature-box-img" style="background-image: url('assets/site/images/about/02.jpg');">
-                    </div>
-                    {{-- <span class="feature-border"></span> --}}
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="feature-box h-100 active">
-                    <div class="feature-box-content">
-                        <i class="fa fa-arrows"></i>
-                        <h4>Trendy Design</h4>
-                        <p>Breve description</p>
-                    </div>
-                    <div class="content-link">
-                        <a href="#">Read more</a>
-                    </div>
-                    <div class="feature-box-img" style="background-image: url('assets/site/images/about/03.jpg');">
-                    </div>
-                    {{-- <span class="feature-border"></span> --}}
-                </div>
-            </div>
+            @empty
+
+            @endforelse
+
+
             <div class="col-12">
                 <div class="text-center">
                     <a type="button" class="button icon mb-10 mr-10 mt-lg-5 mt-3" href="{{ route('articles') }}">
