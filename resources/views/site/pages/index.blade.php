@@ -425,12 +425,12 @@
                             </div>
                             <div class="feature-info">
                                 <h5>Notre mission</h5>
-                                <p>Notre mission s'articule autour de trois quatre axes:
+                                <p>Notre mission s'articule autour quatre axes:
                                     Préparer l’épouse à la rencontre de l’Epoux;
                                     Ramener les cœurs des fils à leur Père;
                                     Prêcher et apporter au peuple la délivrance des jougs et oppressions
                                     démoniaques;
-                                    La stabilité des foyers par une vie de couple stable et harmonieux.</p>
+                                    La stabilité des foyers par une vie de couple stable et harmonieuse.</p>
                             </div>
                         </div>
                     </div>
@@ -828,8 +828,10 @@
                         <i class="ti-map text-white"></i>
                     </div>
                     <div class="contact-info">
-                        <h5 class="text-white"> Adresse</h5>
-                        <span class="text-white">Details</span>
+                        <h5 class="text-white"> </h5>
+                        <span class="text-white">
+                            {{-- @lang('miscellaneous.footer.address1') <br> @lang('miscellaneous.footer.address2') --}}
+                        </span>
                     </div>
                 </div>
             </div>
@@ -839,8 +841,11 @@
                         <i class="ti-headphone text-white"></i>
                     </div>
                     <div class="contact-info">
-                        <h5 class="text-white">Téléphone</h5>
-                        <span class="text-white">Heure de rdv</span>
+                        <h5 class="text-white"></h5>
+                        <span class="text-white">
+                            {{-- <a href="tel:243897000227"> <span>+243897000227 </span> </a>
+                         <a href="tel:243818772740"> <span>+243818772740</span> </a> --}}
+                        </span>
                     </div>
                 </div>
             </div>
@@ -850,8 +855,9 @@
                         <i class="ti-email text-white"></i>
                     </div>
                     <div class="contact-info">
-                        <h5 class="text-white">Email</h5>
-                        <span class="text-white">Fax</span>
+                        <h5 class="text-white"></h5>
+                        {{-- <span class="text-white">eglisecmp@gmail.com
+                            Support: dev@eglisecmp.com</span> --}}
                     </div>
                 </div>
             </div>

@@ -73,7 +73,7 @@
         </div>
         <p class="d-flex flex-column">
             <span>Adresse</span>
-            17 Av Chef Katanga-Lubumbashi-RD Congo
+            @lang('miscellaneous.footer.address1') <br> @lang('miscellaneous.footer.address2')
         </p>
         <div class="block-items-contact mt-auto">
             <div class="item-contact mb-2">
