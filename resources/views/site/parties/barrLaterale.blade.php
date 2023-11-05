@@ -1,6 +1,6 @@
 <div class="col-lg-3">
     <div class="sidebar-widget">
-        <h6 class="mb-20">@lang("miscellaneous.inner_page.our_vision.activities.list5")</h6>
+        {{-- <h6 class="mb-20">@lang("miscellaneous.inner_page.our_vision.activities.list5")</h6> --}}
         {{-- <div class="widget-search">
             <i class="fa fa-search"></i>
             <input type="search" class="form-control" placeholder="@lang("miscellaneous.inner_page.news.search")" />
