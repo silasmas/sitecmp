@@ -75,7 +75,7 @@
                             <div class="social list-style-none float-end">
                                 <strong>@lang("miscellaneous.share") </strong>
                                 <ul>
-                                    <li><a href="https://www.facebook.com/Eglisecmp?mibextid=LQQJ4d"
+                                    <li><a href="https://facebook.com/sharer.php?u={{ "eglisecmp.com" }}"
                                             target="blank"><span class="ti-facebook"></span></a></li>
                                     <li><a href="https://instagram.com/eglisecmp?igshid=OGQ5ZDc2ODk2ZA=="
                                             target="blank"><span class="ti-instagram"></span></a></li>

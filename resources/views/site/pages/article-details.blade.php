@@ -1,5 +1,19 @@
 @extends('site.layout.template', ['titre' => 'Detail article'])
-
+@section("metaPartage")
+<meta property="og:title" 		content="{{ $post->title }}">
+    <meta property="og:type" 		content="website">
+    <meta property="og:author" 		content="{{ $post->minister->fullname??$post->author }}">
+    <meta property="og:url" 		content="document.URL">
+    <!--meta property="og:summary" 	content="Maintaining cultural coherence across a companies portfolio should be an essential factor when determining a corporate strategy."-->
+    <meta property="og:image" 		content="{{ url('/storage/'.$post->image_url) }}">
+    <!--meta property="og:description" content="Maintaining cultural coherence across a companies portfolio should be an essential factor when determining a corporate strategy."-->
+    <meta name="twitter:card" 		content="summary_large_image">
+    <meta name="twitter:site" 		content="@eglisecmp">
+    <meta name="twitter:creator" 	content="@eglisecmp">
+    <meta name="twitter:title" 		content="{{ $post->title }}" />
+    <!--meta name="twitter:description" content="Maintaining cultural coherence across a companies portfolio should be an essential factor when determining a corporate strategy." /-->
+    <meta name="twitter:image" 		content="{{ url('/storage/'.$post->image_url) }}" />
+@endsection
 @section("content")
 {{-- <section class="page-title bg-overlay-black-60 jarallax" data-speed="0.6"
   data-img-src="{{ asset('assets/site/images/bg/02.jpg') }}">
@@ -84,7 +98,15 @@ page-title -->
                 </li>
                 <li><a href="#"><i class="fa fa-comment-o"></i> 0</a></li>
                 <li><a href="#"><i class="fa fa-calendar-o"></i>{{\Carbon\Carbon::parse($post->date_publication)->isoFormat('LLL') }}</a></li>
-              </ul>
+                Partager :
+                <li><div class="fb-share-button" data-layout="button_count" data-size="large" style="cursor: pointer">
+                    <a target="_blank" onclick="facebookShared()" class="fb-xfbml-parse-ignore">Facebook <i class="fa-brands fa-facebook"></i></a></div></li>
+                <li><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-via="eglisecmp" data-hashtags="eglisecmp" data-related="" data-show-count="true">
+                Tweetter <i class="fa-brands fa-x-twitter"></i></a></li>
+                <li style="cursor: pointer"><a onclick="whatsappShared()" class="whatsapp wa_btn activeWhatsapp" style="margin-top:0; color:rgb(12, 11, 11);padding: 1px 1px 1px 9px;" target="_blank">
+                    Whatsapp <i class="fa-brands fa-whatsapp"></i></a></li>
+
+            </ul>
             </div>
             <div class="entry-content">
               <p>{!!$post->body!!}</p>
@@ -108,7 +130,37 @@ page-title -->
 
 <!--=================================
 action box- -->
+<script>
 
+    function whatsappShared(){
+        var LinkTextToShare = 'https://wa.me/?text=' + encodeURIComponent(window.location.href) ;
+        window.open(LinkTextToShare,"_blank");
+
+    }
+    function facebookShared(){
+        var LinkTextToShare = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL) ;
+        window.open(LinkTextToShare,"_blank");
+
+    }
+    </script>
+        @include('site.parties.linkBottom')
+    <script>
+    $("#btnMore").on("click", function() {
+        $("#more").css("display", "block");
+        $("#baseView").css("display", "none");
+        $("#btnLess").css("display", "block");
+        $("#btnMore").css("display", "none");
+    });
+
+    $("#btnLess").on("click", function() {
+        $("#more").css("display", "none");
+        $("#baseView").css("display", "block");
+        $("#btnMore").css("display", "block");
+        $("#btnLess").css("display", "none");
+    });
+
+
+    </script>
 @include("site.parties.info")
 
 <!--=================================

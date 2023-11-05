@@ -8,6 +8,9 @@
     <meta name="description" content="Portail web de l'église Centre Missionnaire Philadelphie" />
     <meta name="author" content="silasmas.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    @yield("metaPartage")
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name') }} |{{ isset($titre) ? $titre : '' }}</title>
         {{-- @if (Route::current()->getName() == 'home')
