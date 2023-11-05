@@ -1,10 +1,10 @@
 <div class="col-lg-3">
     <div class="sidebar-widget">
         <h6 class="mb-20">@lang("miscellaneous.inner_page.our_vision.activities.list5")</h6>
-        <div class="widget-search">
+        {{-- <div class="widget-search">
             <i class="fa fa-search"></i>
             <input type="search" class="form-control" placeholder="@lang("miscellaneous.inner_page.news.search")" />
-        </div>
+        </div> --}}
     </div>
 
     <div class="sidebar-widget">
@@ -15,7 +15,7 @@
                 <img class="img-fluid" src="{{ asset('storage/'.$ps->image_url) }}" alt="">
             </div>
             <div class="recent-post-info">
-                <a href="#">{{ $ps->title }}</a>
+                <a href="{{ route('show_article',['id'=>$ps->id]) }}">{{ $ps->title }}</a>
                 <span><i class="fa fa-calendar-o"></i>{{ \Carbon\Carbon::parse($ps->date_publication)->isoFormat('LLL') }}</span>
             </div>
         </div>
@@ -24,7 +24,7 @@
         @endforelse
 
     </div>
-    <div class="sidebar-widget clearfix">
+    {{-- <div class="sidebar-widget clearfix">
         <h6 class="mt-40 mb-20">Archives</h6>
         <ul class="widget-categories">
             <li><a href="#"><i class="fa fa-angle-double-right"></i> December 2021</a></li>
@@ -33,8 +33,8 @@
             <li><a href="#"><i class="fa fa-angle-double-right"></i> September 2021</a></li>
             <li><a href="#"><i class="fa fa-angle-double-right"></i> August 2021</a></li>
         </ul>
-    </div>
-    <div class="sidebar-widget">
+    </div> --}}
+    {{-- <div class="sidebar-widget">
         <h6 class="mt-40 mb-20">Tags</h6>
         <div class="widget-tags">
             <ul>
@@ -47,7 +47,7 @@
                 <li><a href="{{ route('articles') }}">Sacerdoce</a></li>
             </ul>
         </div>
-    </div>
+    </div> --}}
 
 
 
