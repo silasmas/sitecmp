@@ -47,7 +47,7 @@
                     Bunda 21
                 </a>
             </li>
-            <li>
+            {{-- <li>
                 <a class="{{ Route::current()->getName() == 'projects' ? 'active' : '' }}"
                     href="{{ route('projects') }}">
                     @lang('miscellaneous.main_menu.projects')
@@ -64,7 +64,7 @@
                     href=" {{ route('contact') }}">
                     Contact
                 </a>
-            </li>
+            </li> --}}
         </ul>
         <div class="block my-4">
           <a href="{{ route('contributions') }}" class="btn btn-primary btn-uppertext d-lg-inline-block">

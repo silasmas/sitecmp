@@ -130,9 +130,9 @@
                                             </ul>
                                         </div>
                                     </li> --}}
-                                    <li class=" {{ Route::current()->getName() == 'projects' ? 'active' : '' }}"><a
+                                    {{-- <li class=" {{ Route::current()->getName() == 'projects' ? 'active' : '' }}"><a
                                             href="{{ route('projects') }}">@lang('miscellaneous.main_menu.projects')
-                                        </a></li>
+                                        </a></li> --}}
                                     {{-- <li
                                         class=" {{ Route::current()->getName() == 'contact' ? 'active' : '' }} link"><a
                                             href="{{ route('contact') }}">@lang('miscellaneous.main_menu.who_are_we.contact')
