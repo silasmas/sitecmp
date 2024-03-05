@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\EventController;
-use App\Http\Controllers\Minister;
-use App\Http\Controllers\NewsletterController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ProjetController;
-use App\Http\Controllers\TestimialController;
-use App\Http\Controllers\VideoController;
 use App\Http\Resources\Gallery;
+use App\Http\Controllers\Minister;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\VideoController;
+use App\Http\Controllers\ProjetController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FaithfulController;
+use App\Http\Controllers\TestimialController;
+use App\Http\Controllers\NewsletterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,7 @@ Route::get('/bunda', [ProfileController::class, 'bunda'])->name('bunda');
 Route::get('/videos', [ProfileController::class, 'videos'])->name('videos');
 Route::get('/show_article/{id}', [PostController::class, 'show'])->name('show_article');
 Route::get('detailProjet/{id}', [ProjetController::class, 'show'])->name('detailProjet');
+Route::get('welcome', [FaithfulController::class, 'index'])->name('welcome');
 
 Route::post('/newsletter', [NewsletterController::class, 'store'])->name('newsletter');
 Route::post('/temoignage', [TestimialController::class, 'store'])->name('temoignage');

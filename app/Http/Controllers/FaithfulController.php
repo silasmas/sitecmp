@@ -12,7 +12,7 @@ class FaithfulController extends Controller
      */
     public function index()
     {
-        //
+        return view("site.pages.welcom");
     }
 
     /**

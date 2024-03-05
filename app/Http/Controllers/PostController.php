@@ -142,14 +142,14 @@ class PostController extends Controller
             $request->all(),
             [
                 'title_fr' => ['required', 'string'],
-                'title_en' => ['required', 'string'],
+                // 'title_en' => ['required', 'string'],
                 'type' => ['required', 'string'],
                 'date_debut' => ['required', 'string'],
                 'is_active' => ['required', 'string'],
                 'description_fr' => ['required', 'string'],
-                'description_en' => ['required', 'string'],
+                // 'description_en' => ['required', 'string'],
                 'image_fr' => ['required', 'image', 'max:2000'],
-                'image_en' => ['required', 'image', 'max:2000'],
+                // 'image_en' => ['required', 'image', 'max:2000'],
             ]
         );
 
