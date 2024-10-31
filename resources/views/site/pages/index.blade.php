@@ -20,21 +20,21 @@
                             alt="image de banière">
                     </div>
                     <div class="container">
-                        <div class="row justify-content-center">
+                        {{-- <div class="row justify-content-center">
                             <div class="col-lg-8 mx-auto">
                                 <div class="block text-center">
-                                    {{-- <h2 class="mb-lg-3" style="color: #650F1C">Bienvenue à Philadelphie</h2>
+                                    <h2 class="mb-lg-3" style="color: #650F1C">Bienvenue à Philadelphie</h2>
                                     <p class="mb-lg-4 mx-auto" style="color: #650F1C">
                                         Le Centre Missionnaire Philadelphie est une église locale de la 37ème Communauté
                                         des
                                         Assemblées...
-                                    </p> --}}
+                                    </p>
                                     <div class="d-flex align-items-center justify-content-center">
                                         <a href="{{ route('about') }}" class="btn btn-primary">Savoir plus</a>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
