@@ -29,52 +29,54 @@
                         <div class="owl-stage"
                             style="transform: translate3d(-1128px, 0px, 0px); transition: all 1.2s ease 0s; width: 3948px;">
                             <div class="owl-item cloned" style="width: 534px; margin-right: 30px;">
-                                <div class="item">
-                                    <img class="img-fluid" src="{{ asset('assets/site/images/about/couple2.jpg') }}"
+                                <div class="item active">
+                                    <img class="img-fluid" src="{{ asset('assets/site/images/about/B21-2024-hd.jpg') }}"
                                         alt="">
                                 </div>
                             </div>
                             <div class="owl-item cloned" style="width: 534px; margin-right: 30px;">
                                 <div class="item">
-                                    <img class="img-fluid" src="{{ asset('assets/site/images/about/coiuple3.jpg') }}"
-                                        alt="">
-                                </div>
-                            </div>
-                            <div class="owl-item active" style="width: 534px; margin-right: 30px;">
-                                <div class="item">
-                                    <img class="img-fluid" src="{{ asset('assets/site/images/about/couple1.jpg') }}"
+                                    <img class="img-fluid" src="{{ asset('assets/site/images/actus/B21-2024-Il-sera deborah.jpg') }}"
                                         alt="">
                                 </div>
                             </div>
                             <div class="owl-item" style="width: 534px; margin-right: 30px;">
                                 <div class="item">
-                                    <img class="img-fluid" src="{{ asset('assets/site/images/about/couple2.jpg') }}"
+                                    <img class="img-fluid" src="{{ asset('assets/site/images/actus/B21-2024-Il-sera dede.jpg') }}"
                                         alt="">
                                 </div>
                             </div>
                             <div class="owl-item" style="width: 534px; margin-right: 30px;">
                                 <div class="item">
-                                    <img class="img-fluid" src="{{ asset('assets/site/images/about/coiuple3.jpg') }}"
+                                    <img class="img-fluid" src="{{ asset('assets/site/images/actus/B21-2024-Il-sera louison.jpg') }}"
+                                        alt="">
+                                </div>
+                            </div>
+                            <div class="owl-item" style="width: 534px; margin-right: 30px;">
+                                <div class="item">
+                                    <img class="img-fluid" src="{{ asset('assets/site/images/actus/B21-2024-Il-sera marcello.jpg') }}"
                                         alt="">
                                 </div>
                             </div>
                             <div class="owl-item cloned" style="width: 534px; margin-right: 30px;">
                                 <div class="item">
-                                    <img class="img-fluid" src="{{ asset('assets/site/images/about/couple1.jpg') }}"
+                                    <img class="img-fluid" src="{{ asset('assets/site/images/actus/B21-2024-Il-sera trésor.jpg') }}"
                                         alt="">
                                 </div>
                             </div>
-                            <div class="owl-item cloned" style="width: 534px; margin-right: 30px;">
+                            {{-- <div class="owl-item cloned" style="width: 534px; margin-right: 30px;">
                                 <div class="item">
-                                    <img class="img-fluid" src="{{ asset('assets/site/images/about/couple2.jpg') }}"
+                                    <img class="img-fluid" src="{{ asset('assets/site/images/act/.jpg') }}"
                                         alt="">
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
-                    <div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><i
+                    <div class="owl-nav disabled">
+                        <button type="button" role="presentation" class="owl-prev"><i
                                 class="fa fa-angle-left fa-2x"></i></button><button type="button" role="presentation"
-                            class="owl-next"><i class="fa fa-angle-right fa-2x"></i></button></div>
+                            class="owl-next"><i class="fa fa-angle-right fa-2x"></i></button>
+                        </div>
                     <div class="owl-dots"><button role="button" class="owl-dot active"><span></span></button><button
                             role="button" class="owl-dot"><span></span></button><button role="button"
                             class="owl-dot"><span></span></button></div>
