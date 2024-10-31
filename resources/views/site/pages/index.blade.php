@@ -38,7 +38,7 @@
                     </div>
                 </div>
             </div>
-            <div class="carousel-item active">
+            <div class="carousel-item">
                 <div class="content-banner">
                     <div class="bg-banner">
                         <img src="{{ asset('assets/site/revolution/assets/slider-01/SLIDE1.jpg') }}"
