@@ -46,7 +46,9 @@ Route::post('/storEvent', [EventController::class, 'store'])->name('storEvent');
 Route::get('admin', function () {
     return view('auth.login');
 })->name('admin');
-
+Route::get('/symlink', action: function () {
+    return view('symlink');
+})->name('generate_symlink');
 // Route::get('/dashboard', function () {
 //     return view('admin.pages.home');
 // })->middleware(['auth', 'verified'])->name('dashboard');
