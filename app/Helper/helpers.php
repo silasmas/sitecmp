@@ -18,6 +18,12 @@ if (!function_exists('bySlug')) {
         return $table::where([['slug', $slug], ['is_active', true]])->first();
     }
 }
+if (!function_exists('isNull')) {
+    function isNull($var)
+    {
+        return $var !== null ? true : false;
+    }
+}
 
 if (!function_exists('getTitle')) {
     function getTitle($name)

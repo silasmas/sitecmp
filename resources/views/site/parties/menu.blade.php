@@ -1,28 +1,53 @@
 <header id="header" class="header default">
     <div class="topbar">
         <div class="container">
+            @if(isNull($setting))
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-6 xs-mb-10 d-none d-sm-block">
                     <div class="topbar-call text-center text-md-start">
                         <ul class="d-flex align-items-center">
-                            <li class="d-flex align-items-center"><i class="fa fa-envelope-o me-1" style="color: #fff;"></i><a href="mail:eglisecmp@gmail.com">eglisecmp@gmail.com</a> </li>
-                            <li class="d-flex align-items-center"><i class="fa fa-phone me-1" style="color: #fff;"></i> <a href="tel:+243897000227">
-                                    <span>+(243)897000227 </span> </a> </li>
+                            <li class="d-flex align-items-center"><i class="fa fa-envelope-o me-1"
+                                    style="color: #fff;"></i><a href="mail:{{isNull($setting->support_email)?$setting->support_email:""}}">
+                                        {{isNull($setting->support_email)?$setting->support_email:""}}</a> </li>
+                            <li class="d-flex align-items-center"><i class="fa fa-phone me-1" style="color: #fff;"></i>
+                                <a href="tel:{{isNull($setting->support_email)? $setting->support_phone:"" }}">
+                                    <span>{{isNull($setting->support_email)?$setting->support_phone:"" }} </span> </a> </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="topbar-social text-center text-md-end">
                         <ul class="d-flex align-items-center justify-content-center justify-content-sm-end">
-                            <li><a href="https://www.facebook.com/Eglisecmp?mibextid=LQQJ4d" target="blank"><span class="ti-facebook"></span></a></li>
-                            <li><a href="https://instagram.com/eglisecmp?igshid=OGQ5ZDc2ODk2ZA==" target="blank"><span class="ti-instagram"></span></a></li>
-                            <li><a href="https://twitter.com/EgliseCMP" target="blank"><i class="fa-brands fa-x-twitter"></i></a></li>
-                            <li><a href="https://www.youtube.com/channel/UCBIVcaYtQHKDbfvD2sh-AJw"><span class="ti-youtube" target="blank"></span></a></li>
-                            <li><a href="https://vm.tiktok.com/ZML7XqTPn/" target="blank"><i class="fa-brands fa-tiktok"></i></a></li>
+                            <li {{ $settings['facebook']==null?'hidden':$settings['facebook'] }}><a
+                                    href="{{ $settings['facebook'] }}" target="blank"><span
+                                        class="ti-facebook"></span></a></li>
+                            {{-- <li><a href="https://www.facebook.com/Eglisecmp?mibextid=LQQJ4d" target="blank"><span
+                                        class="ti-facebook"></span></a></li> --}}
+                            <li {{ $settings['instagram']==null?'hidden':$settings['instagram'] }}><a
+                                    href="{{ $settings['instagram'] }}" target="blank"><span
+                                        class="ti-instagram"></span></a></li>
+                            {{-- <li><a href="https://instagram.com/eglisecmp?igshid=OGQ5ZDc2ODk2ZA=="
+                                    target="blank"><span class="ti-instagram"></span></a></li> --}}
+                            <li {{ $settings['x_twitter']==null?'hidden':$settings['x_twitter'] }}><a
+                                    href="{{ $settings['x_twitter'] }}" target="blank"><i
+                                        class="fa-brands fa-x-twitter"></i></a></li>
+                            {{-- <li><a href="https://twitter.com/EgliseCMP" target="blank"><i
+                                        class="fa-brands fa-x-twitter"></i></a></li> --}}
+                            <li {{ $settings['youtube']==null?'hidden':$settings['youtube'] }}><a
+                                    href="{{ $settings['youtube'] }}"><span class="ti-youtube"
+                                        target="blank"></span></a></li>
+                            {{-- <li><a href="https://www.youtube.com/channel/UCBIVcaYtQHKDbfvD2sh-AJw"><span
+                                        class="ti-youtube" target="blank"></span></a></li> --}}
+                            <li {{ $settings['tiktok']==null?'hidden':$settings['tiktok'] }}><a
+                                    href="{{ $settings['tiktok'] }}" target="blank"><i
+                                        class="fa-brands fa-tiktok"></i></a></li>
+                            {{-- <li><a href="https://vm.tiktok.com/ZML7XqTPn/" target="blank"><i
+                                        class="fa-brands fa-tiktok"></i></a></li> --}}
                         </ul>
                     </div>
                 </div>
             </div>
+            @endif
         </div>
     </div>
 
@@ -37,10 +62,11 @@
                             <!-- menu logo -->
                             <ul class="menu-logo">
                                 <li>
-                                    <a href="{{ route('home') }}"><img id="logo_img"
-                                            {{-- src="{{ asset('assets/images/Logo-CMP-2023-red.png') }}" --}}
-                                            src="{{ asset('storage/'.$setting->site_logo) }}"
-                                             alt="logo"> </a>
+                                    @if($setting !== null && $setting->site_logo!==null)
+                                    <a href="{{ route('home') }}"><img id="logo_img" {{--
+                                            src="{{ asset('assets/images/Logo-CMP-2023-red.png') }}" --}}
+                                            src="{{ asset('storage/'.$setting->site_logo??"") }}" alt="logo"> </a>
+                                    @endif
                                 </li>
                             </ul>
 
@@ -141,7 +167,8 @@
                                         </a></li> --}}
                                 </ul>
 
-                                <a href="{{ route('contributions') }}" class="btn btn-primary btn-uppertext d-none d-lg-inline-block">
+                                <a href="{{ route('contributions') }}"
+                                    class="btn btn-primary btn-uppertext d-none d-lg-inline-block">
                                     @lang('miscellaneous.main_menu.contribution')
                                 </a>
                                 <div class="search-cart d-none d-lg-inline-block">
@@ -151,7 +178,7 @@
                                                 aria-expanded="false"> <i class="fa fa-language icon"
                                                     style="color: #650f1c;"></i></a>
                                             <ul class="dropdown-menu">
-                                                 @foreach ($available_locales as $locale_name => $available_locale)
+                                                @foreach ($available_locales as $locale_name => $available_locale)
                                                 @if ($available_locale === $current_locale)
                                                 <li>
                                                     <a class="dropdown-item disabled d-flex align-items-center"
@@ -197,8 +224,8 @@
                                         </div>
                                     </div>--}}
                                     <div class="shpping-cart">
-                                        <a class="cart-btn" href="{{ route('contact') }}"> <i
-                                                class="fa fa-envelope" style="color: #650f1c;"></i></a>
+                                        <a class="cart-btn" href="{{ route('contact') }}"> <i class="fa fa-envelope"
+                                                style="color: #650f1c;"></i></a>
                                     </div>
                                 </div>
                                 <div class="menu-toggle d-flex flex-column d-lg-none ms-auto align-items-end">

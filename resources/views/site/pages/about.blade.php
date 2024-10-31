@@ -380,6 +380,7 @@
                 </div>
                 <div class="tab-pane fade" id="extensions" role="tabpanel"
                     aria-labelledby="pills-profile-tab" tabindex="0">
+                    
                 </div>
                 <div class="tab-pane fade" id="cellules" role="tabpanel"
                     aria-labelledby="pills-profile-tab" tabindex="0">

@@ -31,7 +31,7 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::composer('pages.*', function ($view) {
+        View::composer('site.*', function ($view) {
             $titre = getTitle(Route::currentRouteName());
 
             $settings = DB::table('general_settings')->first();
@@ -53,7 +53,7 @@ class ViewServiceProvider extends ServiceProvider
             // $partenaires = Partenaire::where('is_active', true)->get();
 
 
-            $st = json_decode($settings->social_network, true);
+            $st = ($settings !== null && $settings->social_network !== null) ? json_decode($settings->social_network, true) : "";
             // dd($projets[0]->Formatted_created_at->format('d'));
             $view->with('title', $titre);
             $view->with('settings', $st);
