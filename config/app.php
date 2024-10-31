@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @author Xanders
  * @see https://www.linkedin.com/in/xanders-samoth-b2770737/
  */
+
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
@@ -187,6 +189,8 @@ return [
         App\Providers\Filament\AdminPanelProvider::class,
         App\Providers\Filament\AdministrateurPanelProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        App\Providers\ViewServiceProvider::class,
     ])->toArray(),
 
     /*
