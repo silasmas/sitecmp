@@ -34,7 +34,7 @@
   </div>
 </section> --}}
 <section class="page-title about-mission-title center bg-overlay-black-50 jarallax" data-speed="0.6"
-  data-img-src="{{ asset('assets/site/images/bg/02.jpg') }}">
+  data-img-src="{{ asset('assets/site/images/bg/B21-2024-fbc.jpg') }}">
   <div class="container">
     <div class="row">
       <div class="col-lg-12">

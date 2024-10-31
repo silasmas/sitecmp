@@ -12,28 +12,28 @@
                 <div class="col-lg-12 xol-md-12">
                   <div class="owl-carousel" data-nav-dots="true" data-autoheight="true" data-items="1" data-md-items="1" data-sm-items="1" data-xs-items="1" data-xx-items="1" data-space="20">
                     <div class="item">
-                      <img class="img-fluid full-width" src="{{ asset('assets/site/images/actus/06.jpg') }}" alt="">
+                      <img class="img-fluid full-width" src="{{ asset('assets/site/images/actus/B21-2024-hd.jpg') }}" alt="">
                     </div>
                     <div class="item">
-                      <img class="img-fluid full-width" src="{{ asset('assets/site/images/actus/04.jpg') }}" alt="">
+                      <img class="img-fluid full-width" src="{{ asset('assets/site/images/actus/B21-2024-Il-sera deborah.jpg') }}" alt="">
+                    </div>
+                    <div class="item">
+                      <img class="img-fluid full-width" src="{{ asset('assets/site/images/actus/B21-2024-Il-sera dede.jpg') }}" alt="">
+                    </div>
+                    <div class="item">
+                      <img class="img-fluid full-width" src="{{ asset('assets/site/images/actus/B21-2024-Il-sera louison.jpg') }}" alt="">
+                    </div>
+                    <div class="item">
+                      <img class="img-fluid full-width" src="{{ asset('assets/site/images/actus/B21-2024-Il-sera marcello.jpg') }}" alt="">
+                    </div>
+                    <div class="item">
+                      <img class="img-fluid full-width" src="{{ asset('assets/site/images/actus/B21-2024-Il-sera trésor.jpg') }}" alt="">
                     </div>
                     {{-- <div class="item">
-                      <img class="img-fluid full-width" src="{{ asset('assets/site/images/actus/02.jpg') }}" alt="">
-                    </div> --}}
-                    <div class="item">
-                      <img class="img-fluid full-width" src="{{ asset('assets/site/images/actus/03.jpg') }}" alt="">
+                      <img class="img-fluid full-width" src="{{ asset('assets/site/images/actus/.jpg') }}" alt="">
                     </div>
                     <div class="item">
-                      <img class="img-fluid full-width" src="{{ asset('assets/site/images/actus/05.jpg') }}" alt="">
-                    </div>
-                    <div class="item">
-                      <img class="img-fluid full-width" src="{{ asset('assets/site/images/actus/06.jpg') }}" alt="">
-                    </div>
-                    <div class="item">
-                      <img class="img-fluid full-width" src="{{ asset('assets/site/images/actus/07.jpg') }}" alt="">
-                    </div>
-                    <div class="item">
-                      <img class="img-fluid full-width" src="{{ asset('assets/site/images/actus/08.jpg') }}" alt="">
+                      <img class="img-fluid full-width" src="{{ asset('assets/site/images/actus/08.jpg') }}" alt=""> --}}
                     </div>
                   </div>
                 </div>

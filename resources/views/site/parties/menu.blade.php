@@ -7,11 +7,13 @@
                     <div class="topbar-call text-center text-md-start">
                         <ul class="d-flex align-items-center">
                             <li class="d-flex align-items-center"><i class="fa fa-envelope-o me-1"
-                                    style="color: #fff;"></i><a href="mail:{{isNull($setting->support_email)?$setting->support_email:""}}">
-                                        {{isNull($setting->support_email)?$setting->support_email:""}}</a> </li>
+                                    style="color: #fff;"></i><a
+                                    href="mail:{{isNull($setting->support_email)?$setting->support_email:""}}">
+                                    {{isNull($setting->support_email)?$setting->support_email:""}}</a> </li>
                             <li class="d-flex align-items-center"><i class="fa fa-phone me-1" style="color: #fff;"></i>
                                 <a href="tel:{{isNull($setting->support_email)? $setting->support_phone:"" }}">
-                                    <span>{{isNull($setting->support_email)?$setting->support_phone:"" }} </span> </a> </li>
+                                    <span>{{isNull($setting->support_email)?$setting->support_phone:"" }} </span> </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -63,9 +65,11 @@
                             <ul class="menu-logo">
                                 <li>
                                     @if($setting !== null && $setting->site_logo!==null)
-                                    <a href="{{ route('home') }}"><img id="logo_img" {{--
-                                            src="{{ asset('assets/images/Logo-CMP-2023-red.png') }}" --}}
-                                            src="{{ asset('storage/'.$setting->site_logo??"") }}" alt="logo"> </a>
+                                    <a href="{{ route('home') }}"><img id="logo_img"
+                                            src="{{asset('storage/'.$setting->site_logo)}}" alt="logo"> </a>
+                                    @else
+                                    <a href="{{ route('home') }}"><img id="logo_img"
+                                            src="{{ asset('assets/images/Logo-CMP-2023-red.png') }}" alt="logo"> </a>
                                     @endif
                                 </li>
                             </ul>

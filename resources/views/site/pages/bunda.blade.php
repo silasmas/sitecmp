@@ -2,7 +2,7 @@
 
 @section("content")
 <section class="page-title bg-overlay-black-60 jarallax" data-speed="0.6"
-    data-img-src="{{ asset('assets/site/images/bg/02.jpg') }}">
+    data-img-src="{{ asset('assets/site/images/bg/B21-2024-fbc.jpg') }}">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -172,7 +172,7 @@
                         <h2 class="title-effect">Plan alimentaire</h2>
                         <br>
                         <a type="button" class="button icon mb-10 mr-10 mt-lg-5 mt-3" target="blank"
-                            href="{{ asset('assets/document/Plan-Alimentaire-2023.pdf') }}">
+                            href="{{ asset('assets/document/b21-plan-alimentaire-2024.pdf') }}">
                             Télécharger le plan
                         </a>
                     </div>

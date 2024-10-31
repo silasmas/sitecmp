@@ -10,7 +10,7 @@ return [
     'show_email_tab' => true,
     'show_social_networks_tab' => true,
     'expiration_cache_config_time' => 60,
-    // 'show_custom_tabs' => true,
+    'show_custom_tabs' => true,
     'custom_tabs' => [
         'more_configs' => [
             'label' => 'More Configs',

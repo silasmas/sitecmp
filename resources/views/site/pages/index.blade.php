@@ -16,7 +16,32 @@
             <div class="carousel-item active">
                 <div class="content-banner">
                     <div class="bg-banner">
-                        <img src="{{ asset('assets/site/revolution/assets/slider-01/slide1.jpg') }}"
+                        <img src="{{ asset('assets/site/revolution/assets/slider-01/B21-2024-tw.jpg') }}"
+                            alt="image de banière">
+                    </div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8 mx-auto">
+                                <div class="block text-center">
+                                    {{-- <h2 class="mb-lg-3" style="color: #650F1C">Bienvenue à Philadelphie</h2>
+                                    <p class="mb-lg-4 mx-auto" style="color: #650F1C">
+                                        Le Centre Missionnaire Philadelphie est une église locale de la 37ème Communauté
+                                        des
+                                        Assemblées...
+                                    </p> --}}
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <a href="{{ route('about') }}" class="btn btn-primary">Savoir plus</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item active">
+                <div class="content-banner">
+                    <div class="bg-banner">
+                        <img src="{{ asset('assets/site/revolution/assets/slider-01/SLIDE1.jpg') }}"
                             alt="image de banière">
                     </div>
                     <div class="container">
@@ -36,21 +61,21 @@
                             </div>
                         </div>
                     </div>
-                    <div class="block-card">
+                    {{-- <div class="block-card">
                         <div class="card">
-                            {{-- <img src="{{ asset('assets/site/revolution/assets/slider-01/01.jpg') }}" alt=""> --}}
+                            <img src="{{ asset('assets/site/revolution/assets/slider-01/01.jpg') }}" alt="">
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="content-banner">
                     <div class="bg-banner">
-                        <img src="{{ asset('assets/site/revolution/assets/slider-01/slide2.jpg') }}"
+                        <img src="{{ asset('assets/site/revolution/assets/slider-01/SLIDE2.jpg') }}"
                             alt="image de banière">
                     </div>
                     <div class="container">
-                        <div class="row">
+                        <div class="row justify-content-center">
                             <div class="col-lg-8">
                                 <div class="block">
                                     <h2 class="mb-lg-3" style="color: #650F1C"> Bienvenue à Philadelphie</h2>
@@ -59,7 +84,7 @@
                                         des
                                         Assemblées...
                                     </p>
-                                    <div class="d-flex align-items-center">
+                                    <div class="d-flex align-items-right">
                                         {{-- <a href="#" class="btn btn-primary">Savoir plus</a> --}}
                                         <a href="#" class="btn btn-white">Contactez-nous</a>
                                     </div>
@@ -67,11 +92,73 @@
                             </div>
                         </div>
                     </div>
-                    <div class="block-card">
+                    {{-- <div class="block-card">
                         <div class="card">
                             <img src="images/2.jpg" alt="">
                         </div>
+                    </div> --}}
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="content-banner">
+                    <div class="bg-banner">
+                        <img src="{{ asset('assets/site/revolution/assets/slider-01/SLIDE3.jpg') }}"
+                            alt="image de banière">
                     </div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="block">
+                                    <h2 class="mb-lg-3" style="color: #650F1C"> Bienvenue à Philadelphie</h2>
+                                    <p class="mb-lg-4 ">
+                                        Le Centre Missionnaire Philadelphie est une église locale de la 37ème Communauté
+                                        des
+                                        Assemblées...
+                                    </p>
+                                    <div class="d-flex align-items-right">
+                                        {{-- <a href="#" class="btn btn-primary">Savoir plus</a> --}}
+                                        <a href="#" class="btn btn-white">Contactez-nous</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- <div class="block-card">
+                        <div class="card">
+                            <img src="{{ asset('assets/site/revolution/assets/slider-01/SLIDE1.jpg') }}" alt="">
+                        </div>
+                    </div> --}}
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="content-banner">
+                    <div class="bg-banner">
+                        <img src="{{ asset('assets/site/revolution/assets/slider-01/SLIDE4.jpg') }}"
+                            alt="image de banière">
+                    </div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="block">
+                                    <h2 class="mb-lg-3" style="color: #650F1C"> Bienvenue à Philadelphie</h2>
+                                    <p class="mb-lg-4 ">
+                                        Le Centre Missionnaire Philadelphie est une église locale de la 37ème Communauté
+                                        des
+                                        Assemblées...
+                                    </p>
+                                    <div class="d-flex align-items-right">
+                                        {{-- <a href="#" class="btn btn-primary">Savoir plus</a> --}}
+                                        <a href="#" class="btn btn-white">Contactez-nous</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- <div class="block-card">
+                        <div class="card">
+                            <img src="{{ asset('assets/site/revolution/assets/slider-01/SLIDE1.jpg') }}" alt="">
+                        </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -318,13 +405,13 @@
                 <div class="owl-carousel bottom-center-dots" data-nav-dots="ture" data-smartspeed="1200" data-items="1"
                     data-md-items="1" data-sm-items="1" data-xs-items="1" data-xx-items="1">
                     <div class="item">
-                        <img class="img-fluid" src="{{ asset('assets/site/images/about/couple1.jpg') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('assets/site/images/about/c1.jpg') }}" alt="">
                     </div>
                     <div class="item">
-                        <img class="img-fluid" src="{{ asset('assets/site/images/about/couple2.jpg') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('assets/site/images/about/c2.jpg') }}" alt="">
                     </div>
                     <div class="item">
-                        <img class="img-fluid" src="{{ asset('assets/site/images/about/coiuple3.jpg') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('assets/site/images/about/c3.jpg') }}" alt="">
                     </div>
                 </div>
             </div>
