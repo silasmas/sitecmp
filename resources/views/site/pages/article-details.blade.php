@@ -101,7 +101,8 @@ page-title -->
                 Partager :
                 <li><div class="fb-share-button" data-layout="button_count" data-size="large" style="cursor: pointer">
                     <a target="_blank" onclick="facebookShared()" class="fb-xfbml-parse-ignore">Facebook <i class="fa-brands fa-facebook"></i></a></div></li>
-                <li><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-via="eglisecmp" data-hashtags="eglisecmp" data-related="" data-show-count="true">
+                <li>
+                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-via="eglisecmp" data-hashtags="eglisecmp" data-related="" data-show-count="true">
                 Tweetter <i class="fa-brands fa-x-twitter"></i></a></li>
                 <li style="cursor: pointer"><a onclick="whatsappShared()" class="whatsapp wa_btn activeWhatsapp" style="margin-top:0; color:rgb(12, 11, 11);padding: 1px 1px 1px 9px;" target="_blank">
                     Whatsapp <i class="fa-brands fa-whatsapp"></i></a></li>

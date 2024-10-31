@@ -3,8 +3,11 @@
 namespace App\Models;
 
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Translatable\HasTranslations;
+use Filament\Models\Contracts\FilamentUser;
+use BezhanSalleh\FilamentShield\Traits\HasPanelShield;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -12,11 +15,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @author Xanders
  * @see https://www.linkedin.com/in/xanders-samoth-b2770737/
  */
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
-    use HasTranslations;
+    use HasTranslations, HasRoles, HasPanelShield;
     use HasApiTokens, HasFactory, Notifiable;
-public $translatable = [];
+    public $translatable = [];
     /**
      * The attributes that are mass assignable.
      *
