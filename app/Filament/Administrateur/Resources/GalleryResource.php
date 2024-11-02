@@ -2,39 +2,47 @@
 
 namespace App\Filament\Administrateur\Resources;
 
-use App\Filament\Administrateur\Resources\GalleryResource\Pages;
-use App\Filament\Administrateur\Resources\GalleryResource\RelationManagers;
-use App\Models\Gallery;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use App\Models\Gallery;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Group;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Administrateur\Resources\GalleryResource\Pages;
+use App\Filament\Administrateur\Resources\GalleryResource\RelationManagers;
 
 class GalleryResource extends Resource
 {
     protected static ?string $model = Gallery::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-photo';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\Textarea::make('image_url')
-                    ->maxLength(65535)
-                    ->columnSpanFull(),
-                Forms\Components\Textarea::make('description')
-                    ->maxLength(65535)
-                    ->columnSpanFull(),
-                Forms\Components\TextInput::make('is_active')
-                    ->numeric(),
-                Forms\Components\TextInput::make('post_id')
-                    ->numeric(),
-                Forms\Components\TextInput::make('project_id')
-                    ->numeric(),
+                Group::make([
+                    Section::make('Info sur l\'article')->schema([
+                        Textarea::make('image_url')
+                            ->maxLength(65535)
+                            ->columnSpanFull(),
+                        Textarea::make('description')
+                            ->maxLength(65535)
+                            ->columnSpanFull(),
+                        TextInput::make('is_active')
+                            ->numeric(),
+                        TextInput::make('post_id')
+                            ->numeric(),
+                        TextInput::make('project_id')
+                            ->numeric(),
+                    ])->columnS(12)
+                ])->columnSpanFull(),
             ]);
     }
 

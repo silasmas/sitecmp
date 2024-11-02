@@ -21,8 +21,14 @@ class Event extends Model
      * @var array<int, string>
      */
     protected $guarded = [];
-    public $translatable = ["designation","lieu","theme","references","image_url"];
-
+    public $translatable = ["designation", "description", "lieu", "theme", "references", "image_url"];
+    protected $casts = [
+        'designation' => 'array', // Cast le champ translations en tableau
+    ];
+    public function getLegalInfoTitle_title($lang = 'fr')
+    {
+        return $this->title[$lang] ?? null; // Retourne la description dans la langue demandée
+    }
     /**
      * MANY-TO-ONE
      * Several posts for an event
