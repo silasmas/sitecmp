@@ -2,16 +2,25 @@
 
 namespace App\Filament\Administrateur\Resources;
 
-use App\Filament\Administrateur\Resources\TestimonialResource\Pages;
-use App\Filament\Administrateur\Resources\TestimonialResource\RelationManagers;
-use App\Models\Testimonial;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use App\Models\Testimonial;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Group;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Textarea;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Administrateur\Resources\TestimonialResource\Pages;
+use App\Filament\Administrateur\Resources\TestimonialResource\RelationManagers;
 
 class TestimonialResource extends Resource
 {
@@ -23,23 +32,60 @@ class TestimonialResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('fullname')
-                    ->maxLength(191),
-                Forms\Components\Textarea::make('body')
-                    ->maxLength(65535)
-                    ->columnSpanFull(),
-                Forms\Components\TextInput::make('phone')
-                    ->tel()
-                    ->maxLength(50),
-                Forms\Components\TextInput::make('email')
-                    ->email()
-                    ->maxLength(50),
-                Forms\Components\TextInput::make('type')
-                    ->maxLength(100),
-                Forms\Components\FileUpload::make('image_url')
-                    ->image(),
-                Forms\Components\TextInput::make('is_active')
-                    ->numeric(),
+                Group::make([
+                    Section::make("Formulaire des témoignages")->schema([
+                        TextInput::make('fullname')
+                            ->columnSpan(6)
+                            ->label(label: 'Nom au complet'),
+                        TextInput::make('phone')
+                            ->tel()
+                            ->columnSpan(6)
+                            ->label(label: 'Téléphone')
+                            ->maxLength(50),
+                        TextInput::make('email')
+                            ->email()
+                            ->columnSpan(6)
+                            ->label(label: 'Email')
+                            ->maxLength(50),
+                        FileUpload::make('image_url')
+                            ->columnSpan(6)
+                            ->label(label: 'Photo')
+                            ->directory('ministre')
+                            ->avatar()
+                            ->imageEditor()
+                            ->imageEditorMode(2)
+                            ->circleCropper()
+                            ->downloadable()
+                            ->image()
+                            ->maxSize(3024)
+                            ->previewable(true),
+                        RichEditor::make('body')
+                            ->label(label: 'Biographie')
+                            ->toolbarButtons([
+                                'attachFiles',
+                                'blockquote',
+                                'bold',
+                                'bulletList',
+                                'codeBlock',
+                                'h2',
+                                'h3',
+                                'italic',
+                                'link',
+                                'orderedList',
+                                'redo',
+                                'strike',
+                                'underline',
+                                'undo',
+                            ])
+                            ->columnSpanFull(),
+                        TextInput::make('is_active')
+                            ->columnSpan(6)
+                            ->label(label: 'Est actif')
+                            ->onColor('success')
+                            ->offColor('danger')
+                            ->required(),
+                    ])->columnS(12)
+                ])->columnSpanFull()
             ]);
     }
 
@@ -47,23 +93,30 @@ class TestimonialResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('fullname')
+                ImageColumn::make('image_url')
+                    ->circular()
+                    ->label("Photo")
+                    ->defaultImageUrl(url('assets/images/user/default.png')),
+                TextColumn::make('fullname')
+                ->label("Nom")
                     ->searchable(),
-                Tables\Columns\TextColumn::make('phone')
+                TextColumn::make('phone')
+                ->label("Téléphone")
                     ->searchable(),
-                Tables\Columns\TextColumn::make('email')
+                TextColumn::make('email')
+                ->label("mail")
                     ->searchable(),
-                Tables\Columns\TextColumn::make('type')
+                TextColumn::make('type')
+                ->label("Cadre")
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('image_url'),
-                Tables\Columns\TextColumn::make('is_active')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('created_at')
+                IconColumn::make('is_active')
+                    ->label("Est actif")
+                    ->boolean(),
+                TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -72,7 +125,9 @@ class TestimonialResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -95,5 +150,13 @@ class TestimonialResource extends Resource
             'create' => Pages\CreateTestimonial::route('/create'),
             'edit' => Pages\EditTestimonial::route('/{record}/edit'),
         ];
+    }
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+    public static function getNavigationBadgeColor(): string|array|null
+    {
+        return static::getModel()::count() < 1 ? "danger" : "info";
     }
 }
