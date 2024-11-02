@@ -98,16 +98,16 @@ class TestimonialResource extends Resource
                     ->label("Photo")
                     ->defaultImageUrl(url('assets/images/user/default.png')),
                 TextColumn::make('fullname')
-                ->label("Nom")
+                    ->label("Nom")
                     ->searchable(),
                 TextColumn::make('phone')
-                ->label("Téléphone")
+                    ->label("Téléphone")
                     ->searchable(),
                 TextColumn::make('email')
-                ->label("mail")
+                    ->label("mail")
                     ->searchable(),
                 TextColumn::make('type')
-                ->label("Cadre")
+                    ->label("Cadre")
                     ->searchable(),
                 IconColumn::make('is_active')
                     ->label("Est actif")
