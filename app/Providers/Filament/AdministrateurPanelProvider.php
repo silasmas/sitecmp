@@ -50,8 +50,8 @@ class AdministrateurPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Administrateur/Widgets'), for: 'App\\Filament\\Administrateur\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+                // Widgets\AccountWidget::class,
+                // Widgets\FilamentInfoWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
