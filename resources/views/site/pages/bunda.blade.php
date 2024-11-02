@@ -179,7 +179,10 @@
                         </a>
                     </div>
                     <div class="line d-none d-lg-block"></div>
-                    <div class="col-lg-3">
+                    <iframe src="https://player.flipsnack.com?hash=NTg1RjlGQ0M1QTgrem5xcjU4M3RrNQ==" width="100%"
+                    height="480" seamless="seamless" scrolling="no" frameBorder="0" allowFullScreen
+                    allow="autoplay; clipboard-read; clipboard-write"></iframe>
+                    {{-- <div class="col-lg-3">
                         <h3 class="mb-30">Semaine 1</h3>
                     </div>
                     <div class="col-lg-9 col-md-12">
@@ -205,7 +208,7 @@
                         <div class="table-responsive">
                             @include('site.pages.bunda.weeks.week3')
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <div class="tab-pane fade" id="logement" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">

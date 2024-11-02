@@ -37,7 +37,8 @@ class ProfileController extends Controller
         $testimonials = Testimonial::where("is_active", "=", 1)->orderBy("created_at", "DESC")->get();
         // $event_popup = Event::where("is_active","=", 1)->where("date_fin", '>', $mytime)->where("est_popup","=", 1)->orderBy('date_debut', 'ASC')->take(1)->get();
         // dd($posts);
-        return view('site.pages.index')->with(['title' => "Accueil",
+        return view('site.pages.index')->with([
+            'title' => "Accueil",
             'EnteteState' => $tableaudesEtats,
             'events' => $events,
             'posts' => $posts,
@@ -46,7 +47,7 @@ class ProfileController extends Controller
     }
     public function about()
     {
-        $pastors = Minister::all();
+        $pastors = Minister::where("is_active", true)->get();
         return view('site.pages.about', compact("pastors"));
     }
 
@@ -84,7 +85,7 @@ class ProfileController extends Controller
     {
         $videos = video::all();
         // dd($videos);
-        return view('site.pages.videos',compact('videos'));
+        return view('site.pages.videos', compact('videos'));
     }
 
     /**
