@@ -47,24 +47,31 @@ class EventResource extends Resource
                                 '1' => 'Culte',
                                 '2' => 'Seminaire',
                                 '3' => 'Concert',
+                                '4' => 'Série d\'enseignement',
                             ]),
-                        TextInput::make('designation.fr')
-                            ->required()
-                            ->columnSpan(4),
+                        // TextInput::make('designation.fr')
+                        //     ->required()
+                        //     ->label('Thème')
+                        //     ->columnSpan(4),
                         TextInput::make('references.fr')
+                            ->label('Thème')
                             ->columnSpan(4),
                         TextInput::make('lieu.fr')
-                            ->maxLength(65535)
+                            ->label('Lieu')
                             ->columnSpan(4),
                         DateTimePicker::make('date_debut')
+                            ->label('Dete debut')
                             ->columnSpan(4),
                         DateTimePicker::make('date_fin')
+                            ->label('Dete fin')
                             ->columnSpan(4),
                         TextInput::make('orateur')
+                            ->label('Orateur')
                             ->maxLength(50)
                             ->columnSpan(4),
                         FileUpload::make('image_url.fr')
                             ->columnSpan(12)
+                            ->label('Vignette')
                             ->directory('eventImg')
                             ->imageEditor()
                             ->imageEditorMode(2)
@@ -73,6 +80,7 @@ class EventResource extends Resource
                             ->maxSize(3024)
                             ->previewable(true),
                         RichEditor::make('description.fr')
+                            ->label('Description (Français)')
                             ->toolbarButtons([
                                 'attachFiles',
                                 'blockquote',
@@ -113,6 +121,9 @@ class EventResource extends Resource
             ->columns([
                 ImageColumn::make('image_url')
                     ->label("Image"),
+                TextColumn::make('theme')
+                    ->label("Theme")
+                    ->sortable(),
                 TextColumn::make('type')
                     ->label("Type")
                     ->numeric()
