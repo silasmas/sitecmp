@@ -38,8 +38,8 @@ class EventResource extends Resource
             ->schema([
                 Group::make([
                     Section::make("Formulaire Event")->schema([
-                        TextInput::make('theme.fr')
-                            ->maxLength(65535)
+                        TextInput::make('references.fr')
+                            ->label('Thème')
                             ->columnSpan(4),
                         Select::make('type')
                             ->columnSpan(4)
@@ -53,9 +53,7 @@ class EventResource extends Resource
                         //     ->required()
                         //     ->label('Thème')
                         //     ->columnSpan(4),
-                        TextInput::make('references.fr')
-                            ->label('Thème')
-                            ->columnSpan(4),
+
                         TextInput::make('lieu.fr')
                             ->label('Lieu')
                             ->columnSpan(4),
