@@ -129,7 +129,7 @@ class EventResource extends Resource
             ->columns([
                 ImageColumn::make('image_url')
                     ->label("Image"),
-                TextColumn::make('theme.fr')
+                TextColumn::make('theme')
                     ->label("Theme")
                     ->sortable(),
                 TextColumn::make('type')
