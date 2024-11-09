@@ -20,6 +20,7 @@ use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
+use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Forms\Components\DateTimePicker;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -72,7 +73,7 @@ class PostResource extends Resource
                             ->columnSpan(6)
                             ->preload()
                             ->required()
-                            ->relationship('event', 'designation'),
+                            ->relationship('event', 'theme'),
                         Select::make('minister_id')
                             ->label(label: 'Aurateur')
                             ->searchable()
@@ -174,7 +175,8 @@ class PostResource extends Resource
 
             ])
             ->filters([
-                //
+                SelectFilter::make('event')->relationship('event', 'theme'),
+                // SelectFilter::make('brand')->relationship('brand', 'nom'),
             ])
             ->actions([
                 ActionGroup::make([
