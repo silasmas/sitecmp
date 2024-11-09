@@ -38,7 +38,7 @@ class EventResource extends Resource
             ->schema([
                 Group::make([
                     Section::make("Formulaire Event")->schema([
-                        TextInput::make('references.fr')
+                        TextInput::make('theme.fr')
                             ->label('Thème')
                             ->columnSpan(4),
                         Select::make('type')
@@ -119,13 +119,23 @@ class EventResource extends Resource
             ->columns([
                 ImageColumn::make('image_url')
                     ->label("Image"),
-                TextColumn::make('theme')
+                TextColumn::make('theme.fr')
                     ->label("Theme")
                     ->sortable(),
                 TextColumn::make('type')
                     ->label("Type")
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->badge()->color('success')
+                    ->formatStateUsing(function ($state) {
+                        // Remplacez 1, 2, 3 par les valeurs que vous attendez
+                        return match ($state) {
+                            '1' => 'Culte',
+                            '2' => 'Seminaire',
+                            '3' => 'Concert',
+                            '4' => 'Série d\'enseignement',
+                        };
+                    }),
                 TextColumn::make('orateur')
                     ->label("Orateur")
                     ->searchable(),
