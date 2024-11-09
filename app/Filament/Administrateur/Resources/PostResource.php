@@ -72,14 +72,12 @@ class PostResource extends Resource
                             ->searchable()
                             ->columnSpan(6)
                             ->preload()
-                            ->required()
                             ->relationship('event', 'theme'),
                         Select::make('minister_id')
                             ->label(label: 'Aurateur')
                             ->searchable()
                             ->columnSpan(6)
                             ->preload()
-                            ->required()
                             ->relationship('minister', 'fullname'),
                         FileUpload::make('image_url.fr')
                             ->columnSpan(12)
