@@ -40,9 +40,9 @@ class EventResource extends Resource
                     Section::make("Formulaire Event")->schema([
                         TextInput::make('theme.fr')
                             ->label('Thème')
-                            ->columnSpan(4),
+                            ->columnSpan(6),
                         Select::make('type')
-                            ->columnSpan(4)
+                            ->columnSpan(6)
                             ->options([
                                 '1' => 'Culte',
                                 '2' => 'Seminaire',
@@ -54,19 +54,29 @@ class EventResource extends Resource
                         //     ->label('Thème')
                         //     ->columnSpan(4),
 
-                        TextInput::make('lieu.fr')
-                            ->label('Lieu')
-                            ->columnSpan(4),
+                        // TextInput::make('lieu.fr')
+                        //     ->label('Lieu')
+                        //     ->columnSpan(4),
                         DateTimePicker::make('date_debut')
                             ->label('Dete debut')
-                            ->columnSpan(4),
+                            ->seconds(false)
+                            ->native(false)
+                            ->closeOnDateSelection()
+                            ->prefixIcon('heroicon-m-calendar')
+                            ->prefixIconColor('success')
+                            ->columnSpan(6),
                         DateTimePicker::make('date_fin')
                             ->label('Dete fin')
-                            ->columnSpan(4),
-                        TextInput::make('orateur')
-                            ->label('Orateur')
-                            ->maxLength(50)
-                            ->columnSpan(4),
+                            ->seconds(false)
+                            ->native(false)
+                            ->closeOnDateSelection()
+                            ->prefixIcon('heroicon-m-calendar')
+                            ->prefixIconColor('success')
+                            ->columnSpan(6),
+                        // TextInput::make('orateur')
+                        //     ->label('Orateur')
+                        //     ->maxLength(50)
+                        //     ->columnSpan(4),
                         FileUpload::make('image_url.fr')
                             ->columnSpan(12)
                             ->label('Vignette')
@@ -130,15 +140,15 @@ class EventResource extends Resource
                     ->formatStateUsing(function ($state) {
                         // Remplacez 1, 2, 3 par les valeurs que vous attendez
                         return match ($state) {
-                            '1' => 'Culte',
-                            '2' => 'Seminaire',
-                            '3' => 'Concert',
-                            '4' => 'Série d\'enseignement',
+                            1 => 'Culte',
+                            2 => 'Seminaire',
+                            3 => 'Concert',
+                            4 => 'Série d\'enseignement',
                         };
                     }),
-                TextColumn::make('orateur')
-                    ->label("Orateur")
-                    ->searchable(),
+                // TextColumn::make('orateur')
+                //     ->label("Orateur")
+                //     ->searchable(),
                 TextColumn::make('date_debut')
                     ->label("Date debut")
                     ->dateTime()
@@ -191,8 +201,8 @@ class EventResource extends Resource
     {
         return [
             'index' => Pages\ListEvents::route('/'),
-            'create' => Pages\CreateEvent::route('/create'),
-            'edit' => Pages\EditEvent::route('/{record}/edit'),
+            // 'create' => Pages\CreateEvent::route('/create'),
+            // 'edit' => Pages\EditEvent::route('/{record}/edit'),
         ];
     }
     public static function getNavigationBadge(): ?string

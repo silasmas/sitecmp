@@ -59,7 +59,7 @@ class PostResource extends Resource
                             ->seconds(false)
                             ->native(false)
                             ->closeOnDateSelection()
-                            ->prefixIcon('heroicon-m-check-circle')
+                            ->prefixIcon('heroicon-m-calendar')
                             ->prefixIconColor('success')
                             ->required()
                             ->columnSpan(6),
