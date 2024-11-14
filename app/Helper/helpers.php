@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Post;
+use App\Models\Minister;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 
 if (!function_exists('format_date')) {
@@ -9,13 +12,35 @@ if (!function_exists('format_date')) {
     }
 }
 if (!function_exists('bySlug')) {
-    function bySlug($slug, $table)
+    function bySlug($slug, $table,$col=null)
     {
-        // Vérifie si le modèle est une instance d'Eloquent
-        // if (!is_subclass_of($table, IlluminateDatabaseEloquentModel::class)) {
-        //     throw new InvalidArgumentException("Le paramètre doit être un modèle Eloquent.");
-        // }
-        return $table::where([['slug', $slug], ['is_active', true]])->first();
+        if($col==null){
+            return $table::where([['slug', $slug], ['is_active', true]])->first();
+        }else{
+            $post=Minister::where('fullname', 'like', '%' . $slug . '%')->first();
+            //  dd($post->posts);
+             if ($post->posts) {
+                return $post->posts;
+                // // Récupérer les posts de cet auteur
+                // $posts = $post->posts; // Cela utilise la relation définie
+
+            }
+        }
+    }
+}
+if (!function_exists('creatSlug')) {
+    function creatSlug($id)
+    {
+        $res = Post::where([['id', $id], ['is_active', true]])->first();
+        $ret = "";
+        //  dd($res);
+        if ($res->slug == null) {
+            $res->slug = Str::slug($res->title); // Mettez à jour avec la valeur du formulaire
+            $ret = $res->save();
+        } else {
+            $ret = $res->slug;
+        }
+        return $ret;
     }
 }
 if (!function_exists('isNull')) {

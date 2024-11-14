@@ -72,13 +72,25 @@
                     <div class="owl-carousel" data-nav-dots="true" data-items="1" data-md-items="1" data-sm-items="1"
                         data-xs-items="1" data-xx-items="1">
                         <div class="item"><img class="img-fluid full-width"
-                                src="{{ asset('assets/site/images/about/B21-2024-hd.jpg') }}" alt="">
+                                src="{{ asset('assets/site/images/about/ap.jpg') }}" alt="">
                         </div>
                         <div class="item"><img class="img-fluid full-width"
-                                src="{{ asset('assets/site/images/about/01.jpg') }}" alt="">
+                                src="{{ asset('assets/site/images/about/ap2.jpg') }}" alt="">
                         </div>
                         <div class="item"><img class="img-fluid full-width"
-                                src="{{ asset('assets/site/images/about/SEM-BIBL-VignYtb-J2.jpg') }}" alt="">
+                                src="{{ asset('assets/site/images/about/dedo.jpg') }}" alt="">
+                        </div>
+                        <div class="item"><img class="img-fluid full-width"
+                                src="{{ asset('assets/site/images/about/coup.jpg') }}" alt="">
+                        </div>
+                        <div class="item"><img class="img-fluid full-width"
+                                src="{{ asset('assets/site/images/about/cop.jpg') }}" alt="">
+                        </div>
+                        <div class="item"><img class="img-fluid full-width"
+                                src="{{ asset('assets/site/images/about/c2.jpg') }}" alt="">
+                        </div>
+                        <div class="item"><img class="img-fluid full-width"
+                                src="{{ asset('assets/site/images/about/c3.jpg') }}" alt="">
                         </div>
                     </div>
                 </div>
@@ -242,9 +254,9 @@
                         <div class="isotope full-screen columns-4">
                             @forelse ($pastors as $ps)
                             <div class="row">
-                                <div class="grid-item {{ $ps->is_titular==1 && $ps->type==" Pasteur"?"visionnaire":"" }}
-                                    {{ $ps->is_titular==0&&$ps->type=="Pasteur"?"leadership":"" }}{{
-                                    $ps->is_titular==0&&$ps->type=="Pasteur stagiaire"?"development":"" }}">
+                                <div class="grid-item {{ $ps->is_titular==1?"visionnaire":"" }}
+                                    {{$ps->type=="Pasteur"?"visionnaire":"leadership" }}
+                                   {{$ps->type=="Pasteur stagiaire"?"development":"" }}">
                                     <div class="team team-hover">
                                         <div class="team-photo">
                                             <img class="img-fluid mx-auto" src="{{ asset('storage/'.$ps->image_url) }}"

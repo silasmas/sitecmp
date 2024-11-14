@@ -35,7 +35,11 @@ Route::get('/media', [ProfileController::class, 'galerie'])->name('media');
 Route::get('/contact', [ProfileController::class, 'contact'])->name('contact');
 Route::get('/bunda', [ProfileController::class, 'bunda'])->name('bunda');
 Route::get('/videos', [ProfileController::class, 'videos'])->name('videos');
-Route::get('/show_article/{id}', [PostController::class, 'show'])->name('show_article');
+Route::get('/show_article/{slug}', [PostController::class, 'show'])->name('show_article');
+Route::get('/article/{slug}', [PostController::class, 'tagNamePast'])->name('article');
+Route::get('/articles_event/{slug}', [PostController::class, 'show'])->name('articles_event');
+Route::get('/articles_day/{slug}', [PostController::class, 'show'])->name('articles_day');
+
 Route::get('detailProjet/{id}', [ProjetController::class, 'show'])->name('detailProjet');
 Route::get('welcome', [FaithfulController::class, 'index'])->name('welcome');
 

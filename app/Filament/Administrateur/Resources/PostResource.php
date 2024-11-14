@@ -42,7 +42,16 @@ class PostResource extends Resource
                         TextInput::make('title.fr')
                             ->label('Thème')
                             ->required()
+                            ->live(onBlur: true)
+                            ->afterStateUpdated(fn(string $operation, $state, Set $set) =>
+                            $operation === 'create' ? $set('slug', Str::slug($state)) : null)
                             ->columnSpan(4),
+        TextInput::make('slug')
+                            ->disabled()
+                            ->dehydrated()
+                            ->required()
+                            ->maxLength(255)
+                            ->unique(Post::class, 'slug', ignoreRecord: true),
                         Select::make('type')
                             ->label('Type de poste')
                             ->columnSpan(4)

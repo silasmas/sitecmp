@@ -11,7 +11,7 @@
           </div>
           <button type="button" class="close btn btn-lg p-0" data-bs-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
-          </button>
+          </button> 
         </div>
         <div class="modal-body">
             <p>Nous sommes un carrefour, un endroit où des personnes d'arrière plans différents (races, tribus, cultures, niveaux sociaux et intellectuels) se mélangent, sans aucune barrière, à cause de l’expérience profonde de la nouvelle naissance et de la transformation de vie en Jésus Christ.
@@ -19,14 +19,14 @@
             
             </p>
             <ol>
-                <li>Œuvre pour des conversions et des repentances profondes et authentiques</li>
+                <li>Œuvrer pour des conversions et des repentances profondes et authentiques</li>
                 <p><strong>Luc 10:2 </strong><br>
                     <em>Il leur dit : La moisson est grande, mais il y a peu d’ouvriers. Priez donc le maître de la moisson d’envoyer des ouvriers dans sa moisson.</em>
                     <br><strong>Luc 3:8 </strong><br>
                     <em><u>Produisez donc des fruits dignes de la repentance</u>, et ne vous mettez pas à dire en vous-mêmes : Nous avons Abraham pour père ! Car je vous déclare que de ces pierres Dieu peut susciter des enfants à Abraham.</em><br>
                     D’où la place particulière réservée au salut des âmes (Evangélisation).
                     </p>
-                <li>Œuvre pour que la crainte de Dieu et la maturité spirituelle caractérisent le peuple de Dieu en tout lieu, en tout temps et en toute circonstance.</li>
+                <li>Œuvrer pour que la crainte de Dieu et la maturité spirituelle caractérisent le peuple de Dieu en tout lieu, en tout temps et en toute circonstance.</li>
                     <p><strong>Hébreux 5:12  </strong><br>
                     <em>Vous, en effet, qui depuis longtemps devriez être des maîtres, vous avez encore besoin qu’on vous enseigne les premiers rudiments des oracles de Dieu, vous en êtes venus à avoir besoin de lait et non d’une nourriture solide.</em>
                     </p>
@@ -92,7 +92,7 @@
                     </p>
                 <li>Prêcher et apporter au peuple la délivrance des jougs et oppressions démoniaques</li>
                 <p>Car Christ nous a affranchis pour la liberté. (Gal 5:1)</p>
-                <li>La stabilité des foyers par une vie de couple stable et harmonieux.</li>
+                <li>La stabilité des foyers par une vie de couple stable et harmonieuse.</li>
             </ol>
         </div>
         <div class="modal-footer">

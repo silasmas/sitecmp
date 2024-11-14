@@ -51,7 +51,7 @@
                     </div>
                     <div class="blog-detail">
                         <div class="entry-title mb-10">
-                            <a href="{{ route('show_article',['id'=>$p->id]) }}">{{ $p->title }}</a>
+                            <a href="{{ route('show_article',['slug'=>creatSlug($p->id)]) }}">{{ $p->title }}</a>
                         </div>
                         <div class="entry-meta mb-10">
                             <ul>
@@ -69,7 +69,7 @@
                         <div class="entry-share clearfix">
                             <div class="entry-button">
                                 <a class="button arrow"
-                                    href="{{ route('show_article',['id'=>$p->id]) }}">@lang('miscellaneous.inner_page.news.link')<i
+                                    href="{{ route('show_article',['slug'=>creatSlug($p->id)]) }}">@lang('miscellaneous.inner_page.news.link')<i
                                         class="fa fa-angle-right" aria-hidden="true"></i></a>
                             </div>
                             <div class="social list-style-none float-end">

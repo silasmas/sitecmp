@@ -375,7 +375,7 @@
                         <p>{{ $p->minister->fullname??$p->author}} {{ $p->author?"":"(Pasteur)"}} </p>
                     </div>
                     <div class="content-link">
-                        <a href="{{ route('show_article',['id'=>$p->id]) }}">Lire la suite</a>
+                        <a href="{{ route('show_article',['slug'=>creatSlug($p->id)]) }}">Lire la suite</a>
                     </div>
                     <div class="feature-box-img" style="background-image: url('storage/{{ $p->image_url }}');">
                     </div>
@@ -419,8 +419,8 @@
                 <div class="section-title">
                     <h6 class="text-intro mb-lg-3">Le couple</h6>
                     <h2 class="title-effect mb-lg-3">NATHALIE & KEN LUAMBA</h2>
-                    <p style="font-size: 14px">À la porte de 2023, toute notre gratitude à Dieu pour son soutien durant
-                        l'année 2022 qui
+                    <p style="font-size: 14px">À la porte de 2024, toute notre gratitude à Dieu pour son soutien durant
+                        l'année 2023 qui
                         s’est clôturée.</p>
                 </div>
                 <p> <span class="dropcap gray square">E</span> n cette année nouvelle, puissent les portes
@@ -430,10 +430,11 @@
                     Seigneur et Maître est à la porte. Puissiez-vous donc vous accrocher à Lui, l'auteur et le
                     consommateur de votre foi.</p>
                 <div class="mt-30">
-                    <p>Bonne et Heureuse année 2023 à tous, en Jésus-Christ !</p>
-                    <button type="button" class="button icon mb-10 mr-10">
+                    <p>Bonne et Heureuse année 2024 à tous, en Jésus-Christ !</p>
+                    {{-- <button type="button" class="button icon mb-10 mr-10"
+                    data-bs-toggle="modal" data-bs-target="#exampleModalLong" >
                         Message de bienvenu
-                    </button>
+                    </button> --}}
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                         aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-toggle="modal"

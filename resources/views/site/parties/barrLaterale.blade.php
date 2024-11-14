@@ -15,7 +15,7 @@
                 <img class="img-fluid" src="{{ asset('storage/'.$ps->image_url) }}" alt="">
             </div>
             <div class="recent-post-info">
-                <a href="{{ route('show_article',['id'=>$ps->id]) }}">{{ $ps->title }}</a>
+                <a href="{{ route('show_article',['slug'=>creatSlug($ps->id)]) }}">{{ $ps->title }}</a>
                 <span><i class="fa fa-calendar-o"></i>{{ \Carbon\Carbon::parse($ps->date_publication)->isoFormat('LLL') }}</span>
             </div>
         </div>
@@ -34,20 +34,21 @@
             <li><a href="#"><i class="fa fa-angle-double-right"></i> August 2021</a></li>
         </ul>
     </div> --}}
-    {{-- <div class="sidebar-widget">
+    <div class="sidebar-widget">
         <h6 class="mt-40 mb-20">Tags</h6>
         <div class="widget-tags">
             <ul>
-                <li><a href="{{ route('about') }}">Ken Luamba</a></li>
-                <li><a href="{{ route('about') }}">Roland Dalo</a></li>
-                <li><a href="{{ route('about') }}">CMP</a></li>
-                <li><a href="{{ route('articles') }}">Evangile</a></li>
-                <li><a href="{{ route('articles') }}">Dimanche</a></li>
-                <li><a href="{{ route('articles') }}">Foi</a></li>
-                <li><a href="{{ route('articles') }}">Sacerdoce</a></li>
+                <li><a href="{{ route('articles') }}">Touts les articles</a></li>
+                <li><a href="{{ route('article',['slug'=>"Ken luamba"]) }}">Ken Luamba</a></li>
+                <li><a href="{{ route('article',['slug'=>"Roland Dalo"]) }}">Roland Dalo</a></li>
+                <li><a href="{{ route('articles_event',['slug'=>"bunda"]) }}">Bunda</a></li>
+                <li><a href="{{ route('articles_day',['slug'=>"Dimache"]) }}">Dimanche</a></li>
+                <li><a href="{{ route('articles_day',['slug'=>"Mercredi"]) }}">Mercredi</a></li>
+                <li><a href="{{ route('articles_day',['slug'=>"Jeudi"]) }}">Jeudi Etoko</a></li>
+                {{-- <li><a href="{{ route('articles') }}">Sacerdoce</a></li> --}}
             </ul>
         </div>
-    </div> --}}
+    </div>
 
 
 

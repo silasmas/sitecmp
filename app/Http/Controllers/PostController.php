@@ -114,13 +114,28 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show($slug)
     {
-        $post = Post::findOrFail($id);
+        // $post = Post::findOrFail($id);
+        $post = bySlug($slug,Post::class);
         $posts = Post::get();
-        // dd($post->link_url);
         return view("site.pages.article-details", compact('post', 'posts'));
     }
+    public function tagNamePast($slug)
+    {
+        // $post = Post::findOrFail($id);
+        $post = bySlug($slug,Post::class,col: 'minister_id');
+        $posts = Post::get();
+        //dd($post);
+        return view("site.pages.articles", compact('post', 'posts'));
+    }
+    // public function show($slug)
+    // {
+    //     // $post = Post::findOrFail($id);
+    //     $post = bySlug($slug,Post::class);
+    //     $posts = Post::get();
+    //     return view("site.pages.article-details", compact('post', 'posts'));
+    // }
 
     /**
      * Show the form for editing the specified resource.
