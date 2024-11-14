@@ -255,7 +255,7 @@
                             @forelse ($pastors as $ps)
                             <div class="row">
                                 <div class="grid-item {{ $ps->is_titular==1?"visionnaire":"" }}
-                                    {{$ps->type=="Pasteur"?"visionnaire":"leadership" }}
+                                    {{$ps->type=="Pasteur"?"leadership":"" }}
                                    {{$ps->type=="Pasteur stagiaire"?"development":"" }}">
                                     <div class="team team-hover">
                                         <div class="team-photo">
