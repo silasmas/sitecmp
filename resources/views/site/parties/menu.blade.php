@@ -171,7 +171,7 @@
                                         </a></li> --}}
                                 </ul>
 
-                                <a href="{{ route('contributions') }}"
+                                <a href="https://vpos.flexpaie.com/pay/advanced/Q01Q" target="blank"
                                     class="btn btn-primary btn-uppertext d-none d-lg-inline-block">
                                     @lang('miscellaneous.main_menu.contribution')
                                 </a>

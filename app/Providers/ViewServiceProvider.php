@@ -9,6 +9,7 @@ use App\Models\article;
 use App\Models\service;
 use App\Models\activite;
 use App\Models\categorie;
+use App\Models\Event;
 use App\Models\Partenaire;
 use App\Models\thematique;
 use Illuminate\Support\Facades\DB;
@@ -42,8 +43,17 @@ class ViewServiceProvider extends ServiceProvider
             // $galerieArticle = article::select('images')->where('is_active', true)->get();
             // $team = team::where('is_active', true)->get();
 
-            // $menuService = service::where('is_active', true)->get();
-            // $menuDomaine = thematique::where('is_active', true)->get();
+            // $eventbunda = Event::where([['designation', "Bunda"], ['is_active', true]])->get();
+            $eventbunda = Event::with('posts')->where('is_active', true)
+                ->whereJsonContains('designation->fr', 'Bunda')
+                ->select('id', 'date_debut', 'designation', 'lieu', 'orateur', 'date_fin', 'theme', 'references', 'image_url', 'description', 'est_a_la_une') // Sélectionner les colonnes nécessaires
+                ->selectRaw('YEAR(date_debut) as year,DATE_FORMAT(date_debut, "%b") as mois, COUNT(*) as total')
+                ->groupBy('id', 'date_debut', 'designation', 'lieu', 'orateur', 'date_fin', 'theme', 'references', 'image_url', 'description', 'est_a_la_une')
+                ->orderBy('year') // Trier par année
+                ->orderByRaw('MONTH(date_debut)') // Trier par mois
+                ->get();
+
+            // dd($eventbunda[0]->post);
             // $projets = projet::where('is_active', true)->get();
             // $articles = article::where('is_active', true)->get();
             // $about = about::first();
@@ -58,7 +68,7 @@ class ViewServiceProvider extends ServiceProvider
             $view->with('title', $titre);
             $view->with('settings', $st);
             $view->with('setting', $settings);
-            // $view->with('teamCat', $teamCat);
+            $view->with('eventbunda', $eventbunda);
             // $view->with('team', $team);
             // $view->with('menuService', $menuService);
             // $view->with('menuDomaine', $menuDomaine);
