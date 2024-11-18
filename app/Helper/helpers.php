@@ -12,37 +12,82 @@ if (!function_exists('format_date')) {
     }
 }
 if (!function_exists('bySlug')) {
-    function bySlug($slug, $table,$col=null)
+    function bySlug($slug, $table, $col = null)
     {
-        if($col==null){
+        if ($col == null) {
             return $table::where([['slug', $slug], ['is_active', true]])->first();
-        }else{
-            $post=Minister::where('fullname', 'like', '%' . $slug . '%')->first();
+        } else {
+            $post = Minister::where('fullname', 'like', '%' . $slug . '%')->first();
             //  dd($post->posts);
-             if ($post->posts) {
+            if ($post->posts) {
                 return $post->posts;
-                // // Récupérer les posts de cet auteur
+                // // Récupérer les posts de c et auteur
                 // $posts = $post->posts; // Cela utilise la relation définie
 
             }
         }
     }
 }
-if (!function_exists('creatSlug')) {
+if (!function_exists('createSlug')) {
     function creatSlug($id)
     {
-        $res = Post::where([['id', $id], ['is_active', true]])->first();
-        $ret = "";
-        //  dd($res);
-        if ($res->slug == null) {
-            $res->slug = Str::slug($res->title); // Mettez à jour avec la valeur du formulaire
-            $ret = $res->save();
-        } else {
-            $ret = $res->slug;
+        // Valider que l'ID est un entier valide
+        if (!is_numeric($id) || $id <= 0) {
+            return "Invalid ID provided.";
         }
-        return $ret;
+
+        // Rechercher le post correspondant
+        $post = Post::where([['id', $id], ['is_active', true]])->first();
+
+        // Si aucun post n'est trouvé
+        if (!$post) {
+            return "Post not found or inactive.";
+        }
+
+        // Générer un slug si inexistant
+        if (empty($post->slug)) {
+            // Générer un slug unique basé sur le titre
+            $post->slug = Str::slug($post->title);
+
+            // Sauvegarder le post avec le nouveau slug
+            if ($post->save()) {
+                return $post->slug; // Retourner le slug généré
+            } else {
+                return "Failed to save the slug.";
+            }
+        }
+
+        // Si un slug existe déjà, le retourner directement
+        return $post->slug;
     }
 }
+
+// if (!function_exists('creatSlug')) {
+//     function creatSlug($id)
+//     {
+//         $res = Post::where([['id', $id], ['is_active', true]])->first();
+//         // Si aucun post trouvé, retourner null ou une autre valeur par défaut
+//         // dd($res->slug);
+//         if (!$res) {
+//             return ""; // Ou retourner un message d'erreur, par exemple "Post not found"
+//         }
+
+//         // Initialisation de la variable de retour
+//         $ret = "";
+//         // dd($res);
+//         // Si le slug est null, le générer et sauvegarder
+//         if ($res->slug === null) {
+//             $res->slug = Str::slug($res->title); // Générer un slug basé sur le titre
+//             $res->save(); // Sauvegarder dans la base de données
+//             $ret = $res->slug; // Retourner le slug nouvellement généré
+//         } else {
+//             // Si un slug existe déjà, le retourner directement
+//             $ret = $res->slug;
+//         }
+
+//         return $ret;
+//     }
+// }
 if (!function_exists('isNull')) {
     function isNull($var)
     {

@@ -50,7 +50,7 @@
 
                     @endforelse
                 </div>
-                <div class="isotope full-screen columns-3">
+                <div class="isotope popup-gallery columns-3 no-padding">
                     <div class="container">
                         <div class="row">
                             @forelse ($eventbunda as $ps)
@@ -60,13 +60,13 @@
                                     <div class="portfolio-item">
                                         <img src="{{ asset('storage/'.$p->image_url) }}" alt="">
                                         <div class="portfolio-overlay">
-                                            <h4 class="text-white"> <a href="{{ route('media') }}">{{ $ps->title }}</a> </h4>
+                                            <h4 class="text-white"> <a href="{{ route('show_article',['slug'=>creatSlug($p->id)]) }}">{{ $p->title.'-'.$p->id }}</a> </h4>
                                             <span class="text-white">
-                                                <a href="#"> {{ $p->title }} </a>|
-                                                <a href="#">{{\Carbon\Carbon::parse($p->date_publication)->isoFormat('LLL')  }}</a>
+                                                <a href="{{ route('show_article',['slug'=>creatSlug($p->id)]) }}"> {{ $p->title }} </a>|
+                                                <a href="{{ route('show_article',['slug'=>creatSlug($p->id)]) }}">{{\Carbon\Carbon::parse($p->date_publication)->isoFormat('LLL')  }}</a>
                                             </span>
                                         </div>
-                                        <a class="popup popup-youtube" href="{{ $ps->link_url }}"><i
+                                        <a class="popup popup-youtube" href="{{ $p->link_url }}"><i
                                                 class="fa fa-play"></i></a>
                                     </div>
                                 </div>
