@@ -55,7 +55,7 @@
                         <div class="row">
                             @forelse ($eventbunda as $ps)
                             @forelse ($ps->posts as $p)
-                            <div class="grid-item {{ $ps->year }} ">
+                            <div class="grid-item {{ $ps->year }} m-2">
                                 <div class="portfolio-item ">
                                     <div class="portfolio-item">
                                         <img src="{{ asset('storage/'.$p->image_url) }}" alt="">
