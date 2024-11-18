@@ -50,7 +50,7 @@
 
                     @endforelse
                 </div>
-                <div class="isotope popup-gallery columns-3 no-padding">
+                <div class="isotope popup-gallery columns-3">
                     <div class="container">
                         <div class="row">
                             @forelse ($eventbunda as $ps)
