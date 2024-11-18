@@ -173,7 +173,7 @@ return [
         'projects' => 'Batisseurs',
         'donate' => 'Faire un don',
         'events' => 'Evènement',
-        'contribution' => 'contributions',
+        'contribution' => 'Offrande',
         'gallery' => 'Media',
         'video' => 'Vidéos',
         'media' => 'Media',
