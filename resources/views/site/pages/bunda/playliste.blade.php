@@ -45,7 +45,7 @@
                 <div class="isotope-filters">
                     <button data-filter="" class="active">Tout</button>
                     @forelse ($eventbunda as $ps)
-                    <button data-filter="{{ ".".$ps->year}}">{{ $ps->designation }}</button>
+                    <button data-filter="{{ " .".$ps->year}}">{{ $ps->designation }}</button>
                     @empty
 
                     @endforelse
@@ -58,12 +58,18 @@
                             <div class="grid-item {{ $ps->year }} m-0" style="padding: 2px !important">
                                 <div class="portfolio-item ">
                                     <div class="portfolio-item">
-                                        <img src="{{ asset('storage/'.$p->image_url) }}" alt="">
+                                        <a href="{{ route('show_article',['slug'=>creatSlug($p->id)]) }}">
+                                            <img src="{{ asset('storage/'.$p->image_url) }}" alt="">
+                                        </a>
                                         <div class="portfolio-overlay">
-                                            {{-- <h4 class="text-white"> <a href="{{ route('show_article',['slug'=>creatSlug($p->id)]) }}">{{ $p->title.'-'.$p->id }}</a> </h4> --}}
+                                            {{-- <h4 class="text-white"> <a
+                                                    href="{{ route('show_article',['slug'=>creatSlug($p->id)]) }}">{{
+                                                    $p->title.'-'.$p->id }}</a> </h4> --}}
                                             <span class="text-white">
-                                                <a href="{{ route('show_article',['slug'=>creatSlug($p->id)]) }}"> {{ $p->title }} </a>|
-                                                <a href="{{ route('show_article',['slug'=>creatSlug($p->id)]) }}">{{\Carbon\Carbon::parse($p->date_publication)->isoFormat('LLL')  }}</a>
+                                                <a href="{{ route('show_article',['slug'=>creatSlug($p->id)]) }}"> {{
+                                                    $p->title }} </a>|
+                                                <a href="{{ route('show_article',['slug'=>creatSlug($p->id)]) }}">{{\Carbon\Carbon::parse($p->date_publication)->isoFormat('LLL')
+                                                    }}</a>
                                             </span>
                                         </div>
                                         <a class="popup popup-youtube" href="{{ $p->link_url }}"><i
@@ -85,12 +91,13 @@
                                                 </div>
                                                 <div class="entry-meta mb-10">
                                                     <ul>
-                                                        <li> <i class="fa fa-folder-open-o"></i> <a href="#">Bunda {{ $ps->year }}</a>
+                                                        <li> <i class="fa fa-folder-open-o"></i> <a href="#">Bunda {{
+                                                                $ps->year }}</a>
 
                                                         </li>
                                                         <li><a href="#"><i class="fa fa-user"></i>
-                                                            {{ $p->minister->fullname??$p->author}}
-                                                        </a></li>
+                                                                {{ $p->minister->fullname??$p->author}}
+                                                            </a></li>
                                                         <li><a href="#"><i class="fa fa-calendar-o"></i>
                                                                 {{\Carbon\Carbon::parse($p->date_publication)->isoFormat('LLL')
                                                                 }}</a></li>
