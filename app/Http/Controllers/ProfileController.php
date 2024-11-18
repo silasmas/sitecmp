@@ -81,6 +81,11 @@ class ProfileController extends Controller
             'EnteteState' => $tableaudesEtats,
         ]);
     }
+    public function playliste()
+    {
+
+        return view('site.pages.bunda.playliste');
+    }
     public function videos()
     {
         $videos = video::all();

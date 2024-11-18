@@ -34,6 +34,7 @@ Route::get('/contributions', [ProfileController::class, 'contributions'])->name(
 Route::get('/media', [ProfileController::class, 'galerie'])->name('media');
 Route::get('/contact', [ProfileController::class, 'contact'])->name('contact');
 Route::get('/bunda', [ProfileController::class, 'bunda'])->name('bunda');
+Route::get('/playliste', [ProfileController::class, 'playliste'])->name('playliste');
 Route::get('/videos', [ProfileController::class, 'videos'])->name('videos');
 Route::get('/show_article/{slug}', [PostController::class, 'show'])->name('show_article');
 Route::get('/article/{slug}', [PostController::class, 'tagNamePast'])->name('article');

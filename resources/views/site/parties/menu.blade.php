@@ -79,12 +79,7 @@
                             <!-- menu links -->
                             <div class="menu-bar d-flex align-items-center w-100">
                                 <ul class="menu-links d-lg-flex align-items-center mx-auto">
-                                    {{-- <li class="{{ Route::current()->getName() == 'home' ? 'active' : ''}}">
-                                        <a href="{{ route('home') }}">@lang('miscellaneous.main_menu.home') </a>
-                                    </li> --}}
-                                    <li
-                                        class="hoverTrigger {{ Route::current()->getName() == 'about' ? 'active' : ''}}">
-
+                                    <li class="hoverTrigger {{ Route::current()->getName() == 'about' ? 'active' : ''}}">
                                         <div class="dropdown">
                                             <a href="javascript:void(0)" class="link-drop" type="button"
                                                 data-bs-toggle="dropdown"
@@ -98,24 +93,6 @@
                                             </ul>
                                         </div>
                                     </li>
-                                    <!-- drop down full width -->
-                                    <div class="drop-down grid-col-12">
-                                        <!--grid row-->
-                                        <div class="grid-row">
-                                            <!--grid column 3-->
-                                            <div class="grid-col-3">
-                                                <ul>
-                                                    <li><a href="{{ route('about') }}">Webster default <span
-                                                                class="badge bg-primary">Default</span> </a></li>
-                                                    <li><a href="index-02.html">Classic Business </a></li>
-                                                    <li><a href="index-03.html">Business Parallax</a></li>
-                                                    <li><a href="index-04.html">Digital Agency </a></li>
-                                                    <li><a href="index-05.html">Corporate </a></li>
-
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <li
                                         class="hoverTrigger {{ Route::current()->getName() == 'articles' ? 'active' : ''}}">
 
@@ -141,34 +118,24 @@
                                             </ul>
                                         </div>
                                     </li>
-                                    <li class=" {{ Route::current()->getName() == 'bunda' ? 'active' : '' }}"><a
-                                            href="{{ route('bunda') }}">
-                                            Bunda 21
-                                        </a>
-                                    </li>
-                                    {{-- <li class=" {{ Route::current()->getName() == 'events' ? 'active' : '' }}">
+                                    <li class="hoverTrigger {{ Route::current()->getName() == 'bunda' ? 'active' : '' }}">
                                         <div class="dropdown">
                                             <a href="javascript:void(0)" class="link-drop" type="button"
                                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                                @lang('miscellaneous.main_menu.events')
+                                                Bunda 21
                                                 <i class="fa fa-angle-down fa-indicator"></i>
                                             </a>
                                             <ul class="dropdown-menu">
-                                                <li>
-                                                    <a class="dropdown-item" href="{{ route('bunda') }}">
-                                                        Bunda 21
-                                                    </a>
+                                                <li><a class="dropdown-item" href="{{ route('bunda') }}">Pour la petite
+                                                        histoire</a>
+                                                </li>
+                                                <li><a class="dropdown-item" href="{{ route('playliste') }}">Play liste</a>
                                                 </li>
                                             </ul>
                                         </div>
-                                    </li> --}}
-                                    {{-- <li class=" {{ Route::current()->getName() == 'projects' ? 'active' : '' }}"><a
-                                            href="{{ route('projects') }}">@lang('miscellaneous.main_menu.projects')
-                                        </a></li> --}}
-                                    {{-- <li
-                                        class=" {{ Route::current()->getName() == 'contact' ? 'active' : '' }} link"><a
-                                            href="{{ route('contact') }}">@lang('miscellaneous.main_menu.who_are_we.contact')
-                                        </a></li> --}}
+                                        </a>
+                                    </li>
+
                                 </ul>
 
                                 <a href="https://vpos.flexpaie.com/pay/advanced/Q01Q" target="blank"

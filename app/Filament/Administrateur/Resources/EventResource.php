@@ -40,19 +40,19 @@ class EventResource extends Resource
                     Section::make("Formulaire Event")->schema([
                         TextInput::make('theme.fr')
                             ->label('Thème')
-                            ->columnSpan(6),
+                            ->columnSpan(4),
+                        TextInput::make('designation.fr')
+                            ->required()
+                            ->label('Designation')
+                            ->columnSpan(4),
                         Select::make('type')
-                            ->columnSpan(6)
+                            ->columnSpan(4)
                             ->options([
                                 '1' => 'Culte',
                                 '2' => 'Seminaire',
                                 '3' => 'Concert',
                                 '4' => 'Série d\'enseignement',
                             ]),
-                        // TextInput::make('designation.fr')
-                        //     ->required()
-                        //     ->label('Thème')
-                        //     ->columnSpan(4),
 
                         // TextInput::make('lieu.fr')
                         //     ->label('Lieu')
@@ -131,6 +131,9 @@ class EventResource extends Resource
                     ->label("Image"),
                 TextColumn::make('theme')
                     ->label("Theme")
+                    ->sortable(),
+                TextColumn::make('designation')
+                    ->label("Designation")
                     ->sortable(),
                 TextColumn::make('type')
                     ->label("Type")

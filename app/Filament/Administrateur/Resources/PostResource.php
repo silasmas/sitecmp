@@ -46,10 +46,11 @@ class PostResource extends Resource
                             ->afterStateUpdated(fn(string $operation, $state, Set $set) =>
                             $operation === 'create' ? $set('slug', Str::slug($state)) : null)
                             ->columnSpan(4),
-        TextInput::make('slug')
+                        TextInput::make('slug')
                             ->disabled()
                             ->dehydrated()
                             ->required()
+                            ->columnSpan(4)
                             ->maxLength(255)
                             ->unique(Post::class, 'slug', ignoreRecord: true),
                         Select::make('type')
