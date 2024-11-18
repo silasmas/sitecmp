@@ -63,7 +63,7 @@
                                             <h4 class="text-white"> <a href="{{ route('media') }}">{{ $ps->title }}</a> </h4>
                                             <span class="text-white">
                                                 <a href="#"> {{ $p->title }} </a>|
-                                                <a href="#">{{\Carbon\Carbon::parse($ps->date_publication)->isoFormat('LLL')  }}</a>
+                                                <a href="#">{{\Carbon\Carbon::parse($p->date_publication)->isoFormat('LLL')  }}</a>
                                             </span>
                                         </div>
                                         <a class="popup popup-youtube" href="{{ $ps->link_url }}"><i
