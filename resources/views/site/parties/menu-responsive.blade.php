@@ -67,7 +67,7 @@
             </li> --}}
         </ul>
         <div class="block my-4">
-          <a href="{{ route('contributions') }}" class="btn btn-primary btn-uppertext d-lg-inline-block">
+          <a href="https://vpos.flexpaie.com/pay/advanced/Q01Q" target="blank" class="btn btn-primary btn-uppertext d-lg-inline-block">
             @lang('miscellaneous.main_menu.contribution')
           </a>
         </div>
