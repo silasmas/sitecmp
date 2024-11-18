@@ -60,7 +60,7 @@
                                     <div class="portfolio-item">
                                         <img src="{{ asset('storage/'.$p->image_url) }}" alt="">
                                         <div class="portfolio-overlay">
-                                            <h4 class="text-white"> <a href="{{ route('show_article',['slug'=>creatSlug($p->id)]) }}">{{ $p->title.'-'.$p->id }}</a> </h4>
+                                            {{-- <h4 class="text-white"> <a href="{{ route('show_article',['slug'=>creatSlug($p->id)]) }}">{{ $p->title.'-'.$p->id }}</a> </h4> --}}
                                             <span class="text-white">
                                                 <a href="{{ route('show_article',['slug'=>creatSlug($p->id)]) }}"> {{ $p->title }} </a>|
                                                 <a href="{{ route('show_article',['slug'=>creatSlug($p->id)]) }}">{{\Carbon\Carbon::parse($p->date_publication)->isoFormat('LLL')  }}</a>
