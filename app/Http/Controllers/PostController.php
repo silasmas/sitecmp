@@ -22,9 +22,10 @@ class PostController extends Controller
     }
     public function articles()
     {
-        $posts = Post::with("minister", "event")->orderByDesc('date_publication')->where('is_active', 1)->get();
+        $post = Post::with("minister", "event")->orderByDesc('date_publication')->where('is_active', 1)->get();
+        $posts = Post::get();
         //   dd($posts);
-        return view('site.pages.articles', compact('posts'));
+        return view('site.pages.articles', compact('post', 'posts'));
     }
     /**
      * Show the form for creating a new resource.
