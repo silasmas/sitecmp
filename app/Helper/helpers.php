@@ -17,14 +17,27 @@ if (!function_exists('bySlug')) {
         if ($col == null) {
             return $table::where([['slug', $slug], ['is_active', true]])->first();
         } else {
-            $post = Minister::where('fullname', 'like', '%' . $slug . '%')->first();
-            //  dd($post->posts);
-            if ($post->posts) {
-                return $post->posts;
-                // // Récupérer les posts de c et auteur
-                // $posts = $post->posts; // Cela utilise la relation définie
+            $minister = Minister::where('fullname', 'like', '%' . $slug . '%')
+                ->where('is_active', true)
+                ->with(['posts' => function ($query) {
+                    $query->where('is_active', true); // Ajouter la condition sur les posts ici
+                }])
+                ->first();
 
+            if ($minister) {
+                $posts = $minister->posts; // Les posts filtrés
+                return $posts;
+            } else {
+                return $posts = [];
             }
+            // $post = Minister::where([['fullname', 'like', '%' . $slug . '%'], ['is_active', true]])->first();
+            // dd($post->posts);
+            // if ($post->posts) {
+            //     return $post->posts;
+            //     // // Récupérer les posts de c et auteur
+            //     // $posts = $post->posts; // Cela utilise la relation définie
+
+            // }
         }
     }
 }

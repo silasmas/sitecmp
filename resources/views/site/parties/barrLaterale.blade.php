@@ -9,7 +9,7 @@
 
     <div class="sidebar-widget">
         <h6 class="mt-40 mb-20">Recents articles </h6>
-        @forelse ($posts as $ps)
+        @forelse ($posts->take(5) as $ps)
            <div class="recent-post clearfix">
             <div class="recent-post-image">
                 <img class="img-fluid" src="{{ asset('storage/'.$ps->image_url) }}" alt="">
@@ -39,8 +39,12 @@
         <div class="widget-tags">
             <ul>
                 <li><a href="{{ route('articles') }}">Touts les articles</a></li>
-                <li><a href="{{ route('article',['slug'=>"Ken luamba"]) }}">Ken Luamba</a></li>
                 <li><a href="{{ route('article',['slug'=>"Roland Dalo"]) }}">Roland Dalo</a></li>
+                @forelse ($pasteurs as $p)
+                <li><a href="{{ route('article',['slug'=>$p->fullname]) }}">{{ $p->fullname }}</a></li>
+                @empty
+
+                @endforelse
                 <li><a href="{{ route('articles_event',['slug'=>"bunda"]) }}">Bunda</a></li>
                 <li><a href="{{ route('articles_day',['slug'=>"Dimache"]) }}">Dimanche</a></li>
                 <li><a href="{{ route('articles_day',['slug'=>"Mercredi"]) }}">Mercredi</a></li>

@@ -22,8 +22,8 @@ class PostController extends Controller
     }
     public function articles()
     {
-        $posts = Post::with("minister","event")->orderByDesc('date_publication')->where('is_active',1)->get();
-    //   dd($posts);
+        $posts = Post::with("minister", "event")->orderByDesc('date_publication')->where('is_active', 1)->get();
+        //   dd($posts);
         return view('site.pages.articles', compact('posts'));
     }
     /**
@@ -114,19 +114,45 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($slug)
+    public function show($jour)
     {
-        // $post = Post::findOrFail($id);
-        $post = bySlug($slug,Post::class);
+        // dd($jour);
+        $days = [
+            1 => 'Dimanche',
+            2 => 'Lundi',
+            3 => 'Mardi',
+            4 => 'Mercredi',
+            5 => 'Jeudi',
+            6 => 'Vendredi',
+            7 => 'Samedi',
+        ];
+
+        // $dayOfWeek = 3; // Exemple : Mardi
+        // Trouver la clé (entier) correspondant au jour passé en paramètre
+        $dayOfWeek = array_search(ucfirst(strtolower($jour)), $days);
+        // dd($dayOfWeek);
+
+        // Si le jour fourni est invalide, retourner une erreur ou une vue par défaut
+        if (!$dayOfWeek) {
+            // return redirect()->back()->with('error', 'Jour invalide.');
+            $post = [];
+            $posts = Post::get();
+            return view("site.pages.articles", compact('post', 'posts'));
+        }
+        $post = Post::where('is_active', true)
+            ->whereRaw('DAYOFWEEK(date_publication) = ?', [$dayOfWeek])
+            ->get();
+
+        $dayName = $days[$dayOfWeek]; // Résultat : "Mardi"
         $posts = Post::get();
-        return view("site.pages.article-details", compact('post', 'posts'));
+        return view("site.pages.articles", compact('post', 'posts'));
     }
     public function tagNamePast($slug)
     {
         // $post = Post::findOrFail($id);
-        $post = bySlug($slug,Post::class,col: 'minister_id');
+        $post = bySlug($slug, Post::class, col: 'minister_id');
         $posts = Post::get();
-        //dd($post);
+        // dd($post);
         return view("site.pages.articles", compact('post', 'posts'));
     }
     // public function show($slug)

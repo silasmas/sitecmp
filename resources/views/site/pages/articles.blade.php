@@ -44,7 +44,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-9">
-                @forelse ($posts as $p)
+                @forelse ($post as $p)
                 <div class="blog-entry mb-50">
                     <div class="entry-image clearfix">
                         <img class="img-fluid" src="{{ asset('storage/'.$p->image_url) }}" alt="">
@@ -87,7 +87,13 @@
                     </div>
                 </div>
                 @empty
-
+                {{-- <div class="bd-callout bd-callout-danger">
+                    <h4>Info</h4>
+                    Pas d'informations trouvées!
+                </div> --}}
+                <div class="alert alert-danger" role="alert">
+                    Pas d'informations trouvées!
+                </div>
                 @endforelse
                 {{-- <div class="entry-pagination mb-40">
 

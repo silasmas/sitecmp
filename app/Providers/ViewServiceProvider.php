@@ -2,16 +2,9 @@
 
 namespace App\Providers;
 
-use App\Models\team;
-use App\Models\about;
-use App\Models\projet;
-use App\Models\article;
-use App\Models\service;
-use App\Models\activite;
-use App\Models\categorie;
+
 use App\Models\Event;
-use App\Models\Partenaire;
-use App\Models\thematique;
+use App\Models\Minister;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
@@ -38,20 +31,7 @@ class ViewServiceProvider extends ServiceProvider
             $settings = DB::table('general_settings')->first();
 
 
-            // $teamCat = team::select('poste')->where('is_active', true)->distinct()->get();
-            // $galerieProjet = projet::select('images')->where('is_active', true)->get();
-            // $galerieArticle = article::select('images')->where('is_active', true)->get();
-            // $team = team::where('is_active', true)->get();
-
-            // $eventbunda = Event::where([['designation', "Bunda"], ['is_active', true]])->get();
-            // $eventbunda = Event::with('posts')->where('is_active', true)
-            //     ->whereJsonContains('designation->fr', "like", '%Bunda%')
-            //     ->select('id', 'date_debut', 'designation', 'lieu', 'orateur', 'date_fin', 'theme', 'references', 'image_url', 'description', 'est_a_la_une') // Sélectionner les colonnes nécessaires
-            //     ->selectRaw('YEAR(date_debut) as year,DATE_FORMAT(date_debut, "%b") as mois, COUNT(*) as total')
-            //     ->groupBy('id', 'date_debut', 'designation', 'lieu', 'orateur', 'date_fin', 'theme', 'references', 'image_url', 'description', 'est_a_la_une')
-            //     ->orderBy('year') // Trier par année
-            //     ->orderByRaw('MONTH(date_debut)') // Trier par mois
-            //     ->get();
+            $pasteurs = Minister::where('is_active', true)->get();
             $eventbunda = Event::with('posts')
                 ->where('is_active', true)
                 ->whereRaw('JSON_UNQUOTE(JSON_EXTRACT(designation, "$.fr")) LIKE ?', ['%Bunda%']) // Recherche dans JSON avec LIKE
@@ -101,17 +81,7 @@ class ViewServiceProvider extends ServiceProvider
             $view->with('settings', $st);
             $view->with('setting', $settings);
             $view->with('eventbunda', $eventbunda);
-            // $view->with('team', $team);
-            // $view->with('menuService', $menuService);
-            // $view->with('menuDomaine', $menuDomaine);
-            // $view->with('projets', $projets);
-            // $view->with('galerieArticle', $galerieArticle);
-            // $view->with('galerieProjet', $galerieProjet);
-            // $view->with('recentProjets', $recentProjets);
-            // $view->with('recentArticles', $recentArticles);
-            // $view->with('articles', $articles);
-            // $view->with('about', $about);
-            // $view->with('partenaires', $partenaires);
+            $view->with('pasteurs', $pasteurs);
         });
     }
 }
