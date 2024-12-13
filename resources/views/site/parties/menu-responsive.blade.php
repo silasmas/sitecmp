@@ -67,7 +67,7 @@
             </li> --}}
         </ul>
         <div class="block my-4">
-          <a href="{{ route('missionnaire') }}" target="blank" class="btn btn-primary btn-uppertext d-lg-inline-block">
+          <a href="{{ route('missionnaire') }}" class="btn btn-primary btn-uppertext d-lg-inline-block">
             Devenir missionnaire
           </a>
         </div>
