@@ -1,6 +1,8 @@
 
 </div>
 @include("site.parties.modale")
+
+
 <!-- wrapper End -->
 <div id="back-to-top"><a class="top arrow" href="#top"><i class="fa fa-angle-up"></i> <span>TOP</span></a></div>
 <div class="revel-block"></div>
@@ -28,8 +30,11 @@
 <script src="{{ asset('assets/site/js/biliap.cores.js') }}"></script>
 
 <script src="{{ asset('assets/site/js/parsley/js/parsley.js') }}"></script>
-{{-- <script src="{{ asset('assets/site/js/parsley/i18n/fr.js') }}"></script> --}}
+<script src="{{ asset('assets/site/js/parsley/i18n/fr.js') }}"></script>
 <script src="{{ asset('assets/site/js/sweetalert/sweetalert.min.js') }}"></script>
+@yield("script")
+@livewireScripts
+
 <script>
      /* MULTILINE TEXT TRUNCATION */
      $('.paragraph-ellipsis').each(function () {
@@ -91,7 +96,51 @@
         $('.menu-responsive').removeClass('show')
 
       })
+
+      $(document).ready(function() {
+        $('#search').on('keyup', function() {
+            let query = $(this).val();
+
+            // Si le champ est vide, nettoyer les résultats
+            if (!query) {
+                $('#articles-results').html('');
+                return;
+            }
+
+            // Envoyer une requête AJAX pour rechercher les articles
+            $.ajax({
+                url: '{{ route("search.articles") }}',
+                type: 'GET',
+                data: { query: query },
+                success: function(response) {
+                    let results = '';
+
+                    if (response.length > 0) {
+                        results += '<ul>';
+                        response.forEach(function(article) {
+                            results += `
+                                <li>
+                                    <h4>${article.title}</h4>
+                                    <p>${article.body.substring(0, 100)}...</p>
+                                    <a href="/articles/${article.id}" class="btn btn-primary">Voir plus</a>
+                                </li>
+                            `;
+                        });
+                        results += '</ul>';
+                    } else {
+                        results = '<p>Aucun article trouvé.</p>';
+                    }
+
+                    $('#articles-results').html(results);
+                },
+                error: function() {
+                    $('#articles-results').html('<p>Une erreur est survenue. Veuillez réessayer.</p>');
+                }
+            });
+        });
+    });
 </script>
+
 </body>
 
 </html>

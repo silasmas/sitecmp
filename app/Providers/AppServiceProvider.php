@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Livewire\Livewire;
+use Filament\Forms\Components\Wizard;
 
 /**
  * @author Xanders
@@ -23,9 +25,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // \Filament\Resources\Resource::registerResources([
+        //     \App\Filament\Administrateur\Resources\MissionnaireResource::class,
+        // ]);
         view()->composer('*', function ($view) {
             $view->with('current_locale', app()->getLocale());
             $view->with('available_locales', config('app.available_locales'));
         });
+        // Livewire::component('filament.pages.missionnaire', \App\Filament\Administrateur\Resources\MissionnaireResource\Pages\Missionnaire::class);
     }
 }

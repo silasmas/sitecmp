@@ -37,7 +37,17 @@ return [
         ],
     ],
 
-
+    // 'middleware' => [
+    //     'web',
+    //     fn($request, $next) =>
+    //     $request->route()->getName() === 'missionnaire'
+    //         ? $next($request)
+    //         : app(\Filament\Http\Middleware\Authenticate::class)->handle($request, $next),
+    // ],
+    // 'auth' => [
+    //     'guard' => 'web', // Assurez-vous que vous utilisez le bon guard pour l'authentification
+    //     'passwords' => 'users',
+    // ],
     /*
     |--------------------------------------------------------------------------
     | Default Filesystem Disk

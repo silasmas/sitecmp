@@ -22,10 +22,33 @@ class PostController extends Controller
     }
     public function articles()
     {
-        $post = Post::with("minister", "event")->orderByDesc('date_publication')->where('is_active', 1)->get();
-        $posts = Post::get();
+
         //   dd($posts);
-        return view('site.pages.articles', compact('post', 'posts'));
+        return view('site.pages.articles');
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        $articles = Post::query()->where('title', 'like', '%' . $query . '%')
+            ->orWhere('description', 'like', '%' . $query . '%')
+            ->orWhereHas('minister', function ($query) {
+                $query->where('fullname', 'like', '%' . $query . '%');
+            })
+            ->orderBy('date_publication', 'desc')
+            ->take(10) // Limite les résultats pour optimiser la requête
+            ->get();
+        dd($articles);
+        // $articles = Post::query()
+        //     ->where('title', 'like', "%{$query}%")
+        //     ->orWhere('body', 'like', "%{$query}%")
+        //     ->orWhereHas('minister', function ($q) use ($query) {
+        //         $q->where('fullname', 'like', "%{$query}%");
+        //     })
+        //     ->get();
+
+        return response()->json($articles);
     }
     /**
      * Show the form for creating a new resource.
@@ -131,7 +154,7 @@ class PostController extends Controller
         // $dayOfWeek = 3; // Exemple : Mardi
         // Trouver la clé (entier) correspondant au jour passé en paramètre
         $dayOfWeek = array_search(ucfirst(strtolower($jour)), $days);
-        // dd($dayOfWeek);
+        //dd($dayOfWeek);
 
         // Si le jour fourni est invalide, retourner une erreur ou une vue par défaut
         if (!$dayOfWeek) {
@@ -142,7 +165,7 @@ class PostController extends Controller
         }
         $post = Post::where('is_active', true)
             ->whereRaw('DAYOFWEEK(date_publication) = ?', [$dayOfWeek])
-            ->get();
+            ->first();
 
         $dayName = $days[$dayOfWeek]; // Résultat : "Mardi"
         $posts = Post::get();
@@ -151,10 +174,10 @@ class PostController extends Controller
     public function tagNamePast($slug)
     {
         // $post = Post::findOrFail($id);
-        $post = bySlug($slug, Post::class, col: 'minister_id');
+        $postt = bySlug($slug, Post::class);
         $posts = Post::get();
-        // dd($post);
-        return view("site.pages.articles", compact('post', 'posts'));
+        // dd($post->title);
+        return view("site.pages.article-details", compact('postt', 'posts'));
     }
     // public function show($slug)
     // {

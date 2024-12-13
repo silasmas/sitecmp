@@ -1,18 +1,18 @@
 @extends('site.layout.template', ['titre' => 'Detail article'])
 @section("metaPartage")
-<meta property="og:title" 		content="{{ $post->title }}">
+<meta property="og:title" 		content="{{ $postt->title }}">
     <meta property="og:type" 		content="website">
-    <meta property="og:author" 		content="{{ $post->minister->fullname??$post->author }}">
+    <meta property="og:author" 		content="{{ $postt->minister->fullname??$postt->author }}">
     <meta property="og:url" 		content="document.URL">
     <!--meta property="og:summary" 	content="Maintaining cultural coherence across a companies portfolio should be an essential factor when determining a corporate strategy."-->
-    <meta property="og:image" 		content="{{ url('/storage/'.$post->image_url) }}">
+    <meta property="og:image" 		content="{{ url('/storage/'.$postt->image_url) }}">
     <!--meta property="og:description" content="Maintaining cultural coherence across a companies portfolio should be an essential factor when determining a corporate strategy."-->
     <meta name="twitter:card" 		content="summary_large_image">
     <meta name="twitter:site" 		content="@eglisecmp">
     <meta name="twitter:creator" 	content="@eglisecmp">
-    <meta name="twitter:title" 		content="{{ $post->title }}" />
+    <meta name="twitter:title" 		content="{{ $postt->title }}" />
     <!--meta name="twitter:description" content="Maintaining cultural coherence across a companies portfolio should be an essential factor when determining a corporate strategy." /-->
-    <meta name="twitter:image" 		content="{{ url('/storage/'.$post->image_url) }}" />
+    <meta name="twitter:image" 		content="{{ url('/storage/'.$postt->image_url) }}" />
 @endsection
 @section("content")
 {{-- <section class="page-title bg-overlay-black-60 jarallax" data-speed="0.6"
@@ -39,8 +39,8 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="page-title-name">
-          <h1 class="text-black">{{ $post->title }}</h1>
-          <p class="text-black">{{ $post->event_id?"événement : ".$post->event->designation:"Culte hebdomadaire"}}</p>
+          <h1 class="text-black">{{ $postt->title }}</h1>
+          <p class="text-black">{{ $postt->event_id?"événement : ".$postt->event->designation:"Culte hebdomadaire"}}</p>
         </div>
         <ul class="page-breadcrumb">
           <li><a href="{{ route('home') }}"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i>
@@ -59,16 +59,16 @@ page-title -->
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12">
-        {{-- {{ dd($post) }} --}}
+        {{-- {{ dd($postt) }} --}}
         <div class="clearfix">
           <div class="popup-video-image popup-gallery">
-            <img class="img-fluid full-width" src="{{ asset("storage/".$post->image_url )}}" alt="">
+            <img class="img-fluid full-width" src="{{ asset("storage/".$postt->image_url )}}" alt="">
             <div class="popup-content">
-            @if ($post->link_url!=null)
-            <a class="popup-youtube" href="{{$post->link_url}}"> <i class="fa fa-play"></i>
+            @if ($postt->link_url!=null)
+            <a class="popup-youtube" href="{{$postt->link_url}}"> <i class="fa fa-play"></i>
             </a>
             @endif
-              <h2 class="text-white">{{ $post->title }}</h2>
+              <h2 class="text-white">{{ $postt->title }}</h2>
             </div>
           </div>
         </div>
@@ -85,19 +85,19 @@ page-title -->
       <div class="col-lg-12 col-md-12">
         <div class="blog-entry mb-50">
           <div class="entry-image clearfix">
-            <img class="img-fluid" src="{{ asset(" storage/".$post->image_url )}}" alt="">
+            <img class="img-fluid" src="{{ asset(" storage/".$postt->image_url )}}" alt="">
           </div>
           <div class="blog-detail">
             <div class="entry-title mb-10">
-              <a href="#">{{ $post->title }}</a>
+              <a href="#">{{ $postt->title }}</a>
             </div>
             <div class="entry-meta mb-10">
               <ul>
                 <li> <i class="fa fa-user"></i> <a href="#"></a>
-                  <a href="#"> {{ $post->minister->fullname??$post->author}}</a>
+                  <a href="#"> {{ $postt->minister->fullname??$postt->author}}</a>
                 </li>
                 <li><a href="#"><i class="fa fa-comment-o"></i> 0</a></li>
-                <li><a href="#"><i class="fa fa-calendar-o"></i>{{\Carbon\Carbon::parse($post->date_publication)->isoFormat('LLL') }}</a></li>
+                <li><a href="#"><i class="fa fa-calendar-o"></i>{{\Carbon\Carbon::parse($postt->date_publication)->isoFormat('LLL') }}</a></li>
                 Partager :
                 <li><div class="fb-share-button" data-layout="button_count" data-size="large" style="cursor: pointer">
                     <a target="_blank" onclick="facebookShared()" class="fb-xfbml-parse-ignore">Facebook <i class="fa-brands fa-facebook"></i></a></div></li>
@@ -110,7 +110,7 @@ page-title -->
             </ul>
             </div>
             <div class="entry-content">
-              <p>{!!$post->body!!}</p>
+              <p>{!!$postt->body!!}</p>
             </div>
             <div class="entry-share clearfix">
               <div class="entry-button">

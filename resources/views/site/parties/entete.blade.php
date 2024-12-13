@@ -79,6 +79,7 @@
     })(window,document,'script','dataLayer','GTM-PCXRNMCG');
     </script>
     <!-- End Google Tag Manager -->
+    @livewireStyles
 </head>
 
 <body>

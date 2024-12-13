@@ -26,7 +26,8 @@
 }
 </style>
 <section class="page-title bg-overlay-black-60 jarallax" data-speed="0.6"
-    data-img-src="{{ asset('assets/site/images/bg/B21-2024-fbc.jpg') }}">
+data-img-src="{{ asset('assets/site/images/bg/B21-2024-fbc.jpg')}}">
+
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -43,7 +44,11 @@
 <section class="blog white-bg page-section-ptb">
     <div class="container">
         <div class="row">
+            {{-- @livewire("test-search") --}}
             <div class="col-lg-9">
+                <div class="alert alert-warning" role="alert">
+                   {{ $post->count()." Article(s) trouvée(s)"}}
+                </div>
                 @forelse ($post as $p)
                 <div class="blog-entry mb-50">
                     <div class="entry-image clearfix">

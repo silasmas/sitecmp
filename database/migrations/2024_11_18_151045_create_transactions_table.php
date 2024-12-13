@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Offrande;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,16 +14,16 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->string(column: 'orderNumber')->nullable();
             $table->string(column: 'reference')->unique();
-            $table->string(column: 'montant')->nullable();
-            $table->string(column: 'devise')->nullable();
-            $table->string(column: 'type_paiement')->nullable();
-            $table->string(column: 'num_paiement')->nullable();
-            $table->string(column: 'operateur')->nullable();
-            $table->string(column: 'status')->default("0");
-            $table->string(column: 'message')->nullable();
+            $table->string(column: 'provider_reference')->nullable();
+            $table->string(column: 'order_number')->nullable();
+            $table->string(column: 'amount_customer')->nullable();
+            $table->string(column: 'phone')->nullable();
+            $table->string(column: 'currency')->nullable();
+            $table->string(column: 'chanel')->nullable();
             $table->string(column: 'description')->nullable();
+            $table->foreignIdFor(Offrande::class)->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->string(column: 'etat')->default("0");
             $table->timestamps();
         });
     }

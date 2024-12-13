@@ -15,7 +15,8 @@ if (!function_exists('bySlug')) {
     function bySlug($slug, $table, $col = null)
     {
         if ($col == null) {
-            return $table::where([['slug', $slug], ['is_active', true]])->first();
+            $rep = $table::where([['slug', $slug], ['is_active', true]])->first();
+            return $rep;
         } else {
             $minister = Minister::where('fullname', 'like', '%' . $slug . '%')
                 ->where('is_active', true)

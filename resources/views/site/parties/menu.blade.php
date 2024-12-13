@@ -135,6 +135,14 @@
                                         </div>
                                         </a>
                                     </li>
+                                    <li class="hoverTrigger {{ Route::current()->getName() == 'bunda' ? 'active' : '' }}">
+                                        <div class="dropdown">
+                                            <a href="{{ route('missionnaire') }}" class="link-drop" type="button">
+                                                Devenir missionnaire
+                                            </a>
+                                        </div>
+                                        </a>
+                                    </li>
 
                                 </ul>
 
@@ -142,6 +150,10 @@
                                     class="btn btn-primary btn-uppertext d-none d-lg-inline-block">
                                     @lang('miscellaneous.main_menu.contribution')
                                 </a>
+                                {{-- <a href="{{ route('contributions') }}" target="blank"
+                                    class="btn btn-primary btn-uppertext d-none d-lg-inline-block">
+                                    @lang('miscellaneous.main_menu.contribution')
+                                </a> --}}
                                 <div class="search-cart d-none d-lg-inline-block">
                                     {{-- <div class="shpping-cart">
                                         <div class="dropdown">

@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 
+use App\Models\Post;
 use App\Models\Event;
 use App\Models\Minister;
+use App\Models\Offrande;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
@@ -68,6 +70,9 @@ class ViewServiceProvider extends ServiceProvider
                 ->orderBy('month') // Trier par mois
                 ->get();
 
+            $post = Post::with("minister", "event")->orderByDesc('date_publication')->where('is_active', 1)->get();
+            $offrandes = Offrande::where('is_active', 1)->get();
+            $posts = Post::get();
             // dd($eventbunda);
             // Obtenir le total séparément si nécessaire
             $total = Event::where('is_active', true)
@@ -82,6 +87,9 @@ class ViewServiceProvider extends ServiceProvider
             $view->with('setting', $settings);
             $view->with('eventbunda', $eventbunda);
             $view->with('pasteurs', $pasteurs);
+            $view->with('post', $post);
+            $view->with('offrandes', $offrandes);
+            $view->with('posts', $posts);
         });
     }
 }
