@@ -8,7 +8,7 @@
         <h5>Menu</h5>
         <ul class="mt-4">
             <li>
-                <a class="{{ Route::current()->getName() == 'home' ? 'active' : '' }}" href="#home">
+                <a class="{{ Route::current()->getName() == 'home' ? 'active' : '' }}" href="{{ route('home') }}">
                     Accueil
                 </a>
             </li>
@@ -43,9 +43,17 @@
                 </div>
             </li>
             <li>
-                <a class=" {{ Route::current()->getName() == 'bunda' ? 'active' : '' }}" href="{{ route('bunda') }}">
-                    Bunda 21
+                <a class="dropdown-toggle {{ Route::current()->getName() == 'bunda' ? 'active' : '' }}"
+                    data-bs-toggle="collapse" href="#collapseAbout" role="button" aria-expanded="false"
+                    aria-controls="collapseExample">
+                   Bunda 21
                 </a>
+                <div class="collapse" id="collapseAbout">
+                    <div class="card card-body p-0" style="border: none">
+                        <a href="{{ route('bunda') }}">Pour la petite histoire</a>
+                        <a  href="{{ route('playliste') }}">Play liste</a>
+                    </div>
+                </div>
             </li>
             {{-- <li>
                 <a class="{{ Route::current()->getName() == 'projects' ? 'active' : '' }}"
