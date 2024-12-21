@@ -146,14 +146,14 @@
 
                                 </ul>
 
-                                {{-- <a href="https://vpos.flexpaie.com/pay/advanced/Q01Q" target="blank"
-                                    class="btn btn-primary btn-uppertext d-none d-lg-inline-block">
-                                    @lang('miscellaneous.main_menu.contribution')
-                                </a> --}}
-                                <a href="{{ route('contributions') }}"
+                                <a href="https://vpos.flexpaie.com/pay/advanced/Q01Q" target="blank"
                                     class="btn btn-primary btn-uppertext d-none d-lg-inline-block">
                                     @lang('miscellaneous.main_menu.contribution')
                                 </a>
+                                {{-- <a href="{{ route('contributions') }}"
+                                    class="btn btn-primary btn-uppertext d-none d-lg-inline-block">
+                                    @lang('miscellaneous.main_menu.contribution')
+                                </a> --}}
                                 <div class="search-cart d-none d-lg-inline-block">
                                     {{-- <div class="shpping-cart">
                                         <div class="dropdown">
