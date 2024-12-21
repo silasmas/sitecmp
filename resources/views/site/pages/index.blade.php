@@ -366,8 +366,8 @@
             </div>
         </div>
         <div class="row">
-            @forelse ($posts as $p)
-            <div class="col-md-4 xs-mb-40">
+            @forelse ($posts->take(6) as $p)
+            <div class="col-md-4 xs-mb-40 mb-5">
                 <div class="feature-box h-100 active">
                     <div class="feature-box-content">
                         <i class="fa fa-arrows"></i>

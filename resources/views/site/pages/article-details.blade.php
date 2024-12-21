@@ -106,7 +106,13 @@ page-title -->
                 Tweetter <i class="fa-brands fa-x-twitter"></i></a></li>
                 <li style="cursor: pointer"><a onclick="whatsappShared()" class="whatsapp wa_btn activeWhatsapp" style="margin-top:0; color:rgb(12, 11, 11);padding: 1px 1px 1px 9px;" target="_blank">
                     Whatsapp <i class="fa-brands fa-whatsapp"></i></a></li>
-
+                    <li>
+                        <a href="#"
+                            onclick="copyToClipboard('{{ route('show_article',['slug'=>creatSlug($postt->id)]) }}')"
+                            class="">
+                            <i class="fas fa-link"></i> Copier le lien
+                        </a>
+                    </li>
             </ul>
             </div>
             <div class="entry-content">

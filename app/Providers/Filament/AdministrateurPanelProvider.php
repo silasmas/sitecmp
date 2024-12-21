@@ -36,7 +36,8 @@ class AdministrateurPanelProvider extends PanelProvider
                 'warning' => Color::Orange,
             ])
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => "#650F1C",
+                // 'primary' => Color::Amber,
             ])
             ->brandName('Dashboard CMP')
             // ->viteTheme('resources/css/filament/admin/theme.css')

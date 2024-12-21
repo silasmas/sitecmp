@@ -13,41 +13,11 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name') }} |{{ isset($titre) ? $titre : '' }}</title>
-    {{-- @if (Route::current()->getName() == 'home')
-    {{ __('miscellaneous.main_menu.home') }}
-    @endif
-
-    @if (Route::current()->getName() == 'about')
-    {{ __('miscellaneous.main_menu.who_are_we.about') }}
-    @endif
-
-    @if (Route::current()->getName() == 'articles')
-    @lang('miscellaneous.main_menu.news')
-    @endif
-
-    @if (Route::current()->getName() == 'events')
-    @lang('miscellaneous.main_menu.events')
-    @endif
-
-    @if (Route::current()->getName() == 'news')
-    {{ __('miscellaneous.main_menu.news') }}
-    @endif
-
-    @if (Route::current()->getName() == 'news_details')
-    {{ __('miscellaneous.inner_page.news.details.title') }}
-    @endif
-
-    @if (Route::current()->getName() == 'contact')
-    @lang('miscellaneous.main_menu.who_are_we.contact')
-    @endif
-
-    @if (Route::current()->getName() == 'projects')
-    {{ __('miscellaneous.main_menu.projects') }}
-    @endif --}}
 
 
 
-    {{-- <link rel="shortcut icon" href="{{ asset('assets/site/img/favicon.png') }}" /> --}}
+    {{--
+    <link rel="shortcut icon" href="{{ asset('assets/site/img/favicon.png') }}" /> --}}
     @if($setting !== null && $setting->site_favicon!==null)
     <link rel="shortcut icon" href="{{ asset('storage/'.$setting->site_favicon) }}" />
 

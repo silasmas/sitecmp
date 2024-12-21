@@ -4,29 +4,28 @@
 @section("content")
 
 <style>
-    ********** jQuery Ellipsis **********/
-.ellip {
-    display: block;
-    height: 100%;
-    transition: .3s;
-}
+    ********** jQuery Ellipsis **********/ .ellip {
+        display: block;
+        height: 100%;
+        transition: .3s;
+    }
 
-.ellip-line {
-    display: inline-block;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    word-wrap: normal;
-    max-width: 100%;
-}
+    .ellip-line {
+        display: inline-block;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        word-wrap: normal;
+        max-width: 100%;
+    }
 
-.ellip,
-.ellip-line {
-    position: relative;
-    overflow: hidden;
-}
+    .ellip,
+    .ellip-line {
+        position: relative;
+        overflow: hidden;
+    }
 </style>
 <section class="page-title bg-overlay-black-60 jarallax" data-speed="0.6"
-data-img-src="{{ asset('assets/site/images/bg/B21-2024-fbc.jpg')}}">
+    data-img-src="{{ asset('assets/site/images/bg/B21-2024-fbc.jpg')}}">
 
     <div class="container">
         <div class="row">
@@ -47,7 +46,7 @@ data-img-src="{{ asset('assets/site/images/bg/B21-2024-fbc.jpg')}}">
             {{-- @livewire("test-search") --}}
             <div class="col-lg-9">
                 <div class="alert alert-warning" role="alert">
-                   {{ $post->count()." Article(s) trouvée(s)"}}
+                    {{ $post->count()." Article(s) trouvée(s)"}}
                 </div>
                 @forelse ($post as $p)
                 <div class="blog-entry mb-50">
@@ -80,12 +79,19 @@ data-img-src="{{ asset('assets/site/images/bg/B21-2024-fbc.jpg')}}">
                             <div class="social list-style-none float-end">
                                 <strong>@lang("miscellaneous.share") </strong>
                                 <ul>
-                                    <li><a href="https://facebook.com/sharer.php?u={{ "eglisecmp.com" }}"
+                                    <li><a href="https://facebook.com/sharer.php?u={{ " eglisecmp.com" }}"
                                             target="blank"><span class="ti-facebook"></span></a></li>
                                     <li><a href="https://instagram.com/eglisecmp?igshid=OGQ5ZDc2ODk2ZA=="
                                             target="blank"><span class="ti-instagram"></span></a></li>
                                     <li><a href="https://twitter.com/EgliseCMP" target="blank"><i
                                                 class="fa-brands fa-x-twitter"></i></a></li>
+                                    <li>
+                                        <a href="#"
+                                            onclick="copyToClipboard('{{ route('show_article',['slug'=>creatSlug($p->id)]) }}')"
+                                            class="">
+                                            <i class="fas fa-link"></i> Copier le lien
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

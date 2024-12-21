@@ -36,6 +36,15 @@
 @livewireScripts
 
 <script>
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            swal({
+                title: 'Text',
+                text:"Lien copié dans le presse-papiers",
+                icon: 'info'
+                    })
+        });
+    }
      /* MULTILINE TEXT TRUNCATION */
      $('.paragraph-ellipsis').each(function () {
         $(this).find('.paragraph').ellipsis({
