@@ -1,7 +1,6 @@
 @include('site.parties.entete')
 @include('site.parties.menu-responsive')
 @include('site.parties.menu')
-@yield("content")
-
+{{-- @yield("content") --}}
 @include('site.parties.footer')
 @include('site.parties.pied')
