@@ -1,6 +1,5 @@
 <?php
 
-use App\Filament\Administrateur\Resources\MissionnaireResource\Pages\PublicMissionnaireForm;
 use App\Http\Resources\Gallery;
 use App\Http\Controllers\Minister;
 use Illuminate\Support\Facades\Route;
@@ -10,9 +9,11 @@ use App\Http\Controllers\VideoController;
 use App\Http\Controllers\ProjetController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FaithfulController;
-use App\Http\Controllers\MissionnaireController;
+use App\Http\Controllers\OffrandeController;
 use App\Http\Controllers\TestimialController;
 use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\MissionnaireController;
+use App\Filament\Administrateur\Resources\MissionnaireResource\Pages\PublicMissionnaireForm;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,16 @@ Route::post('/newsletter', [NewsletterController::class, 'store'])->name('newsle
 Route::post('/temoignage', [TestimialController::class, 'store'])->name('temoignage');
 Route::post('/storEvent', [EventController::class, 'store'])->name('storEvent');
 Route::post('/storeMissionnaire', [MissionnaireController::class, 'store'])->name('storeMissionnaire');
+
+Route::post('paieOffrande', action: [OffrandeController::class, 'paieOffrande'])->name('paieOffrande');
+
+Route::post('storeTransaction', action: [OffrandeController::class, 'store'])->name(name: 'storeTransaction');
+
+Route::get('/checkTransactionStatus', [OffrandeController::class, 'checkTransactionStatus'])->name('checkTransactionStatus');
+
+Route::get('/paid/{reference}/{amount}/{currency}/{code}', [OffrandeController::class, 'paid'])->whereNumber(['amount', 'code'])->name('paid');
+
+
 
 Route::get('/search-articles', [PostController::class, 'search'])->name('search.articles');
 

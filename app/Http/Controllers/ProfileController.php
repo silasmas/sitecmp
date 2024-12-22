@@ -37,7 +37,7 @@ class ProfileController extends Controller
         $testimonials = Testimonial::where("is_active", "=", 1)->orderBy("created_at", "DESC")->get();
         // $event_popup = Event::where("is_active","=", 1)->where("date_fin", '>', $mytime)->where("est_popup","=", 1)->orderBy('date_debut', 'ASC')->take(1)->get();
         // dd($posts);
-        return view('site.pages.index')->with([
+        return view('site.pages.home')->with([
             'title' => "Accueil",
             'EnteteState' => $tableaudesEtats,
             'events' => $events,

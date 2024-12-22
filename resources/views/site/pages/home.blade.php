@@ -496,5 +496,261 @@
         </div>
     </div>
 </section>
+<section class="page-section-ptb white-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title text-center mb-80">
+                    <h6>Rejoignez-nous et participez à nos célébrations dont voici les horaires</h6>
+                    <h2 class="title-effect">NOS PROGRAMMES</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row g-3 g-lg-4">
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="pricing-table h-100">
+                    <div class="pricing-top h-100">
+                        <img src="{{asset('assets/images/mercredi.png')}}" alt="" class="img-icon">
+                        <div class="pricing-title">
+                            <div class="mb-15 badge-day">@lang('miscellaneous.day.complete.wednesday')</div>
+                            <h3 class="title-card">Culte d'enseignement biblique</h3>
+                        </div>
+                        <div class="time-line-prog d-flex flex-column">
+                            <div class="item-line">
+                                <div class="icon">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                                17h30 - 19h30
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 ">
+                <div class="pricing-table h-100">
+                    <div class="pricing-top h-100">
+                        <img src="{{asset('assets/images/jeudi.png')}}" alt="" class="img-icon">
+                        <div class="pricing-title">
+                            <div class="mb-15 badge-day">@lang('miscellaneous.day.complete.thursday')</div>
+                            <h3 class="title-card">Culte d'intercession (Jeudi Etoko)</h3>
+                        </div>
+                        <div class="time-line-prog d-flex flex-column">
+                            <div class="item-line">
+                                <div class="icon">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                                17h30 - 19h30
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 ">
+                <div class="pricing-table h-100 mt-5 mt-lg-0">
+                    <div class="pricing-top h-100">
+                        <img src="{{asset('assets/images/samedi.png')}}" alt="" class="img-icon">
+                        <div class="pricing-title">
+                            <div class="mb-15 badge-day">@lang('miscellaneous.day.complete.saturday')</div>
+                            <h3 class="title-card">Réunion de la jeunesse</h3>
+                        </div>
+                        <div class="time-line-prog d-flex flex-column">
+                            <div class="item-line">
+                                <div class="icon">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                                16h30 - 18h30
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 ">
+                <div class="pricing-table h-100 mt-5 mt-lg-0">
+                    <div class="pricing-top h-100">
+                        <img src="{{asset('assets/images/dimanche.png')}}" alt="" class="img-icon">
+                        <div class="pricing-title">
+                            <div class="mb-15 badge-day">@lang('miscellaneous.day.complete.sunday')</div>
+                            <h3 class="title-card">Culte dominical</h3>
+                        </div>
+
+                        <div class="time-line-prog d-flex flex-column">
+                            <div class="item-line">
+                                <div class="icon">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                                07h00-09h00 (FR)
+                            </div>
+                            <div class="item-line">
+                                <div class="icon">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                                09h30-11h30 (FR-EN)<br>
+                                <a href="http://"> <i class="fa fa-facebook-square"></i></a>
+                                <a href="http://"> <i class="fa fa-youtube-play"></i></a>
+                                <a href="http://"> <i class="fa fa-twitter-square"></i></a>
+                            </div>
+                            <div class="item-line">
+                                <div class="icon">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                                12h00 -14h00 (LN)
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+{{-- Temoignages --}}
+<section class="gray-bg page-section-pt happy-clients">
+    <div class="container">
+        <div class="row justify-content-center">
+            {{-- <div class="col-lg-6 align-self-end">
+                <img class="d-xs-block d-lg-block d-none img-fluid"
+                    src="{{ asset('asets/site/images/objects/testimonial.jpg') }}" alt="">
+            </div> --}}
+            <div class="col-lg-8 mt-60">
+                <div class="section-title text-center">
+                    <h6 class="text-intro mb-lg-3">Ce que Dieu a fait</h6>
+                    <h2 class="title-effect">Nos fidèles parlent</h2>
+                </div>
+                <div class="tab">
+                    {{-- <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show text-center active" id="testi-01">
+                            <span class="quoter-icon">“</span>
+                            <p>I had a few things I needed help with on this template... Their customer service was
+                                amazing and helped me out many times. All fits and works well and good!! Top marks. One
+                                of the complete template with different requirements. Thanks a lot for such great
+                                features, pages, shortcodes and home variations. Incredible Job.</p>
+                            <div class="testimonial-avatar">
+                                <h5>Acapella </h5>
+                                <span>ThemeForest user</span>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade text-center" id="testi-02">
+                            <span class="quoter-icon">“</span>
+                            <p>Really like the cleanliness of the design, the documentation and the content-blocks.
+                                Obviously it is still a relatively new template (version 1.0.3), so it lacks some
+                                features that you'll find in more mature templates. But their support is swift and very
+                                co-operative. Kudos!</p>
+                            <div class="testimonial-avatar">
+                                <h5>Tenfore </h5>
+                                <span>ThemeForest user</span>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade text-center" id="testi-03">
+                            <span class="quoter-icon">“</span>
+                            <p> One of the complete template with different requirements. Thanks a lot for such great
+                                features, pages, shortcodes and home variations. Incredible Job. I had a few things I
+                                needed help with on this template... Their customer service was amazing and helped me
+                                out many times. All fits and works well and good!! Top marks.</p>
+                            <div class="testimonial-avatar">
+                                <h5>Acapella </h5>
+                                <span>ThemeForest user</span>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade text-center" id="testi-04">
+                            <span class="quoter-icon">“</span>
+                            <p>The quality of design is very good and make sense to the real world requirement. yes its
+                                multipurpose template and i found what i wanted from this theme. perfectly suitable for
+                                my business and design is flexible with multiple layout provided. good work keep it up.
+                            </p>
+                            <div class="testimonial-avatar">
+                                <h5>Shopperbox </h5>
+                                <span>ThemeForest user</span>
+                            </div>
+                        </div>
+                        <ul class="nav nav-tabs mt-60 d-flex justify-content-center" id="myTab" role="tablist">
+                            <li><a class="nav-item active" href="#testi-01" data-bs-toggle="tab"><img class="img-fluid"
+                                        src="{{ asset('assets/site/images/team/01.jpg') }}" alt=""> </a></li>
+                            <li><a class="nav-item" href="#testi-02" data-bs-toggle="tab"><img class="img-fluid"
+                                        src="{{ asset('assets/site/images/team/02.jpg') }}" alt=""> </a></li>
+                            <li><a class="nav-item" href="#testi-03" data-bs-toggle="tab"><img class="img-fluid"
+                                        src="{{ asset('assets/site/images/team/03.jpg') }}" alt=""> </a></li>
+                            <li><a class="nav-item" href="#testi-04" data-bs-toggle="tab"><img class="img-fluid"
+                                        src="{{ asset('assets/site/images/team/04.jpg') }}" alt=""> </a></li>
+                        </ul>
+                    </div> --}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- barre d'adresse --}}
+<section class="contact-box contact-box-top theme-bg">
+    <div class="container">
+        <div class="row pt-20 pb-40">
+            <div class="col-md-4 sm-mb-30">
+                <div class="contact-box">
+                    <div class="contact-icon">
+                        <i class="ti-map text-white"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h5 class="text-white"> </h5>
+                        <span class="text-white">
+                            @lang('miscellaneous.footer.address1') <br> @lang('miscellaneous.footer.address2')
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 sm-mb-30">
+                <div class="contact-box">
+                    <div class="contact-icon">
+                        <i class="ti-headphone text-white"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h5 class="text-white"></h5>
+                        <span class="text-white">
+                            <a href="tel:243897000227"> <span>+243897000227 </span> </a>
+                         <a href="tel:243818772740"> <span>+243818772740</span> </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="contact-box">
+                    <div class="contact-icon">
+                        <i class="ti-email text-white"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h5 class="text-white"></h5>
+                        <span class="text-white">eglisecmp@gmail.com
+                            Support: dev@eglisecmp.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- Google map --}}
+<section class="google-map black-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="map-icon">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="map-open">
+        <h6 class="lacks-heading d-none">Lacks Heading</h6> <!-- lacks heading for w3c -->
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8351288872545!2d144.9556518!3d-37.8173306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sEnvato!5e0!3m2!1sen!2sin!4v1443621171568"
+            style="border:0; width: 100%; height: 300px;"></iframe>
+    </div>
+</section>
+
 @endsection
 
