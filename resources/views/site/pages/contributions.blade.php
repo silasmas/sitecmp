@@ -11,32 +11,32 @@
 
 </style>
 
-<div class="bg-overlay-black-60 parallax" style="background-image: url(../assets/site/images/bg/bg.png);">
+<div class="bg-overlay-black-60 parallax" style="background-image: url(../assets/site/images/bg/bg1.png);">
     <section class="section-transparent page-section-pb">
         <div class="container">
             <div class="row justify-content-center position-relative">
                 <div class="col-lg-6 col-md-8">
-                    <div class="logo text-center mb-10 mt-10">
+                    <div class="mt-10 mb-10 text-center logo">
                         <a href="{{ route('home') }}"><img class="logo-small" style="height: 120px; width: 120px;"id="logo_img" src="{{asset('storage/'.$setting->site_logo)}}" alt="logo">
                         </a>
                     </div>
-                    <div class="login-bg clearfix">
+                    <div class="clearfix login-bg">
                         <div class="login-title">
-                            <h2 class="text-white mb-0">Offrez au Seigneur</h2>
+                            <h2 class="mb-0 text-white">Offrez au Seigneur</h2>
                             <small class="text-white"> 2 Corinthiens 9:7 <br> Que chacun donne comme il l'a décidé dans son cœur, sans regret ni contrainte ; car Dieu aime celui qui donne avec joie.</small>
                         </div>
                         <form action="" id="FormPaiment" data-parsley-validate>
                             <div class="login-form">
                                 <div class="row" id="ifAnonymat">
-                                    <div class="section-field mb-20 col-sm-6">
+                                    <div class="mb-20 section-field col-sm-6">
                                         <label class="mb-10" for="fullname">Nom complet* </label>
                                         <input required id="fullname" name="fullname" class="web form-control" type="text" placeholder="Votre nom au complet">
                                     </div>
-                                    <div class="section-field mb-20 col-sm-6">
+                                    <div class="mb-20 section-field col-sm-6">
                                         <label class="mb-10" for="phoneNumber">Téléphone* </label>
                                         <input required id="phoneNumber" name="phoneNumber" class="web form-control" type="text" placeholder="Numéro de téléphone">
                                     </div>
-                                    <div class="section-field mb-20 col-sm-12">
+                                    <div class="mb-20 section-field col-sm-12">
                                         <label class="mb-10" for="">Pays* </label>
                                           @include('site.parties.pays')
                                     </div>
@@ -53,7 +53,7 @@
                                 <div class="mb-20 section-field">
                                     <label class="mb-10" for="">Selectionnez un type d'offrande* </label>
                                     <div class="mb-4 box">
-                                        <select required class="wide fancyselect mb-5" name="offrande_id">
+                                        <select required class="mb-5 wide fancyselect" name="offrande_id">
                                             <option data-display="Type d'offrande">Type d'offrande</option>
                                             @forelse ($offrandes as $of)
                                             <option value="{{ $of->id}}">{{$of->nom}}</option>
@@ -64,13 +64,13 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="section-field mb-20 col-sm-8">
+                                    <div class="mb-20 section-field col-sm-8">
                                         <label class="mb-10" for="montant">Montant* </label>
                                         <input required id="montant" name="montant" class="web form-control" type="number" placeholder="Ecrivez un montant en entier">
                                     </div>
-                                    <div class="section-field mb-20 col-sm-4">
+                                    <div class="mb-20 section-field col-sm-4">
                                         <label class="mb-10" for="fullname">Monnaie*</label>
-                                        <select required class="wide fancyselect mb-5" id="monaie" name="monaie">
+                                        <select required class="mb-5 wide fancyselect" id="monaie" name="monaie">
                                             <option data-display="La monaie">La monnaie</option>
                                             <option value="CDF">Franc congolais</option>
                                             <option value="USD">Dollard</option>
@@ -99,7 +99,7 @@
                                 </p>
                             </div>
                         </form>
-                        <div class="login-social text-center  medium color clearfix">
+                        <div class="clearfix text-center login-social medium color">
                             <h4 class="theme-color mb-30">Suivez-nous :</h4>
                             <ul>
                                 <li {{ $settings['facebook']==null?'hidden':$settings['facebook'] }}>
