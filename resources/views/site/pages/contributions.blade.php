@@ -11,7 +11,7 @@
 
 </style>
 
-<div class="bg-overlay-black-60 parallax" style="background-image: url(../assets/site/images/bg/bg1.png);">
+<div class="bg-overlay-black-60 parallax" style="background-image: url(../assets/site/images/bg/bg.jpg);">
     <section class="section-transparent page-section-pb">
         <div class="container">
             <div class="row justify-content-center position-relative">
