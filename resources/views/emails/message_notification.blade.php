@@ -21,13 +21,18 @@
             border-radius: 8px;
             overflow: hidden;
         }
+        .email-headerlg {
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+        }
         .email-header {
             background-color: #650F1C;
             color: white;
             padding: 20px;
             text-align: center;
         }
-        .email-header img {
+        .email-headerlg img {
             max-width: 150px;
             margin-bottom: 10px;
         }
@@ -69,6 +74,10 @@
 <body>
     <div class="email-container">
         <!-- En-tête avec le logo -->
+        <div class="email-headerlg">
+            <img src="{{ asset('storage/'.$site->site_logo) }}" alt="Logo de l'entreprise">
+
+        </div>
         <div class="email-header">
             <img src="{{ asset('storage/'.$site->site_logo) }}" alt="Logo de l'entreprise">
             <h1>Notification sur les requêtes de prière</h1>
