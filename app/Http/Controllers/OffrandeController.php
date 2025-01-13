@@ -71,6 +71,7 @@ class OffrandeController extends Controller
                 $data = json_encode($data);
                 $ch = curl_init();
 
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
                 curl_setopt($ch, CURLOPT_URL, env("FLEXPAY_GATEWAY_MOBILE"));
                 curl_setopt($ch, CURLOPT_POST, true);
                 curl_setopt($ch, CURLOPT_HTTPHEADER, array(

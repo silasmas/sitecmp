@@ -230,6 +230,7 @@
                 <button class="nav-link" id="pills-fournisseur-tab" data-bs-toggle="pill" data-bs-target="#cellules"
                     type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Nos cellules</button>
             </li>
+
         </ul>
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="collegePastoral" role="tabpanel" aria-labelledby="pills-home-tab"
@@ -431,6 +432,7 @@
             <div class="tab-pane fade" id="pills-lot" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
             </div>
 
+
         </div>
 
     </div>
@@ -554,4 +556,45 @@
     </div>
 </section>
 @include("site.parties.modal")
+@endsection
+@section("script")
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+
+<script>
+    const url = "{{ asset("assets/document/horaire.pdf") }}"; // Chemin vers votre PDF
+
+    // Configuration de PDF.js
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
+    const pdfViewer = document.getElementById('pdf-viewer');
+
+    // Charger le PDF
+    pdfjsLib.getDocument(url).promise.then(pdf => {
+        // Pour chaque page du PDF
+        for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+            pdf.getPage(pageNum).then(page => {
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d');
+                const viewport = page.getViewport({ scale: 1.5 }); // Échelle d'affichage
+
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+
+                // Ajouter le canvas au conteneur
+                pdfViewer.appendChild(canvas);
+
+                // Rendre la page dans le canvas
+                const renderContext = {
+                    canvasContext: context,
+                    viewport: viewport
+                };
+                page.render(renderContext);
+            });
+        }
+    }).catch(error => {
+        console.error('Erreur lors du chargement du PDF :', error);
+        pdfViewer.innerHTML = '<p>Impossible de charger le PDF.</p>';
+    });
+</script>
+
 @endsection

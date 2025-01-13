@@ -143,6 +143,14 @@
                                         </div>
                                         </a>
                                     </li>
+                                    <li class="hoverTrigger {{ Route::current()->getName() == 'bunda' ? 'active' : '' }}">
+                                        <div class="dropdown">
+                                            <a href="{{ route('reception') }}" class="link-drop" type="button">
+                                               Reception pastorale
+                                            </a>
+                                        </div>
+                                        </a>
+                                    </li>
 
                                 </ul>
 

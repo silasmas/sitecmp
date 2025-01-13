@@ -40,7 +40,7 @@
                                         Assemblées...
                                     </p>
                                     <div class="d-flex align-items-center justify-content-center">
-                                        <a href="{{ route('about') }}" class="btn btn-primary">Savoir plus</a>
+                                        <a href="{{ route('requete') }}" class="btn btn-primary">Ma requete de prière</a>
                                     </div>
                                 </div>
                             </div>

@@ -14,6 +14,9 @@ use App\Http\Controllers\TestimialController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\MissionnaireController;
 use App\Filament\Administrateur\Resources\MissionnaireResource\Pages\PublicMissionnaireForm;
+use App\Http\Controllers\ReceptionScheduleController;
+use App\Http\Controllers\RequeteController;
+use App\Models\reception_schedule;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +50,8 @@ Route::get('/articles_day/{slug}', [PostController::class, 'show'])->name('artic
 Route::get('detailProjet/{id}', [ProjetController::class, 'show'])->name('detailProjet');
 Route::get('welcome', [FaithfulController::class, 'index'])->name('welcome');
 Route::get('missionnaire', [FaithfulController::class, 'missionnaire'])->name('missionnaire');
+Route::get('requete', [RequeteController::class, 'index'])->name('requete');
+Route::get('reception', [ReceptionScheduleController::class, 'index'])->name('reception');
 
 Route::post('/newsletter', [NewsletterController::class, 'store'])->name('newsletter');
 Route::post('/temoignage', [TestimialController::class, 'store'])->name('temoignage');
@@ -56,6 +61,7 @@ Route::post('/storeMissionnaire', [MissionnaireController::class, 'store'])->nam
 Route::post('paieOffrande', action: [OffrandeController::class, 'paieOffrande'])->name('paieOffrande');
 
 Route::post('storeTransaction', action: [OffrandeController::class, 'store'])->name(name: 'storeTransaction');
+Route::post('storeRequete', action: [RequeteController::class, 'store'])->name(name: 'storeRequete');
 
 Route::get('/checkTransactionStatus', [OffrandeController::class, 'checkTransactionStatus'])->name('checkTransactionStatus');
 

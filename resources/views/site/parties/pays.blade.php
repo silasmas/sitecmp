@@ -38,6 +38,7 @@
     <option value="Colombia">Colombia</option>
     <option value="Comoros">Comoros</option>
     <option value="Congo (Congo-Brazzaville)">Congo (Congo-Brazzaville)</option>
+    <option value="Congo (RDC)">RD Congo</option>
     <option value="Costa Rica">Costa Rica</option>
     <option value="Croatia">Croatia</option>
     <option value="Cuba">Cuba</option>
