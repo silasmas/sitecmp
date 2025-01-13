@@ -185,7 +185,7 @@
                             icon: 'success'
                         });
                         $("#FormPaiment")[0].reset();
-
+                        toggleRequired();
                     }
                 },
                 error: function (xhr, status, error) {

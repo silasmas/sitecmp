@@ -27,7 +27,7 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::composer('site.*', function ($view) {
+        View::composer('*', function ($view) {
             $titre = getTitle(Route::currentRouteName());
 
             $settings = DB::table('general_settings')->first();
@@ -73,7 +73,7 @@ class ViewServiceProvider extends ServiceProvider
             $post = Post::with("minister", "event")->orderByDesc('date_publication')->where('is_active', 1)->get();
             $offrandes = Offrande::where('is_active', 1)->get();
             $posts = Post::get();
-            // dd($eventbunda);
+
             // Obtenir le total séparément si nécessaire
             $total = Event::where('is_active', true)
                 ->whereRaw('JSON_UNQUOTE(JSON_EXTRACT(designation, "$.fr")) LIKE ?', ['%Bunda%'])
@@ -82,8 +82,11 @@ class ViewServiceProvider extends ServiceProvider
 
 
             $st = ($settings !== null && $settings->social_network !== null) ? json_decode($settings->social_network, true) : "";
+            $st2 = ($settings !== null && $settings->site_logo !== null) ? $settings : "";
+
             $view->with('title', $titre);
             $view->with('settings', $st);
+            $view->with('site', $st2);
             $view->with('setting', $settings);
             $view->with('eventbunda', $eventbunda);
             $view->with('pasteurs', $pasteurs);

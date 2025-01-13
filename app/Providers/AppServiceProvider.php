@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
+use App\Models\Requete;
+use App\Observers\RequeteObserver;
 use Filament\Forms\Components\Wizard;
+use Illuminate\Support\ServiceProvider;
 
 /**
  * @author Xanders
@@ -25,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Requete::observe(RequeteObserver::class);
         // \Filament\Resources\Resource::registerResources([
         //     \App\Filament\Administrateur\Resources\MissionnaireResource::class,
         // ]);
