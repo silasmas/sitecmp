@@ -84,7 +84,7 @@
             <p>Si vous avez des questions ou des préoccupations, n'hésitez pas à contacter l'administrateur.</p>
 
             <!-- Bouton de connexion -->
-            <a href="{{ url(config('app.url').'/admin') }}" class="btn">Aller sur la partie admin</a>
+            <a href="{{ url(config('app.url').'/administrateur') }}" class="btn">Aller sur la partie admin</a>
 
             <p>Cordialement,</p>
             <p><strong>L'équipe de {{ config('app.name') }}</strong></p>
