@@ -79,7 +79,6 @@
 
         </div>
         <div class="email-header">
-            <img src="{{ asset('storage/'.$site->site_logo) }}" alt="Logo de l'entreprise">
             <h1>Notification sur les requêtes de prière</h1>
         </div>
 
