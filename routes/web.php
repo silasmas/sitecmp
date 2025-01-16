@@ -17,6 +17,7 @@ use App\Filament\Administrateur\Resources\MissionnaireResource\Pages\PublicMissi
 use App\Http\Controllers\ReceptionScheduleController;
 use App\Http\Controllers\RequeteController;
 use App\Models\reception_schedule;
+use App\Http\Controllers\ExportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +68,10 @@ Route::get('/checkTransactionStatus', [OffrandeController::class, 'checkTransact
 
 Route::get('/paid/{reference}/{amount}/{currency}/{code}', [OffrandeController::class, 'paid'])->whereNumber(['amount', 'code'])->name('paid');
 
+
+
+Route::get('/users/export/excel', [ExportController::class, 'exportExcel'])->name('users.export.excel');
+Route::get('/users/export/pdf', [ExportController::class, 'exportPdf'])->name('users.export.pdf');
 
 
 Route::get('/search-articles', [PostController::class, 'search'])->name('search.articles');
