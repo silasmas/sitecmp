@@ -3,6 +3,7 @@
 namespace App\Exports;
 
 use App\Models\Requete;
+use Illuminate\Support\Facades\Session;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\FromCollection;
@@ -20,7 +21,20 @@ class RequeteExport implements FromCollection, WithHeadings, WithMapping
      */
     public function collection()
     {
-        return Requete::select($this->columns)->get();
+        // Récupère les filtres depuis la session
+        $filters = Session::get('filters', []);
+        // Applique les filtres à la requête
+        $query = Requete::query();
+
+        if (!empty($filters['created_at']['created_from'])) {
+            $query->whereDate('created_at', '>=', $filters['created_at']['created_from']);
+        }
+
+        if (!empty($filters['created_at']['created_to'])) {
+            $query->whereDate('created_at', '<=', $filters['created_at']['created_to']);
+        }
+        return $query->select($this->columns)->get();
+        // return Requete::select($this->columns)->get();
     }
 
     /**

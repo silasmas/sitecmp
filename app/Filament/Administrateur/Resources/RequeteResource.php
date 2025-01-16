@@ -65,16 +65,49 @@ class RequeteResource extends Resource
             ->headerActions([
                 Action::make('Export Excel')
                     ->label('Exporter en Excel')
-                    ->url(route('users.export.excel')) // Route vers l'export Excel
-                    ->icon('heroicon-o-arrow-down-tray'),
+                    // ->url(route('users.export.excel')) // Route vers l'export Excel
+                    ->icon('heroicon-o-arrow-down-tray')
+                    ->action(function ($livewire) {
+                        // Récupère les filtres appliqués
+                        $filters = $livewire->tableFilters;
+
+                        // Stocke les filtres dans la session
+                        session(['filters' => $filters]);
+
+                        // Redirige vers la route d'export Excel
+                        return redirect()->route('users.export.excel');
+                    }),
 
                 Action::make('Export PDF')
                     ->label('Exporter en PDF')
-                    ->url(route('users.export.pdf')) // Route vers l'export PDF
-                    ->icon('heroicon-o-document-text'),
+                    // ->url(route('users.export.pdf')) // Route vers l'export PDF
+                    ->icon('heroicon-o-document-text')
+                    ->action(function ($livewire) {
+
+                        // Récupère les filtres appliqués
+                        $filters = $livewire->tableFilters;
+
+                        // Stocke les filtres dans la session
+                        session(['filters' => $filters]);
+
+                        // Redirige vers la route d'export PDF
+                        return redirect()->route('users.export.pdf');
+                    }),
+
             ])
             ->filters([
-                //
+                // Ajouter vos filtres ici
+                Tables\Filters\Filter::make('created_at')
+                    ->label('Date de création')
+                    ->form([
+                        Forms\Components\DatePicker::make('created_from')->label('À partir de'),
+                        Forms\Components\DatePicker::make('created_to')->label('Jusqu\'à'),
+                    ])
+                    ->query(function ($query, $data) {
+                        return $query
+                            ->when($data['created_from'], fn($query) => $query->whereDate('created_at', '>=', $data['created_from']))
+                            ->when($data['created_to'], fn($query) => $query->whereDate('created_at', '<=', $data['created_to']));
+                    }),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
@@ -106,8 +139,8 @@ class RequeteResource extends Resource
     {
         return [
             'index' => Pages\ListRequetes::route('/'),
-            'create' => Pages\CreateRequete::route('/create'),
-            'edit' => Pages\EditRequete::route('/{record}/edit'),
+            // 'create' => Pages\CreateRequete::route('/create'),
+            // 'edit' => Pages\EditRequete::route('/{record}/edit'),
         ];
     }
 

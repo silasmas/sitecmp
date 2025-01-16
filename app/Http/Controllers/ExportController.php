@@ -8,20 +8,45 @@ use Illuminate\Http\Request;
 use App\Exports\RequeteExport;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Session;
 
 class ExportController extends Controller
 {
 
     public function exportPdf()
     {
-        $requetes = Requete::all(); // Adaptez à votre logique
+        // Récupère les filtres depuis la session
+        $filters = Session::get('filters', []);
+
+        // Applique les filtres à la requête
+        $query = Requete::query();
+        if (!empty($filters['created_at']['created_from'])) {
+            $query->whereDate('created_at', '>=', $filters['created_at']['created_from']);
+        }
+
+        if (!empty($filters['created_at']['created_to'])) {
+            $query->whereDate('created_at', '<=', $filters['created_at']['created_to']);
+        }
+
+        // Récupère les données filtrées
+        $requetes = $query->select('id', 'name', 'email', 'created_at', 'updated_at')->get();
+
+        // Génère le PDF à partir d'une vue
+        // $pdf = Pdf::loadView('exports.requetes',  compact('requetes'))
+        //     ->setPaper('a4', 'landscape'); // Orientation paysage
+
+        // Télécharge le fichier PDF
         $pdf = Pdf::loadView('exports.requetes', compact('requetes'))->setPaper('a4', 'landscape');
+        // return $pdf->download('users.pdf');
+        // $requetes = Requete::all(); // Adaptez à votre logique
+
 
         return $pdf->download('requetes.pdf');
     }
 
     public function exportExcel()
     {
+        Session::forget('filters');
         $columns = ['id', 'fullname', 'email', 'phone', 'pays', 'requete', 'created_at']; // Inclure uniquement ces colonnes
         return Excel::download(new RequeteExport($columns), 'requetes.xlsx');
     }
