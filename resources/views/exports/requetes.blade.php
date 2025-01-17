@@ -15,6 +15,12 @@
         th {
             background-color: #f2f2f2; /* Fond des en-têtes */
         }
+        td, th {
+        text-align: center; /* Centre le contenu */
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9; /* Fond gris clair pour les lignes paires */
+    }
     </style>
 </head>
 <body>

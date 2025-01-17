@@ -17,8 +17,7 @@ class ExportController extends Controller
     {
         // Récupère les filtres depuis la session
         $filters = Session::get('filters', []);
-
-        // Applique les filtres à la requête
+        // // Applique les filtres à la requête
         $query = Requete::query();
         if (!empty($filters['created_at']['created_from'])) {
             $query->whereDate('created_at', '>=', $filters['created_at']['created_from']);
@@ -29,7 +28,8 @@ class ExportController extends Controller
         }
 
         // Récupère les données filtrées
-        $requetes = $query->select('id', 'name', 'email', 'created_at', 'updated_at')->get();
+        $requetes =$query->select('id', 'fullname', 'email', 'phone', 'pays', 'requete', 'created_at')->get();
+    //    dd($requetes);
 
         // Génère le PDF à partir d'une vue
         // $pdf = Pdf::loadView('exports.requetes',  compact('requetes'))
@@ -39,7 +39,7 @@ class ExportController extends Controller
         $pdf = Pdf::loadView('exports.requetes', compact('requetes'))->setPaper('a4', 'landscape');
         // return $pdf->download('users.pdf');
         // $requetes = Requete::all(); // Adaptez à votre logique
-
+        Session::forget('filters');
 
         return $pdf->download('requetes.pdf');
     }
@@ -47,7 +47,6 @@ class ExportController extends Controller
     public function exportExcel()
     {
         Session::forget('filters');
-        $columns = ['id', 'fullname', 'email', 'phone', 'pays', 'requete', 'created_at']; // Inclure uniquement ces colonnes
-        return Excel::download(new RequeteExport($columns), 'requetes.xlsx');
+        return Excel::download(new RequeteExport, 'requetes.xlsx');
     }
 }

@@ -80,17 +80,16 @@ class RequeteResource extends Resource
 
                 Action::make('Export PDF')
                     ->label('Exporter en PDF')
-                    // ->url(route('users.export.pdf')) // Route vers l'export PDF
+                    ->url(route('users.export.pdf')) // Route vers l'export PDF
                     ->icon('heroicon-o-document-text')
                     ->action(function ($livewire) {
-
                         // Récupère les filtres appliqués
                         $filters = $livewire->tableFilters;
 
                         // Stocke les filtres dans la session
                         session(['filters' => $filters]);
 
-                        // Redirige vers la route d'export PDF
+                        // Redirige vers la route d'export Excel
                         return redirect()->route('users.export.pdf');
                     }),
 
