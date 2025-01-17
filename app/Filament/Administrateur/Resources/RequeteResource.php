@@ -9,6 +9,10 @@ use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use Filament\Tables\Actions\Action;
+use Filament\Tables\Filters\Filter;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\DatePicker;
+use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Administrateur\Resources\RequeteResource\Pages;
@@ -17,6 +21,7 @@ use App\Filament\Administrateur\Resources\RequeteResource\RelationManagers;
 class RequeteResource extends Resource
 {
     protected static ?string $model = Requete::class;
+    protected static ?string $pollingInterval = '500ms';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -45,19 +50,19 @@ class RequeteResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('fullname')
+                TextColumn::make('fullname')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('email')
+                TextColumn::make('email')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('phone')
+                TextColumn::make('phone')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('pays')
+                TextColumn::make('pays')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -80,32 +85,57 @@ class RequeteResource extends Resource
 
                 Action::make('Export PDF')
                     ->label('Exporter en PDF')
+                    ->openUrlInNewTab(false)
                     ->url(route('users.export.pdf')) // Route vers l'export PDF
                     ->icon('heroicon-o-document-text')
                     ->action(function ($livewire) {
-                        // Récupère les filtres appliqués
                         $filters = $livewire->tableFilters;
 
-                        // Stocke les filtres dans la session
-                        session(['filters' => $filters]);
+                        $query = \App\Models\Requete::query();
+                        if (!empty($filters['pays'])) {
+                            $query->where('pays', $filters['pays']);
+                        }
 
-                        // Redirige vers la route d'export Excel
-                        return redirect()->route('users.export.pdf');
+                        $requetes = $query->select('id', 'fullname', 'email', 'phone', 'pays', 'requete', 'created_at')->get();
+
+                        $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('exports.requetes', compact('requetes'))->setPaper('a4', 'landscape');
+
+                        return $livewire->response()->streamDownload(
+                            fn() => print($pdf->output()),
+                            'requetes.pdf',
+                            ['Content-Type' => 'application/pdf']
+                        );
                     }),
 
             ])
             ->filters([
                 // Ajouter vos filtres ici
-                Tables\Filters\Filter::make('created_at')
+                Filter::make('created_at')
                     ->label('Date de création')
                     ->form([
-                        Forms\Components\DatePicker::make('created_from')->label('À partir de'),
-                        Forms\Components\DatePicker::make('created_to')->label('Jusqu\'à'),
+                        DatePicker::make('created_from')->label('À partir de'),
+                        DatePicker::make('created_to')->label('Jusqu\'à'),
                     ])
                     ->query(function ($query, $data) {
                         return $query
                             ->when($data['created_from'], fn($query) => $query->whereDate('created_at', '>=', $data['created_from']))
                             ->when($data['created_to'], fn($query) => $query->whereDate('created_at', '<=', $data['created_to']));
+                    }),
+                SelectFilter::make('pays')
+                    ->label('Pays')
+                    ->options(function () {
+                        // Générer dynamiquement les options
+                       $options= Requete::query()
+                            ->distinct()
+                            ->pluck('pays', 'pays')
+                            ->toArray();
+                            return !empty($options) ? $options : []; // Retourne un tableau vide si aucune option
+                    })
+                    ->placeholder('Tous les pays')
+                    ->query(function ($query, $data) {
+                        if (!empty($data['pays'])) {
+                            $query->where('pays', $data['pays']);
+                        }
                     }),
             ])
             ->actions([

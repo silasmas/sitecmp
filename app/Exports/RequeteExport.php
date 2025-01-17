@@ -33,6 +33,11 @@ class RequeteExport implements FromCollection, WithHeadings, WithMapping
         if (!empty($filters['created_at']['created_to'])) {
             $query->whereDate('created_at', '<=', $filters['created_at']['created_to']);
         }
+        // Appliquer le filtre par pays
+        if (!empty($filters['pays'])) {
+            $query->where('pays', $filters['pays']);
+        }
+
         return $query->select($this->columns)->get();
         // return Requete::select($this->columns)->get();
     }
