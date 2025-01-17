@@ -70,18 +70,18 @@ class RequeteResource extends Resource
             ->headerActions([
                 Action::make('Export Excel')
                     ->label('Exporter en Excel')
-                    // ->url(route('users.export.excel')) // Route vers l'export Excel
-                    ->icon('heroicon-o-arrow-down-tray')
-                    ->action(function ($livewire) {
-                        // Récupère les filtres appliqués
-                        $filters = $livewire->tableFilters;
+                    ->url(route('users.export.excel')) // Route vers l'export Excel
+                    ->icon('heroicon-o-arrow-down-tray'),
+                    // ->action(function ($livewire) {
+                    //     // Récupère les filtres appliqués
+                    //     $filters = $livewire->tableFilters;
 
-                        // Stocke les filtres dans la session
-                        session(['filters' => $filters]);
+                    //     // Stocke les filtres dans la session
+                    //     session(['filters' => $filters]);
 
-                        // Redirige vers la route d'export Excel
-                        return redirect()->route('users.export.excel');
-                    }),
+                    //     // Redirige vers la route d'export Excel
+                    //     return redirect()->route('users.export.excel');
+                    // }),
                 Action::make('Export PDF')
                     ->label('Exporter en PDF')
                     ->icon('heroicon-o-document-text')
