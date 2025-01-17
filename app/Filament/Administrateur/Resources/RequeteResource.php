@@ -82,30 +82,45 @@ class RequeteResource extends Resource
                         // Redirige vers la route d'export Excel
                         return redirect()->route('users.export.excel');
                     }),
-
                 Action::make('Export PDF')
                     ->label('Exporter en PDF')
-                    ->openUrlInNewTab(false)
-                    ->url(route('users.export.pdf')) // Route vers l'export PDF
                     ->icon('heroicon-o-document-text')
                     ->action(function ($livewire) {
+                        // Récupère les filtres appliqués
                         $filters = $livewire->tableFilters;
 
-                        $query = \App\Models\Requete::query();
-                        if (!empty($filters['pays'])) {
-                            $query->where('pays', $filters['pays']);
-                        }
+                        // Stocke les filtres dans la session
+                        session(['filters' => $filters]);
 
-                        $requetes = $query->select('id', 'fullname', 'email', 'phone', 'pays', 'requete', 'created_at')->get();
-
-                        $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('exports.requetes', compact('requetes'))->setPaper('a4', 'landscape');
-
-                        return $livewire->response()->streamDownload(
-                            fn() => print($pdf->output()),
-                            'requetes.pdf',
-                            ['Content-Type' => 'application/pdf']
-                        );
+                        // Redirige vers la route d'export PDF
+                        return redirect()->route('users.export.pdf');
                     }),
+                //     Action::make('Export PDF')
+                //     ->url(route('users.export.pdf'))
+                //     ->icon('heroicon-o-document-text'),
+                // Action::make('Export PDF')
+                //     ->label('Exporter en PDF')
+                //     ->openUrlInNewTab(false)
+                //     ->url(route('users.export.pdf')) // Route vers l'export PDF
+                //     ->icon('heroicon-o-document-text'),
+                // ->action(function ($livewire) {
+                //     $filters = $livewire->tableFilters;
+
+                //     $query = \App\Models\Requete::query();
+                //     if (!empty($filters['pays'])) {
+                //         $query->where('pays', $filters['pays']);
+                //     }
+
+                //     $requetes = $query->select('id', 'fullname', 'email', 'phone', 'pays', 'requete', 'created_at')->get();
+
+                //     $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('exports.requetes', compact('requetes'))->setPaper('a4', 'landscape');
+
+                //     return $livewire->response()->streamDownload(
+                //         fn() => print($pdf->output()),
+                //         'requetes.pdf',
+                //         ['Content-Type' => 'application/pdf']
+                //     );
+                // }),
 
             ])
             ->filters([
@@ -125,11 +140,11 @@ class RequeteResource extends Resource
                     ->label('Pays')
                     ->options(function () {
                         // Générer dynamiquement les options
-                       $options= Requete::query()
+                        $options = Requete::query()
                             ->distinct()
                             ->pluck('pays', 'pays')
                             ->toArray();
-                            return !empty($options) ? $options : []; // Retourne un tableau vide si aucune option
+                        return !empty($options) ? $options : []; // Retourne un tableau vide si aucune option
                     })
                     ->placeholder('Tous les pays')
                     ->query(function ($query, $data) {
