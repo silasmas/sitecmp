@@ -171,8 +171,8 @@
                 <div class="feature-box h-100 active">
                     <div class="feature-box-content">
                         <i class="fa fa-arrows"></i>
-                        <h4>{{ $p->title }}</h4>
-                        <p>{{ $p->minister->fullname??$p->author}} {{ $p->author?"":"(Pasteur)"}} </p>
+                        {{-- <h4>{{ $p->title }}</h4>
+                        <p>{{ $p->minister->fullname??$p->author}} {{ $p->author?"":"(Pasteur)"}} </p> --}}
                     </div>
                     <div class="content-link">
                         <a href="{{ route('show_article',['slug'=>creatSlug($p->id)]) }}">Lire la suite</a>
