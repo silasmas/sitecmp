@@ -93,7 +93,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
 
 <script>
-    const url = "{{ asset("assets/document/horaire.pdf") }}"; // Chemin vers votre PDF
+    const url = "{{ asset("assets/document/doc1.pdf") }}"; // Chemin vers votre PDF
     const pdfCanvas = document.getElementById('pdf-canvas');
     const ctx = pdfCanvas.getContext('2d');
     const pageInfo = document.getElementById('page-info');
