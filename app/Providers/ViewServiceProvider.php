@@ -72,7 +72,7 @@ class ViewServiceProvider extends ServiceProvider
 
             $post = Post::with("minister", "event")->orderByDesc('date_publication')->where('is_active', 1)->get();
             $offrandes = Offrande::where('is_active', 1)->get();
-            $posts = Post::get();
+            $posts = Post::orderByDesc('date_publication')->get();
 
             // Obtenir le total séparément si nécessaire
             $total = Event::where('is_active', true)
