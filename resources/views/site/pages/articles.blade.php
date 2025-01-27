@@ -24,21 +24,9 @@
         overflow: hidden;
     }
 </style>
-<section class="page-title bg-overlay-black-60 jarallax" data-speed="0.6"
-    data-img-src="{{ asset('assets/site/images/bg/B21-2024-fbc.jpg')}}">
 
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="page-title-name">
-                    <h1>Nos articles</h1>
-                    <p>Dernières parutions</p>
-                </div>
+@include("site.parties.banniere",["t1"=> "Nos articles","t2"=>"Dernières parutions","img"=>"slide1.png"])
 
-            </div>
-        </div>
-    </div>
-</section>
 @include("site.parties.info")
 <section class="blog white-bg page-section-ptb">
     <div class="container">

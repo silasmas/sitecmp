@@ -135,7 +135,7 @@
                                         </div>
                                         </a>
                                     </li>
-                                    <li class="hoverTrigger {{ Route::current()->getName() == 'bunda' ? 'active' : '' }}">
+                                    <li class="hoverTrigger {{ Route::current()->getName() == 'missionnaire' ? 'active' : '' }}">
                                         <div class="dropdown">
                                             <a href="{{ route('missionnaire') }}" class="link-drop" type="button">
                                                 Devenir missionnaire
@@ -143,7 +143,7 @@
                                         </div>
                                         </a>
                                     </li>
-                                    <li class="hoverTrigger {{ Route::current()->getName() == 'bunda' ? 'active' : '' }}">
+                                    <li class="hoverTrigger {{ Route::current()->getName() == 'reception' ? 'active' : '' }}">
                                         <div class="dropdown">
                                             <a href="{{ route('reception') }}" class="link-drop" type="button">
                                                Reception pastorale

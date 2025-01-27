@@ -15,45 +15,8 @@
     <meta name="twitter:image" 		content="{{ url('/storage/'.$postt->image_url) }}" />
 @endsection
 @section("content")
-{{-- <section class="page-title bg-overlay-black-60 jarallax" data-speed="0.6"
-  data-img-src="{{ asset('assets/site/images/bg/02.jpg') }}">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="page-title-name">
-          <p></p>
-        </div>
-        <ul class="page-breadcrumb">
-          <li><a href="{{ route('home') }}"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i>
-          </li>
-          <li><a href="{{ route('articles') }}">Articles</a> <i class="fa fa-angle-double-right"></i></li>
-          <li><span>{{ $post->title }}</span> </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section> --}}
-<section class="page-title about-mission-title center bg-overlay-black-50 jarallax" data-speed="0.6"
-  data-img-src="{{ asset('assets/site/images/bg/B21-2024-fbc.jpg') }}">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="page-title-name">
-          <h1 class="text-black">{{ $postt->title }}</h1>
-          <p class="text-black">{{ $postt->event_id?"événement : ".$postt->event->designation:"Culte hebdomadaire"}}</p>
-        </div>
-        <ul class="page-breadcrumb">
-          <li><a href="{{ route('home') }}"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i>
-          </li>
-          <li><a href="{{ route('articles') }}">Articles</a> <i class="fa fa-angle-double-right"></i></li>
-          <li><span></span> </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-<!--=================================
-page-title -->
+
+@include("site.parties.banniere",["t1"=>"$postt->title ","t2"=> $postt->event_id?"événement : ".$postt->event->designation:"Culte hebdomadaire","img"=>"slide1.png"])
 
 <section class="about-mission">
   <div class="container">

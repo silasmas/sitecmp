@@ -2,19 +2,7 @@
 
 @section("content")
 
-<section class="page-title bg-overlay-black-60 jarallax" data-speed="0.6"
-    data-img-src="{{ asset('assets/site/images/bg/B21-2024-fbc.jpg') }}">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="page-title-name">
-                    <h1> @lang("miscellaneous.main_menu.who_are_we.title")</h1>
-                    <p>@lang("miscellaneous.inner_page.about.banner_title1")</p>
-
-                </div>
-            </div>
-        </div>
-</section>
+@include("site.parties.banniere",["t1"=> __("miscellaneous.main_menu.who_are_we.title"),"t2"=>__("miscellaneous.inner_page.about.banner_title1"),"img"=>"slide2.png"])
 
 @include("site.parties.info")
 <section class="our-history white-bg page-section-ptb">

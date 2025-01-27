@@ -1,21 +1,9 @@
 @extends('site.layout.template', ['titre' => 'Media'])
 
 @section("content")
-<section class="page-title bg-overlay-black-60 jarallax" data-speed="0.6"
-    data-img-src="{{ asset('assets/site/images/bg/B21-2024-fbc.jpg') }}">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="page-title-name">
-                    <h1>Notre gallerie</h1>
-                    <p>En images et en vidéos</p>
-                </div>
 
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
+@include("site.parties.banniere",["t1"=>"Notre gallerie","t2"=>"En images et en vidéos","img"=>"02.jpg"])
+
 @include("site.parties.info")
 <section class="white-bg page-section-ptb">
     <div class="container">
