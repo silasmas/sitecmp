@@ -1,4 +1,4 @@
-@include("site.parties.entete")
+@include("site.parties.entete",['titre' => ' Requete de prière'])
 <style>.fade-out {
     opacity: 0; /* Rendre invisible */
     transition: opacity 0.3s ease; /* Animation fluide */

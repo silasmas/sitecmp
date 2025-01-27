@@ -16,17 +16,7 @@
             <div class="carousel-item active">
                 <div class="content-banner">
                     <div class="bg-banner">
-                        <img src="{{ asset('assets/site/revolution/assets/slider-01/B21-2024-tw.jpg') }}"
-                            alt="image de banière">
-                    </div>
-                    <div class="container">
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="content-banner">
-                    <div class="bg-banner">
-                        <img src="{{ asset('assets/site/revolution/assets/slider-01/SLIDE1.jpg') }}"
+                        <img src="{{ asset('assets/site/revolution/assets/slider-01/SLIDE4.jpg') }}"
                             alt="image de banière">
                     </div>
                     <div class="container">
@@ -51,7 +41,30 @@
             <div class="carousel-item">
                 <div class="content-banner">
                     <div class="bg-banner">
-                        <img src="{{ asset('assets/site/revolution/assets/slider-01/SLIDE2.jpg') }}"
+                        <img src="{{ asset('assets/site/revolution/assets/slider-01/slide1.png') }}"
+                            alt="image de banière">
+                    </div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8 mx-auto">
+                                <div class="block text-center">
+                                    <h2 class="mb-lg-3" style="color: #650F1C">Bienvenue à Philadelphie</h2>
+                                    <p class="mb-lg-4 mx-auto" style="color: #650F1C">
+                                        La louange au centre de nos cultes et rencontres pour l'honneur du Seigneur Jesus-Christ
+                                    </p>
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <a href="{{ route('requete') }}" class="btn btn-primary">Ma requete de prière</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="content-banner">
+                    <div class="bg-banner">
+                        <img src="{{ asset('assets/site/revolution/assets/slider-01/slide2.png') }}"
                             alt="image de banière">
                     </div>
                     <div class="container">
@@ -59,14 +72,14 @@
                             <div class="col-lg-8">
                                 <div class="block">
                                     <h2 class="mb-lg-3" style="color: #650F1C"> Bienvenue à Philadelphie</h2>
-                                    <p class="mb-lg-4 ">
+                                    <p class="mb-lg-4 "style="color: #650F1C">
                                         Le Centre Missionnaire Philadelphie est une église locale de la 37ème Communauté
                                         des
                                         Assemblées...
                                     </p>
                                     <div class="d-flex align-items-right">
                                         {{-- <a href="#" class="btn btn-primary">Savoir plus</a> --}}
-                                        <a href="#" class="btn btn-white">Contactez-nous</a>
+                                        <a href="#" class="btn btn-primary">Contactez-nous</a>
                                     </div>
                                 </div>
                             </div>
@@ -85,14 +98,14 @@
                             <div class="col-lg-8">
                                 <div class="block">
                                     <h2 class="mb-lg-3" style="color: #650F1C"> Bienvenue à Philadelphie</h2>
-                                    <p class="mb-lg-4 ">
+                                    <p class="mb-lg-4 "style="color: #650F1C">
                                         Le Centre Missionnaire Philadelphie est une église locale de la 37ème Communauté
                                         des
                                         Assemblées...
                                     </p>
                                     <div class="d-flex align-items-right">
                                         {{-- <a href="#" class="btn btn-primary">Savoir plus</a> --}}
-                                        <a href="#" class="btn btn-white">Contactez-nous</a>
+                                        <a href="#" class="btn btn-primary">Contactez-nous</a>
                                     </div>
                                 </div>
                             </div>
@@ -118,7 +131,7 @@
                                     </p>
                                     <div class="d-flex align-items-right">
                                         {{-- <a href="#" class="btn btn-primary">Savoir plus</a> --}}
-                                        <a href="#" class="btn btn-white">Contactez-nous</a>
+                                        <a href="#" class="btn btn-primary">Contactez-nous</a>
                                     </div>
                                 </div>
                             </div>
@@ -333,7 +346,7 @@
 </section>
 
 <section class="our-service-home page-section-ptb bg-overlay-black-80 jarallax" data-speed="0.6"
-    data-img-src="{{ asset('assets/site/images/bg/06.jpg') }}">
+    data-img-src="{{ asset('assets/site/images/bg/stat.png') }}">
     <div class="container">
         <div class="row mb-60 justify-content-center">
             <div class="col-md-8">
@@ -409,7 +422,7 @@
                 <div class="isotope popup-gallery columns-3 no-padding">
                     <div class="grid-item">
                         <div class="portfolio-item">
-                            <img src="{{ asset('assets/site/images/portfolio/small/01.jpg') }}" alt="">
+                            <img src="{{ asset('assets/site/images/portfolio/small/dimache.png') }}" alt="">
                             <div class="portfolio-overlay">
                                 <h4 class="text-white"> <a href="{{ route('media') }}">Culte dominicale</a>
                                 </h4>
@@ -417,41 +430,13 @@
                                     </a> </span>
                             </div>
                             <a class="popup portfolio-img"
-                                href="{{ asset('assets/site/images/portfolio/small/01.jpg') }}"><i
+                                href="{{ asset('assets/site/images/portfolio/small/dimache.png') }}"><i
                                     class="fa fa-arrows-alt"></i></a>
                         </div>
                     </div>
                     <div class="grid-item">
                         <div class="portfolio-item">
-                            <img src="{{ asset('assets/site/images/portfolio/small/02.jpg') }}" alt="">
-                            <div class="portfolio-overlay">
-                                <h4 class="text-white"> <a href="{{ route('media') }}"> Prière pour la nation</a>
-                                </h4>
-                                <span class="text-white"> <a href="#">CMP</a>| Jeune et prière<a href="#"></a>
-                                </span>
-                            </div>
-                            <a class="popup portfolio-img"
-                                href="{{ asset('assets/site/images/portfolio/small/02.jpg') }}"><i
-                                    class="fa fa-arrows-alt"></i></a>
-                        </div>
-                    </div>
-                    <div class="grid-item">
-                        <div class="portfolio-item">
-                            <img src="{{ asset('assets/site/images/portfolio/small/03.jpg') }}" alt="">
-                            <div class="portfolio-overlay">
-                                <h4 class="text-white"> <a href="{{ route('media') }}"> Jeudi étoko</a>
-                                </h4>
-                                <span class="text-white"> <a href="#">CMP</a>| Jeudi<a href="#">
-                                    </a> </span>
-                            </div>
-                            <a class="popup portfolio-img"
-                                href="{{ asset('assets/site/images/portfolio/small/03.jpg') }}"><i
-                                    class="fa fa-arrows-alt"></i></a>
-                        </div>
-                    </div>
-                    <div class="grid-item">
-                        <div class="portfolio-item">
-                            <img src="{{ asset('assets/site/images/portfolio/small/4.jpg') }}" alt="">
+                            <img src="{{ asset('assets/site/images/portfolio/small/mercredi.png') }}" alt="">
                             <div class="portfolio-overlay">
                                 <h4 class="text-white"> <a href="{{ route('media') }}">Culte d'enseignement</a>
                                 </h4>
@@ -460,13 +445,42 @@
                                 </span>
                             </div>
                             <a class="popup portfolio-img"
-                                href="{{ asset('assets/site/images/portfolio/small/04.jpg') }}"><i
+                                href="{{ asset('assets/site/images/portfolio/small/mercredi.png') }}"><i
                                     class="fa fa-arrows-alt"></i></a>
                         </div>
                     </div>
                     <div class="grid-item">
                         <div class="portfolio-item">
-                            <img src="{{ asset('assets/site/images/portfolio/small/05.jpg') }}" alt="">
+                            <img src="{{ asset('assets/site/images/portfolio/small/jeudi.png') }}" alt="">
+                            <div class="portfolio-overlay">
+                                <h4 class="text-white"> <a href="{{ route('media') }}"> Jeudi étoko</a>
+                                </h4>
+                                <span class="text-white"> <a href="#">CMP</a>| Jeudi<a href="#">
+                                    </a> </span>
+                            </div>
+                            <a class="popup portfolio-img"
+                                href="{{ asset('assets/site/images/portfolio/small/jeudi.png') }}"><i
+                                    class="fa fa-arrows-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="grid-item">
+                        <div class="portfolio-item">
+                            <img src="{{ asset('assets/site/images/portfolio/small/b.png') }}" alt="">
+                            <div class="portfolio-overlay">
+                                <h4 class="text-white"> <a href="{{ route('media') }}">Culte d'enseignement</a>
+                                </h4>
+                                <span class="text-white"> <a href="#"> CMP </a>| Mercredi<a href="#">
+                                    </a>
+                                </span>
+                            </div>
+                            <a class="popup portfolio-img"
+                                href="{{ asset('assets/site/images/portfolio/small/b.png') }}"><i
+                                    class="fa fa-arrows-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="grid-item">
+                        <div class="portfolio-item">
+                            <img src="{{ asset('assets/site/images/portfolio/small/02.jpg') }}" alt="">
                             <div class="portfolio-overlay">
                                 <h4 class="text-white"> <a href="{{ route('media') }}"> Pour notre nation
                                     </a> </h4>
@@ -480,14 +494,14 @@
                     </div>
                     <div class="grid-item">
                         <div class="portfolio-item">
-                            <img src="{{ asset('assets/site/images/portfolio/small/06.jpg') }}" alt="">
+                            <img src="{{ asset('assets/site/images/portfolio/small/05.jpg') }}" height="210" alt="">
                             <div class="portfolio-overlay">
                                 <h4 class="text-white"> <a href="{{ route('media') }}"> La prière pour la nation </a>
                                 </h4>
                                 <span class="text-white"> <a href="#"> CMP </a>| Séminaire<a href="#"></a> </span>
                             </div>
                             <a class="popup portfolio-img"
-                                href="{{ asset('assets/site/images/portfolio/small/06.jpg') }}"><i
+                                href="{{ asset('assets/site/images/portfolio/small/05.jpg') }}"><i
                                     class="fa fa-arrows-alt"></i></a>
                         </div>
                     </div>

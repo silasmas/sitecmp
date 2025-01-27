@@ -1,4 +1,4 @@
-@extends('site.layout.template', ['titre' => 'Media'])
+@extends('site.layout.template', ['titre' => 'Reception pastorale'])
 
 @section("content")
 <style>
