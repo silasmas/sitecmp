@@ -89,7 +89,7 @@
                         </div>
                     </div>
                     <div class="col-lg-12 xol-md-12" id="image-container"
-                        data-url="{{ asset('storage/'.$actualites->img_url) }}">
+                        data-url="{{ asset('storage/'.$actualites->pdf) }}">
                         <div id="pdf-viewer" style="display: flex; justify-content: center; overflow: hidden;">
                             <canvas id="pdf-canvas"
                                 style="border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"></canvas>
