@@ -2,6 +2,7 @@
 
 namespace App\Filament\Administrateur\Resources;
 
+use Carbon\Carbon;
 use Filament\Forms;
 use Filament\Tables;
 use Filament\Forms\Form;
@@ -129,8 +130,7 @@ class ActualitesResource extends Resource
                 TextColumn::make('expire_at')
                     ->label('Date d’expiration')
                     ->dateTime('d/m/Y H:i')
-                    ->sortable()
-                    ->default('-'),
+                    ->sortable(),
                 IconColumn::make('is_active')
                     ->label("Est actif")
                     ->boolean(),
