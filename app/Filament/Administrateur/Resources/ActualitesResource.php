@@ -4,7 +4,7 @@ namespace App\Filament\Administrateur\Resources;
 
 use App\Filament\Administrateur\Resources\ActualitesResource\Pages;
 use App\Filament\Administrateur\Resources\ActualitesResource\RelationManagers;
-use App\Models\Actualites;
+use App\Models\actualites;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ActualitesResource extends Resource
 {
-    protected static ?string $model = Actualites::class;
+    protected static ?string $model = actualites::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-newspaper';
 

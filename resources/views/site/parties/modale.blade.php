@@ -48,19 +48,20 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header align-items-start">
-                <div class="modal-title" id="exampleModalLongTitle"><div class="section-title mb-10">
-                    <h6>Sujets de prière</h6>
-                    <h3>Pour l'amour de mon pays, je ne me tairai point !</h3>
-                    <p>
-                        Ésaïe 62:1
-                        "Pour l'amour de Sion je ne me tairai point,
-                        Pour l'amour de Jérusalem je ne prendrai point de repos,
-                        Jusqu'à ce que son salut paraisse,
-                        Comme l'aurore,
-                        Et sa délivrance comme un flambeau qui s'allume."
-                    </p>
-                  </div>
-                  </div>
+                <div class="modal-title" id="exampleModalLongTitle">
+                    <div class="section-title mb-10">
+                        <h6>Sujets de prière</h6>
+                        <h3>Pour l'amour de mon pays, je ne me tairai point !</h3>
+                        <p>
+                            Ésaïe 62:1
+                            "Pour l'amour de Sion je ne me tairai point,
+                            Pour l'amour de Jérusalem je ne prendrai point de repos,
+                            Jusqu'à ce que son salut paraisse,
+                            Comme l'aurore,
+                            Et sa délivrance comme un flambeau qui s'allume."
+                        </p>
+                    </div>
+                </div>
                 <button type="button" class="close btn btn-lg p-0 " data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -70,18 +71,26 @@
 
                     <div class="col-md-12 mt-10">
                         <div id="pdf-controls" style="text-align: center; margin-bottom: 20px;">
-                            <div id="nav-controls" hidden>
-                                <button id="prev-page">Précédent</button>
-                                <span id="page-info">Page <span id="current-page"></span> sur <span
-                                        id="total-pages"></span></span>
-                                <button id="next-page">Suivant</button>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-12 mb-10">
+                                    <div id="nav-controls" hidden>
+                                        <button id="prev-page">Précédent</button>
+                                        <span id="page-info">Page <span id="current-page"></span> sur <span
+                                                id="total-pages"></span></span>
+                                        <button id="next-page">Suivant</button>
 
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-8 mb-5">
+                                    <button id="zoom-in">Zoom +</button>
+                                    <button id="zoom-out">Zoom -</button>
+                                </div>
+                                <div class="col-lg-12 col-md-4">
+                                    <button id="download-btn">Télécharger
+                                        <i class="fa-solid fa-file-pdf"></i>
+                                    </button>
+                                </div>
                             </div>
-                            <button id="zoom-in">Zoom +</button>
-                            <button id="zoom-out">Zoom -</button>
-
-
-<button id="download-btn">Télécharger le PDF</button>
                         </div>
                     </div>
                     <div class="col-lg-12 xol-md-12">
