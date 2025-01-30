@@ -765,6 +765,21 @@
             style="border:0; width: 100%; height: 300px;"></iframe>
     </div>
 </section>
-
+@if($actualites)
+@include("site.parties.modale")
+@endif
 @endsection
+
+@if($actualites)
+<script>
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        var myModal = new bootstrap.Modal(document.querySelector(".bd-example-modal-lg"));
+        myModal.show();
+    });
+    document.getElementById("download-btn").addEventListener("click", function () {
+        window.location.href = "{{ route('download.pdf') }}";
+    });
+</script>
+@endif
 
