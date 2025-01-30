@@ -50,7 +50,7 @@
             <div class="modal-header align-items-start">
                 <div class="modal-title" id="exampleModalLongTitle">
                     <div class="section-title mb-10">
-                        <h6> {{ $actualites->sousTitre }}</h6>
+                        <h6> {{ $actualites->soutTitre }}</h6>
                         <h3>{{ $actualites->titre }}</h3>
                         <p>
                             {!! $actualites->description !!}
