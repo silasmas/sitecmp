@@ -88,6 +88,15 @@ Route::get('/symlink', action: function () {
 
 // Route::get('missionnaire', PublicMissionnaireForm::class)->name('missionnaire');
 
+Route::get('/download-pdf', function () {
+    $filePath = public_path('assets/document/SujetsPrières.pdf'); // Assurez-vous que le fichier existe dans public/
+
+    if (!file_exists($filePath)) {
+        abort(404, 'Fichier non trouvé');
+    }
+
+    return response()->download($filePath, 'SujetsPrières.pdf');
+})->name('download.pdf');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

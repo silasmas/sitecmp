@@ -34,8 +34,16 @@
 <script src="{{ asset('assets/site/js/sweetalert/sweetalert.min.js') }}"></script>
 
 @yield("script")
-@livewireScripts
-
+{{-- @livewireScripts --}}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var myModal = new bootstrap.Modal(document.querySelector(".bd-example-modal-lg"));
+        myModal.show();
+    });
+    document.getElementById("download-btn").addEventListener("click", function () {
+        window.location.href = "{{ route('download.pdf') }}";
+    });
+</script>
 <script>
     function copyToClipboard(text) {
         navigator.clipboard.writeText(text).then(() => {

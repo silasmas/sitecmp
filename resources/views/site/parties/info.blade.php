@@ -8,14 +8,14 @@
             <p>Partagez votre requête de prière et unissons-nous dans la foi, car la prière fervente du juste a une grande efficacité</p>
         </div>
         <div class="action-box-button">
-            {{-- <a class="button button-border white" href="void()"  data-bs-toggle="modal"
+            <a class="button button-border white" href="void()"  data-bs-toggle="modal"
             data-bs-target=".bd-example-modal-lg" onclick="event.preventDefault()">
               <span>Cliquer ici</span>
               <i class="fa fa-eye"></i>
-           </a><br> --}}
-           <a href="{{ route('requete') }}" class="button button-border white" >
+           </a><br>
+           {{-- <a href="{{ route('requete') }}" class="button button-border white" >
             <span>Ma requete de prière</span>
-            <i class="fa fa-eye"></i>
+            <i class="fa fa-eye"></i> --}}
          </a>
 
        </div>
