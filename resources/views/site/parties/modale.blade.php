@@ -64,6 +64,12 @@
             <div class="modal-body">
                 <div class="row mt-0 justify-content-center">
                     @if ($actualites->img_url!="")
+                   
+                        {{-- <div class="col-lg-12 col-md-4">
+                            <button id="download-btn">Télécharger
+                                <i class="fa-solid fa-file-pdf"></i>
+                            </button>
+                        </div> --}}
                     <div class="col-lg-12 xol-md-12">
                         <div class="owl-carousel" data-nav-dots="true" data-autoheight="true" data-items="1"
                             data-md-items="1" data-sm-items="1" data-xs-items="1" data-xx-items="1" data-space="20">

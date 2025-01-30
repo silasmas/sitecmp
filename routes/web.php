@@ -97,6 +97,24 @@ Route::get('/download-pdf', function () {
 
     return response()->download($filePath, 'SujetsPrières.pdf');
 })->name('download.pdf');
+Route::get('/download-img/{filename}', function ($filename) {
+    $filePath = public_path('storage/' . $filename); // Supposons que les images soient stockées dans "public/images"
+
+    // Vérification de l'existence du fichier
+    if (!file_exists($filePath)) {
+        abort(404, 'Fichier non trouvé');
+    }
+
+    // Vérification de l'extension autorisée
+    $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'pdf'];
+    $extension = pathinfo($filePath, PATHINFO_EXTENSION);
+
+    if (!in_array(strtolower($extension), $allowedExtensions)) {
+        abort(403, 'Type de fichier non autorisé');
+    }
+
+    return response()->download($filePath, $filename);
+})->where('filename', '.*')->name('download.img');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

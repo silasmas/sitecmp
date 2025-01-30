@@ -778,5 +778,5 @@
         window.location.href = "{{ route('download.pdf') }}";
     });
 </script>
-@endif
+@endif 
 
