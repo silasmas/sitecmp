@@ -764,10 +764,7 @@
 </section>
 @if($actualites)
 @include("site.parties.modale")
-@endif
-@endsection
 
-@if($actualites)
 <script>
     
     document.addEventListener("DOMContentLoaded", function () {
@@ -778,5 +775,7 @@
         window.location.href = "{{ route('download.pdf') }}";
     });
 </script>
-@endif 
+@endif
+@endsection
+ 
 
