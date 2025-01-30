@@ -97,7 +97,7 @@
                                     <button id="zoom-out">Zoom -</button>
                                 </div>
                                 <div class="col-lg-12 col-md-4">
-                                    <button id="download-btn">Télécharger
+                                    <button id="download-btnPdf">Télécharger
                                         <i class="fa-solid fa-file-pdf"></i>
                                     </button>
                                 </div>

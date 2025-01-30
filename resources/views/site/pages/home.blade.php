@@ -774,7 +774,7 @@
         var myModal = new bootstrap.Modal(document.querySelector(".bd-example-modal-lg"));
         myModal.show();
     });
-    document.getElementById("download-btn").addEventListener("click", function () {
+    document.getElementById("download-btnPdf").addEventListener("click", function () {
         window.location.href = "{{ route('download.pdf') }}";
     });
 </script>
