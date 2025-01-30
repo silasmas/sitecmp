@@ -2,16 +2,27 @@
 
 namespace App\Filament\Administrateur\Resources;
 
-use App\Filament\Administrateur\Resources\ActualitesResource\Pages;
-use App\Filament\Administrateur\Resources\ActualitesResource\RelationManagers;
-use App\Models\actualites;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
+use App\Models\actualites;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Group;
+use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Textarea;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
+use Filament\Tables\Columns\LinkColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Administrateur\Resources\ActualitesResource\Pages;
+use App\Filament\Administrateur\Resources\ActualitesResource\RelationManagers;
 
 class ActualitesResource extends Resource
 {
@@ -23,17 +34,58 @@ class ActualitesResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Textarea::make('description')
-                    ->maxLength(65535)
-                    ->columnSpanFull(),
-                Forms\Components\Textarea::make('titre')
-                    ->maxLength(65535)
-                    ->columnSpanFull(),
-                Forms\Components\Textarea::make('img_url')
-                    ->maxLength(65535)
-                    ->columnSpanFull(),
-                Forms\Components\TextInput::make('is_active')
-                    ->numeric(),
+                Group::make([
+                    Section::make("Formulaire d'actualité")->schema([
+                        TextInput::make('titre')
+                            ->label('Titre')
+                            ->required()
+                            ->columnSpan(6),
+                        TextInput::make('soutTitre')
+                            ->label('Sous titre')
+                            ->columnSpan(6),
+                        FileUpload::make('img_url')
+                            ->columnSpan(6)
+                            ->image()
+                            ->label('Vignette')
+                            ->directory('actualites')
+                            ->downloadable()
+                            ->maxSize(3024)
+                            ->previewable(true),
+                        FileUpload::make('pdf')
+                            ->columnSpan(6)
+                            ->acceptedFileTypes(['application/pdf'])
+                            ->label('Fichier')
+                            ->directory('actualites')
+                            ->downloadable()
+                            ->maxSize(3024)
+                            ->previewable(true),
+                        RichEditor::make('description')
+                            ->label('Description')
+                            ->toolbarButtons([
+                                'attachFiles',
+                                'blockquote',
+                                'bold',
+                                'bulletList',
+                                'codeBlock',
+                                'h2',
+                                'h3',
+                                'italic',
+                                'link',
+                                'orderedList',
+                                'redo',
+                                'strike',
+                                'underline',
+                                'undo',
+                            ])
+                            ->columnSpanFull(),
+                        Toggle::make('is_active')
+                            ->label('Active (pour le rendre visible ou pas)')
+                            ->columnSpan(6)
+                            ->onColor('success')
+                            ->offColor('danger')
+                            ->required(),
+                    ])->columnS(12)
+                ])->columnSpanFull(),
             ]);
     }
 
@@ -41,19 +93,39 @@ class ActualitesResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id')
-                    ->label('ID')
-                    ->numeric()
+                ImageColumn::make('img_url')
+                    ->label("Image"),
+                TextColumn::make('titre')
+                    ->label('Titre')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('is_active')
-                    ->numeric()
+                TextColumn::make('soutTitre')
+                    ->label('Sous Titre')
                     ->sortable(),
+
+                TextColumn::make('pdf')
+                    ->label('PDF')
+                    ->formatStateUsing(fn($record) => '<a href="' . asset('storage/' . $record->pdf) . '" target="_blank" class="text-blue-500 underline">📄 Voir PDF</a>')
+                    ->html(), // Active l'affichage du HTML
+
+                IconColumn::make('is_active')
+                    ->label("Est actif")
+                    ->boolean(),
+                TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

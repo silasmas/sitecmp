@@ -1,7 +1,8 @@
 
 </div>
+@if($actualites)
 @include("site.parties.modale")
-
+@endif
 
 <!-- wrapper End -->
 <div id="back-to-top"><a class="top arrow" href="#top"><i class="fa fa-angle-up"></i> <span>TOP</span></a></div>
@@ -35,15 +36,19 @@
 
 @yield("script")
 {{-- @livewireScripts --}}
+{{-- @dd($actualites) --}}
+@if($actualites)
 <script>
-    // document.addEventListener("DOMContentLoaded", function () {
-    //     var myModal = new bootstrap.Modal(document.querySelector(".bd-example-modal-lg"));
-    //     myModal.show();
-    // });
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        var myModal = new bootstrap.Modal(document.querySelector(".bd-example-modal-lg"));
+        myModal.show();
+    });
     document.getElementById("download-btn").addEventListener("click", function () {
         window.location.href = "{{ route('download.pdf') }}";
     });
 </script>
+@endif
 <script>
     function copyToClipboard(text) {
         navigator.clipboard.writeText(text).then(() => {

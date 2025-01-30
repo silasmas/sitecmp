@@ -50,15 +50,10 @@
             <div class="modal-header align-items-start">
                 <div class="modal-title" id="exampleModalLongTitle">
                     <div class="section-title mb-10">
-                        <h6>Sujets de prière</h6>
-                        <h3>Pour l'amour de mon pays, je ne me tairai point !</h3>
+                        <h6> {{ $actualites->sousTitre }}</h6>
+                        <h3>{{ $actualites->titre }}</h3>
                         <p>
-                            Ésaïe 62:1
-                            "Pour l'amour de Sion je ne me tairai point,
-                            Pour l'amour de Jérusalem je ne prendrai point de repos,
-                            Jusqu'à ce que son salut paraisse,
-                            Comme l'aurore,
-                            Et sa délivrance comme un flambeau qui s'allume."
+                            {!! $actualites->description !!}
                         </p>
                     </div>
                 </div>
@@ -93,7 +88,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-12 xol-md-12">
+                    <div class="col-lg-12 xol-md-12" id="image-container"
+                        data-url="{{ asset('storage/'.$actualites->img_url) }}">
                         <div id="pdf-viewer" style="display: flex; justify-content: center; overflow: hidden;">
                             <canvas id="pdf-canvas"
                                 style="border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"></canvas>
@@ -113,7 +109,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
 
 <script>
-    const url = "{{ asset('assets/document/SujetsPrières.pdf') }}";
+    // const url = "{{ asset('storage/'.$actualites->imgUrl) }}";
+    // Récupérer l'URL de l'image depuis l'attribut data-url
+const url = document.getElementById('image-container').getAttribute('data-url');
+
+console.log(url);
     const pdfCanvas = document.getElementById('pdf-canvas');
     const ctx = pdfCanvas.getContext('2d');
     const pageInfo = document.getElementById('page-info');

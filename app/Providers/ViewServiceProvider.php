@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-
+use App\Models\actualites;
 use App\Models\Post;
 use App\Models\Event;
 use App\Models\Minister;
@@ -31,7 +31,7 @@ class ViewServiceProvider extends ServiceProvider
             $titre = getTitle(Route::currentRouteName());
 
             $settings = DB::table('general_settings')->first();
-
+            $actualites = actualites::where("is_active", "1")->first();
 
             $pasteurs = Minister::where('is_active', true)->get();
             $eventbunda = Event::with('posts')
@@ -83,7 +83,7 @@ class ViewServiceProvider extends ServiceProvider
 
             $st = ($settings !== null && $settings->social_network !== null) ? json_decode($settings->social_network, true) : "";
             $st2 = ($settings !== null && $settings->site_logo !== null) ? $settings : "";
-
+            // dd($actualites->img_url);
             $view->with('title', $titre);
             $view->with('settings', $st);
             $view->with('site', $st2);
@@ -93,6 +93,7 @@ class ViewServiceProvider extends ServiceProvider
             $view->with('post', $post);
             $view->with('offrandes', $offrandes);
             $view->with('posts', $posts);
+            $view->with('actualites', $actualites);
         });
     }
 }

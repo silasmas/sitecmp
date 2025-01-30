@@ -413,7 +413,7 @@
                 <div class="portfolio-title section-title mt-md-5">
                     <h6>Média</h6>
                     <h2 class="title-effect">Notre Galerie</h2>
-                    <a class="button mt-30" href="galerie.html">@lang('miscellaneous.inner_page.news.see_more')</a>
+                    <a class="button mt-30" href="{{ route('media') }}">@lang('miscellaneous.inner_page.news.see_more')</a>
                 </div>
                 <div>
                 </div>
