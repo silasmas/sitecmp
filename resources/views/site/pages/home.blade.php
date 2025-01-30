@@ -629,10 +629,7 @@
 <section class="gray-bg page-section-pt happy-clients">
     <div class="container">
         <div class="row justify-content-center">
-            {{-- <div class="col-lg-6 align-self-end">
-                <img class="d-xs-block d-lg-block d-none img-fluid"
-                    src="{{ asset('asets/site/images/objects/testimonial.jpg') }}" alt="">
-            </div> --}}
+          
             <div class="col-lg-8 mt-60">
                 <div class="section-title text-center">
                     <h6 class="text-intro mb-lg-3">Ce que Dieu a fait</h6>

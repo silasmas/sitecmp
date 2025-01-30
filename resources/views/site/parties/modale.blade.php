@@ -63,7 +63,17 @@
             </div>
             <div class="modal-body">
                 <div class="row mt-0 justify-content-center">
-
+                    @if ($actualites->img_url!="")
+                    <div class="col-lg-12 xol-md-12">
+                        <div class="owl-carousel" data-nav-dots="true" data-autoheight="true" data-items="1"
+                            data-md-items="1" data-sm-items="1" data-xs-items="1" data-xx-items="1" data-space="20">
+                            <div class="item">
+                                <img class="img-fluid full-width"
+                                    src="{{ asset('storage/'.$actualites->img_url) }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    @else
                     <div class="col-md-12 mt-10">
                         <div id="pdf-controls" style="text-align: center; margin-bottom: 20px;">
                             <div class="row">
@@ -95,6 +105,8 @@
                                 style="border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"></canvas>
                         </div>
                     </div>
+                    @endif
+
                 </div>
             </div>
         </div>

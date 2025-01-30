@@ -13,13 +13,14 @@ use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\LinkColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
-use Filament\Tables\Columns\LinkColumn;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Forms\Components\DateTimePicker;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Administrateur\Resources\ActualitesResource\Pages;
 use App\Filament\Administrateur\Resources\ActualitesResource\RelationManagers;
@@ -78,6 +79,20 @@ class ActualitesResource extends Resource
                                 'undo',
                             ])
                             ->columnSpanFull(),
+                        DateTimePicker::make('publish_at')
+                            ->label('Date de publication')
+                            ->columnSpan(6)
+                            ->required()
+                            ->minDate(now()) // Empêche la sélection des dates passées
+
+                            ->native(false), // Désactive le sélecteur natif pour une meilleure UX
+
+                        DateTimePicker::make('expire_at')
+                            ->label('Date d’expiration')
+                            ->columnSpan(6)
+                            ->nullable()
+                            ->minDate(now()) // Empêche la sélection des dates passées
+                            ->native(false), // Facultatif
                         Toggle::make('is_active')
                             ->label('Active (pour le rendre visible ou pas)')
                             ->columnSpan(6)
@@ -106,7 +121,16 @@ class ActualitesResource extends Resource
                     ->label('PDF')
                     ->formatStateUsing(fn($record) => '<a href="' . asset('storage/' . $record->pdf) . '" target="_blank" class="text-blue-500 underline">📄 Voir PDF</a>')
                     ->html(), // Active l'affichage du HTML
+                TextColumn::make('publish_at')
+                    ->label('Date de publication')
+                    ->dateTime('d/m/Y H:i') // Formatage de la date
+                    ->sortable(),
 
+                TextColumn::make('expire_at')
+                    ->label('Date d’expiration')
+                    ->dateTime('d/m/Y H:i')
+                    ->sortable()
+                    ->default('-'),
                 IconColumn::make('is_active')
                     ->label("Est actif")
                     ->boolean(),
