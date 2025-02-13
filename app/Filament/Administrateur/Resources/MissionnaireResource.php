@@ -569,7 +569,7 @@ class MissionnaireResource extends Resource
 
     public static function table(Table $table): Table
     {
-        return $table->striped()->deferLoading()->heading('Les Missionnaires')
+        return $table->striped()->heading('Les Missionnaires')
             ->description('Cette table contient plus des colonnes que celle qui est visible')
             ->columns([
                 TextColumn::make('nom')
