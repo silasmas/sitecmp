@@ -695,31 +695,7 @@ class MissionnaireResource extends Resource
             ]);
     }
 
-    // public static function getListTableColumns(): array;
-    public static function getGridTableColumns(): array
-    {
-        return [
-            // Make sure to stack your columns together
-            Stack::make([
 
-                TextColumn::make('status')->badge(),
-
-                // You may group columns together using the Split layout, so they are displayed side by side
-                Split::make([
-                    TextColumn::make('customer')
-                        ->description(__('Customer'), position: 'above')
-                        ->searchable(),
-
-                    TextColumn::make('owner.name')
-                        ->description(__('Owner'), position: 'above')
-                        ->searchable(),
-                ]),
-
-            ])->space(3)->extraAttributes([
-                'class' => 'pb-2',
-            ]),
-        ];
-    }
     public static function getRelations(): array
     {
         return [
