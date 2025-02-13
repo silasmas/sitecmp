@@ -51,6 +51,10 @@ class UserResource extends Resource
                             ->columnSpan(6),
                         TextInput::make('password')
                          ->label(label: 'Mot de passe')
+                         ->dehydrateStateUsing(fn ($state) => !empty($state) ? Hash::make($state) : null)
+                         ->required(fn ($record) => $record === null) // Requis seulement à la création
+                         ->nullable()
+                         ->dehydrated(fn ($state) => !empty($state)) // N’envoie la valeur que si elle est renseignée
                          ->columnSpan(6)
                             ->password(),
                             Toggle::make('notifiable')
