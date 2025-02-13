@@ -300,7 +300,8 @@ class MissionnaireResource extends Resource
                         ->schema([
                             Grid::make(3)->schema([
                                 TextInput::make('nom')->required()->columnSpan(1),
-                                DatePicker::make('birthday')->required()->columnSpan(1),
+                                DatePicker::make('birthday')->nullable()
+                                ->rule('nullable|date')->required()->columnSpan(1),
                                 TextInput::make('phone')->required()->columnSpan(1),
                                 TextInput::make('email')->email()->required()->columnSpan(1),
                                 TextInput::make('etat_civil')->required()->columnSpan(1),
@@ -313,7 +314,8 @@ class MissionnaireResource extends Resource
                             Grid::make(3)->schema([
                                 TextInput::make('annee_conversion')->required()->columnSpan(1),
                                 TextInput::make('lieu_bapteme')->required()->columnSpan(1),
-                                DatePicker::make('date_bapteme')->required()->columnSpan(1),
+                                DatePicker::make('date_bapteme')->nullable()
+                                ->rule('nullable|date')->required()->columnSpan(1),
                                 TextInput::make('eglise_attache')->required()->columnSpan(1),
                                 TextInput::make('temps_au_cmp')->columnSpan(1),
                                 TextInput::make('departement')->columnSpan(1),
