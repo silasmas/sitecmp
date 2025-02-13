@@ -18,17 +18,22 @@ class Localization
      */
     public function handle(Request $request, Closure $next)
     {
-        // Vérifiez si la route existe pour éviter les erreurs
-        // if (\Route::has('filament.admin.resources.missionnaires.index')) {
-        if (Session::has('locale')) {
-            App::setLocale(Session::get('locale'));
-        } else {
-            // Check header request and determine localization
-            $local = ($request->hasHeader('X-localization')) ? $request->header('X-localization') : 'fr';
+        // Liste des langues supportées
+        $availableLocales = ['fr', 'en', 'es', 'de']; // Ajoutez d'autres langues si nécessaire
 
-            App::setLocale($local);
+        if (Session::has('locale') && in_array(Session::get('locale'), $availableLocales)) {
+            $locale = Session::get('locale');
+        } elseif ($request->hasHeader('X-localization') && in_array($request->header('X-localization'), $availableLocales)) {
+            $locale = $request->header('X-localization');
+            Session::put('locale', $locale); // Stocker dans la session pour une utilisation future
+        } else {
+            // Langue par défaut définie dans config/app.php
+            $locale = config('app.locale', 'fr');
+            Session::put('locale', $locale);
         }
-        // }
+
+        // Appliquer la langue sélectionnée
+        App::setLocale($locale);
 
         return $next($request);
     }
