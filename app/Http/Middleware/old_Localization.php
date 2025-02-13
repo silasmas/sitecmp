@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
 
-class Localization
+class old_Localization
 {
     /**
      * Handle an incoming request.
