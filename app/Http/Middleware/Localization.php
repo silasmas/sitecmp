@@ -35,6 +35,9 @@ class Localization
         // Appliquer la langue sélectionnée
         App::setLocale($locale);
 
-        return $next($request);
+        // return $next($request);
+        if (env('IGNORE_LOCALIZATION', false)) {
+            return $next($request);
+        }
     }
 }
