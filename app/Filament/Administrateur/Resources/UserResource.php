@@ -2,16 +2,22 @@
 
 namespace App\Filament\Administrateur\Resources;
 
+use Filament\Forms;
+use App\Models\User;
+use Filament\Tables;
+use Filament\Forms\Form;
+use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Group;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Illuminate\Database\Eloquent\Builder;
+use Filament\Forms\Components\DateTimePicker;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Administrateur\Resources\UserResource\Pages;
 use App\Filament\Administrateur\Resources\UserResource\RelationManagers;
-use App\Models\User;
-use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
-use Filament\Tables;
-use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class UserResource extends Resource
 {
@@ -23,28 +29,33 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('role_id')
-                    ->numeric(),
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(191),
-                Forms\Components\TextInput::make('email')
-                    ->email()
-                    ->required()
-                    ->maxLength(191),
-                Forms\Components\TextInput::make('avatar')
-                    ->maxLength(191)
-                    ->default('user/default.png'),
-                Forms\Components\DateTimePicker::make('email_verified_at'),
-                Forms\Components\TextInput::make('password')
-                    ->password()
-                    ->required()
-                    ->maxLength(191),
-                Forms\Components\Textarea::make('settings')
-                    ->maxLength(65535)
-                    ->columnSpanFull(),
-                Forms\Components\TextInput::make('organiser_id')
-                    ->numeric(),
+                Group::make([
+                    Section::make("Formulaire utilisataire")->schema([
+                        Select::make('role_id')
+                            ->label(label: 'Role')
+                            ->searchable()
+                            ->columnSpan(6)
+                            ->preload()
+                            ->relationship('roles', 'name'),
+
+                        TextInput::make('name')
+                            ->required()
+                             ->label(label: 'Nom')
+                            ->columnSpan(6),
+                        TextInput::make('email')
+                            ->email()
+                             ->label(label: 'Email')
+                            ->required()
+                            ->columnSpan(6),
+                        TextInput::make('password')
+                         ->label(label: 'Mot de passe')
+                         ->columnSpan(6)
+                            ->password(),
+                        // TextInput::make('password')
+                        //  ->label(label: 'Repeter mot de passe')
+                        //     ->password(),
+                    ])->columnS(12)
+                ])->columnSpanFull(),
             ]);
     }
 
