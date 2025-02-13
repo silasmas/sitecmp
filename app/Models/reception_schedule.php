@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class reception_schedule extends Model
+class Reception_schedule extends Model
 {
     use HasFactory;
     protected $guarded = [];
