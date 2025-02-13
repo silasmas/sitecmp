@@ -577,7 +577,7 @@ class MissionnaireResource extends Resource
                 // TextColumn::make('birthday')
                 //     ->date()
                 //     ->sortable(),
-                TextColumn::make('age')
+                TextColumn::make('birthday')
                     ->label('Âge')
                     ->getStateUsing(fn($record) => strtotime($record->birthday) ? now()->diffInYears(
                         \Illuminate\Support\Carbon::parse($record->birthday)
@@ -598,7 +598,6 @@ class MissionnaireResource extends Resource
                 // Colonnes masquées par défaut
                 TextColumn::make('annee_conversion')
                     ->searchable()
-                    ->since()
                     ->label("Converti depuis"),
                 IconColumn::make('langue_fr')
                     ->label("Français")
