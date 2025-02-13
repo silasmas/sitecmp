@@ -10,8 +10,10 @@ use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Textarea;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Forms\Components\DateTimePicker;
@@ -51,6 +53,12 @@ class UserResource extends Resource
                          ->label(label: 'Mot de passe')
                          ->columnSpan(6)
                             ->password(),
+                            Toggle::make('notifiable')
+                            ->label('Active (pour que l\'utilisateur puisse être notifier quand il y a une requête de prière)')
+                            ->columnSpan(6)
+                            ->onColor('success')
+                            ->offColor('danger')
+                            ->required(),
                         // TextInput::make('password')
                         //  ->label(label: 'Repeter mot de passe')
                         //     ->password(),
@@ -63,18 +71,15 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('role_id')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('name')
+                Tables\Columns\ImageColumn::make('avatar')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('email')
+                    Tables\Columns\TextColumn::make('name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('avatar')
+                    Tables\Columns\TextColumn::make('email')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('email_verified_at')
-                    ->dateTime()
-                    ->sortable(),
+                    Tables\Columns\TextColumn::make('roles.name')
+                    ->badge()->color('success')
+                        ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -83,9 +88,12 @@ class UserResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('organiser_id')
-                    ->numeric()
-                    ->sortable(),
+                    IconColumn::make('notifiable')
+                    ->label("Notifiable")
+                    ->boolean(),
+                // Tables\Columns\TextColumn::make('organiser_id')
+                //     ->numeric()
+                //     ->sortable(),
             ])
             ->filters([
                 //
