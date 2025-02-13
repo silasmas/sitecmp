@@ -691,9 +691,7 @@ class MissionnaireResource extends Resource
                 BulkAction::make('export_pdf')
                     ->label('Exporter en PDF')
                     ->action(fn($records) => (new MissionnairePdfExport($records))->download()),
-                // ExportBulkAction::make()
-                //     ->exportable() // Permet de choisir PDF ou Excel
-                //     ->askForFilename() // Demande un nom de fichier avant l'export
+               
             ]);
     }
 
