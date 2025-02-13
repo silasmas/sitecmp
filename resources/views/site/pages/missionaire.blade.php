@@ -90,7 +90,7 @@
                                     <h2 class="mb-20">Informations spirituelles</h2>
                                     <div class="section-field mb-30">
                                         <label class="mb-10">Année de conversion * </label>
-                                        <input required id="annee_conversion" type="text"
+                                        <input required id="annee_conversion" type="date"
                                             placeholder="Année de conversion" class="form-control"
                                             name="annee_conversion" value="{{ old('annee_conversion') }}">
                                     </div>
