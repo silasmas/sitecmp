@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6ae74ed82f819927013d7b69c6c5314",
+    "content-hash": "89d224920eb520d6ec215081ec440575",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -74,16 +74,16 @@
         },
         {
             "name": "barryvdh/laravel-dompdf",
-            "version": "v3.0.1",
+            "version": "v3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-dompdf.git",
-                "reference": "d2b3a158ba6e6c0fbb97208aa37dc764642ce5d5"
+                "reference": "8d698b4aec2be91fe1e47ba71ba258acbf23357d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-dompdf/zipball/d2b3a158ba6e6c0fbb97208aa37dc764642ce5d5",
-                "reference": "d2b3a158ba6e6c0fbb97208aa37dc764642ce5d5",
+                "url": "https://api.github.com/repos/barryvdh/laravel-dompdf/zipball/8d698b4aec2be91fe1e47ba71ba258acbf23357d",
+                "reference": "8d698b4aec2be91fe1e47ba71ba258acbf23357d",
                 "shasum": ""
             },
             "require": {
@@ -135,7 +135,7 @@
             ],
             "support": {
                 "issues": "https://github.com/barryvdh/laravel-dompdf/issues",
-                "source": "https://github.com/barryvdh/laravel-dompdf/tree/v3.0.1"
+                "source": "https://github.com/barryvdh/laravel-dompdf/tree/v3.1.0"
             },
             "funding": [
                 {
@@ -147,7 +147,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-10-30T10:10:17+00:00"
+            "time": "2025-01-21T20:24:00+00:00"
         },
         {
             "name": "bezhansalleh/filament-shield",
@@ -3065,6 +3065,85 @@
                 }
             ],
             "time": "2023-12-03T19:50:20+00:00"
+        },
+        {
+            "name": "hydrat/filament-table-layout-toggle",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Hydrat-Agency/filament-table-layout-toggle.git",
+                "reference": "338763371fc2b71bf0934b766ef69b055bcb3f73"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Hydrat-Agency/filament-table-layout-toggle/zipball/338763371fc2b71bf0934b766ef69b055bcb3f73",
+                "reference": "338763371fc2b71bf0934b766ef69b055bcb3f73",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^3.0",
+                "illuminate/contracts": "^10.0|^11.0",
+                "php": "^8.1",
+                "spatie/laravel-package-tools": "^1.15.0"
+            },
+            "require-dev": {
+                "nunomaduro/collision": "^7.9",
+                "nunomaduro/larastan": "^2.0.1",
+                "orchestra/testbench": "^8.0",
+                "pestphp/pest": "^2.0",
+                "pestphp/pest-plugin-arch": "^2.0",
+                "pestphp/pest-plugin-laravel": "^2.0",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan-deprecation-rules": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "spatie/laravel-ray": "^1.26"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "TableLayoutToggle": "Hydrat\\TableLayoutToggle\\Facades\\TableLayoutToggle"
+                    },
+                    "providers": [
+                        "Hydrat\\TableLayoutToggle\\TableLayoutToggleServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hydrat\\TableLayoutToggle\\": "src/",
+                    "Hydrat\\TableLayoutToggle\\Database\\Factories\\": "database/factories/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas",
+                    "email": "thomas@hydrat.agency",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Filament plugin adding a toggle button to tables, allowing user to switch between Grid and Table layouts.",
+            "homepage": "https://github.com/hydrat/filament-table-layout-toggle",
+            "keywords": [
+                "Hydrat",
+                "filament-table-layout-toggle",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/hydrat/filament-table-layout-toggle/issues",
+                "source": "https://github.com/hydrat/filament-table-layout-toggle"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/Hydrat",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-10-14T18:07:44+00:00"
         },
         {
             "name": "joaopaulolndev/filament-general-settings",

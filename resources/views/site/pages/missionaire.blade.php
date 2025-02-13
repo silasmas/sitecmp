@@ -72,8 +72,8 @@
                                     </div>
                                     <div class="section-field mb-30">
                                         <label class="mb-10">Etat civi * </label>
-                                        <input required id="etat_civl" type="text" placeholder="Etat civil"
-                                            class="form-control" name="etat_civl" value="{{ old('etat_civil') }}">
+                                        <input required id="etat_civil" type="text" placeholder="Etat civil"
+                                            class="form-control" name="etat_civil" value="{{ old('etat_civil') }}">
                                     </div>
                                     <div class="section-field mb-30">
                                         <label class="mb-10">Profession * </label>

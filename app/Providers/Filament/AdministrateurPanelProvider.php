@@ -17,6 +17,8 @@ use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
+use Hydrat\TableLayoutToggle\Persisters\LocalStoragePersister;
+use Hydrat\FilamentTableLayoutToggle\Plugins\TableLayoutTogglePlugin;
 use Joaopaulolndev\FilamentGeneralSettings\FilamentGeneralSettingsPlugin;
 
 class AdministrateurPanelProvider extends PanelProvider
@@ -92,6 +94,17 @@ class AdministrateurPanelProvider extends PanelProvider
                         'default' => 1,
                         'sm' => 2,
                     ]),
+                // TableLayoutTogglePlugin::make()->defaultLayout('grid') // Définit le layout par défaut pour un nouvel utilisateur
+                // ->persistLayoutUsing(
+                //     persister: LocalStoragePersister::class, // chose a persister to save the layout preference of the user
+                //     cacheStore: 'redis', // optional, change the cache store for the Cache persister
+                //     cacheTtl: 60 * 24, // optional, change the cache time for the Cache persister
+                // )
+                //     ->shareLayoutBetweenPages(false) // Permet de partager le layout entre les pages si true
+                //     ->displayToggleAction() // Affiche automatiquement le bouton de bascule
+                //     ->toggleActionHook('tables::toolbar.search.after') // Détermine où le bouton sera affiché
+                //     ->listLayoutButtonIcon('heroicon-o-list-bullet')
+                //     ->gridLayoutButtonIcon('heroicon-o-squares-2x2'),
             ]);
     }
 }
