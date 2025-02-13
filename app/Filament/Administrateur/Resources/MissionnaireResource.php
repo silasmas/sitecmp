@@ -579,7 +579,7 @@ class MissionnaireResource extends Resource
                 //     ->sortable(),
                 TextColumn::make('age')
                     ->label('Âge')
-                    ->getStateUsing(fn($record) => $record->birthday ? now()->diffInYears(
+                    ->getStateUsing(fn($record) => strtotime($record->birthday) ? now()->diffInYears(
                         \Illuminate\Support\Carbon::parse($record->birthday)
                     ) . " Ans" : 'N/A')
                     ->sortable(),
