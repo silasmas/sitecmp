@@ -61,4 +61,9 @@ class ReceptionScheduleResource extends Resource
             'edit' => Pages\EditReceptionSchedule::route('/{record}/edit'),
         ];
     }
+    public static function shouldRegisterNavigation(): bool
+{
+    return false; // Masque la ressource dans le menu
+}
+
 }

@@ -61,4 +61,9 @@ class TransactionsResource extends Resource
             'edit' => Pages\EditTransactions::route('/{record}/edit'),
         ];
     }
+    public static function shouldRegisterNavigation(): bool
+{
+    return false; // Masque la ressource dans le menu
+}
+
 }

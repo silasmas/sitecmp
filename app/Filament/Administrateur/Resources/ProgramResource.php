@@ -79,6 +79,10 @@ class ProgramResource extends Resource
             //
         ];
     }
+    public static function shouldRegisterNavigation(): bool
+    {
+        return false; // Masque la ressource dans le menu
+    }
 
     public static function getPages(): array
     {

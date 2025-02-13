@@ -46,7 +46,9 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
-        },
+        }, "exclude-from-classmap": [
+            "app/Http/Middleware/Localization.php"
+        ],
         "files": [
             "app/Helper/helpers.php"
         ]

@@ -72,4 +72,9 @@ class BureauResource extends Resource
             'edit' => Pages\EditBureau::route('/{record}/edit'),
         ];
     }
+    public static function shouldRegisterNavigation(): bool
+{
+    return false; // Masque la ressource dans le menu
+}
+
 }

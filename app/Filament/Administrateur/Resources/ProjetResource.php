@@ -61,4 +61,9 @@ class ProjetResource extends Resource
             'edit' => Pages\EditProjet::route('/{record}/edit'),
         ];
     }
+    public static function shouldRegisterNavigation(): bool
+{
+    return false; // Masque la ressource dans le menu
+}
+
 }
