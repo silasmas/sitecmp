@@ -577,12 +577,12 @@ class MissionnaireResource extends Resource
                 // TextColumn::make('birthday')
                 //     ->date()
                 //     ->sortable(),
-                TextColumn::make('age')
-                    ->label('Âge')
-                    ->getStateUsing(fn($record) => strtotime($record->birthday) ? now()->diffInYears(
-                        \Illuminate\Support\Carbon::parse($record->birthday)
-                    ) . " Ans" : 'N/A')
-                    ->sortable(),
+                // TextColumn::make('age')
+                //     ->label('Âge')
+                //     ->getStateUsing(fn($record) => strtotime($record->birthday) ? now()->diffInYears(
+                //         \Illuminate\Support\Carbon::parse($record->birthday)
+                //     ) . " Ans" : 'N/A')
+                //     ->sortable(),
                 TextColumn::make('phone')
                     ->label('Phone')
                     ->searchable(),
