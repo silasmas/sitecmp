@@ -134,9 +134,9 @@ class OffrandeController extends Controller
                 $commande->etat = 'échec';
             }
 
+            Log::info('Callback reçu:', 'Callback traité avec comme status '.$ $commande->etat);
             $commande->save();
         }
-        Log::info('Callback reçu:', 'Callback traité avec comme status '.$ $commande->etat);
         return response()->json(['message' => 'Callback traité avec comme status '.$ $commande->etat]);
     }
 
