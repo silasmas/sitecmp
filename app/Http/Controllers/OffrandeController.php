@@ -131,7 +131,7 @@ class OffrandeController extends Controller
                 $commande->updated_at = now();
             } else {
                 // Transaction échouée
-                $commande->status = 'échec';
+                $commande->etat = 'échec';
             }
 
             $commande->save();
