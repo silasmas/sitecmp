@@ -136,8 +136,8 @@ class OffrandeController extends Controller
 
             $commande->save();
         }
-
-        return response()->json(['message' => 'Callback traité avec succès']);
+        Log::info('Callback reçu:', 'Callback traité avec comme status '.$ $commande->etat);
+        return response()->json(['message' => 'Callback traité avec comme status '.$ $commande->etat]);
     }
 
     public function checkTransactionStatus(Request $request)
