@@ -7,11 +7,19 @@ use App\Models\User;
 use App\Models\Offrande;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use App\Services\FlexPayService;
 use App\Http\Requests\StoreOffrandeRequest;
 use App\Http\Requests\UpdateOffrandeRequest;
+use Illuminate\Support\Facades\Log;
 
 class OffrandeController extends Controller
 {
+    protected $flexPayService;
+
+    public function __construct(FlexPayService $flexPayService)
+    {
+        $this->flexPayService = $flexPayService;
+    }
     /**
      * Display a listing of the resource.
      */
@@ -27,27 +35,25 @@ class OffrandeController extends Controller
     {
         //
     }
-
     public function paieOffrande(Request $request)
     {
-        // dd($request);
-        $ref = 'CMP-' . ((string) random_int(10000000, 99999999));
-        $inputs = [
-            'transaction_type_id' => $request->toggleOption == 'mobile' ? 1 : 2,
-            'amount' => $request->montant,
-            'currency' => $request->monaie,
-            'reference' => $ref,
-            'other_phone' => $request->number,
-            'app_url' => env("FLEXPAY_GATEWAY_CARD"),
-        ];
+        //  dd($request);
+
+        // $request->validate([
+        //     'montant' => 'required|numeric',
+        //     'toggleOption' => 'required|in:mobile_money,card',
+        //     'number' => 'required_if:payment_method,mobile_money',
+        // ]);
+
+        $ref = generateUniqueReference();
+
         if ($request->toggleOption === "mobile") {
 
             $datas = [
                 'type' => $request->toggleOption == 'mobile' ? 1 : 2,
-                // 'provider_reference' => $request->montant,
                 'phone' => $request->number,
+                'montant' => $request->montant,
                 'chanel' => $request->toggleOption,
-                // 'description' => $request->montant,
                 'offrande_id' => $request->offrande_id,
                 'currency' => $request->monaie,
                 'reference' => $ref,
@@ -58,90 +64,9 @@ class OffrandeController extends Controller
             $init = Transaction::create($datas);
 
             if ($init) {
+
                 // Create response by sending request to FlexPay
-                $data = array(
-                    'merchant' => env("FLEXPAY_MARCHAND"),
-                    'type' => $inputs["transaction_type_id"],
-                    'phone' => $inputs["other_phone"],
-                    'reference' => $inputs["reference"],
-                    'amount' => $inputs['amount'],
-                    'currency' => $inputs['currency'],
-                    'callbackUrl' => env('APP_URL') . 'storeTransaction',
-                );
-                $data = json_encode($data);
-                $ch = curl_init();
-
-                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-                curl_setopt($ch, CURLOPT_URL, env("FLEXPAY_GATEWAY_MOBILE"));
-                curl_setopt($ch, CURLOPT_POST, true);
-                curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                    'Content-Type: application/json',
-                    'Authorization: Bearer ' . env('FLEXPAY_API_TOKEN')
-                ));
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-                curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 300);
-
-                $response = curl_exec($ch);
-
-                if (curl_errno($ch)) {
-                    return response()->json(
-                        [
-                            'reponse' => false,
-                            'msg' => 'Une erreur lors du traitement de votre requête'
-                        ]
-                    );
-                } else {
-                    curl_close($ch);
-
-                    $jsonRes = json_decode($response);
-                    $code = $jsonRes->code; // Push sending status
-                    if ($code != '0') {
-                        return response()->json(
-                            [
-                                'reponse' => false,
-                                'msg' => 'Impossible de traiter la demande, veuillez réessayer echec envoie du push'
-                            ]
-                        );
-                    } else {
-                        $object = new stdClass();
-
-                        $object->result_response = [
-                            'message' => $jsonRes->message,
-                            'order_number' => $jsonRes->orderNumber
-                        ];
-                        Log::info('retour info détails : ',   $object->result_response);
-                        // $contre = contreventionUser::where('reference', $inputs["reference"])->first();
-                        // // // The donation is registered only if the processing succeed
-                        // $contre->update(['etat' => '1']);
-
-                        // // Register payment, even if FlexPay will
-                        $payment = transaction::where([['order_number', $jsonRes->orderNumber], ['reference', $inputs["reference"]]])->first();
-
-                        if (is_null($payment)) {
-                            transaction::updateOrCreate(
-                                ['reference' => $inputs["reference"]],
-                                [
-                                    'order_number' => $jsonRes->orderNumber,
-                                    'amount' => $inputs['amount'],
-                                    'phone' => $inputs['other_phone'],
-                                    'currency' => $inputs['currency'],
-                                    'type_id' => $inputs["transaction_type_id"],
-                                ]
-                            );
-                            return response()->json(
-                                [
-                                    'reponse' => true,
-                                    'msg' => 'Veuillez validé votre paiement sur votre téléphone!',
-                                    'type' => "mobile",
-                                    'reference' => $inputs["reference"],
-                                    'orderNumber' => $jsonRes->orderNumber
-                                ]
-                            );
-                        }
-                    }
-                }
+                return $this->initiatePayment($init, $init->phone);
             } else {
                 return response()->json(
                     [
@@ -150,98 +75,214 @@ class OffrandeController extends Controller
                     ]
                 );
             }
-        } else {
-            $body = json_encode(array(
-                'authorization' => "Bearer " . env('FLEXPAY_API_TOKEN'),
-                'merchant' => env('FLEXPAY_MARCHAND'),
-                'reference' => $inputs['reference'],
-                'amount' => $inputs['amount'],
-                'currency' => $inputs['currency'],
-                'description' => "Paiemen d'une contrevention",
-                'callback_url' => env('APP_URL') . 'storeTransaction',
-                'approve_url' =>  env('APP_URL') . 'paid/' . $inputs['reference'] . '/' . $inputs['amount'] . '/' . $inputs['currency'] . '/0',
-                'cancel_url' =>  env('APP_URL') . 'paid/' . $inputs['reference'] . '/' . $inputs['amount'] . '/' . $inputs['currency'] . '/1',
-                'decline_url' =>  env('APP_URL') . 'paid/' . $inputs['reference'] . '/' . $inputs['amount'] . '/' . $inputs['currency'] . '/2',
-                'home_url' =>  env('APP_URL') . 'home',
-            ));
-
-            $curl = curl_init(env('FLEXPAY_GATEWAY_CARD'));
-
-            curl_setopt($curl, CURLOPT_POSTFIELDS, $body);
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-            $curlResponse = curl_exec($curl);
-
-
-            $jsonRes = json_decode($curlResponse, true);
-            $code = $jsonRes['code'];
-            $message = $jsonRes['message'];
-
-            if (!empty($jsonRes['error'])) {
-                return response()->json(
-                    [
-                        'reponse' => false,
-                        'msg' => $jsonRes['message'],
-                        'type' => "carte",
-                        'data' => $jsonRes['error']
-                    ]
-                );
-            } else {
-                if ($code != '0') {
-                    return response()->json(
-                        [
-                            'reponse' => false,
-                            'msg' => $jsonRes['message'],
-                            'type' => "carte",
-                            'data' => $code
-                        ]
-                    );
-                } else {
-                    $url = $jsonRes['url'];
-                    $orderNumber = $jsonRes['orderNumber'];
-                    $object = new stdClass();
-
-                    $object->result_response = [
-                        'message' => $message,
-                        'order_number' => $orderNumber,
-                        'type' => "carte",
-                        'url' => $url
-                    ];
-
-                    // The donation is registered only if the processing succeed
-                    // $contre = contreventionUser::where('reference', $inputs["reference"])->first();
-                    // The donation is registered only if the processing succeed
-                    // $contre->update(['etat' => '1']);
-
-                    // // Register payment, even if FlexPay will
-                    $payment = transaction::where('order_number', $jsonRes['orderNumber'])->first();
-
-                    if (is_null($payment)) {
-                        transaction::updateOrCreate(
-                            ['reference' => $inputs["reference"]],
-                            [
-                                'order_number' => $jsonRes['orderNumber'],
-                                'amount' => $inputs['amount'],
-                                'phone' => $request->other_phone,
-                                'currency' => $inputs['currency'],
-                                'type_id' => $inputs["transaction_type_id"],
-                            ]
-                        );
-                    }
-                    // dd($jsonRes);
-                    return response()->json(
-                        [
-                            'reponse' => true,
-                            'msg' => 'Vous serez rediriger pour payé dans quelques instant!',
-                            'type' => "carte",
-                            'reference' => $inputs["reference"],
-                            'url' => $jsonRes['url']
-                        ]
-                    );
-                }
-            }
         }
     }
+
+
+    public function initiatePayment(Transaction $order, $phone)
+    {
+
+        $data = [];
+        if ($order->chanel === 'mobile') {
+
+            $data = [
+                "merchant" => env("FLEXPAY_MARCHAND"),
+                "type" => $order->chanel === 'mobile' ? "1" : "2",
+                "phone" => $phone,
+                "reference" => $order->reference,
+                "amount" => $order->montant,
+                "currency" => $order->currency,
+                "callbackUrl" => env('APP_URL') . '/paymentcallback',
+            ];
+
+            $rep = initRequeteFlexPay("mobile", $data, $order);
+            // dd($rep);
+            return response()->json($rep);
+        } else {
+
+            $retour = $this->flexPayService->initiatePayment($order->total, $order->currency, $order->reference, "Achat de produits");
+            //    dd($retour["rep"]);
+            if ($retour['rep']) {
+                $order->update([
+                    'provider_reference' => $retour['orderNumber'],
+                    'etat' => 'En cours'
+                ]);
+                return response()->json(["reponse" => $retour['rep'], "redirect_url" => $retour['url']], 200);
+            } else {
+                return response()->json(["reponse" => $retour['rep'], "message" => $retour['message']], 400);
+            }
+        }
+        return response()->json(["error" => "Échec de la transaction"], 400);
+    }
+
+    public function paymentCallback(Request $request)
+    {
+     // Enregistrement des données reçues dans les logs
+     Log::info('Callback reçu:', $request->all());
+        // Récupération de la commande avec la référence envoyée
+        $commande = Transaction::where('reference', $request->reference)->first();
+
+        if ($commande) {
+            if ($request->code == 0) {
+                // Transaction réussie
+                $commande->etat = 'Réussi';
+                $commande->amount_customer =  $request->amountCustomer;
+                $commande->provider_reference = $request->orderNumber;
+                $commande->updated_at = now();
+            } else {
+                // Transaction échouée
+                $commande->status = 'échec';
+            }
+
+            $commande->save();
+        }
+
+        return response()->json(['message' => 'Callback traité avec succès']);
+    }
+
+    public function checkTransactionStatus(Request $request)
+    {
+        Log::info('Check reçu:', $request->all());
+        $reference = $request->input('reference');
+        // dump($reference);
+        // Construire l'URL avec le paramètre de requête
+        $url = 'https://backend.flexpay.cd/api/rest/v1/check/' . urlencode($reference);
+        // $url = env("FLEXPAY_GATEWAY_CHECK") ."/". urlencode($reference);
+
+        $curl = curl_init($url);
+
+        // Définir les options de cURL pour GET
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, [
+            'Authorization: Bearer ' . env('FLEXPAY_API_TOKEN'),
+        ]);
+
+        // Exécuter la requête
+        $curlResponse = curl_exec($curl);
+
+        // Gérer les erreurs de cURL
+        if (curl_errno($curl)) {
+            $errorMessage = curl_error($curl);
+            return response()->json(['error' => 'Erreur de connexion au service FlexPay'], 500);
+        }
+
+        curl_close($curl);
+
+        // Valider et traiter la réponse JSON
+        $jsonRes = json_decode($curlResponse, true);
+
+        //   dd($jsonRes );
+        // // Journaliser la réponse pour le débogage
+
+        $transactionData = $jsonRes['transaction'];
+        $transaction = Transaction::where('reference', $transactionData['reference'])->first();
+        //  dump($transactionData["status"]);
+        Log::info('Check reçu:', $transactionData);
+        switch ($jsonRes['transaction']["status"]) {
+            case 0:
+                // Trouver la transaction correspondante
+                if ($transaction) {
+                    $status = 'Réussi';
+                    // Mettre à jour l'état des données
+                    $transaction->update([
+                        'etat' => $status,
+                        'amount_customer' => $transactionData['amountCustomer'],
+                        'phone' => $transactionData['channel'],
+                        'updated_at' => now()
+                    ]);
+                    $this->clearCartAfterPayment($transaction->user_id);
+                    return response()->json([
+                        'reponse' => true,
+                        'message' => 'La transaction mis à été fait avec succès.',
+                        'status' => $jsonRes['transaction']["status"],
+                    ]);
+                }
+                break;
+            case 1:
+                $status = 'Annulée';
+                $transaction->update([
+                    'etat' => $status,
+                    'updated_at' => now()
+                ]);
+                return response()->json([
+                    'reponse' => false,
+                    'status' => $jsonRes['transaction']["status"],
+                    'message' => $jsonRes["message"],
+                ]);
+                break;
+            case 2:
+                $status = 'En attente';
+                $transaction->update([
+                    'etat' => $status,
+                    'updated_at' => now()
+                ]);
+
+                return response()->json([
+                    'reponse' => true,
+                    'message' => $jsonRes["message"],
+                    'orderNumber' => $transaction->provider_reference,
+                    'status' => $jsonRes['transaction']["status"],
+                    'url' => "attente",
+                ]);
+                break;
+            default:
+                return response()->json([
+                    'reponse' => false,
+                    'status' => $jsonRes['transaction']["status"],
+                    'message' => $jsonRes["message"],
+                ]);
+                break;
+        }
+
+        // dd($jsonRes["transaction"]);
+    }
+
+    public function paid($reference, $amount, $currency, $status)
+    {
+        // Vérifier si la commande existe
+        $order = Commande::where('reference', $reference)->first();
+        $msg = "";
+        if (!$order) {
+            return response()->json(['error' => 'Commande non trouvée'], 404);
+        }
+
+        // Mettre à jour le statut en fonction de la réponse de FlexPay
+        switch ($status) {
+            case 'success':
+                $order->etat = 'Payée'; // Paiement réussi
+                $msg = 'Paiement réussi !';
+                $rep = $this->clearCartAfterPayment($order->user_id);
+                break;
+
+            case 'cancel':
+                $order->etat = 'Annulée'; // Paiement annulé par l'utilisateur
+                $msg = 'Paiement annulé !';
+                break;
+
+            case 'decline':
+                $order->etat = 'Annulée'; // Paiement refusé
+                $msg = 'Paiement refusé !';
+                break;
+
+            default:
+                return response()->json(['error' => 'Statut inconnu'], 400);
+        }
+
+        // Enregistrer les modifications
+        $order->save();
+        return redirect()->route('commandeStatus')->with([
+            'order_details' => [
+                'message' => $msg,
+                'order_reference' => $reference,
+                'amount' => $amount,
+                'currency' => $currency,
+                'status' => $order->etat,
+                'order' => $order->provider_reference,
+                'channel' => $order->channel
+            ]
+        ]);
+    }
+
 
     /**
      * Store a newly created resource in storage.

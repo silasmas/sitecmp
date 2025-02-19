@@ -73,6 +73,14 @@ Route::get('/paid/{reference}/{amount}/{currency}/{code}', [OffrandeController::
 Route::get('/users/export/excel', [ExportController::class, 'exportExcel'])->name('users.export.excel');
 Route::get('/users/export/pdf', [ExportController::class, 'exportPdf'])->name('users.export.pdf');
 
+Route::post('/payment/initiate', [OffrandeController::class, 'initiatePayment']);
+    Route::post('/payment/status', [OffrandeController::class, 'checkPaymentStatus']);
+    Route::post('/paymentcallback', [OffrandeController::class, 'paymentCallback']);
+
+
+Route::get('/commandeStatus', [OffrandeController::class, 'commandeStatus'])->name('commandeStatus');
+
+
 
 Route::get('/search-articles', [PostController::class, 'search'])->name('search.articles');
 

@@ -1,4 +1,5 @@
 <select name="country" class="wide fancyselect mb-5" id="country">
+    <option value=""></option>
     <option value="Afghanistan">Afghanistan</option>
     <option value="Albania">Albania</option>
     <option value="Algeria">Algeria</option>

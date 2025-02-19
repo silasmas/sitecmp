@@ -13,7 +13,11 @@ return [
     | a conventional file to locate the various service credentials.
     |
     */
-
+'flexpay' => [
+        'merchant' => env('FLEXPAY_MARCHAND'),
+        'token' => env('FLEXPAY_API_TOKEN'),
+        'base_url' => env('FLEXPAY_GATEWAY_MOBILE'),
+    ],
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),

@@ -2,7 +2,9 @@
 
 use App\Models\Post;
 use App\Models\Minister;
+use App\Models\Transaction;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
 if (!function_exists('format_date')) {
@@ -76,32 +78,7 @@ if (!function_exists('createSlug')) {
     }
 }
 
-// if (!function_exists('creatSlug')) {
-//     function creatSlug($id)
-//     {
-//         $res = Post::where([['id', $id], ['is_active', true]])->first();
-//         // Si aucun post trouvé, retourner null ou une autre valeur par défaut
-//         // dd($res->slug);
-//         if (!$res) {
-//             return ""; // Ou retourner un message d'erreur, par exemple "Post not found"
-//         }
 
-//         // Initialisation de la variable de retour
-//         $ret = "";
-//         // dd($res);
-//         // Si le slug est null, le générer et sauvegarder
-//         if ($res->slug === null) {
-//             $res->slug = Str::slug($res->title); // Générer un slug basé sur le titre
-//             $res->save(); // Sauvegarder dans la base de données
-//             $ret = $res->slug; // Retourner le slug nouvellement généré
-//         } else {
-//             // Si un slug existe déjà, le retourner directement
-//             $ret = $res->slug;
-//         }
-
-//         return $ret;
-//     }
-// }
 if (!function_exists('isNull')) {
     function isNull($var)
     {
@@ -173,5 +150,60 @@ if (!function_exists('active')) {
                 return "";
                 break;
         }
+    }
+}
+
+if (!function_exists('initRequeteFlexPay')) {
+    function initRequeteFlexPay($type, $data, Transaction $order)
+    {
+        $responseBody = "";
+        if ($type == "mobile") {
+            $response = Http::withHeaders([
+                "Content-Type" => "application/json",
+                "Authorization" => "Bearer " . env('FLEXPAY_API_TOKEN')
+            ])->post(env('FLEXPAY_GATEWAY_MOBILE'), $data);
+
+            $responseBody = $response->json();
+                // dd($responseBody);
+            if ($responseBody['code'] == "0") {
+                $order->update([
+                    'provider_reference' => $responseBody['orderNumber'],
+                    'etat' => 'En cours'
+                ]);
+                return [
+                    "reponse" => true,
+                    "message" => "Paiement en attente",
+                    "type" => "mobile",
+                    "reference" => $order->reference,
+                    "orderNumber" => $responseBody['orderNumber'],
+                ];
+            } else {
+                return response()->json(
+                    [
+                        "reponse" => false,
+                        "message" => "Échec de la transaction",
+                    ]
+                );
+            }
+        }
+        // else {
+        //     $response = Http::withHeaders([
+        //         "Content-Type" => "application/json",
+        //         "Authorization" => "Bearer " . env('FLEXPAY_API_TOKEN')
+        //     ])->post(env('FLEXPAY_GATEWAY_CARD'), $data);
+
+        //     $responseBody = $response->json();
+        // }
+        return $responseBody;
+    }
+}
+if (!function_exists('generateUniqueReference')) {
+    function generateUniqueReference()
+    {
+        do {
+            $reference = 'CMP-' . strtoupper(Str::random(10));
+        } while (Transaction::where('reference', $reference)->exists());
+
+        return $reference;
     }
 }
