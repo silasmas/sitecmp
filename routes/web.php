@@ -66,7 +66,8 @@ Route::post('storeRequete', action: [RequeteController::class, 'store'])->name(n
 
 Route::get('/checkTransactionStatus', [OffrandeController::class, 'checkTransactionStatus'])->name('checkTransactionStatus');
 
-Route::get('/paid/{reference}/{amount}/{currency}/{code}', [OffrandeController::class, 'paid'])->whereNumber(['amount', 'code'])->name('paid');
+Route::get('/paid/{reference}/{amount}/{currency}/{code}', [OffrandeController::class, 'paid'])->whereNumber(['amount'])->name('paid');
+Route::get('/commandeStatus', [OffrandeController::class, 'commandeStatus'])->name('commandeStatus');
 
 
 

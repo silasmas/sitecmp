@@ -47,24 +47,21 @@ class OffrandeController extends Controller
 
         $ref = generateUniqueReference();
 
-        if ($request->toggleOption === "mobile") {
-
-            $datas = [
-                'type' => $request->toggleOption == 'mobile' ? 1 : 2,
-                'phone' => $request->number,
-                'montant' => $request->montant,
-                'chanel' => $request->toggleOption,
-                'offrande_id' => $request->offrande_id,
-                'currency' => $request->monaie,
-                'reference' => $ref,
-                'fullname' => $request->fullname,
-                'numberPhone' => $request->phoneNumber,
-                'pays' => $request->country,
-            ];
-            $init = Transaction::create($datas);
+        $datas = [
+            'type' => $request->toggleOption == 'mobile' ? 1 : 2,
+            'phone' => $request->number,
+            'montant' => $request->montant,
+            'chanel' => $request->toggleOption,
+            'offrande_id' => $request->offrande_id,
+            'currency' => $request->monaie,
+            'reference' => $ref,
+            'fullname' => $request->fullname,
+            'numberPhone' => $request->phoneNumber,
+            'pays' => $request->country,
+        ];
+        $init = Transaction::create($datas);
 
             if ($init) {
-
                 // Create response by sending request to FlexPay
                 return $this->initiatePayment($init, $init->phone);
             } else {
@@ -75,7 +72,7 @@ class OffrandeController extends Controller
                     ]
                 );
             }
-        }
+
     }
 
 
@@ -100,7 +97,7 @@ class OffrandeController extends Controller
             return response()->json($rep);
         } else {
 
-            $retour = $this->flexPayService->initiatePayment($order->total, $order->currency, $order->reference, "Achat de produits");
+            $retour = $this->flexPayService->initiatePayment($order->montant, $order->currency, $order->reference, "Offrande");
             //    dd($retour["rep"]);
             if ($retour['rep']) {
                 $order->update([
@@ -144,7 +141,7 @@ class OffrandeController extends Controller
     {
         Log::info('Check reçu:', $request->all());
         $reference = $request->input('reference');
-        // dump($reference);
+         dump($reference);
         // Construire l'URL avec le paramètre de requête
         $url = 'https://backend.flexpay.cd/api/rest/v1/check/' . urlencode($reference);
         // $url = env("FLEXPAY_GATEWAY_CHECK") ."/". urlencode($reference);
@@ -154,9 +151,9 @@ class OffrandeController extends Controller
         // Définir les options de cURL pour GET
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_HTTPHEADER, [
+            'Content-Type: application/json',
             'Authorization: Bearer ' . env('FLEXPAY_API_TOKEN'),
         ]);
-
         // Exécuter la requête
         $curlResponse = curl_exec($curl);
 
@@ -176,7 +173,7 @@ class OffrandeController extends Controller
 
         $transactionData = $jsonRes['transaction'];
         $transaction = Transaction::where('reference', $transactionData['reference'])->first();
-        //  dump($transactionData["status"]);
+        // dump($transactionData);
         Log::info('Check reçu:', $transactionData);
         switch ($jsonRes['transaction']["status"]) {
             case 0:
@@ -240,7 +237,7 @@ class OffrandeController extends Controller
     public function paid($reference, $amount, $currency, $status)
     {
         // Vérifier si la commande existe
-        $order = Commande::where('reference', $reference)->first();
+        $order = Transaction::where('reference', $reference)->first();
         $msg = "";
         if (!$order) {
             return response()->json(['error' => 'Commande non trouvée'], 404);
@@ -249,19 +246,18 @@ class OffrandeController extends Controller
         // Mettre à jour le statut en fonction de la réponse de FlexPay
         switch ($status) {
             case 'success':
-                $order->etat = 'Payée'; // Paiement réussi
-                $msg = 'Paiement réussi !';
-                $rep = $this->clearCartAfterPayment($order->user_id);
+                $order->etat = 'Réussi'; // Paiement réussi
+                $msg = 'Transaction réussie!';
                 break;
 
             case 'cancel':
                 $order->etat = 'Annulée'; // Paiement annulé par l'utilisateur
-                $msg = 'Paiement annulé !';
+                $msg = 'Transaction annulée!';
                 break;
 
             case 'decline':
                 $order->etat = 'Annulée'; // Paiement refusé
-                $msg = 'Paiement refusé !';
+                $msg = 'Transaction refusée!';
                 break;
 
             default:
@@ -278,12 +274,17 @@ class OffrandeController extends Controller
                 'currency' => $currency,
                 'status' => $order->etat,
                 'order' => $order->provider_reference,
-                'channel' => $order->channel
+                'chanel' => $order->chanel
             ]
         ]);
     }
 
-
+    public function commandeStatus()
+    {
+        $order_details = session('order_details');
+        //    dd($order_details);
+        return view('site.pages.paid', compact('order_details'));
+    }
     /**
      * Store a newly created resource in storage.
      */

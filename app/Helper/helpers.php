@@ -164,7 +164,7 @@ if (!function_exists('initRequeteFlexPay')) {
             ])->post(env('FLEXPAY_GATEWAY_MOBILE'), $data);
 
             $responseBody = $response->json();
-                // dd($responseBody);
+                //  dd($responseBody);
             if ($responseBody['code'] == "0") {
                 $order->update([
                     'provider_reference' => $responseBody['orderNumber'],
@@ -172,7 +172,7 @@ if (!function_exists('initRequeteFlexPay')) {
                 ]);
                 return [
                     "reponse" => true,
-                    "message" => "Paiement en attente",
+                    "message" => $responseBody['message'],
                     "type" => "mobile",
                     "reference" => $order->reference,
                     "orderNumber" => $responseBody['orderNumber'],

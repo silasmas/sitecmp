@@ -317,8 +317,8 @@
                         if (data.type == "mobile") {
                             check(data.orderNumber);
                         } else {
-                            console.error("url", data.url);
-                            document.location = data.url;
+                            console.error("url", data.redirect_url);
+                            document.location = data.redirect_url;
                         }
                     }
                 },
