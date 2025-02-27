@@ -605,7 +605,7 @@ class MissionnaireResource extends Resource
                 IconColumn::make('langue_en')
                     ->label("Anglais")
                     ->searchable(),
-                TextColumn::make('date_lieu_bapteme')
+                TextColumn::make('date_bapteme')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('eglise_attache')
