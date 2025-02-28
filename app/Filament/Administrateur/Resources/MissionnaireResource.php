@@ -572,7 +572,9 @@ class MissionnaireResource extends Resource
     {
         return $table->striped()->deferLoading()->heading('Les Missionnaires')
             ->description('Cette table contient plus des colonnes que celle qui est visible')
-            ->emptyState(fn () => view('components.loading-message')) // Affichage du loader
+            ->emptyState(
+                view('components.loading-message')->with('message', 'Chargement des missionnaires, veuillez patienter...')
+            )
             ->columns([
                 TextColumn::make('nom')
                     ->searchable(),

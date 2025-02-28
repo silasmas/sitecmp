@@ -12,11 +12,11 @@ class MissionnaireStats extends BaseWidget
     protected function getCards(): array
     {
         return [
-            Card::make('Total Utilisateurs', Missionnaire::where('disponible', '1')->count())
+            Card::make('Total disponible', Missionnaire::where('disponible', '1')->count())
                 ->description('Nombre total des missionnaires disponible')
                 ->icon('heroicon-o-users'),
 
-            Card::make('Marié(e)s', Missionnaire::where('etat_civil','like', '%Marié%')->count())
+            Card::make('Marié(e)s', Missionnaire::where('etat_civil','like', '%mari%')->count())
                 ->description('Nombre des mariés')
                 ->color('success'),
 
