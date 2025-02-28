@@ -31,6 +31,7 @@ use Filament\Tables\Columns\SelectColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Forms\Components\Wizard\Step;
+use App\Filament\Widgets\MissionnaireStats;
 use Filament\Forms\Components\CheckboxList;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
@@ -571,6 +572,7 @@ class MissionnaireResource extends Resource
     {
         return $table->striped()->deferLoading()->heading('Les Missionnaires')
             ->description('Cette table contient plus des colonnes que celle qui est visible')
+            ->emptyState(fn () => view('components.loading-message')) // Affichage du loader
             ->columns([
                 TextColumn::make('nom')
                     ->searchable(),
@@ -717,5 +719,11 @@ class MissionnaireResource extends Resource
     public static function getNavigationBadgeColor(): string|array|null
     {
         return static::getModel()::count() < 1 ? "danger" : "success";
+    }
+    public static function getWidgets(): array
+    {
+        return [
+            MissionnaireStats::class, // Ajout du widget de statistiques
+        ];
     }
 }
