@@ -18,6 +18,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
+use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Administrateur\Resources\MinisterResource\Pages;
@@ -107,6 +108,7 @@ class MinisterResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+
             ->columns([
                 ImageColumn::make('image_url')
                     ->circular()
@@ -141,8 +143,21 @@ class MinisterResource extends Resource
                     ->boolean(),
             ])
             ->filters([
-                //
+                SelectFilter::make('type')
+                    ->label('Type')
+                    ->options(
+                        fn() => \App\Models\Minister::query()
+                            ->whereNotNull('type') // Évite les valeurs NULL
+                            ->distinct()
+                            ->pluck('type', 'type')
+                            ->toArray()
+                    )
+                    ->searchable()
+                    ->preload()
+                    ->indicator("Type")
+                    ->query(fn ($query, $value) => dd($query->where('type', $value)->toSql(), $query->getBindings())), // ✅ Applique le filtre manuellement
             ])
+
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
