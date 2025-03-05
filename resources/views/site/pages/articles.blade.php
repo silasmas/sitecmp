@@ -34,7 +34,7 @@
             {{-- @livewire("test-search") --}}
             <div class="col-lg-9">
                 <div class="alert alert-warning" role="alert">
-                    {{ $post->count()." Article(s) trouvée(s)"}}
+                    {{ $post->count()." Article(s) trouvé(s)"}}
                 </div>
                 @forelse ($post as $p)
                 <div class="blog-entry mb-50">
