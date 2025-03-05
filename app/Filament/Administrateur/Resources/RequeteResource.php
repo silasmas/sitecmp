@@ -136,22 +136,23 @@ class RequeteResource extends Resource
                             ->when($data['created_from'], fn($query) => $query->whereDate('created_at', '>=', $data['created_from']))
                             ->when($data['created_to'], fn($query) => $query->whereDate('created_at', '<=', $data['created_to']));
                     }),
-                SelectFilter::make('pays')
-                    ->label('Pays')
-                    ->options(function () {
-                        // Générer dynamiquement les options
-                        $options = Requete::query()
-                            ->distinct()
-                            ->pluck('pays', 'pays')
-                            ->toArray();
-                        return !empty($options) ? $options : []; // Retourne un tableau vide si aucune option
-                    })
-                    ->placeholder('Tous les pays')
-                    ->query(function ($query, $data) {
-                        if (!empty($data['pays'])) {
-                            $query->where('pays', $data['pays']);
-                        }
-                    }),
+                // SelectFilter::make('pays')
+                //     ->label('Pays')
+                //     ->options(function () {
+                //         // Générer dynamiquement les options
+                //         $options = Requete::query()
+                //             ->distinct()
+                //             ->pluck('pays', 'pays')
+                //             ->toArray();
+                //         return !empty($options) ? $options : []; // Retourne un tableau vide si aucune option
+                //     })
+                //     ->isOptionDisabled(fn ($value, $label) => $label !== null && $label === 'Option 1')
+                //     ->placeholder('Tous les pays')
+                //     ->query(function ($query, $data) {
+                //         if (!empty($data['pays'])) {
+                //             $query->where('pays', $data['pays']);
+                //         }
+                //     }),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
