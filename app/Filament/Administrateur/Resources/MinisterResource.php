@@ -143,21 +143,21 @@ class MinisterResource extends Resource
                     ->boolean(),
             ])
             ->filters([
-                SelectFilter::make('type')
-                    ->label('Type')
-                    ->options(
-                        fn() => \App\Models\Minister::query()
-                            ->whereNotNull('type') // Évite les valeurs NULL
-                            ->distinct()
-                            ->pluck('type', 'type')
-                            ->toArray()
-                    )
-                    ->searchable()
-                    ->preload()
-                    ->indicator("Type")
-                    ->query(function ($query, $value) {
-                        return $query->where('type', $value);
-                    }),
+                // SelectFilter::make('type')
+                //     ->label('Type')
+                //     ->options(
+                //         fn() => \App\Models\Minister::query()
+                //             ->whereNotNull('type') // Évite les valeurs NULL
+                //             ->distinct()
+                //             ->pluck('type', 'type')
+                //             ->toArray()
+                //     )
+                //     ->searchable()
+                //     ->preload()
+                //     ->indicator("Type")
+                //     ->query(function ($query, $value) {
+                //         return $query->where('type', $value);
+                //     }),
                     // ->query(fn ($query, $value) => dd($query->where('type', $value)->toSql(), $query->getBindings())), // ✅ Applique le filtre manuellement
             ])
 
