@@ -24,6 +24,9 @@ class Event extends Model
     public $translatable = ["designation", "description", "lieu", "theme", "references", "image_url"];
     protected $casts = [
         'designation' => 'array', // Cast le champ translations en tableau
+        'prix' => 'array', // Cast le champ translations en tableau
+        'categorie' => 'array', // Cast le champ translations en tableau
+        'monnaie' => 'array', // Cast le champ translations en tableau
     ];
     public function getLegalInfoTitle_title($lang = 'fr')
     {

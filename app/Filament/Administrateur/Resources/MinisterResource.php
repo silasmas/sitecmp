@@ -155,7 +155,10 @@ class MinisterResource extends Resource
                     ->searchable()
                     ->preload()
                     ->indicator("Type")
-                    ->query(fn ($query, $value) => dd($query->where('type', $value)->toSql(), $query->getBindings())), // ✅ Applique le filtre manuellement
+                    ->query(function ($query, $value) {
+                        return $query->where('type', $value);
+                    }),
+                    // ->query(fn ($query, $value) => dd($query->where('type', $value)->toSql(), $query->getBindings())), // ✅ Applique le filtre manuellement
             ])
 
             ->actions([

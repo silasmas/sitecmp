@@ -238,7 +238,7 @@
                             <button data-filter="" class="active">Tous</button>
                             <button data-filter=".visionnaire">Titulaire</button>
                             <button data-filter=".leadership">Associés</button>
-                            <button data-filter=".development">Stagiaires</button>
+                            <button data-filter=".development" hidden>Stagiaires</button>
                         </div>
                         <div class="isotope full-screen columns-4">
                             @forelse ($pastors as $ps)

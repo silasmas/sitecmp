@@ -15,6 +15,7 @@ use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Columns\ImageColumn;
@@ -108,16 +109,54 @@ class EventResource extends Resource
                             ->columnSpanFull(),
                         Toggle::make('is_active')
                             ->label('Active (pour le rendre visible ou pas)')
-                            ->columnSpan(6)
+                            ->columnSpan(4)
                             ->onColor('success')
                             ->offColor('danger')
                             ->required(),
                         Toggle::make('est_a_la_une')
                             ->label('Est à la une')
-                            ->columnSpan(6)
+                            ->columnSpan(4)
                             ->onColor('success')
                             ->offColor('danger')
                             ->required(),
+                        Toggle::make('payant')
+                            ->label('Payant')
+                            ->columnSpan(4)
+                            ->onColor('success')
+                            ->offColor('danger'),
+                    ])->columnS(12),
+                    Section::make("Si c'est payant")->schema([
+                        TagsInput::make('prix')
+                        ->label('le prix')
+                        ->placeholder('Prix')
+                        ->columnSpan(3)
+                        ->separator(','),
+                        TagsInput::make('monnaie')
+                            ->label('Monnaie')
+                            ->placeholder('Selectionnez la monnaie')
+                            ->separator(',')
+                            ->columnSpan(3)
+                        ->suggestions([
+                            'FR',
+                            'UDS',
+                        ]),
+                        TagsInput::make('categorie')
+                            ->label('Categorie')
+                            ->placeholder('Selectionnez la categorie')
+                            ->separator(',')
+                            ->columnSpan(3)
+                            ->suggestions([
+                                'Concert',
+                                'Seminaire',
+                                'Culte',
+                            ]),
+                            TextInput::make('quota')
+                            ->required()
+                            ->label('Nombre de places')
+                            ->numeric()
+                            ->placeholder('Nombre de places')
+                            ->minValue(1)
+                            ->columnSpan(3),
                     ])->columnS(12)
                 ])->columnSpanFull(),
             ]);
@@ -204,8 +243,8 @@ class EventResource extends Resource
     {
         return [
             'index' => Pages\ListEvents::route('/'),
-            // 'create' => Pages\CreateEvent::route('/create'),
-            // 'edit' => Pages\EditEvent::route('/{record}/edit'),
+            'create' => Pages\CreateEvent::route('/create'),
+            'edit' => Pages\EditEvent::route('/{record}/edit'),
         ];
     }
     public static function getNavigationBadge(): ?string
