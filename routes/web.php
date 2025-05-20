@@ -36,7 +36,7 @@ Route::get('/', [ProfileController::class, 'home'])->name('home');
 Route::get('/about', [ProfileController::class, 'about'])->name('about');
 Route::get('/articles', [PostController::class, 'articles'])->name('articles');
 Route::get('/events', [ProfileController::class, 'events'])->name('events');
-Route::get('/projects', [ProfileController::class, 'projects'])->name('projects');
+// Route::get('/projects', [ProfileController::class, 'projects'])->name('projects');
 Route::get('/contributions', [ProfileController::class, 'contributions'])->name('contributions');
 Route::get('/media', [ProfileController::class, 'galerie'])->name('media');
 Route::get('/contact', [ProfileController::class, 'contact'])->name('contact');
