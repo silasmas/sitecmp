@@ -138,7 +138,7 @@
                                     <li class="hoverTrigger {{ Route::current()->getName() == 'missionnaire' ? 'active' : '' }}">
                                         <div class="dropdown">
                                             <a href="{{ route('missionnaire') }}" class="link-drop" type="button">
-                                                Devenir missionnaire
+                                                Missionnaire
                                             </a>
                                         </div>
                                         </a>
@@ -218,7 +218,7 @@
                                         {{-- <a class="cart-btn" href="{{ route('contact') }}"> <i class="fa fa-envelope"
                                                 style="color: #650f1c;"></i></a> --}}
                                                 <a class="cart-btn" href="https://shorturl.at/qgvgj" target="_blank">
-                                                Prendre RDV</a>
+                                                Rendez-vous</a>
                                     </div>
                                 </div>
                                 <div class="menu-toggle d-flex flex-column d-lg-none ms-auto align-items-end">
