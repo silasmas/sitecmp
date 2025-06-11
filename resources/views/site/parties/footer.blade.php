@@ -9,7 +9,7 @@
                                     <li><a href="{{ route('about') }}">@lang('miscellaneous.main_menu.who_are_we.about')  </a></li>
                                     <li><a href="{{ route('articles') }}">@lang('miscellaneous.main_menu.news')  </a></li>
                                     <li><a href="{{ route('events') }}">BUNDA 21</a></li>
-                                    <li><a href="{{ route('projects') }}">@lang('miscellaneous.main_menu.projects')  </a></li>
+                                    {{-- <li><a href="{{ route('projects') }}">@lang('miscellaneous.main_menu.projects')  </a></li> --}}
                     </ul>
                 </div>
             </div>
