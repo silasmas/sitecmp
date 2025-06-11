@@ -55,28 +55,21 @@
                     </div>
                 </div>
             </li>
-            {{-- <li>
-                <a class="{{ Route::current()->getName() == 'projects' ? 'active' : '' }}"
-                    href="{{ route('projects') }}">
-                    @lang('miscellaneous.main_menu.projects')
+            <li>
+                <a class="{{ Route::current()->getName() == 'missionnaire' ? 'active' : '' }}" href="{{ route('missionnaire') }}">
+                   Devenir missionnaire
                 </a>
             </li>
             <li>
-                <a class="{{ Route::current()->getName() == 'projects' ? 'active' : '' }}"
-                    href="{{ route('projects') }}">
-                    @lang('miscellaneous.main_menu.projects')
+                <a class="{{ Route::current()->getName() == 'reception' ? 'active' : '' }}" href="{{ route('reception') }}">
+                    Reception pastorale
                 </a>
             </li>
-            <li>
-                <a class="{{ Route::current()->getName() == 'projects' ? 'active' : '' }}"
-                    href=" {{ route('contact') }}">
-                    Contact
-                </a>
-            </li> --}}
+
         </ul>
         <div class="block my-4">
-          <a href="{{ route('missionnaire') }}" class="btn btn-primary btn-uppertext d-lg-inline-block">
-            Devenir missionnaire
+          <a href="https://shorturl.at/qgvgj" target="_blank" class="btn btn-primary btn-uppertext d-lg-inline-block">
+            Prendre rendez-vous
           </a>
         </div>
         <div class="block my-4">

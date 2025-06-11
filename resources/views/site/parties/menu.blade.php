@@ -215,8 +215,10 @@
                                         </div>
                                     </div>--}}
                                     <div class="shpping-cart">
-                                        <a class="cart-btn" href="{{ route('contact') }}"> <i class="fa fa-envelope"
-                                                style="color: #650f1c;"></i></a>
+                                        {{-- <a class="cart-btn" href="{{ route('contact') }}"> <i class="fa fa-envelope"
+                                                style="color: #650f1c;"></i></a> --}}
+                                                <a class="cart-btn" href="https://shorturl.at/qgvgj" target="_blank">
+                                                Prendre RDV</a>
                                     </div>
                                 </div>
                                 <div class="menu-toggle d-flex flex-column d-lg-none ms-auto align-items-end">
