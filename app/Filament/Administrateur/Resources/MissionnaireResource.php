@@ -1,54 +1,37 @@
 <?php
-
 namespace App\Filament\Administrateur\Resources;
 
-use Filament\Forms;
-use Filament\Tables;
-use Filament\Forms\Form;
-use Filament\Tables\Table;
-use App\Models\Missionnaire;
-use Filament\Resources\Resource;
 use App\Exports\MissionnaireExport;
+use App\Filament\Administrateur\Resources\MissionnaireResource\Pages;
+use App\Filament\Widgets\MissionnaireStats;
+use App\Models\Missionnaire;
+use Filament\Forms\Components\CheckboxList;
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Grid;
-use Filament\Tables\Actions\Action;
-use Filament\Tables\Grouping\Group;
 use Filament\Forms\Components\Radio;
-use Maatwebsite\Excel\Facades\Excel;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Wizard;
-use App\Exports\MissionnairePdfExport;
-use Filament\Resources\Components\Tab;
-use Filament\Support\Enums\FontWeight;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Wizard;
+use Filament\Forms\Components\Wizard\Step;
+use Filament\Forms\Form;
+use Filament\Resources\Resource;
+use Filament\Tables;
+use Filament\Tables\Actions\Action;
+use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Actions\BulkAction;
 use Filament\Tables\Columns\IconColumn;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Forms\Components\TextInput;
-use Filament\Tables\Actions\ActionGroup;
-use Filament\Tables\Columns\ImageColumn;
-use Filament\Tables\Enums\FiltersLayout;
-use Filament\Forms\Components\DatePicker;
-use Filament\Tables\Columns\Layout\Panel;
-use Filament\Tables\Columns\Layout\Split;
-use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\SelectColumn;
-use Filament\Tables\Columns\ToggleColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
-use Illuminate\Database\Eloquent\Builder;
-use Filament\Forms\Components\Wizard\Step;
-use App\Filament\Widgets\MissionnaireStats;
-use Filament\Forms\Components\CheckboxList;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
-use App\Filament\Administrateur\Resources\MissionnaireResource\Pages;
+use Filament\Tables\Table;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MissionnaireResource extends Resource
 {
     protected static ?string $model = Missionnaire::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-user';
-
-
 
     public static function form(Form $form): Form
     {
@@ -107,8 +90,8 @@ class MissionnaireResource extends Resource
                                 Select::make('lecture_bible')
                                     ->label('Quelle est votre fréquence de lecture de la Bible et la prière ?')
                                     ->options([
-                                        'Quotidienne' => 'Quotidienne',
-                                        'Hebdomadaire' => 'Hebdomadaire',
+                                        'Quotidienne'   => 'Quotidienne',
+                                        'Hebdomadaire'  => 'Hebdomadaire',
                                         'Occasionnelle' => 'Occasionnelle',
                                     ])->required()->columnSpan(1),
                                 TextInput::make('livre_bible')
@@ -125,13 +108,13 @@ class MissionnaireResource extends Resource
                                     ->label('Avez-vous des connaissances sur les fondements de la mission ?')
                                     ->options([
                                         'Oui, je peux expliquer les fondements de la mission' => 'Oui, je peux expliquer les fondements de la mission',
-                                        'Non, mais j\'ai quelques notions' => 'Non, mais j\'ai quelques notions',
-                                        'Non, je suis novice' => 'Non, je suis novice',
+                                        'Non, mais j\'ai quelques notions'                    => 'Non, mais j\'ai quelques notions',
+                                        'Non, je suis novice'                                 => 'Non, je suis novice',
                                     ])->required(),
                                 Select::make('concepte_familier')->columnSpan(1)
                                     ->label("Etes vous familier avec les conceptes tels que le mandat missionnaire, la stratégie missionnaire, et l'inculturation ?")
                                     ->options([
-                                        'Très familier' => 'Très familier',
+                                        'Très familier'        => 'Très familier',
                                         'Moyennement familier' => 'Moyennement familier',
                                         'Pas du tout familier' => 'Pas du tout familier',
                                     ])->required(),
@@ -170,11 +153,10 @@ class MissionnaireResource extends Resource
                                 ->required(),
                         ]),
                 ])->persistStepInQueryString('wizard-step')
-                    ->skippable(true) // Permet de sauter des étapes
+                    ->skippable(true)   // Permet de sauter des étapes
                     ->columnSpanFull(), // Prend toute la largeur disponible
             ]);
     }
-
 
     public static function table(Table $table): Table
     {
@@ -183,10 +165,10 @@ class MissionnaireResource extends Resource
             ->emptyState(
                 view('components.loading-message')->with('message', 'Chargement des missionnaires, veuillez patienter...')
             )
-            // ->groups([
-            //     Group::make('eglise_attache')
-            //         ->label('Église Attachée'),
-            // ])
+        // ->groups([
+        //     Group::make('eglise_attache')
+        //         ->label('Église Attachée'),
+        // ])
             ->filters([
                 SelectFilter::make('eglise_attache')
                     ->label('Église Attachée')
@@ -201,7 +183,6 @@ class MissionnaireResource extends Resource
                     ->preload()
                     ->indicator("Église d'attache"),
             ])
-
 
             ->columns([
                 TextColumn::make('nom')
@@ -232,11 +213,22 @@ class MissionnaireResource extends Resource
                     ->searchable()
                     ->label("Converti depuis"),
                 IconColumn::make('langue_fr')
-                    ->label("Français")
-                    ->searchable(),
+                    ->label('Français')
+                    ->boolean()
+                    ->getStateUsing(fn($record) => ! empty($record->langue_en))
+                    ->trueIcon('heroicon-o-check-circle')
+                    ->falseIcon('heroicon-o-x-circle')
+                    ->trueColor('success')
+                    ->falseColor('danger'),
                 IconColumn::make('langue_en')
-                    ->label("Anglais")
-                    ->searchable(),
+                    ->label('Anglais')
+                    ->boolean()
+                    ->getStateUsing(fn($record) => ! empty($record->langue_en))
+                    ->trueIcon('heroicon-o-check-circle')
+                    ->falseIcon('heroicon-o-x-circle')
+                    ->trueColor('success')
+                    ->falseColor('danger'),
+
                 TextColumn::make('date_bapteme')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -304,13 +296,12 @@ class MissionnaireResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
 
-
             ->actions([
                 ActionGroup::make([
                     Tables\Actions\ViewAction::make(),
                     Tables\Actions\EditAction::make(),
                     Tables\Actions\DeleteAction::make(),
-                ])
+                ]),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -326,7 +317,6 @@ class MissionnaireResource extends Resource
             ]);
     }
 
-
     public static function getRelations(): array
     {
         return [
@@ -337,16 +327,16 @@ class MissionnaireResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListMissionnaires::route('/'),
+            'index'  => Pages\ListMissionnaires::route('/'),
             'create' => Pages\CreateMissionnaire::route('/create'),
-            'edit' => Pages\EditMissionnaire::route('/{record}/edit'),
+            'edit'   => Pages\EditMissionnaire::route('/{record}/edit'),
         ];
     }
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
     }
-    public static function getNavigationBadgeColor(): string|array|null
+    public static function getNavigationBadgeColor(): string | array | null
     {
         return static::getModel()::count() < 1 ? "danger" : "success";
     }
