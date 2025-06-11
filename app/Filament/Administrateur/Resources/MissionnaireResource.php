@@ -228,7 +228,9 @@ class MissionnaireResource extends Resource
                     ->falseIcon('heroicon-o-x-circle')
                     ->trueColor('success')
                     ->falseColor('danger'),
-
+ TextColumn::make('autres')
+                    ->searchable()
+                    ->label("Autres langue"),
                 TextColumn::make('date_bapteme')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
