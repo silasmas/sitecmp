@@ -27,8 +27,8 @@
 
                     <div class="col-12 text-center mt-3">
                         <a href="https://www.jeunesse.eglisecmp.com/retreat/inscription_en_ligne/12/"
-                            class="btn btn-primary">
-                            Voir la page
+                            class="btn btn-primary" target="_blank">
+                            S'inscrire à la retraite
                         </a>
                     </div>
                 </div>
