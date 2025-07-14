@@ -629,7 +629,7 @@
 <section class="gray-bg page-section-pt happy-clients">
     <div class="container">
         <div class="row justify-content-center">
-          
+
             <div class="col-lg-8 mt-60">
                 <div class="section-title text-center">
                     <h6 class="text-intro mb-lg-3">Ce que Dieu a fait</h6>
@@ -763,10 +763,10 @@
     </div>
 </section>
 @if($actualites)
-@include("site.parties.modale")
+@include("site.parties.mod")
 
 <script>
-    
+
     document.addEventListener("DOMContentLoaded", function () {
         var myModal = new bootstrap.Modal(document.querySelector(".bd-example-modal-lg"));
         myModal.show();
@@ -777,5 +777,5 @@
 </script>
 @endif
 @endsection
- 
+
 
