@@ -50,6 +50,7 @@ Route::get('/articles_day/{slug}', [PostController::class, 'show'])->name('artic
 
 Route::get('detailProjet/{id}', [ProjetController::class, 'show'])->name('detailProjet');
 Route::get('welcome', [FaithfulController::class, 'index'])->name('welcome');
+Route::get('evangelique', [FaithfulController::class, 'evangelique'])->name('evangelique');
 Route::get('missionnaire', [FaithfulController::class, 'missionnaire'])->name('missionnaire');
 Route::get('requete', [RequeteController::class, 'index'])->name('requete');
 Route::get('reception', [ReceptionScheduleController::class, 'index'])->name('reception');

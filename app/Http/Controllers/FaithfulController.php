@@ -18,6 +18,10 @@ class FaithfulController extends Controller
     {
         return view("site.pages.missionaire");
     }
+    public function evangelique()
+    {
+        return view("site.pages.evangelique");
+    }
 
     /**
      * Show the form for creating a new resource.

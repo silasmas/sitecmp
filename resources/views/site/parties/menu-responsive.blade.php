@@ -56,9 +56,15 @@
                 </div>
             </li>
             <li>
-                <a class="{{ Route::current()->getName() == 'missionnaire' ? 'active' : '' }}" href="{{ route('missionnaire') }}">
-                   Devenir missionnaire
+                <a class="{{ Route::current()->getName() == 'missionnaire'|| Route::current()->getName() == 'evangelique' ? 'active' : '' }}" href="{{ route('missionnaire') }}">
+                  Missionnaire
                 </a>
+                <div class="collapse" id="collapseAbout">
+                    <div class="card card-body p-0" style="border: none">
+                        <a href="{{ route('evangelique') }}">Mois évangélique</a>
+                        <a  href="{{ route('missionnaire') }}"> Devenir missionnaire</a>
+                    </div>
+                </div>
             </li>
             <li>
                 <a class="{{ Route::current()->getName() == 'reception' ? 'active' : '' }}" href="{{ route('reception') }}">

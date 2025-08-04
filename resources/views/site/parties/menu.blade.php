@@ -137,9 +137,18 @@
                                     </li>
                                     <li class="hoverTrigger {{ Route::current()->getName() == 'missionnaire' ? 'active' : '' }}">
                                         <div class="dropdown">
-                                            <a href="{{ route('missionnaire') }}" class="link-drop" type="button">
+                                            <a href="javascript:void(0)" class="link-drop" type="button"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
                                                 Missionnaire
+                                                <i class="fa fa-angle-down fa-indicator"></i>
                                             </a>
+                                             <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="{{ route('evangelique') }}">
+                                                   Mois évangélique</a>
+                                                </li>
+                                                <li><a class="dropdown-item" href="{{ route('missionnaire') }}">Devenir missionnaire</a>
+                                                </li>
+                                            </ul>
                                         </div>
                                         </a>
                                     </li>
