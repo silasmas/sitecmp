@@ -31,24 +31,28 @@
         background-color: #4e0b16;
     }
 
-    #pdf-viewer {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
+  #pdf-viewer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
 
-    #pdf-canvas {
-        max-width: 90%;
-        height: auto;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    #pdf-canvas {
+#pdf-canvas {
+    width: 100%;
+    max-width: 1200%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    /* #pdf-canvas {
     width: 50%;
     max-width: 1200px;
     height: auto;
-}
+} */
 
 </style>
 
