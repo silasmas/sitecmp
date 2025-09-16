@@ -119,11 +119,11 @@ class EventResource extends Resource
                             ->onColor('success')
                             ->offColor('danger')
                             ->required(),
-                        Toggle::make('payant')
-                            ->label('Payant')
-                            ->columnSpan(4)
-                            ->onColor('success')
-                            ->offColor('danger'),
+                        // Toggle::make('payant')
+                        //     ->label('Payant')
+                        //     ->columnSpan(4)
+                        //     ->onColor('success')
+                        //     ->offColor('danger'),
                     ])->columnS(12),
                     Section::make("Si c'est payant")->schema([
                         TagsInput::make('prix')
@@ -151,7 +151,6 @@ class EventResource extends Resource
                                 'Culte',
                             ]),
                             TextInput::make('quota')
-                            ->required()
                             ->label('Nombre de places')
                             ->numeric()
                             ->placeholder('Nombre de places')
