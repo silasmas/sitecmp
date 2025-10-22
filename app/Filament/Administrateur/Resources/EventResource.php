@@ -126,36 +126,36 @@ class EventResource extends Resource
                         //     ->offColor('danger'),
                     ])->columnS(12),
                     Section::make("Si c'est payant")->schema([
-                        TagsInput::make('prix')
-                        ->label('le prix')
-                        ->placeholder('Prix')
-                        ->columnSpan(3)
-                        ->separator(','),
-                        TagsInput::make('monnaie')
-                            ->label('Monnaie')
-                            ->placeholder('Selectionnez la monnaie')
-                            ->separator(',')
-                            ->columnSpan(3)
-                        ->suggestions([
-                            'FR',
-                            'UDS',
-                        ]),
-                        TagsInput::make('categorie')
-                            ->label('Categorie')
-                            ->placeholder('Selectionnez la categorie')
-                            ->separator(',')
-                            ->columnSpan(3)
-                            ->suggestions([
-                                'Concert',
-                                'Seminaire',
-                                'Culte',
-                            ]),
-                            TextInput::make('quota')
-                            ->label('Nombre de places')
-                            ->numeric()
-                            ->placeholder('Nombre de places')
-                            ->minValue(1)
-                            ->columnSpan(3),
+                        // TagsInput::make('prix')
+                        // ->label('le prix')
+                        // ->placeholder('Prix')
+                        // ->columnSpan(3)
+                        // ->separator(','),
+                        // TagsInput::make('monnaie')
+                        //     ->label('Monnaie')
+                        //     ->placeholder('Selectionnez la monnaie')
+                        //     ->separator(',')
+                        //     ->columnSpan(3)
+                        // ->suggestions([
+                        //     'FR',
+                        //     'UDS',
+                        // ]),
+                        // TagsInput::make('categorie')
+                        //     ->label('Categorie')
+                        //     ->placeholder('Selectionnez la categorie')
+                        //     ->separator(',')
+                        //     ->columnSpan(3)
+                        //     ->suggestions([
+                        //         'Concert',
+                        //         'Seminaire',
+                        //         'Culte',
+                        //     ]),
+                        //     TextInput::make('quota')
+                        //     ->label('Nombre de places')
+                        //     ->numeric()
+                        //     ->placeholder('Nombre de places')
+                        //     ->minValue(1)
+                        //     ->columnSpan(3),
                     ])->columnS(12)
                 ])->columnSpanFull(),
             ]);
