@@ -54,71 +54,63 @@
             <div class="row g-lg-5 align-items-center">
                 <div class="col-lg-6 sm-mb-30">
                     <div class="owl-carousel bottom-center-dots owl-loaded owl-drag" data-nav-dots="ture"
-                        data-smartspeed="1200" data-items="1" data-md-items="1" data-sm-items="1"
-                        data-xs-items="1" data-xx-items="1">
+                        data-smartspeed="1200" data-items="1" data-md-items="1" data-sm-items="1" data-xs-items="1"
+                        data-xx-items="1">
                         <div class="owl-stage-outer">
                             <div class="owl-stage"
                                 style="transform: translate3d(-1128px, 0px, 0px); transition: all 1.2s ease 0s; width: 3948px;">
                                 <div class="owl-item cloned" style="width: 534px; margin-right: 30px;">
                                     <div class="item active">
-                                        <img class="img-fluid"
-                                            src="{{ asset('assets/site/images/about/B21-2024-hd.jpg') }}"
+                                        <img class="img-fluid" src="{{ asset('assets/site/images/actus/9.jpg') }}"
                                             alt="">
                                     </div>
                                 </div>
                                 <div class="owl-item cloned" style="width: 534px; margin-right: 30px;">
                                     <div class="item">
-                                        <img class="img-fluid"
-                                            src="{{ asset('assets/site/images/actus/B21-2024-Il-sera deborah.jpg') }}"
+                                        <img class="img-fluid" src="{{ asset('assets/site/images/actus/2.jpg') }}"
                                             alt="">
                                     </div>
                                 </div>
                                 <div class="owl-item" style="width: 534px; margin-right: 30px;">
                                     <div class="item">
-                                        <img class="img-fluid"
-                                            src="{{ asset('assets/site/images/actus/B21-2024-Il-sera dede.jpg') }}"
+                                        <img class="img-fluid" src="{{ asset('assets/site/images/actus/1.jpg') }}"
                                             alt="">
                                     </div>
                                 </div>
                                 <div class="owl-item" style="width: 534px; margin-right: 30px;">
                                     <div class="item">
-                                        <img class="img-fluid"
-                                            src="{{ asset('assets/site/images/actus/B21-2024-Il-sera louison.jpg') }}"
+                                        <img class="img-fluid" src="{{ asset('assets/site/images/actus/3.jpg') }}"
                                             alt="">
                                     </div>
                                 </div>
                                 <div class="owl-item" style="width: 534px; margin-right: 30px;">
                                     <div class="item">
-                                        <img class="img-fluid"
-                                            src="{{ asset('assets/site/images/actus/B21-2024-Il-sera marcello.jpg') }}"
+                                        <img class="img-fluid" src="{{ asset('assets/site/images/actus/4.jpg') }}"
                                             alt="">
                                     </div>
                                 </div>
                                 <div class="owl-item cloned" style="width: 534px; margin-right: 30px;">
                                     <div class="item">
-                                        <img class="img-fluid"
-                                            src="{{ asset('assets/site/images/actus/B21-2024-Il-sera trésor.jpg') }}"
+                                        <img class="img-fluid" src="{{ asset('assets/site/images/actus/5.jpg') }}"
                                             alt="">
                                     </div>
                                 </div>
                                 {{-- <div class="owl-item cloned" style="width: 534px; margin-right: 30px;">
                                     <div class="item">
-                                        <img class="img-fluid" src="{{ asset('assets/site/images/act/.jpg') }}"
-                                            alt="">
+                                        <img class="img-fluid" src="{{ asset('assets/site/images/act/.jpg') }}" alt="">
                                     </div>
                                 </div> --}}
                             </div>
                         </div>
-                        <div class="owl-nav disabled">
+                        {{-- <div class="owl-nav disabled">
                             <button type="button" role="presentation" class="owl-prev"><i
                                     class="fa fa-angle-left fa-2x"></i></button><button type="button"
-                                role="presentation" class="owl-next"><i
-                                    class="fa fa-angle-right fa-2x"></i></button>
-                        </div>
-                        <div class="owl-dots"><button role="button"
-                                class="owl-dot active"><span></span></button><button role="button"
-                                class="owl-dot"><span></span></button><button role="button"
-                                class="owl-dot"><span></span></button></div>
+                                role="presentation" class="owl-next"><i class="fa fa-angle-right fa-2x"></i></button>
+                        </div> --}}
+                        {{-- <div class="owl-dots"><button role="button" class="owl-dot active"><span></span></button><button
+                                role="button" class="owl-dot"><span></span></button><button role="button"
+                                class="owl-dot"><span></span></button>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -199,13 +191,15 @@
                 <ul class="nav  mb-5 nav-tabs nav-tab-page justify-content-center align-items-center" id="pills-tab"
                     role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="pills-arrivage-tab" data-bs-toggle="pill" data-bs-target="#plan"
-                            type="button" role="tab" aria-controls="pills-profile" aria-selected="true">Plan
+                        <button class="nav-link active" id="pills-arrivage-tab" data-bs-toggle="pill"
+                            data-bs-target="#plan" type="button" role="tab" aria-controls="pills-profile"
+                            aria-selected="true">Plan
                             alimentaire</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="pills-fournisseur-tab" data-bs-toggle="pill" data-bs-target="#shop"
-                            type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Laissez-nous votre
+                            type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Laissez-nous
+                            votre
                             témoignage Bunda 21</button>
                     </li>
                 </ul>
@@ -217,7 +211,7 @@
                                 <h2 class="title-effect">Plan alimentaire</h2>
                                 <br>
                                 <a type="button" class="button icon mb-10 mr-10 mt-lg-5 mt-3" target="blank"
-                                    href="{{ asset('assets/document/b21-plan-alimentaire-2024.pdf') }}">
+                                    href="{{ asset('assets/document/Alimentation-B21-2025.pdf') }}">
                                     Télécharger le plan
                                 </a>
                             </div>
@@ -229,7 +223,8 @@
                                             <div id="pdf-controls" style="text-align: center; margin-bottom: 20px;">
                                                 <div id="nav-controls" hidden>
                                                     <button id="prev-page">Précédent</button>
-                                                    <span id="page-info">Page <span id="current-page"></span> sur <span id="total-pages"></span></span>
+                                                    <span id="page-info">Page <span id="current-page"></span> sur <span
+                                                            id="total-pages"></span></span>
                                                     <button id="next-page">Suivant</button>
                                                 </div>
                                                 <button id="zoom-in">Zoom +</button>
@@ -237,7 +232,8 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12">
-                                            <div id="pdf-viewer" style="display: flex; justify-content: center; overflow: hidden;">
+                                            <div id="pdf-viewer"
+                                                style="display: flex; justify-content: center; overflow: hidden;">
                                                 <canvas id="pdf-canvas"
                                                     style="border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"></canvas>
                                             </div>
@@ -250,10 +246,12 @@
 
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="logement" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+                    <div class="tab-pane fade" id="logement" role="tabpanel" aria-labelledby="pills-profile-tab"
+                        tabindex="0">
                         @include('site.pages.bunda.logement')
                     </div>
-                    <div class="tab-pane fade" id="shop" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+                    <div class="tab-pane fade" id="shop" role="tabpanel" aria-labelledby="pills-profile-tab"
+                        tabindex="0">
                         <div class="row mt-70">
                             <div class="col-sm-12">
                                 <h4 class="mb-40">Remplissez ce formulaire</h4>
@@ -261,8 +259,8 @@
                                     @csrf
                                     <div class="contact-form border-form clearfix">
                                         <div class="section-field">
-                                            <input type="text" placeholder="Nom complet" class="form-control" name="fullname"
-                                                required>
+                                            <input type="text" placeholder="Nom complet" class="form-control"
+                                                name="fullname" required>
                                         </div>
                                         <div class="section-field">
                                             <input type="email" placeholder="Email (optionnel)" class="form-control"
@@ -277,7 +275,8 @@
                                                 name="message" required> </textarea>
                                         </div>
                                         <input type="hidden" name="action" value="sendEmail" />
-                                        <button name="submit" type="submit" value="Send" class="button mt-30"><span> Send
+                                        <button name="submit" type="submit" value="Send" class="button mt-30"><span>
+                                                Send
                                                 message
                                             </span> <i class="fa fa-paper-plane"></i></button>
                                     </div>
@@ -308,8 +307,7 @@
                 tabindex="0">
 
             </div>
-            <div class="tab-pane fade" id="mediaBunda" role="tabpanel" aria-labelledby="pills-home-tab"
-                tabindex="0">
+            <div class="tab-pane fade" id="mediaBunda" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
                 <div class="row">
                     @include("site.pages.bunda.playliste")
                 </div>
@@ -324,7 +322,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
 
 <script>
-    const url = "{{ asset('assets/document/Plan_Alimentaire.pdf') }}";
+    const url = "{{ asset('assets/document/Alimentation-B21-2025.pdf') }}";
     const pdfCanvas = document.getElementById('pdf-canvas');
     const ctx = pdfCanvas.getContext('2d');
     const pageInfo = document.getElementById('page-info');
