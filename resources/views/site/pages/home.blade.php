@@ -763,7 +763,8 @@
     </div>
 </section>
 @if($actualites)
-@include("site.parties.mod")
+{{-- @include("site.parties.mod") --}}
+@include("site.parties.modale")
 
 <script>
 
