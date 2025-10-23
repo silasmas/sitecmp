@@ -28,7 +28,7 @@
                     </div>
                     <a type="button" class="button icon mb-10 mr-10 mt-lg-5 mt-3" target="blank"
                         href="{{ asset('assets/document/Alimentation-B21-2025.pdf') }}">
-                        Télécharger le plan
+                        Télécharger le plan alimentaire B21-2025
                     </a>
                     {{-- <div class="mt-3 text-center col-12">
                         <a href="https://www.jeunesse.eglisecmp.com/retreat/inscription_en_ligne/12/"
