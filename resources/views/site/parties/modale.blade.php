@@ -95,6 +95,10 @@
                                     <button id="download-btnPdf">Télécharger
                                         <i class="fa-solid fa-file-pdf"></i>
                                     </button>
+                                     <a type="button" class="button icon mb-10 mr-10 mt-lg-5 mt-3" target="blank"
+                        href="{{ asset('assets/document/Alimentation-B21-2025.pdf') }}">
+                        Télécharger le plan alimentaire B21-2025
+                    </a>
                                 </div>
                             </div>
                         </div>
