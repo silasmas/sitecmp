@@ -64,8 +64,8 @@
             <div class="modal-body">
                 <div class="row mt-0 justify-content-center">
                     @if ($actualites->img_url!="")
-                   
-                    <div class="col-lg-12 xol-md-12">
+
+                    <div class="col-lg-12 col-md-12">
                         <div class="owl-carousel" data-nav-dots="true" data-autoheight="true" data-items="1"
                             data-md-items="1" data-sm-items="1" data-xs-items="1" data-xx-items="1" data-space="20">
                             <div class="item">
@@ -99,7 +99,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-12 xol-md-12" id="image-container"
+                    <div class="col-lg-12 col-md-12" id="image-container"
                         data-url="{{ asset('storage/'.$actualites->pdf) }}">
                         <div id="pdf-viewer" style="display: flex; justify-content: center; overflow: hidden;">
                             <canvas id="pdf-canvas"
@@ -122,118 +122,110 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
 
 <script>
-    // const url = "{{ asset('storage/'.$actualites->imgUrl) }}";
-    // Récupérer l'URL de l'image depuis l'attribut data-url
-const url = document.getElementById('image-container').getAttribute('data-url');
+  // Attendre que le modal soit visible pour initialiser
+  const modalEl = document.querySelector('.bd-example-modal-lg');
 
-console.log(url);
+  // Sécurité: ne pas initialiser PDF.js si le bloc n'existe pas (cas image)
+  function initPdfViewer() {
+    const container = document.getElementById('image-container');
+    if (!container) return; // Rien à faire si on affiche une image
+
+    const rawUrl = container.getAttribute('data-url') || '';
+    if (!rawUrl) {
+      console.error('URL du PDF manquante.');
+      return;
+    }
+
+    const url = encodeURI(rawUrl); // gère espaces & caractères spéciaux
+
     const pdfCanvas = document.getElementById('pdf-canvas');
     const ctx = pdfCanvas.getContext('2d');
-    const pageInfo = document.getElementById('page-info');
     const currentPageEl = document.getElementById('current-page');
     const totalPagesEl = document.getElementById('total-pages');
+    const navControls = document.getElementById('nav-controls');
+    const pdfViewer = document.getElementById('pdf-viewer');
+
+    if (!pdfCanvas || !ctx || !navControls) {
+      console.error('Éléments du viewer introuvables.');
+      return;
+    }
 
     let pdfDoc = null;
     let currentPage = 1;
     let totalPages = 0;
-    let scale = 1;
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+    let scale = 1.2;
 
-    const pdfViewer = document.getElementById('pdf-viewer');
+    // Worker PDF.js (même version que le script)
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
 
+    // Charger le PDF
     pdfjsLib.getDocument(url).promise.then(doc => {
-        pdfDoc = doc;
-        totalPages = pdfDoc.numPages;
-        totalPagesEl.textContent = totalPages;
-        document.getElementById('nav-controls').hidden = false;
-        renderPage(currentPage);
+      pdfDoc = doc;
+      totalPages = pdfDoc.numPages;
+      totalPagesEl.textContent = totalPages;
+      navControls.hidden = false;
+      renderPage(currentPage);
     }).catch(error => {
-        console.error('Erreur lors du chargement du PDF :', error);
-        pdfViewer.innerHTML = '<p>Impossible de charger le PDF.</p>';
+      console.error('Erreur lors du chargement du PDF :', error);
+      pdfViewer.innerHTML =
+        '<p style="padding:12px;color:#b00020">Impossible de charger le PDF. Vérifie que le fichier est bien public (storage:link) et accessible.</p>';
     });
 
     function renderPage(pageNum) {
-        pdfDoc.getPage(pageNum).then(page => {
-            const viewport = page.getViewport({ scale });
-            pdfCanvas.width = viewport.width;
-            pdfCanvas.height = viewport.height;
+      pdfDoc.getPage(pageNum).then(page => {
+        const viewport = page.getViewport({ scale });
+        pdfCanvas.width = viewport.width;
+        pdfCanvas.height = viewport.height;
 
-            const renderContext = {
-                canvasContext: ctx,
-                viewport
-            };
-
-            page.render(renderContext).promise.then(() => {
-                currentPageEl.textContent = pageNum;
-            });
-        });
-    }
-
-    document.getElementById('prev-page').addEventListener('click', () => {
-        if (currentPage > 1) {
-            currentPage--;
-            renderPage(currentPage);
-        }
-    });
-
-    document.getElementById('next-page').addEventListener('click', () => {
-        if (currentPage < totalPages) {
-            currentPage++;
-            renderPage(currentPage);
-        }
-    });
-
-    document.getElementById('zoom-in').addEventListener('click', () => {
-        scale += 0.1;
-        renderPage(currentPage);
-    });
-
-    document.getElementById('zoom-out').addEventListener('click', () => {
-        if (scale > 0.5) {
-            scale -= 0.1;
-            renderPage(currentPage);
-        }
-    });
-
-    // Fonction pour lire et afficher toutes les pages du PDF
-    function readPDF(file) {
-        const reader = new FileReader();
-
-        reader.onload = function(event) {
-            const typedarray = new Uint8Array(event.target.result);
-            pdfjsLib.getDocument(typedarray).promise.then(pdf => {
-                console.log('Nombre total de pages :', pdf.numPages);
-
-                document.getElementById('pdf-container').innerHTML = '';
-
-                for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
-                    pdf.getPage(pageNumber).then(page => {
-                        const localScale = 1.5;
-                        const viewport = page.getViewport({ scale: localScale });
-
-                        const canvas = document.createElement('canvas');
-                        const context = canvas.getContext('2d');
-                        canvas.width = viewport.width;
-                        canvas.height = viewport.height;
-
-                        document.getElementById('pdf-container').appendChild(canvas);
-
-                        const renderContext = {
-                            canvasContext: context,
-                            viewport: viewport
-                        };
-                        page.render(renderContext).promise.then(() => {
-                            console.log(`Page ${pageNumber} rendue`);
-                        });
-                    });
-                }
-            }).catch(error => {
-                console.error('Erreur lors du rendu du PDF :', error);
-            });
+        const renderContext = {
+          canvasContext: ctx,
+          viewport
         };
 
-        reader.readAsArrayBuffer(file);
+        page.render(renderContext).promise.then(() => {
+          currentPageEl.textContent = pageNum;
+        });
+      });
     }
 
+    // Contrôles
+    document.getElementById('prev-page').onclick = () => {
+      if (currentPage > 1) {
+        currentPage--;
+        renderPage(currentPage);
+      }
+    };
+
+    document.getElementById('next-page').onclick = () => {
+      if (currentPage < totalPages) {
+        currentPage++;
+        renderPage(currentPage);
+      }
+    };
+
+    document.getElementById('zoom-in').onclick = () => {
+      scale = Math.min(scale + 0.15, 4);
+      renderPage(currentPage);
+    };
+
+    document.getElementById('zoom-out').onclick = () => {
+      scale = Math.max(scale - 0.15, 0.3);
+      renderPage(currentPage);
+    };
+
+    // Télécharger le PDF (ouvre le lien)
+    const dlBtn = document.getElementById('download-btnPdf');
+    if (dlBtn) dlBtn.onclick = () => window.open(url, '_blank');
+  }
+
+  // Initialise seulement quand le modal devient visible
+  if (modalEl) {
+    modalEl.addEventListener('shown.bs.modal', initPdfViewer, { once: true });
+  } else {
+    // fallback si le modal est déjà visible (cas rare)
+    window.addEventListener('DOMContentLoaded', initPdfViewer);
+  }
 </script>
+
 @endsection
