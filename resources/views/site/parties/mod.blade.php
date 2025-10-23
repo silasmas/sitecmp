@@ -6,6 +6,9 @@
                 <h5 class="modal-title" id="exampleModalLongTitle">
                     {{ $actualites->titre }}
                 </h5>
+                <p>
+                    {{ $actualites->soutTitre }}
+                </p>
                 <button type="button" class="p-0 close btn btn-lg" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

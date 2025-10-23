@@ -61,13 +61,13 @@
                                 style="transform: translate3d(-1128px, 0px, 0px); transition: all 1.2s ease 0s; width: 3948px;">
                                 <div class="owl-item cloned" style="width: 534px; margin-right: 30px;">
                                     <div class="item active">
-                                        <img class="img-fluid" src="{{ asset('assets/site/images/actus/9.jpg') }}"
+                                        <img class="img-fluid" src="{{ asset('assets/site/images/actus/6.jpg') }}"
                                             alt="">
                                     </div>
                                 </div>
                                 <div class="owl-item cloned" style="width: 534px; margin-right: 30px;">
                                     <div class="item">
-                                        <img class="img-fluid" src="{{ asset('assets/site/images/actus/2.jpg') }}"
+                                        <img class="img-fluid" src="{{ asset('assets/site/images/actus/9.jpg') }}"
                                             alt="">
                                     </div>
                                 </div>
@@ -95,11 +95,11 @@
                                             alt="">
                                     </div>
                                 </div>
-                                {{-- <div class="owl-item cloned" style="width: 534px; margin-right: 30px;">
+                                <div class="owl-item cloned" style="width: 534px; margin-right: 30px;">
                                     <div class="item">
-                                        <img class="img-fluid" src="{{ asset('assets/site/images/act/.jpg') }}" alt="">
+                                        <img class="img-fluid" src="{{ asset('assets/site/images/actus/2.jpg') }}" alt="">
                                     </div>
-                                </div> --}}
+                                </div>
                             </div>
                         </div>
                         {{-- <div class="owl-nav disabled">
