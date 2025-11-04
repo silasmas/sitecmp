@@ -206,45 +206,77 @@
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="plan" role="tabpanel" aria-labelledby="pills-profile-tab"
                         tabindex="0">
-                        <div class="row g-lg-5 position-relative time-line-table" style="z-index: 1">
-                            <div class="col-12 text-center">
-                                <h2 class="title-effect">Plan alimentaire</h2>
-                                <br>
-                                <a type="button" class="button icon mb-10 mr-10 mt-lg-5 mt-3" target="blank"
-                                    href="{{ asset('assets/document/Alimentation-B21-2025.pdf') }}">
-                                    Télécharger le plan
-                                </a>
-                            </div>
-                            <div class="line d-none d-lg-block"></div>
-                            <section class="our-history white-bg page-section-ptb">
-                                <div class="container">
-                                    <div class="row justify-content-center">
-                                        <div class="col-md-12 mt-10">
-                                            <div id="pdf-controls" style="text-align: center; margin-bottom: 20px;">
-                                                <div id="nav-controls" hidden>
-                                                    <button id="prev-page">Précédent</button>
-                                                    <span id="page-info">Page <span id="current-page"></span> sur <span
-                                                            id="total-pages"></span></span>
-                                                    <button id="next-page">Suivant</button>
-                                                </div>
-                                                <button id="zoom-in">Zoom +</button>
-                                                <button id="zoom-out">Zoom -</button>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div id="pdf-viewer"
-                                                style="display: flex; justify-content: center; overflow: hidden;">
-                                                <canvas id="pdf-canvas"
-                                                    style="border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"></canvas>
-                                            </div>
-                                        </div>
-                                        {{-- <input type="file" id="fileInput" accept="application/pdf">
-                                        <div id="pdf-container"></div> <!-- Conteneur pour les pages multiples --> --}}
-                                    </div>
-                                </div>
-                            </section>
+                     <div class="row g-lg-5 position-relative time-line-table" style="z-index: 1">
+  <div class="col-12 text-center">
+    <h2 class="title-effect">Plan alimentaire</h2>
+    <br>
 
-                        </div>
+    {{-- Bouton de téléchargement (suivra le select) --}}
+    <a id="download-btnPdf"
+       class="button icon mb-10 mr-10 mt-lg-5 mt-3"
+       target="_blank"
+       href="{{ asset('assets/document/Alimentation-B21-2025.pdf') }}">
+      Télécharger le plan
+    </a>
+  </div>
+
+  <div class="line d-none d-lg-block"></div>
+
+  <section class="our-history white-bg page-section-ptb">
+    <div class="container">
+      <div class="row justify-content-center">
+
+        <div class="col-md-12 mt-10">
+          <div id="pdf-controls" style="text-align: center; margin-bottom: 20px;">
+
+            <!-- NAVIGATION -->
+            <div id="nav-controls" hidden>
+              <button id="prev-page">Précédent</button>
+              <span id="page-info">
+                Page <span id="current-page"></span> sur <span id="total-pages"></span>
+              </span>
+              <button id="next-page">Suivant</button>
+            </div>
+
+            <!-- SELECT LANGUE -->
+            <div class="mt-3">
+              <select id="pdf-lang" class="form-control d-inline-block" style="max-width: 260px;">
+                <option value="fr"
+                        data-url="{{ asset('assets/document/Alimentation-B21-2025.pdf') }}"
+                        data-name="Alimentation-B21-2025-FR.pdf">Français</option>
+                <option value="en"
+                        data-url="{{ asset('assets/document/Alimentation-B21-English.pdf') }}"
+                        data-name="Alimentation-B21-2025-EN.pdf">Anglais</option>
+                <option value="ln"
+                        data-url="{{ asset('assets/document/Alimentation-B21-Lingala.pdf') }}"
+                        data-name="Alimentation-B21-2025-LN.pdf">Lingala</option>
+              </select>
+            </div>
+
+            <!-- ZOOM -->
+            <div class="mt-3">
+              <button id="zoom-in">Zoom +</button>
+              <button id="zoom-out">Zoom -</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- VIEWER -->
+        <div class="col-md-12">
+          <div id="pdf-viewer" style="display:flex; justify-content:center; overflow:hidden;">
+            <canvas id="pdf-canvas"
+                    style="border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,.1);"></canvas>
+          </div>
+        </div>
+
+        {{-- Si tu veux garder l’upload local plus tard, dé-commente ces lignes :
+        <input type="file" id="fileInput" accept="application/pdf">
+        <div id="pdf-container"></div>
+        --}}
+      </div>
+    </div>
+  </section>
+</div>
                     </div>
                     <div class="tab-pane fade" id="logement" role="tabpanel" aria-labelledby="pills-profile-tab"
                         tabindex="0">
@@ -322,123 +354,134 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
 
 <script>
-    const url = "{{ asset('assets/document/Alimentation-B21-2025.pdf') }}";
-    const pdfCanvas = document.getElementById('pdf-canvas');
-    const ctx = pdfCanvas.getContext('2d');
-    const pageInfo = document.getElementById('page-info');
+  (function () {
+    // --- Eléments UI ---
+    const pdfCanvas     = document.getElementById('pdf-canvas');
+    const ctx           = pdfCanvas.getContext('2d');
     const currentPageEl = document.getElementById('current-page');
-    const totalPagesEl = document.getElementById('total-pages');
+    const totalPagesEl  = document.getElementById('total-pages');
+    const navControls   = document.getElementById('nav-controls');
+    const pdfViewer     = document.getElementById('pdf-viewer');
+    const langSelect    = document.getElementById('pdf-lang');
+    const dlBtn         = document.getElementById('download-btnPdf');
 
-    let pdfDoc = null;
+    if (!pdfCanvas || !ctx || !navControls || !pdfViewer || !langSelect || !dlBtn) return;
+
+    // --- Etat interne ---
+    let pdfDoc      = null;
     let currentPage = 1;
-    let totalPages = 0;
-    let scale = 1;
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+    let totalPages  = 0;
+    let scale       = 1.0;
+    let loadingTask = null;
 
-    const pdfViewer = document.getElementById('pdf-viewer');
+    // --- PDF.js worker ---
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
 
-    pdfjsLib.getDocument(url).promise.then(doc => {
+    // URL depuis l’option sélectionnée
+    function selectedUrl() {
+      const opt = langSelect.options[langSelect.selectedIndex];
+      return opt?.dataset?.url ? encodeURI(opt.dataset.url) : '';
+    }
+
+    // Nom de fichier “propre” (pour l’attribut download)
+    function selectedName(url) {
+      const opt = langSelect.options[langSelect.selectedIndex];
+      if (opt?.dataset?.name) return opt.dataset.name;
+      return (url || '').split('/').pop().split('?')[0] || 'document.pdf';
+    }
+
+    function cancelLoading() {
+      try { if (loadingTask && loadingTask.destroy) loadingTask.destroy(); } catch(e) {}
+      loadingTask = null;
+      pdfDoc = null;
+    }
+
+    function clearCanvas() {
+      ctx.clearRect(0, 0, pdfCanvas.width, pdfCanvas.height);
+    }
+
+    // --- Synchronise le bouton Télécharger avec le PDF affiché ---
+    function updateDownloadButton(url) {
+      if (!url) return;
+      dlBtn.href = url;
+      dlBtn.setAttribute('download', selectedName(url));
+    }
+
+    // --- Charge le PDF choisi et affiche la 1re page ---
+    function loadPdf(url) {
+      if (!url) {
+        pdfViewer.innerHTML =
+          '<p style="padding:12px;color:#b00020">Aucun PDF disponible pour cette langue.</p>';
+        return;
+      }
+
+      // Reset UI
+      cancelLoading();
+      clearCanvas();
+      currentPage = 1;
+      totalPages  = 0;
+      totalPagesEl.textContent = '';
+      navControls.hidden = true;
+
+      // Sync bouton Télécharger
+      updateDownloadButton(url);
+
+      loadingTask = pdfjsLib.getDocument(url);
+      loadingTask.promise.then(doc => {
         pdfDoc = doc;
         totalPages = pdfDoc.numPages;
         totalPagesEl.textContent = totalPages;
-        document.getElementById('nav-controls').hidden = false;
+        navControls.hidden = false;
         renderPage(currentPage);
-    }).catch(error => {
-        console.error('Erreur lors du chargement du PDF :', error);
-        pdfViewer.innerHTML = '<p>Impossible de charger le PDF.</p>';
-    });
+      }).catch(err => {
+        console.error('Erreur chargement PDF :', err);
+        pdfViewer.innerHTML =
+          '<p style="padding:12px;color:#b00020">Impossible de charger le PDF. Vérifie le chemin et l’accès public.</p>';
+      });
+    }
 
+    // --- Rendu d’une page ---
     function renderPage(pageNum) {
-        pdfDoc.getPage(pageNum).then(page => {
-            const viewport = page.getViewport({ scale });
-            pdfCanvas.width = viewport.width;
-            pdfCanvas.height = viewport.height;
-
-            const renderContext = {
-                canvasContext: ctx,
-                viewport
-            };
-
-            page.render(renderContext).promise.then(() => {
-                currentPageEl.textContent = pageNum;
-            });
-        });
+      if (!pdfDoc) return;
+      pdfDoc.getPage(pageNum).then(page => {
+        const viewport = page.getViewport({ scale });
+        pdfCanvas.width  = viewport.width;
+        pdfCanvas.height = viewport.height;
+        return page.render({ canvasContext: ctx, viewport }).promise;
+      }).then(() => {
+        currentPageEl.textContent = pageNum;
+      }).catch(e => console.error('Erreur rendu page:', e));
     }
 
+    // --- Events navigation ---
     document.getElementById('prev-page').addEventListener('click', () => {
-        if (currentPage > 1) {
-            currentPage--;
-            renderPage(currentPage);
-        }
+      if (currentPage > 1) { currentPage--; renderPage(currentPage); }
     });
-
     document.getElementById('next-page').addEventListener('click', () => {
-        if (currentPage < totalPages) {
-            currentPage++;
-            renderPage(currentPage);
-        }
+      if (currentPage < totalPages) { currentPage++; renderPage(currentPage); }
     });
-
     document.getElementById('zoom-in').addEventListener('click', () => {
-        scale += 0.1;
-        renderPage(currentPage);
+      scale = Math.min(scale + 0.15, 4);
+      renderPage(currentPage);
     });
-
     document.getElementById('zoom-out').addEventListener('click', () => {
-        if (scale > 0.5) {
-            scale -= 0.1;
-            renderPage(currentPage);
-        }
+      scale = Math.max(scale - 0.15, 0.3);
+      renderPage(currentPage);
     });
 
-    // Fonction pour lire et afficher toutes les pages du PDF
-    function readPDF(file) {
-        const reader = new FileReader();
+    // --- Changement de langue ---
+    langSelect.addEventListener('change', () => loadPdf(selectedUrl()));
 
-        reader.onload = function(event) {
-            const typedarray = new Uint8Array(event.target.result);
-            pdfjsLib.getDocument(typedarray).promise.then(pdf => {
-                console.log('Nombre total de pages :', pdf.numPages);
+    // --- Démarrage : 1ère option du select ---
+    loadPdf(selectedUrl());
 
-                document.getElementById('pdf-container').innerHTML = '';
-
-                for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
-                    pdf.getPage(pageNumber).then(page => {
-                        const localScale = 1.5;
-                        const viewport = page.getViewport({ scale: localScale });
-
-                        const canvas = document.createElement('canvas');
-                        const context = canvas.getContext('2d');
-                        canvas.width = viewport.width;
-                        canvas.height = viewport.height;
-
-                        document.getElementById('pdf-container').appendChild(canvas);
-
-                        const renderContext = {
-                            canvasContext: context,
-                            viewport: viewport
-                        };
-                        page.render(renderContext).promise.then(() => {
-                            console.log(`Page ${pageNumber} rendue`);
-                        });
-                    });
-                }
-            }).catch(error => {
-                console.error('Erreur lors du rendu du PDF :', error);
-            });
-        };
-
-        reader.readAsArrayBuffer(file);
-    }
-
-    document.getElementById('fileInput').addEventListener('change', function(event) {
-        const file = event.target.files[0];
-        if (file && file.type === 'application/pdf') {
-            readPDF(file);
-        } else {
-            alert('Veuillez sélectionner un fichier PDF valide.');
-        }
-    });
+    // --- (Optionnel) si tu veux mémoriser la dernière langue :
+    // const saved = localStorage.getItem('pdf_lang');
+    // if (saved) { [...langSelect.options].forEach((o,i)=>{ if(o.value===saved) langSelect.selectedIndex=i; });
+    // }
+    // langSelect.addEventListener('change', () => localStorage.setItem('pdf_lang', langSelect.value));
+  })();
 </script>
 
 @endsection
