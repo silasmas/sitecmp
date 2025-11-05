@@ -33,6 +33,7 @@ use App\Http\Controllers\ExportController;
 Route::get('/language/{locale}', [ProfileController::class, 'changeLanguage'])->name('change_language');
 
 Route::get('/', [ProfileController::class, 'home'])->name('home');
+Route::get('/mur', [ProfileController::class, 'mur'])->name('mur');
 Route::get('/about', [ProfileController::class, 'about'])->name('about');
 Route::get('/articles', [PostController::class, 'articles'])->name('articles');
 Route::get('/events', [ProfileController::class, 'events'])->name('events');

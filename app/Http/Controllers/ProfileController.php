@@ -50,6 +50,60 @@ class ProfileController extends Controller
         $pastors = Minister::where("is_active", true)->get();
         return view('site.pages.about', compact("pastors"));
     }
+    public function mur()
+    {
+            // TODO: remplace par des données réelles, groupées par utilisateur/auteur
+        // Exemple statique minimal :
+        $stories = [
+            [
+                "id" => "user_1",
+                "photo" => asset('assets/videos/thumb1.jpg'),
+                "name" => "Silas",
+                "link" => "#",
+                "lastUpdated" => time(),
+                "items" => [
+                    [
+                        "id" => "u1-s1",
+                        "type" => "photo",   // "photo" ou "video"
+                        "length" => 5,
+                        "src" => asset('assets/videos/story1.mp4'),
+                        "preview" => asset('assets/videos/thumb1.jpg'),
+                        "seen" => false,
+                        "time" => time() - 3600
+                    ],
+                    [
+                        "id" => "u1-s2",
+                        "type" => "video",
+                        "length" => 12,
+                        "src" => asset('assets/videos/story3.mp4'),
+                        "preview" => asset('assets/videos/thumb1.jpg'),
+                        "seen" => false,
+                        "time" => time() - 3500
+                    ]
+                ]
+            ],
+            [
+                "id" => "user_2",
+                "photo" => asset('assets/videos/thumb1.jpg'),
+                "name" => "Naomi",
+                "link" => "#",
+                "lastUpdated" => time() - 7200,
+                "items" => [
+                    [
+                        "id" => "u2-s1",
+                        "type" => "video",
+                        "length" => 9,
+                        "src" => asset('assets/videos/story1.mp4'),
+                        "preview" => asset('assets/videos/thumb1.jpg'),
+                        "seen" => false,
+                        "time" => time() - 7000
+                    ],
+                ]
+            ],
+        ];
+
+        return view('site.pages.mur', compact("stories"));
+    }
 
     public function events()
     {
