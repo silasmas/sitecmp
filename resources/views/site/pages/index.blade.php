@@ -803,23 +803,9 @@
                                 <div class="icon">
                                     <i class="fa fa-clock-o"></i>
                                 </div>
-                                07h00-09h00 (FR)
+                                08h00-10h00 
                             </div>
-                            <div class="item-line">
-                                <div class="icon">
-                                    <i class="fa fa-clock-o"></i>
-                                </div>
-                                09h30-11h30 (FR-EN)<br>
-                                <a href="http://"> <i class="fa fa-facebook-square"></i></a>
-                                <a href="http://"> <i class="fa fa-youtube-play"></i></a>
-                                <a href="http://"> <i class="fa fa-twitter-square"></i></a>
-                            </div>
-                            <div class="item-line">
-                                <div class="icon">
-                                    <i class="fa fa-clock-o"></i>
-                                </div>
-                                12h00 -14h00 (LN)
-                            </div>
+                            
                         </div>
                     </div>
 
