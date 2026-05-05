@@ -4,7 +4,7 @@ namespace App\Filament\Administrateur\Resources;
 
 use App\Filament\Administrateur\Resources\TransactionsResource\Pages;
 use App\Filament\Administrateur\Resources\TransactionsResource\RelationManagers;
-use App\Models\Transactions;
+use App\Models\Transaction;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class TransactionsResource extends Resource
 {
-    protected static ?string $model = Transactions::class;
+    protected static ?string $model = Transaction::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\reception_schedule;
+use App\Models\ReceptionSchedule;
 use App\Http\Requests\Storereception_scheduleRequest;
 use App\Http\Requests\Updatereception_scheduleRequest;
 
@@ -17,7 +17,7 @@ class ReceptionScheduleController extends Controller
         $timeSlots = ['08H00-12H00', '13H00-17H00', '17H30-20H00'];
         $bureaux = [1, 2, 3, 4, 5];
 
-        $schedules = reception_schedule::with('pastor', 'bureau')->get();
+        $schedules = ReceptionSchedule::with('pastor', 'bureau')->get();
 
         return view('site.pages.reception', compact('daysOfWeek', 'timeSlots', 'bureaux', 'schedules'));
     }
@@ -41,7 +41,7 @@ class ReceptionScheduleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(reception_schedule $reception_schedule)
+    public function show(ReceptionSchedule $reception_schedule)
     {
         //
     }
@@ -49,7 +49,7 @@ class ReceptionScheduleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(reception_schedule $reception_schedule)
+    public function edit(ReceptionSchedule $reception_schedule)
     {
         //
     }
@@ -57,7 +57,7 @@ class ReceptionScheduleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Updatereception_scheduleRequest $request, reception_schedule $reception_schedule)
+    public function update(Updatereception_scheduleRequest $request, ReceptionSchedule $reception_schedule)
     {
         //
     }
@@ -65,7 +65,7 @@ class ReceptionScheduleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(reception_schedule $reception_schedule)
+    public function destroy(ReceptionSchedule $reception_schedule)
     {
         //
     }

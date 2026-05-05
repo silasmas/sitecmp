@@ -5,14 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Reception_schedule extends Model
+class ReceptionSchedule extends Model
 {
     use HasFactory;
+
     protected $guarded = [];
 
     public function pastor()
     {
-        return $this->belongsTo(related: Minister::class);
+        return $this->belongsTo(Minister::class);
     }
 
     public function bureau()

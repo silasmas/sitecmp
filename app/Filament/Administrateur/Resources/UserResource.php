@@ -4,6 +4,7 @@ namespace App\Filament\Administrateur\Resources;
 
 use Filament\Forms;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Filament\Tables;
 use Filament\Forms\Form;
 use Filament\Tables\Table;

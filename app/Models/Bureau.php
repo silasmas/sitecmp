@@ -11,6 +11,6 @@ class Bureau extends Model
     protected $guarded = [];
     public function receptionSchedules()
     {
-        return $this->hasMany(reception_schedule::class);
+        return $this->hasMany(ReceptionSchedule::class);
     }
 }
