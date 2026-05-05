@@ -4,7 +4,6 @@ namespace App\Filament\Administrateur\Resources;
 
 use Filament\Forms;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 use Filament\Tables;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
@@ -34,12 +33,13 @@ class UserResource extends Resource
             ->schema([
                 Group::make([
                     Section::make("Formulaire utilisataire")->schema([
-                        Select::make('role_id')
-                            ->label(label: 'Role')
+                        Select::make('roles')
+                            ->label('Rôles')
+                            ->relationship('roles', 'name')
+                            ->multiple()
                             ->searchable()
                             ->columnSpan(6)
-                            ->preload()
-                            ->relationship('roles', 'name'),
+                            ->preload(),
 
                         TextInput::make('name')
                             ->required()
@@ -52,7 +52,7 @@ class UserResource extends Resource
                             ->columnSpan(6),
                         TextInput::make('password')
                          ->label(label: 'Mot de passe')
-                         ->dehydrateStateUsing(fn ($state) => !empty($state) ? Hash::make($state) : null)
+                         ->dehydrateStateUsing(fn ($state) => filled($state) ? $state : null)
                          ->required(fn ($record) => $record === null) // Requis seulement à la création
                          ->nullable()
                          ->dehydrated(fn ($state) => !empty($state)) // N’envoie la valeur que si elle est renseignée
